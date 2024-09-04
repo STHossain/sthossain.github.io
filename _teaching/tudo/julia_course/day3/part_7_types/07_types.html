@@ -1,0 +1,764 @@
+<!DOCTYPE html><html><head>
+      <title>05.Types</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:////home/tanvir/.vscode/extensions/shd101wyy.markdown-preview-enhanced-0.5.17/node_modules/@shd101wyy/mume/dependencies/katex/katex.min.css">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <style>
+      /* http://prismjs.com/download.html?themes=prism&languages=markup+css+clike+javascript+abap+actionscript+ada+apacheconf+apl+applescript+asciidoc+aspnet+autoit+autohotkey+bash+basic+batch+c+brainfuck+bro+bison+csharp+cpp+coffeescript+ruby+css-extras+d+dart+django+diff+docker+eiffel+elixir+erlang+fsharp+fortran+gherkin+git+glsl+go+graphql+groovy+haml+handlebars+haskell+haxe+http+icon+inform7+ini+j+jade+java+jolie+json+julia+keyman+kotlin+latex+less+livescript+lolcode+lua+makefile+markdown+matlab+mel+mizar+monkey+nasm+nginx+nim+nix+nsis+objectivec+ocaml+oz+parigp+parser+pascal+perl+php+php-extras+powershell+processing+prolog+properties+protobuf+puppet+pure+python+q+qore+r+jsx+reason+rest+rip+roboconf+crystal+rust+sas+sass+scss+scala+scheme+smalltalk+smarty+sql+stylus+swift+tcl+textile+twig+typescript+vbnet+verilog+vhdl+vim+wiki+xojo+yaml */
+/**
+ * prism.js default theme for JavaScript, CSS and HTML
+ * Based on dabblet (http://dabblet.com)
+ * @author Lea Verou
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+	color: black;
+	background: none;
+	text-shadow: 0 1px white;
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
+code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
+	text-shadow: none;
+	background: #b3d4fc;
+}
+
+pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
+code[class*="language-"]::selection, code[class*="language-"] ::selection {
+	text-shadow: none;
+	background: #b3d4fc;
+}
+
+@media print {
+	code[class*="language-"],
+	pre[class*="language-"] {
+		text-shadow: none;
+	}
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background: #f5f2f0;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: .1em;
+	border-radius: .3em;
+	white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: slategray;
+}
+
+.token.punctuation {
+	color: #999;
+}
+
+.namespace {
+	opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+	color: #905;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+	color: #690;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+	color: #a67f59;
+	background: hsla(0, 0%, 100%, .5);
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+	color: #07a;
+}
+
+.token.function {
+	color: #DD4A68;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+	color: #e90;
+}
+
+.token.important,
+.token.bold {
+	font-weight: bold;
+}
+.token.italic {
+	font-style: italic;
+}
+
+.token.entity {
+	cursor: help;
+}
+
+/* highlight */
+pre[data-line] {
+	position: relative;
+	padding: 1em 0 1em 3em;
+  }
+  pre[data-line] .line-highlight-wrapper {
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-color: transparent;
+	display: block;
+	width: 100%;
+  }
+  
+  pre[data-line] .line-highlight {
+	position: absolute;
+	left: 0;
+	right: 0;
+	padding: inherit 0;
+	margin-top: 1em;
+	background: hsla(24, 20%, 50%,.08);
+	background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
+	pointer-events: none;
+	line-height: inherit;
+	white-space: pre;
+  }
+  
+  pre[data-line] .line-highlight:before, 
+  pre[data-line] .line-highlight[data-end]:after {
+	content: attr(data-start);
+	position: absolute;
+	top: .4em;
+	left: .6em;
+	min-width: 1em;
+	padding: 0 .5em;
+	background-color: hsla(24, 20%, 50%,.4);
+	color: hsl(24, 20%, 95%);
+	font: bold 65%/1.5 sans-serif;
+	text-align: center;
+	vertical-align: .3em;
+	border-radius: 999px;
+	text-shadow: none;
+	box-shadow: 0 1px white;
+  }
+  
+  pre[data-line] .line-highlight[data-end]:after {
+	content: attr(data-end);
+	top: auto;
+	bottom: .4em;
+  }@font-face{font-family:'Roboto Mono';font-style:normal;font-weight:400;src:local('Roboto Mono'),local('RobotoMono-Regular'),url(https://fonts.gstatic.com/s/robotomono/v7/L0x5DF4xlVMF-BfR8bXMIjhLq3o.ttf) format('truetype')}@font-face{font-family:'Source Sans Pro';font-style:normal;font-weight:300;src:local('Source Sans Pro Light'),local('SourceSansPro-Light'),url(https://fonts.gstatic.com/s/sourcesanspro/v13/6xKydSBYKcSV-LCoeQqfX1RYOo3ik4zwlxdr.ttf) format('truetype')}@font-face{font-family:'Source Sans Pro';font-style:normal;font-weight:400;src:local('Source Sans Pro Regular'),local('SourceSansPro-Regular'),url(https://fonts.gstatic.com/s/sourcesanspro/v13/6xK3dSBYKcSV-LCoeQqfX1RYOo3qOK7g.ttf) format('truetype')}@font-face{font-family:'Source Sans Pro';font-style:normal;font-weight:600;src:local('Source Sans Pro SemiBold'),local('SourceSansPro-SemiBold'),url(https://fonts.gstatic.com/s/sourcesanspro/v13/6xKydSBYKcSV-LCoeQqfX1RYOo3i54rwlxdr.ttf) format('truetype')}*{-webkit-font-smoothing:antialiased;-webkit-overflow-scrolling:touch;-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-text-size-adjust:none;-webkit-touch-callout:none;box-sizing:border-box}body:not(.ready){overflow:hidden}body:not(.ready) .app-nav,body:not(.ready)>nav,body:not(.ready) [data-cloak]{display:none}div#app{font-size:30px;font-weight:lighter;margin:40vh auto;text-align:center}div#app:empty:before{content:"Loading..."}.emoji{height:19.2px;height:1.2rem;vertical-align:middle}.progress{background-color:#42b983;background-color:var(--theme-color, #42b983);height:2px;left:0;position:fixed;right:0;top:0;transition:width .2s,opacity .4s;width:0;z-index:5}.search .search-keyword,.search a:hover{color:#42b983;color:var(--theme-color, #42b983)}.search .search-keyword{font-style:normal;font-weight:700}body,html{height:100%}body{-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;color:#34495e;font-family:Source Sans Pro,Helvetica Neue,Arial,sans-serif;font-size:15px;letter-spacing:0;margin:0;overflow-x:hidden}img{max-width:100%}a[disabled]{cursor:not-allowed;opacity:.6}kbd{color:#34495e;border:1px solid #ccc;border-radius:3px;display:inline-block;font-size:12px !important;line-height:12px;margin-bottom:3px;padding:3px 5px;vertical-align:middle}.task-list-item{list-style-type:none}li input[type=checkbox]{margin:0 .2em .25em -1.6em;vertical-align:middle}.app-nav{left:0;margin:25px 60px 0 0;position:absolute;right:0;text-align:right;z-index:2}.app-nav p{margin:0}.app-nav>a{margin:0 16px;margin:0 1rem;padding:5px 0}.app-nav li,.app-nav ul{display:inline-block;list-style:none;margin:0}.app-nav a{color:inherit;font-size:16px;text-decoration:none;transition:color .3s}.app-nav a.active,.app-nav a:hover{color:#42b983;color:var(--theme-color, #42b983)}.app-nav a.active{border-bottom:2px solid #42b983;border-bottom:2px solid var(--theme-color, #42b983)}.app-nav li{display:inline-block;margin:0 16px;margin:0 1rem;padding:5px 0;position:relative}.app-nav li ul{background-color:#fff;border:1px solid #ddd;border-bottom-color:#ccc;border-radius:4px;box-sizing:border-box;display:none;max-height:calc(100vh - 61px);overflow-y:scroll;padding:10px 0;position:absolute;right:-15px;text-align:left;top:100%;white-space:nowrap}.app-nav li ul li{display:block;font-size:14px;line-height:16px;line-height:1rem;margin:0;margin:8px 14px;white-space:nowrap}.app-nav li ul a{display:block;font-size:inherit;margin:0;padding:0}.app-nav li ul a.active{border-bottom:0}.app-nav li:hover ul{display:block}.app-nav.no-badge{margin-right:25px}.github-corner{border-bottom:0;position:fixed;right:0;text-decoration:none;top:0;z-index:1}.github-corner svg{color:#fff;fill:#42b983;fill:var(--theme-color, #42b983);height:80px;width:80px}.github-corner:hover .octo-arm{-webkit-animation:a .56s ease-in-out;animation:a .56s ease-in-out}main{display:block;position:relative;width:100vw;height:100%;z-index:0}.anchor{display:inline-block;text-decoration:none;transition:all .3s}.anchor span{color:#34495e}.anchor:hover{text-decoration:underline}.sidebar{border-right:1px solid rgba(0,0,0,0.07);overflow-y:auto;padding:40px 0 0;top:0;bottom:0;left:0;position:absolute;transition:-webkit-transform .25s ease-out;transition:transform .25s ease-out;transition:transform .25s ease-out,-webkit-transform .25s ease-out;width:300px;z-index:3}.sidebar>h1{margin:0 auto 16px;margin:0 auto 1rem;font-size:24px;font-size:1.5rem;font-weight:300;text-align:center}.sidebar>h1 a{color:inherit;text-decoration:none}.sidebar>h1 .app-nav{display:block;position:static}.sidebar .sidebar-nav{line-height:2em;padding-bottom:40px}.sidebar ul{margin:0;padding:0}.sidebar li>p{font-weight:700;margin:0}.sidebar ul,.sidebar ul li{list-style:none}.sidebar ul li a{border-bottom:none;display:block}.sidebar ul li ul{padding-left:20px}.sidebar::-webkit-scrollbar{width:4px}.sidebar::-webkit-scrollbar-thumb{background:transparent;border-radius:4px}.sidebar:hover::-webkit-scrollbar-thumb{background:hsla(0,0%,53%,0.4)}.sidebar:hover::-webkit-scrollbar-track{background:hsla(0,0%,53%,0.1)}.sidebar-toggle{background-color:transparent;background-color:hsla(0,0%,100%,0.8);border:0;outline:none;padding:10px;bottom:0;left:0;position:absolute;text-align:center;transition:opacity .3s;width:30px;width:284px;z-index:4}.sidebar-toggle .sidebar-toggle-button:hover{opacity:.4}.sidebar-toggle span{background-color:#42b983;background-color:var(--theme-color, #42b983);display:block;margin-bottom:4px;width:16px;height:2px}body.sticky .sidebar,body.sticky .sidebar-toggle{position:fixed}.content{padding-top:60px;top:0;right:0;bottom:0;left:300px;position:absolute;transition:left .25s ease}.markdown-preview>*{box-sizing:border-box;font-size:inherit}.markdown-preview>:first-child{margin-top:0 !important}.markdown-preview hr{border:none;border-bottom:1px solid #eee;margin:2em 0}.markdown-preview table{border-collapse:collapse;border-spacing:0;display:block;margin-bottom:16px;margin-bottom:1rem;overflow:auto;width:100%}.markdown-preview th{font-weight:700}.markdown-preview td,.markdown-preview th{border:1px solid #ddd;padding:6px 13px}.markdown-preview tr{border-top:1px solid #ccc}.markdown-preview p.tip,.markdown-preview tr:nth-child(2n){background-color:#f8f8f8}.markdown-preview p.tip{border-bottom-right-radius:2px;border-left:4px solid #f66;border-top-right-radius:2px;margin:2em 0;padding:12px 24px 12px 30px;position:relative}.markdown-preview p.tip code{background-color:#efefef}.markdown-preview p.tip em{color:#34495e}.markdown-preview p.tip:before{background-color:#f66;border-radius:100%;color:#fff;content:"!";font-family:Dosis,Source Sans Pro,Helvetica Neue,Arial,sans-serif;font-size:14px;font-weight:700;left:-12px;line-height:20px;position:absolute;width:20px;height:20px;text-align:center;top:14px}.markdown-preview p.warn{background:rgba(66,185,131,0.1);border-radius:2px;padding:16px;padding:1rem}body.close .sidebar{-webkit-transform:translateX(-300px);transform:translateX(-300px)}body.close .sidebar-toggle{width:auto}body.close .content{left:0}@media print{.app-nav,.github-corner,.sidebar,.sidebar-toggle{display:none}}@media screen and (max-width:768px){.github-corner,.sidebar,.sidebar-toggle{position:fixed}.app-nav{margin-top:16px}.app-nav li ul{top:30px}main{height:auto;overflow-x:hidden}.sidebar{left:-300px;transition:-webkit-transform .25s ease-out;transition:transform .25s ease-out;transition:transform .25s ease-out,-webkit-transform .25s ease-out}.content{left:0;max-width:100vw;position:static;padding-top:20px;transition:-webkit-transform .25s ease;transition:transform .25s ease;transition:transform .25s ease,-webkit-transform .25s ease}.app-nav,.github-corner{transition:-webkit-transform .25s ease-out;transition:transform .25s ease-out;transition:transform .25s ease-out,-webkit-transform .25s ease-out}.sidebar-toggle{background-color:transparent;width:auto;padding:30px 30px 10px 10px}body.close .sidebar{-webkit-transform:translateX(300px);transform:translateX(300px)}body.close .sidebar-toggle{background-color:hsla(0,0%,100%,0.8);transition:background-color 1s;width:284px;padding:10px}body.close .content{-webkit-transform:translateX(300px);transform:translateX(300px)}body.close .app-nav,body.close .github-corner{display:none}.github-corner .octo-arm{-webkit-animation:a .56s ease-in-out;animation:a .56s ease-in-out}.github-corner:hover .octo-arm{-webkit-animation:none;animation:none}}@-webkit-keyframes a{0%,to{-webkit-transform:rotate(0);transform:rotate(0)}20%,60%{-webkit-transform:rotate(-25deg);transform:rotate(-25deg)}40%,80%{-webkit-transform:rotate(10deg);transform:rotate(10deg)}}@keyframes a{0%,to{-webkit-transform:rotate(0);transform:rotate(0)}20%,60%{-webkit-transform:rotate(-25deg);transform:rotate(-25deg)}40%,80%{-webkit-transform:rotate(10deg);transform:rotate(10deg)}}section.cover{-webkit-box-align:center;-ms-flex-align:center;align-items:center;background-position:50%;background-repeat:no-repeat;background-size:cover;height:100vh;display:none}section.cover .cover-main{-webkit-box-flex:1;-ms-flex:1;flex:1;margin:-20px 16px 0;text-align:center;z-index:1}section.cover a{color:inherit}section.cover a,section.cover a:hover{text-decoration:none}section.cover p{line-height:24px;line-height:1.5rem;margin:1em 0}section.cover h1{color:inherit;font-size:40px;font-size:2.5rem;font-weight:300;margin:10px 0 40px;margin:.625rem 0 2.5rem;position:relative;text-align:center}section.cover h1 a{display:block}section.cover h1 small{bottom:-7px;bottom:-0.4375rem;font-size:16px;font-size:1rem;position:absolute}section.cover blockquote{font-size:24px;font-size:1.5rem;text-align:center}section.cover ul{line-height:1.8;list-style-type:none;margin:1em auto;max-width:500px;padding:0}section.cover .cover-main>p:last-child a{border-color:#42b983;border:1px solid var(--theme-color, #42b983);border-radius:2rem;box-sizing:border-box;color:#42b983;color:var(--theme-color, #42b983);display:inline-block;font-size:16.8px;font-size:1.05rem;letter-spacing:1.6px;letter-spacing:.1rem;margin-right:16px;margin-right:1rem;padding:.75em 32px;padding:.75em 2rem;text-decoration:none;transition:all .15s ease}section.cover .cover-main>p:last-child a:last-child{background-color:#42b983;background-color:var(--theme-color, #42b983);color:#fff;margin-right:0}section.cover .cover-main>p:last-child a:last-child:hover{color:inherit;opacity:.8}section.cover .cover-main>p:last-child a:hover{color:inherit}section.cover blockquote>p>a{border-bottom:2px solid #42b983;border-bottom:2px solid var(--theme-color, #42b983);transition:color .3s}section.cover blockquote>p>a:hover{color:#42b983;color:var(--theme-color, #42b983)}section.cover.show{display:-webkit-box;display:-ms-flexbox;display:flex}section.cover.has-mask .mask{background-color:#fff;opacity:.8;position:absolute;width:100%;height:100%}.sidebar,body{background-color:#fff}.sidebar{color:#364149}.sidebar li{margin:6px 0 6px 15px}.sidebar ul li a{color:#505d6b;font-size:14px;font-weight:400;overflow:hidden;text-decoration:none;text-overflow:ellipsis;white-space:nowrap}.sidebar ul li a:hover{text-decoration:underline}.sidebar ul li ul{padding:0}.sidebar ul li.active>a{border-right:2px solid;color:#42b983;color:var(--theme-color, #42b983);font-weight:600}.app-sub-sidebar li:before{content:"-";padding-right:4px;float:left}.markdown-preview h1,.markdown-preview h2,.markdown-preview h3,.markdown-preview h4,.markdown-preview strong{color:#2c3e50;font-weight:600}.markdown-preview a{color:#42b983;color:var(--theme-color, #42b983);font-weight:600}.md-sidebar-toc a{color:#42b983;font-weight:600}.markdown-preview h1{font-size:32px;font-size:2rem;margin:0 0 16px;margin:0 0 1rem}.markdown-preview h2{font-size:28px;font-size:1.75rem;margin:45px 0 12.8px;margin:45px 0 .8rem}.markdown-preview h3{font-size:24px;font-size:1.5rem;margin:40px 0 9.6px;margin:40px 0 .6rem}.markdown-preview h4{font-size:20px;font-size:1.25rem}.markdown-preview h5,.markdown-preview h6{font-size:16px;font-size:1rem}.markdown-preview h6{color:#777}.markdown-preview figure,.markdown-preview p{margin:1.2em 0}.markdown-preview ol,.markdown-preview p,.markdown-preview ul{line-height:25.6px;line-height:1.6rem;word-spacing:.8px;word-spacing:.05rem}.markdown-preview ol,.markdown-preview ul{padding-left:24px;padding-left:1.5rem}.markdown-preview blockquote{border-left:4px solid #42b983;border-left:4px solid var(--theme-color, #42b983);color:#858585;background-color:#f0f0f0;margin:2em 0;padding-left:20px}.markdown-preview blockquote p{font-weight:600;margin-left:0}.markdown-preview iframe{margin:1em 0}.markdown-preview em{color:#7f8c8d}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+.markdown-preview.markdown-preview {
+  color: rgba(0, 0, 0, 0.712);
+}
+.markdown-preview.markdown-preview .markdown-preview a:hover {
+  color: blue;
+  text-decoration: underline;
+}
+.markdown-preview.markdown-preview pre[data-role="codeBlock"] {
+  font-size: 13px !important;
+  background-color: whitesmoke;
+}
+.markdown-preview.markdown-preview h1 {
+  color: #116062;
+  font-size: 40px;
+  font-weight: 50;
+  margin-bottom: -6px;
+  margin-top: -6px;
+  font-family: "Anton";
+  font-style: italic;
+}
+.markdown-preview.markdown-preview h2 {
+  color: #020202;
+  font-size: 20px;
+  margin-bottom: 0px;
+  margin-top: 0px;
+  font-family: "Microsoft Yahei";
+  font-style: italic;
+}
+.markdown-preview.markdown-preview h3 {
+  color: #020202;
+  font-size: 15px;
+  margin-bottom: 0px;
+  margin-top: 0px;
+  font-family: "Microsoft Yahei";
+  font-style: normal;
+}
+.markdown-preview.markdown-preview code {
+  color: rgba(110, 5, 5, 0.739);
+  font-weight: 550;
+}
+.markdown-preview.markdown-preview blockquote {
+  margin-bottom: 40px;
+  margin-top: 30px;
+  background-color: #ffffff;
+  padding: 0.3px;
+  padding-left: 5px;
+}
+.markdown-preview.markdown-preview blockquote p {
+  color: #5f0303;
+  font-size: 14px;
+  font-family: "Microsoft Yahei";
+  font-style: italic;
+  font-weight: 100;
+  line-height: 1.5;
+}
+@media print {
+  .markdown-preview.markdown-preview {
+    font-size: 18px;
+  }
+}
+
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview  ">
+      <h1 class="mume-header" id="3-types-lets-dig-a-little-deep">3. Types, let&apos;s dig a little deep</h1>
+
+<p>We started talking about Types in the last class, so let&apos;s continue from there on. The idea now is we will create our own custom types. In Julia a user can defined his own types and this is in essence has absolutely no constraint compared to the existing types. So there is nothing special about the existing types. And we are perfectly capable of creating our own types however we want.</p>
+<h2 class="mume-header" id="why-custom-types">Why custom Types?</h2>
+
+<p>Do we absolutely need custom types to program? The straightforward answer is NO! So then the question is why Types? It is because it makes the coding experience smooth and also simultaneously very neat. Your code will have less copy+paste stuff, you can easily think about how you can extend the architecture of your program once you know what to do. And moreover often you might have performance gain!</p>
+<blockquote>
+<p>The OOP students might find many things deceptively similar, please do not think types as class and then do not try to explain from a similar framework, even though many things might look some, sometimes even the terminologies are same, but they are not exactly same. Sometimes there are crucial differences. You can read this page from <a href="https://julia.quantecon.org/more_julia/generic_programming.html">QuantEcon</a>, the section <em>Unlearning Object Oriented (OO) Programming (Advanced)</em>. If you have not seen OOP, then just completely ignore this message! You might find OOP better, that is your opinion. I am not going to talk about which is better or not. And for me both might have different advantages. So let&apos;s set aside the point which is better and keep ourself open and learn Julia.</p>
+</blockquote>
+<p>The key idea of creating a custom types is to collect up or <strong>aggregate</strong> all relevant information into a new data structure, and this is what we call <strong>type</strong> (or custom type, aggregate type, user-defined type, and so on). As David Sanders pointed out, basically we want to be able to specify the &quot;template&quot; / &quot;shape&quot; / &quot;structure&quot; that will contain all the relevant information; this specification is the type itself. Then we need to produce objects which have that structure, i.e. which <em>contain</em> the corresponding variables; these objects are then called <strong>instances</strong>.</p>
+<h2 class="mume-header" id="abstract-types-concrete-types-and-composite-types">Abstract Types, Concrete Types and Composite Types</h2>
+
+<p>There are different kinds of types in Julia. Let&apos;s try to understand from these three types</p>
+<ul>
+<li>
+<p><strong>Concrete Types</strong>: As the name suggests these are more or less concrete objects. They take certain bits in the memory directly, we can instantiate them and in a hierarchy they will be in the leaf nodes. The most important property of concrete types is <em>it will never have subtypes</em>. <strong>This is perhaps the best definition of concrete types, that it will never have subtypes.</strong> Concrete Types also include what is called, <strong>Primitive types</strong>. <strong>Primitive types</strong> are not created or dependent on any other types, e.g., Int64, Int32 and so on. If you have noticed then you will find these are directly defined in Julia (using Julia) by speciying specific bits in the memory.
+Later on we will see we can have certain types known as <strong>composite types</strong>, for which we can also say they will take certain bits in the memory.  <strong>Composite types</strong> are also part of concrete types because they cannot have subtypes. However it is better to discuss them separetely because composite types could be defined in different ways.</p>
+</li>
+<li>
+<p><strong>Abstract types:</strong> As the name suggest it is abstract and as we have discussed before it will never be in the leaf nodes, it will always have subtypes and we can never instantiate them. So this means this is as abstract as it gets. So what is it doing then? We will see that this can be really useful. In particular the Abstract types in Julia play a very important role in the type hierarchy, and often works like a generous donor, when it comes to methods. For example, it could happen that we have a piece of code, and we want this to be executed for some kind of abstract types, but not really constraining ourselves at first to a specific type. Abstract types allow this kind of construction in type hierarchy. It also provides a context into which concrete types can fit.</p>
+</li>
+</ul>
+<p>Recall our Walker example, suppose we would like to have a type called <code>Walker2D</code>, but we want to put it in a hieracrchy, such that <code>Walkers1D</code> and <code>Walker2D</code>  are subtypes of another abstract type called <code>People</code>. And then People is a subtype of <code>Country</code>. In that case we can define <code>People</code> as a abstract type, and Country as another abstract type.</p>
+<ul>
+<li><strong>Composite</strong> types:  Now let&apos;s discuss <strong>Composite</strong> types. As we have mentioned <strong>Composite</strong> types are in someway concrete types, but there is more.  This is possibly the most important user defiend type that we need to know. Composite types can be a combination of fully concrete types in the <strong>fields</strong>, combination of fully abstract types in the <strong>fields</strong> or a mixture of some abstract and concrete types in the fields. But the weird thing is we can always instantiate this. This is why we cannot call this abstract type. And also any composite types can never have subtypes, so in this sense it is also a concrete type. In case of instantiation, if the fields have abstract types, then this is a bit tricky to handle. And it is better to avoid this! <em>So avoid fields with abstract types when you define composite types, unless you absolutely need it</em>. Also if all the fields are concrete then they will also take certain bits in the memory, however as the name suggests they will be composite meaning it will be some kinds of comnbinations of primitive types.</li>
+</ul>
+<p>Now lets look at some examples,</p>
+<h2 class="mume-header" id="the-walker-example-again">The Walker example again</h2>
+
+<p>Let&apos;s recall our Walker example but now we define some abstract types and put them in a hierarchy</p>
+<pre data-role="codeBlock" data-info="julia" class="language-julia"><span class="token comment">## Define abstract Types</span>
+<span class="token keyword">abstract</span> <span class="token keyword">type</span> Country <span class="token keyword">end</span>
+<span class="token keyword">abstract</span> <span class="token keyword">type</span> People <span class="token operator">&lt;:</span> Country <span class="token keyword">end</span>
+
+<span class="token comment">## Define composite types</span>
+<span class="token keyword">struct</span> Walker1D <span class="token operator">&lt;:</span> People
+    x<span class="token punctuation">::</span>Int64  <span class="token comment">## x is called a field</span>
+<span class="token keyword">end</span>
+
+
+<span class="token keyword">struct</span> Walker2D <span class="token operator">&lt;:</span> People
+    x<span class="token punctuation">::</span>Int64 <span class="token comment">## x is a field</span>
+    y<span class="token punctuation">::</span>Int64 <span class="token comment">## y is a field</span>
+<span class="token keyword">end</span>
+
+
+
+
+supertypes<span class="token punctuation">(</span>Walker2D<span class="token punctuation">)</span>
+supertypes<span class="token punctuation">(</span>Walker1D<span class="token punctuation">)</span>
+
+</pre><p>Can you see what is inside a type object? Or in other words can we see the fields inside? The answer is YES we can, the function which does this is called <code>dump</code>, so let&apos;s <code>dump</code> objects</p>
+<pre data-role="codeBlock" data-info="julia" class="language-julia"><span class="token comment">## Using dump</span>
+w1 <span class="token operator">=</span> Walker2D<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span> <span class="token comment">## first instantiate</span>
+
+
+<span class="token comment">## what is this walker thing?</span>
+
+dump<span class="token punctuation">(</span>w1<span class="token punctuation">)</span> <span class="token comment">## would show you what is inside</span>
+dump<span class="token punctuation">(</span>Walker2D<span class="token punctuation">)</span> <span class="token comment">## we can also dump the type if it is composite</span>
+
+<span class="token comment"># Recall rational</span>
+
+x <span class="token operator">=</span> <span class="token number">3</span><span class="token operator">//</span><span class="token number">2</span>
+
+dump<span class="token punctuation">(</span>x<span class="token punctuation">)</span>
+dump<span class="token punctuation">(</span><span class="token number">3</span><span class="token operator">//</span><span class="token number">2</span><span class="token punctuation">)</span>
+dump<span class="token punctuation">(</span>Rational<span class="token punctuation">)</span>
+
+<span class="token comment">## So Rational is a composite type.</span>
+
+</pre><p>Finally how do we access the fields of the types and can we change them? We can access however whether we can change them or not depends on whether the type mutable or not. For immutable types we cannot change. So <code>struct</code> creates a immutable type. On the other hand the keyword <code>mutable struct</code> will create a mutable object.</p>
+<pre data-role="codeBlock" data-info="julia" class="language-julia"><span class="token comment"># instantiate walker  </span>
+w1 <span class="token operator">=</span> Walker2D<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span>
+
+
+<span class="token comment"># how can we take get the fields of the Walker2D object, the dot notation</span>
+
+w1<span class="token punctuation">.</span>x <span class="token comment">## value of x, live inside object w1</span>
+w1<span class="token punctuation">.</span>y <span class="token comment">## value of y, live inside object w1</span>
+
+<span class="token comment">## but we cannot change</span>
+
+w1<span class="token punctuation">.</span>x  <span class="token operator">=</span> <span class="token number">3</span> <span class="token comment">## this is immutable object</span>
+
+<span class="token comment"># `setfield!` is the function that is called when we try to change a field.</span>
+
+
+<span class="token comment"># Now check Walker2D with Floats</span>
+
+Walker2D<span class="token punctuation">(</span><span class="token number">1.0</span><span class="token punctuation">,</span> <span class="token number">2.0</span><span class="token punctuation">)</span> <span class="token comment">## it works, isn&apos;t this strange, what is going on?</span>
+
+<span class="token comment"># let&apos;s look at methods</span>
+
+methods<span class="token punctuation">(</span>Walker2D<span class="token punctuation">)</span>  <span class="token comment">## automatically a constructor function and 2 methods are defined</span>
+
+@which Walker2D<span class="token punctuation">(</span><span class="token number">1.0</span><span class="token punctuation">,</span> <span class="token number">2.0</span><span class="token punctuation">)</span> <span class="token comment">## converted this</span>
+
+
+<span class="token comment">## Its calling the Any when getting Float, is it literally Any???</span>
+
+Walker2D<span class="token punctuation">(</span><span class="token number">1.3</span><span class="token punctuation">,</span> <span class="token number">2.2</span><span class="token punctuation">)</span> <span class="token comment">## failed! ## once solution might be to use round() first </span>
+Walker2D<span class="token punctuation">(</span><span class="token string">&quot;askkaaja&quot;</span><span class="token punctuation">,</span><span class="token string">&quot;uuaauakjhha&quot;</span><span class="token punctuation">)</span> <span class="token comment">## failed</span>
+
+<span class="token comment"># So Any does not mean literally any, there is automatic conversion going on  </span>
+
+<span class="token comment"># better approach is parametric </span>
+
+</pre><h2 class="mume-header" id="inheritance-taking-functions-defined-on-abstract-types">Inheritance (taking functions defined on Abstract types)</h2>
+
+<p>Questions might arise why Abstract types are usefel. There are different reasons, but this is possibly the most important one. That is we can define a function on them and these functions will be inherited by all the subtypes of them</p>
+<pre data-role="codeBlock" data-info="julia" class="language-julia"><span class="token comment">## Functions defined on People type</span>
+tryfunction<span class="token punctuation">(</span>x<span class="token punctuation">::</span>People<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token string">&quot;I am a human&quot;</span>
+
+w2 <span class="token operator">=</span> Walker2D<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span> <span class="token comment">## instantiate with constructor function, note this is another walker</span>
+
+tryfunction<span class="token punctuation">(</span>w2<span class="token punctuation">)</span> <span class="token comment">## try function was not defined for Walker2D object!!!!!</span>
+
+
+w1 <span class="token operator">=</span> Walker1D<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span> <span class="token comment">## instantiate with constructor function, note this is another walker</span>
+
+tryfunction<span class="token punctuation">(</span>w1<span class="token punctuation">)</span> <span class="token comment">## try function was not defined for Walker1D either.</span>
+
+
+</pre><p>This is really useful!</p>
+<h2 class="mume-header" id="constructor-methods">Constructor Methods</h2>
+
+<p>We have already seen that we can use <code>Walker2D</code> as a function. The moment we defined the types, we automatically had 2 methods. Can we define more and multiple dispatch? Why not?</p>
+<pre data-role="codeBlock" data-info="julia" class="language-julia">Walker2D<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span> Walker2D<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token comment">## define the function with no arguments</span>
+
+methods<span class="token punctuation">(</span>Walker2D<span class="token punctuation">)</span> <span class="token comment">## now we have three </span>
+</pre><p>These kinds of constructor methods are called <strong>outer constructors</strong>, since it lives <em>outside</em> the definition of the type. There are also <strong>inner constructors</strong>, which are used <em>only</em> if, for example, you want to be able to prevent creating objects which are invalid under some criterion. Here is the difference betwen outer and inner constructors:</p>
+<ol>
+<li>
+<p>Inner constructor is declared inside the block of a type declaration, rather than outside of it like normal methods.</p>
+</li>
+<li>
+<p>It has access to a special locally existent function called <code>new</code> that creates objects of the block&apos;s type.</p>
+</li>
+</ol>
+<p>Let&apos;s see an example, suppose we would like the Walker2D to walk only on the 45 degree line of the 2D plane, in other words we always want to have <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mi>y</mi></mrow><annotation encoding="application/x-tex">x = y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span></span></span></span> when the walker walks. This is where we might need inner constructors, and here is a way to implement this,</p>
+<pre data-role="codeBlock" data-info="julia" class="language-julia"><span class="token keyword">struct</span> Walker2DRestricted
+    x<span class="token punctuation">::</span>Int64
+    y<span class="token punctuation">::</span>Int64
+    Walker2DRestricted<span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token punctuation">)</span> <span class="token operator">=</span> x <span class="token operator">!=</span> y <span class="token punctuation">?</span> throw<span class="token punctuation">(</span> ArgumentError<span class="token punctuation">(</span><span class="token string">&quot;Walker should be restricted to x == y&quot;</span><span class="token punctuation">)</span>  <span class="token punctuation">)</span> <span class="token punctuation">:</span> new<span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token punctuation">)</span>
+<span class="token keyword">end</span>
+
+Walker2DRestricted<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token comment">## will give error</span>
+Walker2DRestricted<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span>
+Walker2DRestricted<span class="token punctuation">(</span><span class="token number">1.0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token comment">## still not nice but works</span>
+
+
+</pre><p>It is preferable to use outer constructors whenever possible, but often we need inner constructors, so then we do not have any other choice.</p>
+<h2 class="mume-header" id="mutable-structs">Mutable structs</h2>
+
+<p>We can also create mutable types, where the fields can be changed.</p>
+<pre data-role="codeBlock" data-info="julia" class="language-julia">mutable <span class="token keyword">struct</span> Walker2DMutable
+    x<span class="token punctuation">::</span>Int64
+    y<span class="token punctuation">::</span>Int64
+<span class="token keyword">end</span>
+
+w1 <span class="token operator">=</span> Walker2DMutable<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span>
+
+w1<span class="token punctuation">.</span>x
+w1<span class="token punctuation">.</span>y
+
+w1<span class="token punctuation">.</span>x <span class="token operator">=</span> <span class="token number">4</span>
+
+w1
+
+</pre><p>Question: Where does in the memory the mutable and the immutable objects live?</p>
+<p>Ans: The immutable objects are always on the <strong>stack</strong> (stack allocation). Stack is the closes to CPU, and access to it is very fast and operations are also faster. But mutable objects are generally allocated on the <strong>heap</strong> (heap allocation), which has lots of space and perhaps stable but can change and is a bit far. Anything which can have different sizes in the memory is actually problematic when it comes to performance.</p>
+<p>The arrays are usually on the stack (mutable objects). In many cases specially in function calls the variables inside the functions are in stacks.</p>
+<h2 class="mume-header" id="back-to-generic-programming-for-different-walker-types">Back to Generic Programming for different Walker types</h2>
+
+<p>Now we are ready to complete our example with Walker1D and Walker2D types. Let&apos;s think about our <code>walk</code> function from the previous notebook:</p>
+<pre data-role="codeBlock" data-info="julia" class="language-julia"><span class="token keyword">function</span> walk<span class="token punctuation">(</span>T<span class="token punctuation">)</span>
+    pos <span class="token operator">=</span> initialize<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    
+    trajectory <span class="token operator">=</span> <span class="token punctuation">[</span>pos<span class="token punctuation">]</span>    <span class="token comment"># make a vector that contains one item, the current value of `pos`</span>
+    
+    <span class="token keyword">for</span> t <span class="token keyword">in</span> <span class="token number">1</span><span class="token punctuation">:</span>T
+        pos <span class="token operator">=</span> move<span class="token punctuation">(</span>pos<span class="token punctuation">)</span>
+        push<span class="token operator">!</span><span class="token punctuation">(</span>trajectory<span class="token punctuation">,</span> deepcopy<span class="token punctuation">(</span>pos<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token keyword">end</span>
+    
+    <span class="token keyword">return</span> trajectory
+<span class="token keyword">end</span>
+</pre><p>In the previous notebook we changed the behaviour by passing in different functions as arguments. Now, however, we have a (usually) better solution: we can make objects of different <em>types</em> behave in different ways! So let&apos;s rewrite <code>walk</code> so that it acts on an <em>object</em> walker (can be 2D or can be 1D)</p>
+<pre data-role="codeBlock" data-info="julia" class="language-julia"><span class="token string">&quot;Calculate the trajectory of a walker `w` for time `T`.&quot;</span>
+<span class="token keyword">function</span> walk<span class="token punctuation">(</span>w<span class="token punctuation">,</span> T<span class="token punctuation">)</span>
+    
+    trajectory <span class="token operator">=</span> <span class="token punctuation">[</span>w<span class="token punctuation">]</span>   <span class="token comment"># store the current (initial) position of `w`</span>
+    
+    <span class="token keyword">for</span> t <span class="token keyword">in</span> <span class="token number">1</span><span class="token punctuation">:</span>T
+        w <span class="token operator">=</span> move<span class="token punctuation">(</span>w<span class="token punctuation">)</span>    <span class="token comment"># update the value bound to `w`</span>
+        push<span class="token operator">!</span><span class="token punctuation">(</span>trajectory<span class="token punctuation">,</span> deepcopy<span class="token punctuation">(</span>w<span class="token punctuation">)</span><span class="token punctuation">)</span>   <span class="token comment"># store the current value</span>
+    <span class="token keyword">end</span>
+    
+    <span class="token keyword">return</span> trajectory
+<span class="token keyword">end</span>
+</pre><p>It now accepts an argument <code>w</code>, which we expect to be some type of walker object. If we look at the walker this is what we need</p>
+<ul>
+<li>We need <code>w</code>, which are walkers so we need to craete a walker firt.</li>
+<li>Look at the <code>move</code> function, <code>move</code> function for Walker1D will be different than the <code>move</code> function for Walker2D. So we need to define the move functions. So first let us define the move functions</li>
+</ul>
+<pre data-role="codeBlock" data-info="julia" class="language-julia"><span class="token comment">## move for 1D walker</span>
+
+move<span class="token punctuation">(</span>w<span class="token punctuation">::</span>Walker1D<span class="token punctuation">)</span> <span class="token operator">=</span> Walker1D<span class="token punctuation">(</span>w<span class="token punctuation">.</span>x <span class="token operator">+</span> rand<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+
+<span class="token comment"># create a walker and move</span>
+w1d <span class="token operator">=</span> Walker1D<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span>
+
+<span class="token comment">## check with move functions couple of times</span>
+move<span class="token punctuation">(</span>w1d<span class="token punctuation">)</span>
+
+
+<span class="token comment">## Bind the new Walker to old reference w1d</span>
+w1d <span class="token operator">=</span> move<span class="token punctuation">(</span>w1d<span class="token punctuation">)</span>
+</pre><p>So successfully any instance of the object <code>Walker1D</code> can move now. But wait you should ask some questions?</p>
+<ul>
+<li>
+<ol>
+<li>Look at the move function,  the question you should be asking why didn&apos;t I do just <code>w.x + rand((1, -1))</code>? Why did I have to call <code>Walker1D</code> function again after I changed the position???? Answer????</li>
+</ol>
+</li>
+<li>
+<ol start="2">
+<li>In principle, I could write a function for Any type so, <code>move(w)</code>, by not annotatting type. Is that a good idea here?  Why are we restricting only for <code>Walker1D</code> object? Or why did I annotate the type?</li>
+</ol>
+</li>
+<li>
+<ol start="3">
+<li>When we apply the <code>move</code> function, looks like the walker gets modified, is it so?</li>
+</ol>
+</li>
+</ul>
+<p>The first and the third questions are kind of related. If I do <code>w.x + 1</code>, I just get a new position, but then I have to call constructor function to instantiate an object. This is because this will not change anything to the fields. So what is happenning is it is accessing the fields, then updating the positions and after that we call the constrcutor method again to construct another object. This is now related to the third one, that is <strong>it definietely means I am creating a new object, and old walker is not getting replaced</strong>. Some may now question? Well this seems inefficient.</p>
+<p>The answer is in Julia NO,** this is not efficient rather this is very efficient becasue immutable structs are stored in the stack**. So it is very very fast to aceess and process the information. Also Julia compiler will often be able to completely remove this old object and produce code that is just as efficient as if there were no object at all!</p>
+<p>In the last line we just replace old walker with our new walker. So again, techincally because we created immmutable struct we could not move the positions, however we could create a new walker and just replace the old walker&apos;s binding, and pretend this is the new position of the old walker. In this way we can have different values that can be referred back to the same back to the same variable.</p>
+<blockquote>
+<p>In Julia, variables are names that are associated to values, i.e. they are <strong>bindings</strong> that &quot;point to&quot; objects located in memory. So <code>w</code> is now a binding to the new walker.</p>
+</blockquote>
+<p>Now similarly we can define <code>move</code> for <code>Walker2D</code>.</p>
+<pre data-role="codeBlock" data-info="julia" class="language-julia"><span class="token comment">## move for 2D walker</span>
+
+move<span class="token punctuation">(</span>w<span class="token punctuation">::</span>Walker2D<span class="token punctuation">)</span> <span class="token operator">=</span> Walker2D<span class="token punctuation">(</span>w<span class="token punctuation">.</span>x <span class="token operator">+</span> rand<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>  w<span class="token punctuation">.</span>y <span class="token operator">+</span> rand<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment"># create a walker and move</span>
+w2d <span class="token operator">=</span> Walker2D<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span>
+move<span class="token punctuation">(</span>w2d<span class="token punctuation">)</span>
+
+
+</pre><p>Now finally we can instantiate and walk</p>
+<pre data-role="codeBlock" data-info="julia" class="language-julia">w1d <span class="token operator">=</span> Walker1D<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span>
+walk<span class="token punctuation">(</span>w1d<span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span> 
+
+
+w2d <span class="token operator">=</span> Walker2D<span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">)</span>
+walk<span class="token punctuation">(</span>w2d<span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span> 
+
+
+</pre><p>Note that we no longer call <code>initialise</code>. So what is happening????</p>
+<h2 class="mume-header" id="a-bit-of-a-side">A bit of a side</h2>
+
+<p>Let&apos;s talk about slightly different things,</p>
+<h3 class="mume-header" id="copy-vs-deepcopy">copy vs. deepcopy</h3>
+
+<p>Recall in one class, when I said to use <code>deepcopy</code> for copying a mutable object (it was array) when you do not want to change if the initial objects was changed, some of you said <code>copy</code> works as well. Well there is actually a disucssion about this in this <a href="https://discourse.julialang.org/t/what-is-the-difference-between-copy-and-deepcopy/3918/2">discourse page</a>.</p>
+<p>You can check the details. In summary</p>
+<ul>
+<li>When you put <code>=</code> between two objects, then references are copied only but the values are same. So you just have two references for the same object. The meory locations are exactly same</li>
+</ul>
+<pre data-role="codeBlock" data-info="julia" class="language-julia">a <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span>
+b <span class="token operator">=</span> a
+
+b<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">100</span>
+a
+
+
+<span class="token comment">## Prints the memory location where the object is</span>
+pointer_from_objref<span class="token punctuation">(</span>a<span class="token punctuation">)</span>
+pointer_from_objref<span class="token punctuation">(</span>b<span class="token punctuation">)</span> <span class="token comment">## same as </span>
+
+</pre><ul>
+<li>When you use <code>copy</code> it creates a new reference and a new object, but it only copies the strcuture and not all values. However things are slightly different when it comes to mutable and immutable object. For immutable objects it copies the values, but for mutable objects it does not copy the value, it only copy a new reference.</li>
+</ul>
+<pre data-role="codeBlock" data-info="julia" class="language-julia"><span class="token comment">## Immutable fields</span>
+
+a <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span> <span class="token comment"># has immutable fields</span>
+b <span class="token operator">=</span> copy<span class="token punctuation">(</span>a<span class="token punctuation">)</span>
+
+b<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">100</span>
+a <span class="token comment">## this is fine because the values are immutable. </span>
+<span class="token comment">## So `copy` copied the values </span>
+
+pointer_from_objref<span class="token punctuation">(</span>a<span class="token punctuation">)</span> <span class="token comment">## </span>
+pointer_from_objref<span class="token punctuation">(</span>b<span class="token punctuation">)</span> <span class="token comment">## different</span>
+
+<span class="token comment">## different object, different reference</span>
+
+
+<span class="token comment">## Mutable fields</span>
+
+x <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span>
+y <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> x<span class="token punctuation">]</span>  <span class="token comment">## has mutable fields</span>
+
+z <span class="token operator">=</span> copy<span class="token punctuation">(</span>y<span class="token punctuation">)</span>
+
+z<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1000</span>
+z
+
+y <span class="token comment">## now this is changed</span>
+
+pointer_from_objref<span class="token punctuation">(</span>z<span class="token punctuation">)</span> <span class="token comment">## </span>
+pointer_from_objref<span class="token punctuation">(</span>y<span class="token punctuation">)</span> <span class="token comment">## different</span>
+
+<span class="token comment">## But</span>
+
+pointer_from_objref<span class="token punctuation">(</span>z<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment">## </span>
+pointer_from_objref<span class="token punctuation">(</span>y<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment">## same </span>
+
+
+
+
+</pre><ul>
+<li>so copy works but not always and if you need a completely independent object, then  <code>deepcopy</code> will always work. So <code>deepcopy</code> will create a completely independent object for you. But remember this means more memory allocation.</li>
+</ul>
+<pre data-role="codeBlock" data-info="julia" class="language-julia">x <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span>
+y <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> x<span class="token punctuation">]</span>  <span class="token comment">## has mutable fields</span>
+
+z <span class="token operator">=</span> deepcopy<span class="token punctuation">(</span>y<span class="token punctuation">)</span>
+
+z<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1000</span>
+z
+
+y <span class="token comment">## now this is changed</span>
+
+pointer_from_objref<span class="token punctuation">(</span>z<span class="token punctuation">)</span> <span class="token comment">## </span>
+pointer_from_objref<span class="token punctuation">(</span>y<span class="token punctuation">)</span> <span class="token comment">## different</span>
+
+<span class="token comment">## But</span>
+
+pointer_from_objref<span class="token punctuation">(</span>z<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment">## </span>
+pointer_from_objref<span class="token punctuation">(</span>y<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment">## different</span>
+
+
+
+</pre><p>There are two essential properties define immutability in Julia:</p>
+<ul>
+<li>
+<p>It is not permitted to modify the value of an immutable type.</p>
+<ul>
+<li>For bits types this means that the bit pattern of a value once set will never change and that value is the identity of a bits type.</li>
+<li>For composite types, this means that the identity of the values of its fields will never change. When the fields are bits types, that means their bits will never change, for fields whose values are mutable types like arrays, that means the fields will always refer to the same mutable value even though that mutable value&apos;s content may itself be modified (an example below).</li>
+</ul>
+</li>
+<li>
+<p>An object with an immutable type may be copied freely by the compiler since its immutability makes it
+impossible to programmatically distinguish between the original object and a copy.</p>
+<ul>
+<li>In particular, this means that small enough immutable values like integers and floats are typically passed to functions in registers (or stack allocated).</li>
+<li>Mutable values, on the other hand are heap-allocated and passed to functions as pointers to heap-allocated values except in cases where the compiler is sure that there&apos;s no way to tell that this is not what is happening.</li>
+</ul>
+</li>
+</ul>
+<h3 class="mume-header" id="mutable-field-inside-an-immutable-type">Mutable field inside an immutable type</h3>
+
+<p>So let&apos;s talk about whether it is possible to have mutable fields inside of an immutable type</p>
+<pre data-role="codeBlock" data-info="julia" class="language-julia"><span class="token keyword">struct</span> Check
+    n<span class="token punctuation">::</span>Int64
+    x<span class="token punctuation">::</span>Array<span class="token punctuation">{</span>Float64<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">}</span>
+<span class="token keyword">end</span>
+
+m <span class="token operator">=</span> Check<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+m<span class="token punctuation">.</span>n
+m<span class="token punctuation">.</span>x
+
+<span class="token comment">## </span>
+<span class="token comment">## the vector is not stored inside the object, the vector is in the heap</span>
+<span class="token comment">## but what I have inside the obejct is a reference (or what is called a pointer)</span>
+<span class="token comment">## that points to some other places in the memory. So in that sense I cannot change the </span>
+<span class="token comment">## object</span>
+
+m<span class="token punctuation">.</span>x <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">]</span>
+
+<span class="token comment">## but I can change the values inside the object</span>
+
+m<span class="token punctuation">.</span>x<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">100</span>
+m<span class="token punctuation">.</span>x
+
+<span class="token comment">## it can also add</span>
+push<span class="token operator">!</span><span class="token punctuation">(</span>m<span class="token punctuation">.</span>x<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span>
+
+<span class="token comment">## So I am not asking my pointer to point to a different vector, but I what I am asking</span>
+<span class="token comment">## to modify the size, value and so on...</span>
+
+<span class="token comment">## I think this is still efficient than completely mutable types.</span>
+
+</pre><h2 class="mume-header" id="parametric-types">Parametric Types</h2>
+
+<p>An important and powerful feature of Julia&apos;s type system is that it is parametric: types can take parameters, so that type declarations actually introduce a whole family of new types &#x2013; one for each possible combination of parameter values. Type parameters are introduced immediately after the type name, surrounded by curly braces:</p>
+<pre data-role="codeBlock" data-info="julia" class="language-julia"><span class="token keyword">struct</span> Point<span class="token punctuation">{</span>T<span class="token punctuation">}</span>
+           x<span class="token punctuation">::</span>T
+           y<span class="token punctuation">::</span>T
+<span class="token keyword">end</span>
+
+julia<span class="token operator">&gt;</span> Point<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span>
+<span class="token comment"># Point{Int64}(1, 2)</span>
+
+julia<span class="token operator">&gt;</span> Point<span class="token punctuation">(</span><span class="token number">1.0</span><span class="token punctuation">,</span> <span class="token number">2.0</span><span class="token punctuation">)</span>
+<span class="token comment"># Point{Float64}(1.0, 2.0)</span>
+
+julia<span class="token operator">&gt;</span> Point<span class="token punctuation">(</span><span class="token number">1.0</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span>
+<span class="token comment"># ERROR: MethodError: no method matching Point(::Float64, ::Int64)</span>
+<span class="token comment"># Closest candidates are:</span>
+<span class="token comment">#   Point(::T, ::T) where T at REPL[65]:2</span>
+<span class="token comment"># Stacktrace:</span>
+<span class="token comment">#  [1] top-level scope at REPL[70]:1</span>
+
+julia<span class="token operator">&gt;</span> Point<span class="token punctuation">(</span><span class="token string">&quot;1&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;2&quot;</span><span class="token punctuation">)</span>
+Point<span class="token punctuation">{</span>String<span class="token punctuation">}</span><span class="token punctuation">(</span><span class="token string">&quot;1&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;2&quot;</span><span class="token punctuation">)</span>
+
+
+</pre><p>Important points</p>
+<ul>
+<li>Other types, of course, are not subtypes of it</li>
+</ul>
+<pre data-role="codeBlock" data-info="julia" class="language-julia">julia<span class="token operator">&gt;</span> Float64 <span class="token operator">&lt;:</span> Point
+<span class="token comment"># false</span>
+
+julia<span class="token operator">&gt;</span> AbstractString <span class="token operator">&lt;:</span> Point
+<span class="token comment"># false</span>
+</pre><ul>
+<li>Concrete Point types with different values of T are never subtypes of each other:</li>
+</ul>
+<pre data-role="codeBlock" data-info="julia" class="language-julia">julia<span class="token operator">&gt;</span> Point<span class="token punctuation">{</span>Float64<span class="token punctuation">}</span> <span class="token operator">&lt;:</span> Point<span class="token punctuation">{</span>Int64<span class="token punctuation">}</span>
+<span class="token comment"># false</span>
+
+julia<span class="token operator">&gt;</span> Point<span class="token punctuation">{</span>Float64<span class="token punctuation">}</span> <span class="token operator">&lt;:</span> Point<span class="token punctuation">{</span>Real<span class="token punctuation">}</span>
+<span class="token comment"># false</span>
+
+
+</pre><h2 class="mume-header" id="constructors">Constructors</h2>
+
+<pre data-role="codeBlock" data-info="julia" class="language-julia">p <span class="token operator">=</span> Point<span class="token punctuation">{</span>Float64<span class="token punctuation">}</span><span class="token punctuation">(</span><span class="token number">1.0</span><span class="token punctuation">,</span> <span class="token number">2.0</span><span class="token punctuation">)</span> <span class="token comment">## this is reduntant</span>
+
+Point<span class="token punctuation">(</span><span class="token number">1.0</span><span class="token punctuation">,</span><span class="token number">2.0</span><span class="token punctuation">)</span>
+
+
+julia<span class="token operator">&gt;</span> <span class="token keyword">struct</span> Point<span class="token punctuation">{</span>T<span class="token operator">&lt;:</span>Real<span class="token punctuation">}</span>
+           x<span class="token punctuation">::</span>T
+           y<span class="token punctuation">::</span>T
+           Point<span class="token punctuation">{</span>T<span class="token punctuation">}</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token punctuation">)</span> where <span class="token punctuation">{</span>T<span class="token operator">&lt;:</span>Real<span class="token punctuation">}</span> <span class="token operator">=</span> new<span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token punctuation">)</span>
+       <span class="token keyword">end</span>
+
+<span class="token comment">## Here is reduntant, </span>
+
+julia<span class="token operator">&gt;</span> Point<span class="token punctuation">(</span>x<span class="token punctuation">::</span>T<span class="token punctuation">,</span> y<span class="token punctuation">::</span>T<span class="token punctuation">)</span> where <span class="token punctuation">{</span>T<span class="token operator">&lt;:</span>Real<span class="token punctuation">}</span> <span class="token operator">=</span> Point<span class="token punctuation">{</span>T<span class="token punctuation">}</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token punctuation">)</span> <span class="token comment">## sometimes we need this</span>
+
+</pre><p>Let&apos;s use our example,</p>
+<pre data-role="codeBlock" data-info="julia" class="language-julia"><span class="token keyword">struct</span> Walker2DParametric<span class="token punctuation">{</span>T <span class="token operator">&lt;:</span>Integer  <span class="token punctuation">}</span> <span class="token operator">&lt;:</span> People
+    x<span class="token punctuation">::</span>Int64 <span class="token comment">## x is a field</span>
+    y<span class="token punctuation">::</span>Int64 <span class="token comment">## y is a field</span>
+<span class="token keyword">end</span>
+
+</pre><p>and then</p>
+<pre data-role="codeBlock" data-info="julia" class="language-julia">w1 <span class="token operator">=</span> Walker2DParametric<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span> 
+
+
+</pre><p>Now another example using the Distributions</p>
+<pre data-role="codeBlock" data-info="julia" class="language-julia"><span class="token keyword">using</span> Distributions
+d1 <span class="token operator">=</span> Normal<span class="token punctuation">(</span><span class="token number">1.0</span><span class="token punctuation">,</span> <span class="token number">2.0</span><span class="token punctuation">)</span> <span class="token comment"># an example type to explore</span>
+@show d1
+show_supertypes<span class="token punctuation">(</span>typeof<span class="token punctuation">(</span>d1<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+</pre>
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    </body></html>

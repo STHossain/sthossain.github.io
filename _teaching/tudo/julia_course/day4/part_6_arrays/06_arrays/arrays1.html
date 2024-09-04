@@ -1,0 +1,620 @@
+<!DOCTYPE html><html><head>
+      <title>06.Arrays</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:////home/tanvir/.vscode/extensions/shd101wyy.markdown-preview-enhanced-0.5.17/node_modules/@shd101wyy/mume/dependencies/katex/katex.min.css">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <style>
+      /* http://prismjs.com/download.html?themes=prism&languages=markup+css+clike+javascript+abap+actionscript+ada+apacheconf+apl+applescript+asciidoc+aspnet+autoit+autohotkey+bash+basic+batch+c+brainfuck+bro+bison+csharp+cpp+coffeescript+ruby+css-extras+d+dart+django+diff+docker+eiffel+elixir+erlang+fsharp+fortran+gherkin+git+glsl+go+graphql+groovy+haml+handlebars+haskell+haxe+http+icon+inform7+ini+j+jade+java+jolie+json+julia+keyman+kotlin+latex+less+livescript+lolcode+lua+makefile+markdown+matlab+mel+mizar+monkey+nasm+nginx+nim+nix+nsis+objectivec+ocaml+oz+parigp+parser+pascal+perl+php+php-extras+powershell+processing+prolog+properties+protobuf+puppet+pure+python+q+qore+r+jsx+reason+rest+rip+roboconf+crystal+rust+sas+sass+scss+scala+scheme+smalltalk+smarty+sql+stylus+swift+tcl+textile+twig+typescript+vbnet+verilog+vhdl+vim+wiki+xojo+yaml */
+/**
+ * prism.js default theme for JavaScript, CSS and HTML
+ * Based on dabblet (http://dabblet.com)
+ * @author Lea Verou
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+	color: black;
+	background: none;
+	text-shadow: 0 1px white;
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
+code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
+	text-shadow: none;
+	background: #b3d4fc;
+}
+
+pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
+code[class*="language-"]::selection, code[class*="language-"] ::selection {
+	text-shadow: none;
+	background: #b3d4fc;
+}
+
+@media print {
+	code[class*="language-"],
+	pre[class*="language-"] {
+		text-shadow: none;
+	}
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background: #f5f2f0;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: .1em;
+	border-radius: .3em;
+	white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: slategray;
+}
+
+.token.punctuation {
+	color: #999;
+}
+
+.namespace {
+	opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+	color: #905;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+	color: #690;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+	color: #a67f59;
+	background: hsla(0, 0%, 100%, .5);
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+	color: #07a;
+}
+
+.token.function {
+	color: #DD4A68;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+	color: #e90;
+}
+
+.token.important,
+.token.bold {
+	font-weight: bold;
+}
+.token.italic {
+	font-style: italic;
+}
+
+.token.entity {
+	cursor: help;
+}
+
+/* highlight */
+pre[data-line] {
+	position: relative;
+	padding: 1em 0 1em 3em;
+  }
+  pre[data-line] .line-highlight-wrapper {
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-color: transparent;
+	display: block;
+	width: 100%;
+  }
+  
+  pre[data-line] .line-highlight {
+	position: absolute;
+	left: 0;
+	right: 0;
+	padding: inherit 0;
+	margin-top: 1em;
+	background: hsla(24, 20%, 50%,.08);
+	background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
+	pointer-events: none;
+	line-height: inherit;
+	white-space: pre;
+  }
+  
+  pre[data-line] .line-highlight:before, 
+  pre[data-line] .line-highlight[data-end]:after {
+	content: attr(data-start);
+	position: absolute;
+	top: .4em;
+	left: .6em;
+	min-width: 1em;
+	padding: 0 .5em;
+	background-color: hsla(24, 20%, 50%,.4);
+	color: hsl(24, 20%, 95%);
+	font: bold 65%/1.5 sans-serif;
+	text-align: center;
+	vertical-align: .3em;
+	border-radius: 999px;
+	text-shadow: none;
+	box-shadow: 0 1px white;
+  }
+  
+  pre[data-line] .line-highlight[data-end]:after {
+	content: attr(data-end);
+	top: auto;
+	bottom: .4em;
+  }@font-face{font-family:'Roboto Mono';font-style:normal;font-weight:400;src:local('Roboto Mono'),local('RobotoMono-Regular'),url(https://fonts.gstatic.com/s/robotomono/v7/L0x5DF4xlVMF-BfR8bXMIjhLq3o.ttf) format('truetype')}@font-face{font-family:'Source Sans Pro';font-style:normal;font-weight:300;src:local('Source Sans Pro Light'),local('SourceSansPro-Light'),url(https://fonts.gstatic.com/s/sourcesanspro/v13/6xKydSBYKcSV-LCoeQqfX1RYOo3ik4zwlxdr.ttf) format('truetype')}@font-face{font-family:'Source Sans Pro';font-style:normal;font-weight:400;src:local('Source Sans Pro Regular'),local('SourceSansPro-Regular'),url(https://fonts.gstatic.com/s/sourcesanspro/v13/6xK3dSBYKcSV-LCoeQqfX1RYOo3qOK7g.ttf) format('truetype')}@font-face{font-family:'Source Sans Pro';font-style:normal;font-weight:600;src:local('Source Sans Pro SemiBold'),local('SourceSansPro-SemiBold'),url(https://fonts.gstatic.com/s/sourcesanspro/v13/6xKydSBYKcSV-LCoeQqfX1RYOo3i54rwlxdr.ttf) format('truetype')}*{-webkit-font-smoothing:antialiased;-webkit-overflow-scrolling:touch;-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-text-size-adjust:none;-webkit-touch-callout:none;box-sizing:border-box}body:not(.ready){overflow:hidden}body:not(.ready) .app-nav,body:not(.ready)>nav,body:not(.ready) [data-cloak]{display:none}div#app{font-size:30px;font-weight:lighter;margin:40vh auto;text-align:center}div#app:empty:before{content:"Loading..."}.emoji{height:19.2px;height:1.2rem;vertical-align:middle}.progress{background-color:#42b983;background-color:var(--theme-color, #42b983);height:2px;left:0;position:fixed;right:0;top:0;transition:width .2s,opacity .4s;width:0;z-index:5}.search .search-keyword,.search a:hover{color:#42b983;color:var(--theme-color, #42b983)}.search .search-keyword{font-style:normal;font-weight:700}body,html{height:100%}body{-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;color:#34495e;font-family:Source Sans Pro,Helvetica Neue,Arial,sans-serif;font-size:15px;letter-spacing:0;margin:0;overflow-x:hidden}img{max-width:100%}a[disabled]{cursor:not-allowed;opacity:.6}kbd{color:#34495e;border:1px solid #ccc;border-radius:3px;display:inline-block;font-size:12px !important;line-height:12px;margin-bottom:3px;padding:3px 5px;vertical-align:middle}.task-list-item{list-style-type:none}li input[type=checkbox]{margin:0 .2em .25em -1.6em;vertical-align:middle}.app-nav{left:0;margin:25px 60px 0 0;position:absolute;right:0;text-align:right;z-index:2}.app-nav p{margin:0}.app-nav>a{margin:0 16px;margin:0 1rem;padding:5px 0}.app-nav li,.app-nav ul{display:inline-block;list-style:none;margin:0}.app-nav a{color:inherit;font-size:16px;text-decoration:none;transition:color .3s}.app-nav a.active,.app-nav a:hover{color:#42b983;color:var(--theme-color, #42b983)}.app-nav a.active{border-bottom:2px solid #42b983;border-bottom:2px solid var(--theme-color, #42b983)}.app-nav li{display:inline-block;margin:0 16px;margin:0 1rem;padding:5px 0;position:relative}.app-nav li ul{background-color:#fff;border:1px solid #ddd;border-bottom-color:#ccc;border-radius:4px;box-sizing:border-box;display:none;max-height:calc(100vh - 61px);overflow-y:scroll;padding:10px 0;position:absolute;right:-15px;text-align:left;top:100%;white-space:nowrap}.app-nav li ul li{display:block;font-size:14px;line-height:16px;line-height:1rem;margin:0;margin:8px 14px;white-space:nowrap}.app-nav li ul a{display:block;font-size:inherit;margin:0;padding:0}.app-nav li ul a.active{border-bottom:0}.app-nav li:hover ul{display:block}.app-nav.no-badge{margin-right:25px}.github-corner{border-bottom:0;position:fixed;right:0;text-decoration:none;top:0;z-index:1}.github-corner svg{color:#fff;fill:#42b983;fill:var(--theme-color, #42b983);height:80px;width:80px}.github-corner:hover .octo-arm{-webkit-animation:a .56s ease-in-out;animation:a .56s ease-in-out}main{display:block;position:relative;width:100vw;height:100%;z-index:0}.anchor{display:inline-block;text-decoration:none;transition:all .3s}.anchor span{color:#34495e}.anchor:hover{text-decoration:underline}.sidebar{border-right:1px solid rgba(0,0,0,0.07);overflow-y:auto;padding:40px 0 0;top:0;bottom:0;left:0;position:absolute;transition:-webkit-transform .25s ease-out;transition:transform .25s ease-out;transition:transform .25s ease-out,-webkit-transform .25s ease-out;width:300px;z-index:3}.sidebar>h1{margin:0 auto 16px;margin:0 auto 1rem;font-size:24px;font-size:1.5rem;font-weight:300;text-align:center}.sidebar>h1 a{color:inherit;text-decoration:none}.sidebar>h1 .app-nav{display:block;position:static}.sidebar .sidebar-nav{line-height:2em;padding-bottom:40px}.sidebar ul{margin:0;padding:0}.sidebar li>p{font-weight:700;margin:0}.sidebar ul,.sidebar ul li{list-style:none}.sidebar ul li a{border-bottom:none;display:block}.sidebar ul li ul{padding-left:20px}.sidebar::-webkit-scrollbar{width:4px}.sidebar::-webkit-scrollbar-thumb{background:transparent;border-radius:4px}.sidebar:hover::-webkit-scrollbar-thumb{background:hsla(0,0%,53%,0.4)}.sidebar:hover::-webkit-scrollbar-track{background:hsla(0,0%,53%,0.1)}.sidebar-toggle{background-color:transparent;background-color:hsla(0,0%,100%,0.8);border:0;outline:none;padding:10px;bottom:0;left:0;position:absolute;text-align:center;transition:opacity .3s;width:30px;width:284px;z-index:4}.sidebar-toggle .sidebar-toggle-button:hover{opacity:.4}.sidebar-toggle span{background-color:#42b983;background-color:var(--theme-color, #42b983);display:block;margin-bottom:4px;width:16px;height:2px}body.sticky .sidebar,body.sticky .sidebar-toggle{position:fixed}.content{padding-top:60px;top:0;right:0;bottom:0;left:300px;position:absolute;transition:left .25s ease}.markdown-preview>*{box-sizing:border-box;font-size:inherit}.markdown-preview>:first-child{margin-top:0 !important}.markdown-preview hr{border:none;border-bottom:1px solid #eee;margin:2em 0}.markdown-preview table{border-collapse:collapse;border-spacing:0;display:block;margin-bottom:16px;margin-bottom:1rem;overflow:auto;width:100%}.markdown-preview th{font-weight:700}.markdown-preview td,.markdown-preview th{border:1px solid #ddd;padding:6px 13px}.markdown-preview tr{border-top:1px solid #ccc}.markdown-preview p.tip,.markdown-preview tr:nth-child(2n){background-color:#f8f8f8}.markdown-preview p.tip{border-bottom-right-radius:2px;border-left:4px solid #f66;border-top-right-radius:2px;margin:2em 0;padding:12px 24px 12px 30px;position:relative}.markdown-preview p.tip code{background-color:#efefef}.markdown-preview p.tip em{color:#34495e}.markdown-preview p.tip:before{background-color:#f66;border-radius:100%;color:#fff;content:"!";font-family:Dosis,Source Sans Pro,Helvetica Neue,Arial,sans-serif;font-size:14px;font-weight:700;left:-12px;line-height:20px;position:absolute;width:20px;height:20px;text-align:center;top:14px}.markdown-preview p.warn{background:rgba(66,185,131,0.1);border-radius:2px;padding:16px;padding:1rem}body.close .sidebar{-webkit-transform:translateX(-300px);transform:translateX(-300px)}body.close .sidebar-toggle{width:auto}body.close .content{left:0}@media print{.app-nav,.github-corner,.sidebar,.sidebar-toggle{display:none}}@media screen and (max-width:768px){.github-corner,.sidebar,.sidebar-toggle{position:fixed}.app-nav{margin-top:16px}.app-nav li ul{top:30px}main{height:auto;overflow-x:hidden}.sidebar{left:-300px;transition:-webkit-transform .25s ease-out;transition:transform .25s ease-out;transition:transform .25s ease-out,-webkit-transform .25s ease-out}.content{left:0;max-width:100vw;position:static;padding-top:20px;transition:-webkit-transform .25s ease;transition:transform .25s ease;transition:transform .25s ease,-webkit-transform .25s ease}.app-nav,.github-corner{transition:-webkit-transform .25s ease-out;transition:transform .25s ease-out;transition:transform .25s ease-out,-webkit-transform .25s ease-out}.sidebar-toggle{background-color:transparent;width:auto;padding:30px 30px 10px 10px}body.close .sidebar{-webkit-transform:translateX(300px);transform:translateX(300px)}body.close .sidebar-toggle{background-color:hsla(0,0%,100%,0.8);transition:background-color 1s;width:284px;padding:10px}body.close .content{-webkit-transform:translateX(300px);transform:translateX(300px)}body.close .app-nav,body.close .github-corner{display:none}.github-corner .octo-arm{-webkit-animation:a .56s ease-in-out;animation:a .56s ease-in-out}.github-corner:hover .octo-arm{-webkit-animation:none;animation:none}}@-webkit-keyframes a{0%,to{-webkit-transform:rotate(0);transform:rotate(0)}20%,60%{-webkit-transform:rotate(-25deg);transform:rotate(-25deg)}40%,80%{-webkit-transform:rotate(10deg);transform:rotate(10deg)}}@keyframes a{0%,to{-webkit-transform:rotate(0);transform:rotate(0)}20%,60%{-webkit-transform:rotate(-25deg);transform:rotate(-25deg)}40%,80%{-webkit-transform:rotate(10deg);transform:rotate(10deg)}}section.cover{-webkit-box-align:center;-ms-flex-align:center;align-items:center;background-position:50%;background-repeat:no-repeat;background-size:cover;height:100vh;display:none}section.cover .cover-main{-webkit-box-flex:1;-ms-flex:1;flex:1;margin:-20px 16px 0;text-align:center;z-index:1}section.cover a{color:inherit}section.cover a,section.cover a:hover{text-decoration:none}section.cover p{line-height:24px;line-height:1.5rem;margin:1em 0}section.cover h1{color:inherit;font-size:40px;font-size:2.5rem;font-weight:300;margin:10px 0 40px;margin:.625rem 0 2.5rem;position:relative;text-align:center}section.cover h1 a{display:block}section.cover h1 small{bottom:-7px;bottom:-0.4375rem;font-size:16px;font-size:1rem;position:absolute}section.cover blockquote{font-size:24px;font-size:1.5rem;text-align:center}section.cover ul{line-height:1.8;list-style-type:none;margin:1em auto;max-width:500px;padding:0}section.cover .cover-main>p:last-child a{border-color:#42b983;border:1px solid var(--theme-color, #42b983);border-radius:2rem;box-sizing:border-box;color:#42b983;color:var(--theme-color, #42b983);display:inline-block;font-size:16.8px;font-size:1.05rem;letter-spacing:1.6px;letter-spacing:.1rem;margin-right:16px;margin-right:1rem;padding:.75em 32px;padding:.75em 2rem;text-decoration:none;transition:all .15s ease}section.cover .cover-main>p:last-child a:last-child{background-color:#42b983;background-color:var(--theme-color, #42b983);color:#fff;margin-right:0}section.cover .cover-main>p:last-child a:last-child:hover{color:inherit;opacity:.8}section.cover .cover-main>p:last-child a:hover{color:inherit}section.cover blockquote>p>a{border-bottom:2px solid #42b983;border-bottom:2px solid var(--theme-color, #42b983);transition:color .3s}section.cover blockquote>p>a:hover{color:#42b983;color:var(--theme-color, #42b983)}section.cover.show{display:-webkit-box;display:-ms-flexbox;display:flex}section.cover.has-mask .mask{background-color:#fff;opacity:.8;position:absolute;width:100%;height:100%}.sidebar,body{background-color:#fff}.sidebar{color:#364149}.sidebar li{margin:6px 0 6px 15px}.sidebar ul li a{color:#505d6b;font-size:14px;font-weight:400;overflow:hidden;text-decoration:none;text-overflow:ellipsis;white-space:nowrap}.sidebar ul li a:hover{text-decoration:underline}.sidebar ul li ul{padding:0}.sidebar ul li.active>a{border-right:2px solid;color:#42b983;color:var(--theme-color, #42b983);font-weight:600}.app-sub-sidebar li:before{content:"-";padding-right:4px;float:left}.markdown-preview h1,.markdown-preview h2,.markdown-preview h3,.markdown-preview h4,.markdown-preview strong{color:#2c3e50;font-weight:600}.markdown-preview a{color:#42b983;color:var(--theme-color, #42b983);font-weight:600}.md-sidebar-toc a{color:#42b983;font-weight:600}.markdown-preview h1{font-size:32px;font-size:2rem;margin:0 0 16px;margin:0 0 1rem}.markdown-preview h2{font-size:28px;font-size:1.75rem;margin:45px 0 12.8px;margin:45px 0 .8rem}.markdown-preview h3{font-size:24px;font-size:1.5rem;margin:40px 0 9.6px;margin:40px 0 .6rem}.markdown-preview h4{font-size:20px;font-size:1.25rem}.markdown-preview h5,.markdown-preview h6{font-size:16px;font-size:1rem}.markdown-preview h6{color:#777}.markdown-preview figure,.markdown-preview p{margin:1.2em 0}.markdown-preview ol,.markdown-preview p,.markdown-preview ul{line-height:25.6px;line-height:1.6rem;word-spacing:.8px;word-spacing:.05rem}.markdown-preview ol,.markdown-preview ul{padding-left:24px;padding-left:1.5rem}.markdown-preview blockquote{border-left:4px solid #42b983;border-left:4px solid var(--theme-color, #42b983);color:#858585;background-color:#f0f0f0;margin:2em 0;padding-left:20px}.markdown-preview blockquote p{font-weight:600;margin-left:0}.markdown-preview iframe{margin:1em 0}.markdown-preview em{color:#7f8c8d}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+.markdown-preview.markdown-preview {
+  color: rgba(0, 0, 0, 0.712);
+}
+.markdown-preview.markdown-preview .markdown-preview a:hover {
+  color: blue;
+  text-decoration: underline;
+}
+.markdown-preview.markdown-preview pre[data-role="codeBlock"] {
+  font-size: 13px !important;
+  background-color: whitesmoke;
+}
+.markdown-preview.markdown-preview h1 {
+  color: #116062;
+  font-size: 40px;
+  font-weight: 50;
+  margin-bottom: -6px;
+  margin-top: -6px;
+  font-family: "Anton";
+  font-style: italic;
+}
+.markdown-preview.markdown-preview h2 {
+  color: #020202;
+  font-size: 20px;
+  margin-bottom: 0px;
+  margin-top: 0px;
+  font-family: "Microsoft Yahei";
+  font-style: italic;
+}
+.markdown-preview.markdown-preview h3 {
+  color: #020202;
+  font-size: 15px;
+  margin-bottom: 0px;
+  margin-top: 0px;
+  font-family: "Microsoft Yahei";
+  font-style: normal;
+}
+.markdown-preview.markdown-preview code {
+  color: rgba(110, 5, 5, 0.739);
+  font-weight: 550;
+}
+.markdown-preview.markdown-preview blockquote {
+  margin-bottom: 40px;
+  margin-top: 30px;
+  background-color: #ffffff;
+  padding: 0.3px;
+  padding-left: 5px;
+}
+.markdown-preview.markdown-preview blockquote p {
+  color: #5f0303;
+  font-size: 14px;
+  font-family: "Microsoft Yahei";
+  font-style: italic;
+  font-weight: 100;
+  line-height: 1.5;
+}
+@media print {
+  .markdown-preview.markdown-preview {
+    font-size: 18px;
+  }
+}
+
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview  ">
+      <h1 class="mume-header" id="optimizing-code-and-knowing-about-the-memory">Optimizing code and knowing about the memory</h1>
+
+<ul>
+<li>
+<p>To write efficient code, you need to know what makes code slow</p>
+</li>
+<li>
+<p>We already saw how knowing type inference and specializations in Julia gives us tips to improve our coding issues</p>
+</li>
+<li>
+<p>In this part we will see how knowing about computer&apos;s memory will show some more ways to avoid slow coding and performance pitfalls</p>
+</li>
+</ul>
+<h2 class="mume-header" id="hierarchical-structure-of-computer-memory">Hierarchical structure of Computer Memory</h2>
+
+<p>There is a disconnect between the theoretical world and the actual world of high performance computing. The reason is  hardware actually matters so the way that the hardware is put together means that we have to understand how to code differently to the fact of how hardware works. So we need a mental model of memory.</p>
+<p>Let&apos;s Google <strong>CPU cache</strong>!!! Also we look something from the University of Washington.</p>
+<p>So</p>
+<ul>
+<li>At the highest level you have a <strong>CPU&apos;s core memory</strong></li>
+<li>which directly accesses a <strong>L1 cache</strong>. The L1 cache has the fastest access, so things which will be needed soon are kept there.</li>
+<li>However, it is filled from the <strong>L2 cache</strong>,</li>
+<li>which itself is filled from the <strong>L3 cache</strong>,</li>
+<li>which is filled from the <strong>main memory</strong> (Stack and heap both are here but stack is closer)</li>
+</ul>
+<p>This hierarchical format really matters because it means that there&apos;s a natural ordering that we should be using and following whenever we are doing your calculations. For optimimizing code,  if we can use things that are already in a closer cache can help the code run faster and in that case it does not have to bring it closer from a far end location to the CPU. <strong>When something needs to be pulled directly from main memory this is known as a <em>cache miss</em>, and this is most costly</strong>. For example linear algebra libraries are very efficient is because they really block their computation so that, one block fits into L1 cache the second block fits in L2 cache and so on, and these block sizes have been all different for everyone&apos;s chip, they&apos;re written CPU dependent in order to get the maximum performance possible. So main thing to take away  this hierarchy of memory makes difference. Things that you can have on your computer might be close in memory, also could be far in memory and this memory latency is one of the most important things for making sure when you want to work with your computational speeds.</p>
+<p>In the following we will see several times, this is really important where information gets stored.</p>
+<h2 class="mume-header" id="rowcolumn-major">Row/Column-Major</h2>
+
+<p>Many algorithms in numerical linear algebra are designed to <strong>minimize</strong> cache misses. Because of this chain, many modern CPUs try to guess what you will want next in your cache. <strong>When dealing with arrays, it will speculate ahead and grab what is known as a <em>cache line</em> or the next chunk in the array</strong>. Thus, your algorithms will be faster if you iterate along the values that it is grabbing. The values that it grabs are the next values in the continuous order of the stored array. When an array has only one dimension, its elements can be stored one after the other in a continuous block of memory. For two-dimensional (or greater) arrays can, there are two common conventions: row major and column major.</p>
+<ul>
+<li>
+<p>In the <strong>Row Major</strong>, the linear array of memory is formed by stacking the rows one after another. In other words, we can store from the beginning of the array the elements of the first row, followed by the elements of the second row, and so on.</p>
+</li>
+<li>
+<p>In the <strong>Column Major</strong>, the column vectors are put one after another.</p>
+</li>
+</ul>
+<p>Arrays in C, Python-numpy are stored as row-ordered. Julia, on the other hand, chooses the latter strategy, storing arrays as column-ordered, similar to MATLAB and FORTRAN. (This rule generalizes to the higher-dimensional array as well; it is always the last dimension that is stored first. )</p>
+<p>In Julia we have two kinds of indices for this, cartesian and linear. So for example we have</p>
+<pre data-role="codeBlock" data-info="julia" class="language-julia">AA <span class="token operator">=</span> rand<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span>
+AA<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>
+AA<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span>
+AA<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span>
+</pre><p>So the formula is <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo stretchy="false">[</mo><mi>i</mi><mo separator="true">,</mo><mi>j</mi><mo stretchy="false">]</mo><mo>=</mo><mi>A</mi><mo stretchy="false">[</mo><mi>i</mi><mo>+</mo><mo stretchy="false">(</mo><mi>j</mi><mo>&#x2212;</mo><mn>1</mn><mo stretchy="false">)</mo><mo>&#x2217;</mo><mi>n</mi><mi>u</mi><mi>m</mi><mi>r</mi><mi>o</mi><mi>w</mi><mi>s</mi><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">A[i,j] = A[i+ (j-1) * numrows]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">A</span><span class="mopen">[</span><span class="mord mathnormal">i</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.05724em;">j</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">A</span><span class="mopen">[</span><span class="mord mathnormal">i</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.05724em;">j</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">&#x2212;</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">&#x2217;</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">n</span><span class="mord mathnormal">u</span><span class="mord mathnormal">m</span><span class="mord mathnormal">ro</span><span class="mord mathnormal" style="margin-right:0.02691em;">w</span><span class="mord mathnormal">s</span><span class="mclose">]</span></span></span></span>. Since number of rows for <code>AA</code> is 2, we can check</p>
+<pre data-role="codeBlock" data-info="julia" class="language-julia"><span class="token comment">#code chunk 2</span>
+AA<span class="token punctuation">[</span><span class="token number">2</span> <span class="token operator">+</span> <span class="token punctuation">(</span><span class="token number">2</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token number">2</span>  <span class="token punctuation">]</span> <span class="token operator">==</span> AA<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">]</span>
+AA<span class="token punctuation">[</span><span class="token number">2</span> <span class="token operator">+</span> <span class="token punctuation">(</span><span class="token number">3</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token number">2</span>  <span class="token punctuation">]</span> <span class="token operator">==</span> AA<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">]</span>
+AA<span class="token punctuation">[</span><span class="token number">1</span> <span class="token operator">+</span> <span class="token punctuation">(</span><span class="token number">2</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token number">2</span>  <span class="token punctuation">]</span> <span class="token operator">==</span> AA<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">]</span>
+</pre><p>Here is a direct idea of going from Cartesian to Linear or Linear to Carstesian indices in Julia</p>
+<pre data-role="codeBlock" data-info="julia" class="language-julia">
+<span class="token comment">## going from Caretsian index to Linear index</span>
+
+A <span class="token operator">=</span> rand<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span>
+
+lin_I <span class="token operator">=</span> LinearIndices<span class="token punctuation">(</span>A<span class="token punctuation">)</span>
+cart_I <span class="token operator">=</span> CartesianIndices<span class="token punctuation">(</span>A<span class="token punctuation">)</span> 
+
+lin_I<span class="token punctuation">[</span>CartesianIndex<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token comment">## given a cartesian index I can find a linear index</span>
+cart_I<span class="token punctuation">[</span><span class="token number">8</span><span class="token punctuation">]</span> <span class="token comment">## but ac</span>
+
+
+</pre><p>So now let&apos;s see whether this column major operations makes any change or not..</p>
+<p>We consider the problem of taking two <code>100x100</code> random matrices and getting a 3rd matrix of  formed by the element-wise multiplication. We can do it simply by looping through the elements of the matrices as we will <strong>but we can loop either row-wise or column-wise</strong>.</p>
+<p>The two functions below show both, for the first one, the outer loop is row wise and the inner loop is column wise (so going in each row first and then to all columns, and then going to the next row and so on). And in the second function it&apos;s the opossite, we go to each column first and then go to all rows, and then we go to next column, and so on...Note in both functions we pre-allocate <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi></mrow><annotation encoding="application/x-tex">C</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span></span></span></span>,</p>
+<pre data-role="codeBlock" data-info="julia" class="language-julia"><span class="token comment">#code chunk 3</span>
+A <span class="token operator">=</span> rand<span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+B <span class="token operator">=</span> rand<span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+C <span class="token operator">=</span> rand<span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">function</span> inner_rows<span class="token operator">!</span><span class="token punctuation">(</span>C<span class="token punctuation">,</span>A<span class="token punctuation">,</span>B<span class="token punctuation">)</span>
+  <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token number">1</span><span class="token punctuation">:</span><span class="token number">100</span><span class="token punctuation">,</span> j <span class="token keyword">in</span> <span class="token number">1</span><span class="token punctuation">:</span><span class="token number">100</span>  
+    C<span class="token punctuation">[</span>i<span class="token punctuation">,</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> A<span class="token punctuation">[</span>i<span class="token punctuation">,</span>j<span class="token punctuation">]</span> <span class="token operator">+</span> B<span class="token punctuation">[</span>i<span class="token punctuation">,</span>j<span class="token punctuation">]</span> <span class="token comment">#</span>
+  <span class="token keyword">end</span>
+<span class="token keyword">end</span>
+
+<span class="token keyword">function</span> inner_cols<span class="token operator">!</span><span class="token punctuation">(</span>C<span class="token punctuation">,</span>A<span class="token punctuation">,</span>B<span class="token punctuation">)</span>
+  <span class="token keyword">for</span> j <span class="token keyword">in</span> <span class="token number">1</span><span class="token punctuation">:</span><span class="token number">100</span><span class="token punctuation">,</span> i <span class="token keyword">in</span> <span class="token number">1</span><span class="token punctuation">:</span><span class="token number">100</span>
+    C<span class="token punctuation">[</span>i<span class="token punctuation">,</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> A<span class="token punctuation">[</span>i<span class="token punctuation">,</span>j<span class="token punctuation">]</span> <span class="token operator">+</span> B<span class="token punctuation">[</span>i<span class="token punctuation">,</span>j<span class="token punctuation">]</span>
+  <span class="token keyword">end</span>
+<span class="token keyword">end</span>
+
+<span class="token keyword">using</span> BenchmarkTools
+@btime  inner_rows<span class="token operator">!</span><span class="token punctuation">(</span>C<span class="token punctuation">,</span>A<span class="token punctuation">,</span>B<span class="token punctuation">)</span>
+@btime inner_cols<span class="token operator">!</span><span class="token punctuation">(</span>C<span class="token punctuation">,</span>A<span class="token punctuation">,</span>B<span class="token punctuation">)</span>
+</pre><p>So we run both and benchmark and notice that the column-wise version performs much faster. So using the memory layout is crucial.</p>
+<h2 class="mume-header" id="stack-and-heap">Stack and Heap</h2>
+
+<p>The stack is a fixed piece of the memory that is always living right next to your core. So when you know so it&apos;s a fixed size where the location of everything in the stack is known beforehand and you know that you can instantly grab anything in there without having to search around, this is pretty fast. For the heap, it is a dynamic memory allocation layout unit which is associated with a program. The bad thing is it&apos;s of changing size and this means the things that are in there can have changing size. So you can have things with undefined lengths of memory.</p>
+<p>Again what is wrong with heap allocations? The idea is you have to store everything there with pointers (some kind of reference) and whenever you need it, you go to the pointer, if you need type information, it will check every time you ask for it. On the other hand stack is like one straight line of memory, things are just side by side, and it is close to the core.</p>
+<p>Many things are automatically on the stack when you run your computer, so there is not much free space, but you can also use <code>some</code> the free space sometime. And maybe we will see some.</p>
+<p>One way where you actually see this in action is when you allocate an array. An array is the most basic thing that shows up all the time that is living on the heap. Again, why does it live on the heap? Well because an array can be in any object of any size and any size at compile time. So recall julia uses all of its type information at compile time, so here when I create this array 100 by 100, we see in REPL that this array and its actual type is an Array of Float64s. But at compile time it has no idea how what the length of the array will be. <strong>So this is what we call a dynamically sized array</strong>. Most languages use dynamically sized arrays because they&apos;re really nice, you can change their size you can resize them and so on. But the key thing this has some cost. All arrays live on the heap and that means whenever we create new arrays we&apos;re going to create new pointers to things on the heap and so on...</p>
+<p>Okay so let&apos;s see this in action,</p>
+<h3 class="mume-header" id="but-before-that-lets-just-quickly-learn-the-functions-related-to-arrays">But Before that let&apos;s just quickly learn the functions related to Arrays</h3>
+
+<ul>
+<li><code>eltype(A)</code>	the type of the elements contained in A</li>
+<li><code>length(A)</code>	the number of elements in A</li>
+<li><code>ndims(A)</code>	the number of dimensions of A</li>
+<li><code>size(A)</code> a tuple containing the dimensions of A</li>
+<li><code>size(A,n)</code>	the size of A along dimension n</li>
+<li><code>axes(A)</code>	a tuple containing the valid indices of A</li>
+<li><code>axes(A,n)</code>	a range expressing the valid indices along dimension n</li>
+<li><code>eachindex(A)</code>	an efficient iterator for visiting each position in A</li>
+</ul>
+<pre data-role="codeBlock" data-info="julia" class="language-julia">A <span class="token operator">=</span> rand<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span>
+
+<span class="token keyword">for</span> i <span class="token keyword">in</span> eachindex<span class="token punctuation">(</span>A<span class="token punctuation">)</span>
+  <span class="token keyword">println</span><span class="token punctuation">(</span>i<span class="token operator">^</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token comment">## A[i]</span>
+
+<span class="token keyword">end</span>
+
+
+</pre><p>For construction and initialization we can use</p>
+<ul>
+<li><code>Array{T}(undef, dims...)</code>	an uninitialized dense Array</li>
+<li><code>zeros(T, dims...)</code>	an Array of all zeros</li>
+<li><code>ones(T, dims...)</code>	an Array of all ones</li>
+<li><code>trues(dims...)</code>	a BitArray with all values true</li>
+<li><code>falses(dims...)</code>	a BitArray with all values false</li>
+<li><code>reshape(A, dims...)</code>	an array containing the same data as A, but with different dimensions</li>
+<li><code>copy(A)</code>	copy A</li>
+<li><code>deepcopy(A)</code>	copy A, recursively copying its elements</li>
+<li><code>similar(A, T, dims...)</code>	an uninitialized array of the same type as A (dense, sparse, etc.), but with the specified element type and dimensions. The second and third arguments are both optional, defaulting to the element type and dimensions of A if omitted.</li>
+<li><code>reinterpret(T, A)</code>	an array with the same binary data as A, but with element type T</li>
+<li><code>rand(T, dims...)</code>	an Array with random, iid [1] and uniformly distributed values in the half-open interval [0,1)[0, 1)[0,1)</li>
+<li><code>randn(T, dims...)</code>	an Array with random, iid and standard normally distributed values</li>
+<li><code>Matrix{T}(I, m, n)</code>	m-by-n identity matrix. Requires using LinearAlgebra for I.</li>
+<li><code>range(start, stop=stop, length=n)</code>	range of n linearly spaced elements from start to stop</li>
+<li><code>fill!(A, x)</code>	fill the array A with the value x</li>
+<li><code>fill(x, dims...)</code>	an Array filled with the value x</li>
+</ul>
+<p>Now back to memory allocations. So let&apos;s see some code</p>
+<pre data-role="codeBlock" data-info="julia" class="language-julia"><span class="token comment">#code chunk 3</span>
+<span class="token keyword">function</span> inner_alloc<span class="token operator">!</span><span class="token punctuation">(</span>C<span class="token punctuation">,</span>A<span class="token punctuation">,</span>B<span class="token punctuation">)</span>
+  <span class="token keyword">for</span> j <span class="token keyword">in</span> <span class="token number">1</span><span class="token punctuation">:</span><span class="token number">100</span><span class="token punctuation">,</span> i <span class="token keyword">in</span> <span class="token number">1</span><span class="token punctuation">:</span><span class="token number">100</span>
+    val <span class="token operator">=</span> <span class="token punctuation">[</span>A<span class="token punctuation">[</span>i<span class="token punctuation">,</span>j<span class="token punctuation">]</span> <span class="token operator">+</span> B<span class="token punctuation">[</span>i<span class="token punctuation">,</span>j<span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token comment">## note we put it inside the array</span>
+    C<span class="token punctuation">[</span>i<span class="token punctuation">,</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> val<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>
+  <span class="token keyword">end</span>
+<span class="token keyword">end</span>
+@btime inner_alloc<span class="token operator">!</span><span class="token punctuation">(</span>C<span class="token punctuation">,</span>A<span class="token punctuation">,</span>B<span class="token punctuation">)</span>
+</pre><p>In the code above we are doing the same column wise loop but note, what we also do is <strong>we put this sum of elements inside of an array</strong>. Then we&apos;re going to put that value into <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi></mrow><annotation encoding="application/x-tex">C</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span></span></span></span>. Let&apos;s see how fast this runs...Ohhh!!  100 X 100 = 10000 allocations!!!!</p>
+<p>So the key here is really that when we take this value A plus B we get a scalar and then we could put that scalar inside of an array and this array is going to be that dynamically sized object. Although we know that it&apos;s a one by one object or a length one vector but it&apos;s not part of the type information. <strong>So at compile time it cannot specialize directly on that type</strong>.</p>
+<p>So the question is how much does it matter when we change this to have a scaler rather than creating an array? Let&apos;s change the code a bit by replacing <code>val</code> array with the <code>val</code> scaler to store the temporary values...</p>
+<pre data-role="codeBlock" data-info="julia" class="language-julia"><span class="token comment">#code chunk 4</span>
+<span class="token keyword">function</span> inner_noalloc<span class="token operator">!</span><span class="token punctuation">(</span>C<span class="token punctuation">,</span>A<span class="token punctuation">,</span>B<span class="token punctuation">)</span>
+  <span class="token keyword">for</span> j <span class="token keyword">in</span> <span class="token number">1</span><span class="token punctuation">:</span><span class="token number">100</span><span class="token punctuation">,</span> i <span class="token keyword">in</span> <span class="token number">1</span><span class="token punctuation">:</span><span class="token number">100</span>
+    val <span class="token operator">=</span> A<span class="token punctuation">[</span>i<span class="token punctuation">,</span>j<span class="token punctuation">]</span> <span class="token operator">+</span> B<span class="token punctuation">[</span>i<span class="token punctuation">,</span>j<span class="token punctuation">]</span> <span class="token comment">## this is in stack</span>
+    C<span class="token punctuation">[</span>i<span class="token punctuation">,</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> val<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>
+  <span class="token keyword">end</span>
+<span class="token keyword">end</span>
+@btime inner_noalloc<span class="token operator">!</span><span class="token punctuation">(</span>C<span class="token punctuation">,</span>A<span class="token punctuation">,</span>B<span class="token punctuation">)</span>
+</pre><p>Huge difference! <strong>Scaler is something that you know the size at compile time</strong> because if I take something like 1.0 I know it&apos;s a <code>Float64</code> which tells me it&apos;s 64 bit object.</p>
+<p>Note, the only difference is, in the previous we created an array and in this one we do not create an array when we do this then we see that even though this one is still adding it&apos;s not going to take even close to as much time. Now, very important, one of the things that can affect your performance the most is small heap allocations.</p>
+<p>We discussed about mutable objects in general right? Now note, they are always heap allocated. Sometimes even in some programming languages you can change the number of fields of your object and so you can have any code anytime further down the line and then all of a sudden add more fields in there. Sounds great, but the problem is if you can always add more fields in there, then that object is not something that has a single size, its size can be dependent on which codes you&apos;re going to run after it and so the only way to be able to store such an object is heap because you don&apos;t know how to pre-size it. This might be really problematic in terms of performance.</p>
+<p>Even with heap allocations, sometimes other languages do well sometimes because there are some additional code optimizations to keep  minimum the number of things that get heap allocated and having coding styles that are not emphasizing heap allocation.</p>
+<p>Now occassionally we can also try to put things on the stack that are not just scalars. There is a nice package called <code>StaticArrays.jl</code>, it will make statically-sized arrays
+and these arrays are stack-allocated:</p>
+<pre data-role="codeBlock" data-info="julia" class="language-julia"><span class="token comment">#code chunk 5</span>
+<span class="token keyword">using</span> StaticArrays
+sv <span class="token operator">=</span> SVector<span class="token punctuation">{</span><span class="token number">3</span><span class="token punctuation">,</span>Float64<span class="token punctuation">}</span><span class="token punctuation">(</span><span class="token number">1.0</span><span class="token punctuation">,</span><span class="token number">2.0</span><span class="token punctuation">,</span><span class="token number">3.0</span><span class="token punctuation">)</span>
+typeof<span class="token punctuation">(</span>sv<span class="token punctuation">)</span>
+</pre><p>See we can exactly know the size of this object and type so we know it will need 64*3 bits in order to store this object and so when a function is compiled holding this kind of SVector it can put this SVector to the to the stack</p>
+<pre data-role="codeBlock" data-info="julia" class="language-julia"><span class="token comment">#code chunk 6</span>
+<span class="token keyword">function</span> static_inner_alloc<span class="token operator">!</span><span class="token punctuation">(</span>C<span class="token punctuation">,</span>A<span class="token punctuation">,</span>B<span class="token punctuation">)</span>
+  <span class="token keyword">for</span> j <span class="token keyword">in</span> <span class="token number">1</span><span class="token punctuation">:</span><span class="token number">100</span><span class="token punctuation">,</span> i <span class="token keyword">in</span> <span class="token number">1</span><span class="token punctuation">:</span><span class="token number">100</span>
+    val <span class="token operator">=</span> @SVector <span class="token punctuation">[</span>A<span class="token punctuation">[</span>i<span class="token punctuation">,</span>j<span class="token punctuation">]</span> <span class="token operator">+</span> B<span class="token punctuation">[</span>i<span class="token punctuation">,</span>j<span class="token punctuation">]</span><span class="token punctuation">]</span> 
+    C<span class="token punctuation">[</span>i<span class="token punctuation">,</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> val<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>
+  <span class="token keyword">end</span>
+<span class="token keyword">end</span>
+@btime static_inner_alloc<span class="token operator">!</span><span class="token punctuation">(</span>C<span class="token punctuation">,</span>A<span class="token punctuation">,</span>B<span class="token punctuation">)</span>
+</pre><p>where</p>
+<pre data-role="codeBlock" data-info="julia" class="language-julia"><span class="token comment">#code chunk 7</span>
+@macroexpand @SVector <span class="token punctuation">[</span>A<span class="token punctuation">[</span>i<span class="token punctuation">,</span>j<span class="token punctuation">]</span> <span class="token operator">+</span> B<span class="token punctuation">[</span>i<span class="token punctuation">,</span>j<span class="token punctuation">]</span><span class="token punctuation">]</span>
+
+</pre><p>The upside of static arrays or statically allocated variables is they&apos;re fast and they essentially don&apos;t count as allocations at all.  But the downside of them though is that you only have little space in your stack. <strong>So if you try to put way too much stuff in your stack then you can actually make things a lot slower by doing that</strong> (why??) Statically allocated variables are great for small size variables but you don&apos;t want to over abuse stacks, so be careful.</p>
+<h3 class="mume-header" id="mutation-to-avoid-heap-allocations">Mutation to Avoid Heap Allocations</h3>
+
+<p>Many times <strong>you do need to write into an array</strong>, maybe because of very large object we have to access but heaps are slow, so how can you write into an array without performing a heap allocation?</p>
+<p>The answer is <strong>mutation</strong>. <strong>Mutation is changing the values of an already existing array</strong> (sometimes I think I mentioned this as pre-allocation!, we already saw this!). In that case, no free memory has to be found to put the array (and no memory has to be freed by the garbage collector).</p>
+<pre data-role="codeBlock" data-info="julia" class="language-julia"><span class="token comment">#code chunk 8</span>
+<span class="token keyword">function</span> inner_noalloc<span class="token operator">!</span><span class="token punctuation">(</span>C<span class="token punctuation">,</span>A<span class="token punctuation">,</span>B<span class="token punctuation">)</span> <span class="token comment">## it takes C as an argument!</span>
+  <span class="token keyword">for</span> j <span class="token keyword">in</span> <span class="token number">1</span><span class="token punctuation">:</span><span class="token number">100</span><span class="token punctuation">,</span> i <span class="token keyword">in</span> <span class="token number">1</span><span class="token punctuation">:</span><span class="token number">100</span>
+    val <span class="token operator">=</span> A<span class="token punctuation">[</span>i<span class="token punctuation">,</span>j<span class="token punctuation">]</span> <span class="token operator">+</span> B<span class="token punctuation">[</span>i<span class="token punctuation">,</span>j<span class="token punctuation">]</span>
+    C<span class="token punctuation">[</span>i<span class="token punctuation">,</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> val<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>
+  <span class="token keyword">end</span>
+<span class="token keyword">end</span>
+@btime inner_noalloc<span class="token operator">!</span><span class="token punctuation">(</span>C<span class="token punctuation">,</span>A<span class="token punctuation">,</span>B<span class="token punctuation">)</span>
+</pre><p>This the same function. What it will essentially do is C = A+ B, but instead of putting this into a new matrix what this is doing is just overwriting C that was passed as the first argument to the function.  In Julia, functions which mutate the first value are conventionally noted by a <code>!</code>. Note that the previous functions also had the <code>!</code>.    Now the non-mutating equivalent functions would be (which takes a bit more!)</p>
+<pre data-role="codeBlock" data-info="julia" class="language-julia"><span class="token comment">#code chunk 9</span>
+<span class="token keyword">function</span> inner_alloc<span class="token punctuation">(</span>A<span class="token punctuation">,</span>B<span class="token punctuation">)</span>
+  C <span class="token operator">=</span> similar<span class="token punctuation">(</span>A<span class="token punctuation">)</span>
+  <span class="token keyword">for</span> j <span class="token keyword">in</span> <span class="token number">1</span><span class="token punctuation">:</span><span class="token number">100</span><span class="token punctuation">,</span> i <span class="token keyword">in</span> <span class="token number">1</span><span class="token punctuation">:</span><span class="token number">100</span>
+    val <span class="token operator">=</span> A<span class="token punctuation">[</span>i<span class="token punctuation">,</span>j<span class="token punctuation">]</span> <span class="token operator">+</span> B<span class="token punctuation">[</span>i<span class="token punctuation">,</span>j<span class="token punctuation">]</span>
+    C<span class="token punctuation">[</span>i<span class="token punctuation">,</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> val<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>
+  <span class="token keyword">end</span>
+<span class="token keyword">end</span>
+@btime inner_alloc<span class="token punctuation">(</span>A<span class="token punctuation">,</span>B<span class="token punctuation">)</span>
+</pre><p>This is what you will usually do when you write C = A+ B in <code>numpy</code> (for my Python expert colleagues and freinds!).</p>
+<p>In the second one we have a  heap allocated object. You&apos;re not creating a lot of them so remember that before when we&apos;re when we&apos;re allocating inside of the loop we allocated 10000 things and it was extremely slow. This is better now, but even here we have a bit of a slowdown because we are still allocating something right and allocating an array takes some time right???</p>
+<blockquote>
+<p>So if you want to do a lot of operations fast you want to reuse your arrays as much as possible you do not want to create arrays</p>
+</blockquote>
+<p>Even when you&apos;re going to very large matrices what you want to do is you want to still decrease the amount of memory allocations as much as possible at least try to make them show up as few times as possible and try to put them before loops whenever you can and that also means that if you&apos;re going to have loops of loops of loops of loops you know you want to have, then have all of the allocations at the very very beginning before all of your loops.</p>
+<h3 class="mume-header" id="julias-broadcasting-mechanism">Julia&apos;s Broadcasting Mechanism</h3>
+
+<p>Now let&apos;s say we want to calculate <code>10 * (A + B)</code> and  we do the similar way how we did the previous calculations,</p>
+<pre data-role="codeBlock" data-info="julia" class="language-julia"><span class="token comment">#code chunk 10</span>
+<span class="token keyword">function</span> f<span class="token punctuation">(</span>A<span class="token punctuation">,</span>B<span class="token punctuation">)</span>
+  sum<span class="token punctuation">(</span><span class="token punctuation">[</span>A <span class="token punctuation">.</span><span class="token operator">+</span> B <span class="token keyword">for</span> k <span class="token keyword">in</span> <span class="token number">1</span><span class="token punctuation">:</span><span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment"># 10 100 by 100 matrices </span>
+<span class="token keyword">end</span>
+@btime f<span class="token punctuation">(</span>A<span class="token punctuation">,</span>B<span class="token punctuation">)</span>
+
+<span class="token keyword">function</span> g<span class="token punctuation">(</span>A<span class="token punctuation">,</span>B<span class="token punctuation">)</span>
+  C <span class="token operator">=</span> similar<span class="token punctuation">(</span>A<span class="token punctuation">)</span>
+  <span class="token keyword">for</span> k <span class="token keyword">in</span> <span class="token number">1</span><span class="token punctuation">:</span><span class="token number">10</span>
+    C<span class="token punctuation">.</span><span class="token operator">+=</span> A <span class="token punctuation">.</span><span class="token operator">+</span> B<span class="token punctuation">;</span> <span class="token comment">## elementwise versions of the plus!</span>
+  <span class="token keyword">end</span>
+<span class="token keyword">end</span>
+@btime g<span class="token punctuation">(</span>A<span class="token punctuation">,</span>B<span class="token punctuation">)</span>
+
+</pre><p>In Julia <code>.</code> operator is basically means turn the following into a element-wise function which also called <strong>Broadcasting</strong>.</p>
+<p>So `A.*B&apos; means do elementwise multiplication between A and B. Another way to write it is</p>
+<pre data-role="codeBlock" data-info="julia" class="language-julia">map<span class="token punctuation">(</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span>b<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> a<span class="token operator">*</span>b<span class="token punctuation">,</span> A<span class="token punctuation">,</span> B<span class="token punctuation">)</span>
+</pre><p>or a more lower equivalent representation would be</p>
+<pre data-role="codeBlock" data-info="julia" class="language-julia"><span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token number">1</span><span class="token punctuation">:</span>length<span class="token punctuation">(</span>A<span class="token punctuation">)</span>
+  C<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> A<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">*</span> B<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token comment">## note we did this in single indexing</span>
+<span class="token keyword">end</span>
+</pre><p>So here we are indexing arrays with the single dimension and with this we do not have to worry about inner column or inner row because it is already the order how it is stored which is column-wise for Julia. So if we want to write generic code like this that works for arrays or matrices irrespective of dimension, dot operation which will generate the single dimension code under the hood.</p>
+<p>So how you will compute <code>A .+ B .+ C</code>? How numpy will do it? it will interpret it with <code>(A .+ B) .+ C</code> that is</p>
+<pre data-role="codeBlock" data-info="julia" class="language-julia"><span class="token comment">#code chunk 11</span>
+<span class="token keyword">function</span> dotstar<span class="token punctuation">(</span>A<span class="token punctuation">,</span> B<span class="token punctuation">,</span> C<span class="token punctuation">)</span>
+  tmp <span class="token operator">=</span> similar<span class="token punctuation">(</span>A<span class="token punctuation">)</span>
+  <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token number">1</span><span class="token punctuation">:</span>length<span class="token punctuation">(</span>A<span class="token punctuation">)</span>
+    tmp<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> A<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">*</span> B<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
+  <span class="token keyword">end</span>
+  tmp2 <span class="token operator">=</span> similar<span class="token punctuation">(</span>C<span class="token punctuation">)</span>
+  <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token number">1</span><span class="token punctuation">:</span>length<span class="token punctuation">(</span>C<span class="token punctuation">)</span>
+    tmp2<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> tmp<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">*</span> C<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
+  <span class="token keyword">end</span>
+<span class="token keyword">end</span>
+@btime dotstar<span class="token punctuation">(</span>A<span class="token punctuation">,</span>B<span class="token punctuation">,</span>C<span class="token punctuation">)</span>
+</pre><p>Now is this going to be the most optimal way? Well No! we have heap allocations. What if you do it as a single operation like below:</p>
+<pre data-role="codeBlock" data-info="julia" class="language-julia"><span class="token comment">#code chunk 12</span>
+<span class="token keyword">function</span> dotstar2<span class="token punctuation">(</span>A<span class="token punctuation">,</span> B<span class="token punctuation">,</span> C<span class="token punctuation">)</span>
+  tmp <span class="token operator">=</span> similar<span class="token punctuation">(</span>A<span class="token punctuation">)</span>
+  <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token number">1</span><span class="token punctuation">:</span>length<span class="token punctuation">(</span>A<span class="token punctuation">)</span>
+    tmp<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> A<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">*</span> B<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">*</span> C<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
+  <span class="token keyword">end</span>
+<span class="token keyword">end</span>
+@btime dotstar2<span class="token punctuation">(</span>A<span class="token punctuation">,</span>B<span class="token punctuation">,</span>C<span class="token punctuation">)</span>
+</pre><p>So we can see it got faster and we cut out some allocations as we got rid of one of the arrays. This is called <em>loop fusion</em>  . See we have two loops but since we&apos;re doing element-wise operations in both of these loops it could be one loop.</p>
+<p>This is why we <strong>don&apos;t want a function for dot star</strong> rather you should have <strong>a compiler mechanism</strong> that creates new functions based off of all the things that you&apos;re trying to do dot star with together.</p>
+<p>How does the first one look in map form?</p>
+<pre data-role="codeBlock" data-info="julia" class="language-julia">map<span class="token punctuation">(</span><span class="token punctuation">(</span>tmp<span class="token punctuation">,</span> c<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span><span class="token punctuation">,</span> map<span class="token punctuation">(</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span>b<span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">&gt;</span> a<span class="token operator">*</span>b<span class="token punctuation">,</span> A<span class="token punctuation">,</span> B<span class="token punctuation">)</span><span class="token punctuation">,</span>C<span class="token punctuation">)</span>
+</pre><p>is what would happen if we had <code>.*</code> as a function. But Julia&apos;s JIT compiler allows to make a fast code for  <code>A .+ B .+ C</code> <strong>where the dot operations are fused together</strong> which have the map representation</p>
+<pre data-role="codeBlock" data-info="julia" class="language-julia">map<span class="token punctuation">(</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span>b<span class="token punctuation">,</span>c<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> a<span class="token operator">*</span>b<span class="token operator">*</span>c<span class="token punctuation">,</span> A<span class="token punctuation">,</span> B<span class="token punctuation">,</span> C<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</pre><p>So this fusion requires generating new function at compile time. So for example if we want to compute  <code>A .+ B .+ C .* sin.(A)</code>, Julia&apos;s compiler is going to collect all of these dots and it&apos;s going to compile a function that is going to fuse together all of these loops.</p>
+<pre data-role="codeBlock" data-info="julia" class="language-julia"><span class="token comment">#code chunk 13</span>
+<span class="token keyword">function</span> unfused<span class="token punctuation">(</span>A<span class="token punctuation">,</span>B<span class="token punctuation">,</span>C<span class="token punctuation">)</span>
+  tmp <span class="token operator">=</span> A <span class="token punctuation">.</span><span class="token operator">+</span> B
+  tmp <span class="token punctuation">.</span><span class="token operator">+</span> C
+<span class="token keyword">end</span>
+@btime unfused<span class="token punctuation">(</span>A<span class="token punctuation">,</span>B<span class="token punctuation">,</span>C<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</pre><p>The timing is pretty close to the <code>dotstar</code>, the two loop version we wrote by hand. And the fused version should be close to the one loop version <code>dotstar2</code></p>
+<pre data-role="codeBlock" data-info="julia" class="language-julia">fused<span class="token punctuation">(</span>A<span class="token punctuation">,</span>B<span class="token punctuation">,</span>C<span class="token punctuation">)</span> <span class="token operator">=</span> A <span class="token punctuation">.</span><span class="token operator">+</span> B <span class="token punctuation">.</span><span class="token operator">+</span> C
+@btime fused<span class="token punctuation">(</span>A<span class="token punctuation">,</span>B<span class="token punctuation">,</span>C<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</pre><p>You can see the allocation number of the corresponding loop version match but these <code>.*</code> implementations are still little faster that the loop version, some additional things are done to make the loops faster but we will get to that.</p>
+<p>But we still have some allocations, so lets also see how can do a mutating version. Let&apos;s do the looped version first.</p>
+<pre data-role="codeBlock" data-info="julia" class="language-julia"><span class="token comment">#code chunk 15</span>
+<span class="token keyword">function</span> dotstar3<span class="token operator">!</span><span class="token punctuation">(</span>tmp<span class="token punctuation">,</span> A<span class="token punctuation">,</span> B<span class="token punctuation">,</span> C<span class="token punctuation">)</span>
+  <span class="token comment">#tmp = similar(A) # Don\t need allcation anymore</span>
+  <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token number">1</span><span class="token punctuation">:</span>length<span class="token punctuation">(</span>A<span class="token punctuation">)</span>
+    tmp<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> A<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">*</span> B<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">*</span> C<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
+  <span class="token keyword">end</span>
+  tmp<span class="token punctuation">;</span>
+<span class="token keyword">end</span>
+
+D <span class="token operator">=</span> similar<span class="token punctuation">(</span>A<span class="token punctuation">)</span>
+@btime dotstar3<span class="token operator">!</span><span class="token punctuation">(</span>D<span class="token punctuation">,</span> A<span class="token punctuation">,</span>B<span class="token punctuation">,</span>C<span class="token punctuation">)</span>
+</pre><p>of course you cannot have free memory so the user
+your user defines a temporary variable, but now if they just happen to have this variable just lying around in their back pocket then they can call your function and it should have absolutely no allocations.</p>
+<p>So <code>dotstar2</code> needed 19 microseconds and now we get down to 15. This is the fastest we got so far by writing loop by hand.</p>
+<p>So how we use the dot format. We have here use <code>.=</code>.</p>
+<pre data-role="codeBlock" data-info="julia" class="language-julia"><span class="token comment">#code chunk 16</span>
+<span class="token keyword">function</span> realdotstar3<span class="token operator">!</span><span class="token punctuation">(</span>tmp<span class="token punctuation">,</span> A<span class="token punctuation">,</span> B<span class="token punctuation">,</span> C<span class="token punctuation">)</span>
+  tmp <span class="token punctuation">.</span><span class="token operator">=</span> A <span class="token punctuation">.</span><span class="token operator">+</span> B <span class="token punctuation">.</span><span class="token operator">+</span> C
+  tmp 
+<span class="token keyword">end</span>
+
+@btime dotstar3<span class="token operator">!</span><span class="token punctuation">(</span>D<span class="token punctuation">,</span> A<span class="token punctuation">,</span>B<span class="token punctuation">,</span>C<span class="token punctuation">)</span>
+</pre><p>About mutation you have to be careful that  you are using the exact same variable that you are inputting here. How do you know? Let&apos;s do this</p>
+<pre data-role="codeBlock" data-info="julia" class="language-julia"><span class="token comment">#code chunk 18</span>
+D <span class="token operator">=</span> zeros<span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">)</span>
+
+</pre><p>And make <code>realdotstar3</code> return <code>nothing</code></p>
+<p>So this time it takes 9 microseconds and also no allocations.</p>
+<pre data-role="codeBlock" data-info="julia" class="language-julia"><span class="token comment">#code chunk 19</span>
+<span class="token keyword">function</span> realdotstar3<span class="token operator">!</span><span class="token punctuation">(</span>tmp<span class="token punctuation">,</span> A<span class="token punctuation">,</span> B<span class="token punctuation">,</span> C<span class="token punctuation">)</span>
+  tmp <span class="token punctuation">.</span><span class="token operator">=</span> A <span class="token punctuation">.</span><span class="token operator">+</span> B <span class="token punctuation">.</span><span class="token operator">+</span> C
+  nothing 
+<span class="token keyword">end</span>
+realdotstar3<span class="token operator">!</span><span class="token punctuation">(</span>D<span class="token punctuation">,</span> A<span class="token punctuation">,</span>B<span class="token punctuation">,</span>C<span class="token punctuation">)</span>
+</pre><p>is <code>D</code> still going to be zeros?</p>
+<pre data-role="codeBlock" data-info="julia" class="language-julia"><span class="token comment">#code chunk 20</span>
+D
+</pre><p>So it is changing the matrix that you out in. So that is why using this bang <code>!</code> is important to warn the user that this is going to change the values you have when using a mutating function.</p>
+<p>This is what we call a <strong>non-allocating function with no return</strong></p>
+<p>So you can put dots on everything. So try to figure out what is happening under the hood for this function in Julia compiler?</p>
+<pre data-role="codeBlock" data-info="julia" class="language-julia">A <span class="token punctuation">.</span><span class="token operator">+</span> B <span class="token punctuation">.</span><span class="token operator">*</span>C<span class="token punctuation">.</span><span class="token operator">*</span> sin<span class="token punctuation">.</span><span class="token punctuation">(</span>cos<span class="token punctuation">.</span><span class="token punctuation">(</span>A<span class="token punctuation">)</span><span class="token punctuation">)</span>
+</pre><p>this is one of those things that really causes the speed difference in optimized code from something like C++ and fortran to python numpy and r right because when you&apos;re doing a lot of python and r the way that those programming languages work is that someone is actually kind of written down like function of dot star that lowers into C code underneath the hood equivalent to</p>
+<pre data-role="codeBlock" data-info="julia" class="language-julia"><span class="token keyword">function</span> <span class="token punctuation">.</span><span class="token operator">*</span><span class="token punctuation">(</span>A<span class="token punctuation">,</span>B<span class="token punctuation">)</span>
+  tmp <span class="token operator">=</span> similar<span class="token punctuation">(</span>A<span class="token punctuation">)</span>
+  <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token number">1</span><span class="token punctuation">:</span>length<span class="token punctuation">(</span>A<span class="token punctuation">)</span>
+    tmp<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> A<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">*</span> B<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
+  <span class="token keyword">end</span>
+<span class="token keyword">end</span>
+
+</pre><p>And then always the unfused looping happens which is like <code>.*(.*(A,B), C)</code> so it is not possible to fuse</p>
+<p>Now those who familiar with vectorized matrix operation in numpy or R let&apos;s see now how we differentiate them</p>
+<pre data-role="codeBlock" data-info="julia" class="language-julia"><span class="token comment">#code chunk 20</span>
+<span class="token keyword">function</span> vectorized<span class="token operator">!</span><span class="token punctuation">(</span>tmp<span class="token punctuation">,</span> A<span class="token punctuation">,</span> B<span class="token punctuation">,</span> C<span class="token punctuation">)</span>
+  tmp <span class="token punctuation">.</span><span class="token operator">=</span> A <span class="token punctuation">.</span><span class="token operator">+</span> B <span class="token punctuation">.</span><span class="token operator">+</span> C
+  nothing 
+<span class="token keyword">end</span>
+
+<span class="token keyword">function</span> nonvectorized<span class="token operator">!</span><span class="token punctuation">(</span>tmp<span class="token punctuation">,</span> A<span class="token punctuation">,</span> B<span class="token punctuation">,</span> C<span class="token punctuation">)</span>
+  <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token number">1</span><span class="token punctuation">:</span>length<span class="token punctuation">(</span>A<span class="token punctuation">)</span>
+    tmp<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> A<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">*</span> B<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">*</span> C<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
+  <span class="token keyword">end</span>
+  nothing 
+<span class="token keyword">end</span>
+
+</pre><p>It looks like there is some difference in time difference we will where that comes from.</p>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    </body></html>

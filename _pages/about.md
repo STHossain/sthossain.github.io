@@ -2,24 +2,28 @@
 layout: about
 title: about
 permalink: /
-subtitle: <a href='#'>Affiliations</a>. Address. Contacts. Moto. Etc.
+subtitle:
 
 profile:
   align: right
-  image: prof_pic.jpg
+  image: prof_pic.png
   image_circular: false # crops the image to make it circular
-  more_info: >
-    <p>555 your office number</p>
-    <p>123 your address street</p>
-    <p>Your City, State 12345</p>
+  # more_info: >
+  #   <p>555 your office number</p>
+  #   <p>123 your address street</p>
+  #   <p>Your City, State 12345</p>
 
-news: true # includes a list of news items
-selected_papers: true # includes a list of papers marked as "selected={true}"
-social: true # includes social icons at the bottom of the page
+news: false # includes a list of news items
+selected_papers: false # includes a list of papers marked as "selected={true}"
+social: false # includes social icons at the bottom of the page
 ---
 
-Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](http://reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
+I am enrolled as doctoral student at the Business Economics Department of <a href="https://www.tu-dortmund.de/en/" target="_blank">Technical University of Dortmund</a>. From 2018 - 2022, as a doctoral student, I was also a research associate (in German Wissenschaftlicher Mitarbeiter) at the Department of Statistics (<a href="https://lwus.statistik.tu-dortmund.de/en/chair/alumni/" target="_blank">Chair of Business and Social Statistics</a>). Currently I am also an adjunct lecturer at the Economics Department of <a href="https://www.ewubd.edu/" target="_blank">East West University, Bangladesh</a>
 
-Put your address / P.O. box / other info right below your picture. You can also disable any of these elements by editing `profile` property of the YAML header of your `_pages/about.md`. Edit `_bibliography/papers.bib` and Jekyll will render your [publications page](/al-folio/publications/) automatically.
+I completed my masters in Economics from the <a href="https://www.uni-mannheim.de/en/" target="_blank">University of Mannheim, Germany</a>, and I did my bachelors in Business and Economics from <a href="https://www.bracu.ac.bd/" target="_blank">BRAC University, Bangladesh</a>. My research interest lies in intersection of Causal Inference, Econometrics and Machine Learning (both in theory and applied works), and I love coding. 
 
-Link to your social media connections, too. This theme is set up to use [Font Awesome icons](https://fontawesome.com/) and [Academicons](https://jpswalsh.github.io/academicons/), like the ones below. Add your Facebook, Twitter, LinkedIn, Google Scholar, or just disable all of them.
+You can find my CV [here](/assets/pdf/CV_STHossain.pdf) and I give a bit more deatils about me in the page [Some Details]
+
+<br>
+
+<i class="fas fa-envelope"></i> To contact, you can send me an email at <tt>tanvir.hossain@tu-dortmund.de</tt>
