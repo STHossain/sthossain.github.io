@@ -10,7 +10,7 @@ nav_order: 2
 
 ##  <ins>*Work in Progress*</ins>
 
-#### 1. **Sequential Treatment Allocation with Interference** (comning soon): 
+#### 1. **Sequential Treatment Allocation with Interference**: 
 I study the sequential treatment allocation problem (a.k.a multi armed bandit) with interference. The work is motivated from the recent work of <a href="https://arxiv.org/abs/2402.01845" target="_blank">Jia et al. - 2024</a>.
 
 #### 2. **Bias correction, Bootstrap and Kernel Estimators**: 
