@@ -144,134 +144,6 @@
             
           
             
-          
-            
-          
-            
-          
-            
-          
-            
-          
-            
-          
-            
-          
-            
-          
-            
-          
-            
-          
-            
-          
-            
-          
-            
-          
-            
-          
-            
-          
-            
-          
-            
-          
-            
-          
-            
-          
-            
-          
-            
-          
-            
-          
-            
-          
-            
-          
-            
-          
-            
-          
-            
-          
-            
-          
-            
-          
-            
-          
-            
-          
-            
-          
-            
-          
-            
-          
-            
-          
-            
-          
-            
-          
-            
-          
-            
-          
-            
-          
-            
-          
-            
-          
-            
-          
-            
-          
-            
-          
-            
-          
-            
-          
-            
-          
-            
-          
-            
-          
-            
-          
-            
-          
-            
-          
-            
-          
-            
-          
-            
-          
-            
-          
-            
-          
-            
-          
-            
-          
-            
-          
-            
-          
-            
-          
-            
-          
-            
               
                 
                 <li class="nav-item ">
@@ -297,6 +169,37 @@
               
             
           
+            
+              
+                
+                <li class="nav-item active">
+                  
+                  <a class="nav-link" href="/_pages/more_details/">more details
+                    
+                  </a>
+                </li>
+              
+            
+          
+            
+              
+                
+                <li class="nav-item ">
+                  
+                  <a class="nav-link" href="/blog/">blog
+                    
+                  </a>
+                </li>
+              
+            
+          
+          
+            <!-- Search -->
+            <li class="nav-item">
+              <button id="search-toggle" title="Search" onclick="openSearchModal()">
+                <span class="nav-link">ctrl k <i class="ti ti-search"></i></span>
+              </button>
+            </li>
           
           
             <!-- Toogle theme mode -->
@@ -373,7 +276,8 @@
       © Copyright 2024
       Sk. Tanvir
       
-      Hossain. Powered by <a href="https://jekyllrb.com/" target="_blank" rel="external nofollow noopener">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio" rel="external nofollow noopener" target="_blank">al-folio</a> theme. Hosted by <a href="https://pages.github.com/" target="_blank" rel="external nofollow noopener">GitHub Pages</a>. Photos from <a href="https://unsplash.com" target="_blank" rel="external nofollow noopener">Unsplash</a>.
+      Hossain. Powered by <a href="https://jekyllrb.com/" target="_blank" rel="external nofollow noopener">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio" rel="external nofollow noopener" target="_blank">al-folio</a>  theme. 
+Hosted by <a href="https://pages.github.com/" target="_blank" rel="external nofollow noopener">GitHub Pages</a>.
 
       
       
@@ -558,6 +462,208 @@
 
 
     
+  <script type="module" src="/assets/js/search/ninja-keys.min.js?601a2d3465e2a52bec38b600518d5f70"></script>
+  <ninja-keys hidebreadcrumbs noautoloadmdicons placeholder="Type to start searching"></ninja-keys>
+  <script>
+    let searchTheme = determineComputedTheme();
+    const ninjaKeys = document.querySelector('ninja-keys');
+
+    if (searchTheme === 'dark') {
+      ninjaKeys.classList.add('dark');
+    } else {
+      ninjaKeys.classList.remove('dark');
+    }
+
+    const openSearchModal = () => {
+      // collapse navbarNav if expanded on mobile
+      const $navbarNav = $('#navbarNav');
+      if ($navbarNav.hasClass('show')) {
+        $navbarNav.collapse('hide');
+      }
+      ninjaKeys.open();
+    };
+  </script>
+  <script>
+    // get the ninja-keys element
+    const ninja = document.querySelector('ninja-keys');
+
+    // add the home and posts menu items
+    ninja.data = [{
+        id: "nav-about",
+        title: "about",
+        section: "Navigation",
+        handler: () => {
+          window.location.href = "/";
+        },
+      },{id: "nav-research",
+              title: "research",
+              description: "",
+              section: "Navigation",
+              handler: () => {
+                window.location.href = "/research/";
+              },
+            },{id: "nav-teaching",
+              title: "teaching",
+              description: "",
+              section: "Navigation",
+              handler: () => {
+                window.location.href = "/teaching/";
+              },
+            },{id: "nav-more-details",
+              title: "more details",
+              description: "",
+              section: "Navigation",
+              handler: () => {
+                window.location.href = "/_pages/more_details/";
+              },
+            },{id: "nav-blog",
+              title: "blog",
+              description: "",
+              section: "Navigation",
+              handler: () => {
+                window.location.href = "/blog/";
+              },
+            },{id: "post-need-to-write",
+          
+            title: "need to write",
+          
+          description: "time to write maybe",
+          section: "Posts",
+          handler: () => {
+            
+              window.location.href = "/blog/2024/random/";
+            
+          },
+        },{id: "teaching-important-notices",
+              title: 'Important Notices',
+              description: "Some important notices for the course",
+              section: "Teaching",handler: () => {
+                  window.location.href = "/teaching/ewu/eco104/04_important_notices/10_important_notices/";
+                },},{id: "teaching-eco-104-statistics-for-business-and-economics-i",
+              title: 'ECO 104 - Statistics for Business and Economics I',
+              description: "Course Webpage, Fall 2023",
+              section: "Teaching",handler: () => {
+                  window.location.href = "/teaching/ewu/eco104/eco104/";
+                },},{id: "teaching-rough-course-plan",
+              title: 'Rough Course Plan',
+              description: "",
+              section: "Teaching",handler: () => {
+                  window.location.href = "/teaching/ewu/eco204/02_rough_plan/02_rough_plan/";
+                },},{id: "teaching-lecture-slides-notes",
+              title: 'Lecture Slides / Notes',
+              description: "",
+              section: "Teaching",handler: () => {
+                  window.location.href = "/teaching/ewu/eco204/03_lecture_slides/03_lecture_slides/";
+                },},{id: "teaching-r-lab-mlr-with-adv-data",
+              title: 'R Lab - MLR (with adv data)',
+              description: "",
+              section: "Teaching",handler: () => {
+                  window.location.href = "/teaching/ewu/eco204/03_lecture_slides/Chapter4/R_Codes/advdata_codes_mlr/";
+                },},{id: "teaching-r-lab-mlr-with-adv-data",
+              title: 'R Lab - MLR (with adv data)',
+              description: "",
+              section: "Teaching",handler: () => {
+                  window.location.href = "/teaching/ewu/eco204/03_lecture_slides/Chapter4/Zipped_Folders/advdata/advdata_codes_mlr/";
+                },},{id: "teaching-r-lab-anova",
+              title: 'R Lab: ANOVA',
+              description: "",
+              section: "Teaching",handler: () => {
+                  window.location.href = "/teaching/ewu/eco204/03_lecture_slides/Chapter5/R_Codes/anova_lab/";
+                },},{id: "teaching-r-lab-time-series",
+              title: 'R Lab - Time Series',
+              description: "",
+              section: "Teaching",handler: () => {
+                  window.location.href = "/teaching/ewu/eco204/03_lecture_slides/Chapter6/R_Codes/ts_lab/";
+                },},{id: "teaching-r-lab-time-series",
+              title: 'R Lab - Time Series',
+              description: "",
+              section: "Teaching",handler: () => {
+                  window.location.href = "/teaching/ewu/eco204/03_lecture_slides/Chapter6/Zipped_Folders/ts_lab_R/ts_lab/";
+                },},{id: "teaching-using-r-and-r-studio",
+              title: 'Using R and R Studio',
+              description: "using R and RStudio",
+              section: "Teaching",handler: () => {
+                  window.location.href = "/teaching/ewu/eco204/04_R_RStudio/04_R_RStudio/";
+                },},{id: "teaching-problem-sets",
+              title: 'Problem Sets',
+              description: "",
+              section: "Teaching",handler: () => {
+                  window.location.href = "/teaching/ewu/eco204/05_problem_sets/05_problem_sets/";
+                },},{id: "teaching-ps-4-partial-soln",
+              title: 'PS-4 Partial Soln',
+              description: "",
+              section: "Teaching",handler: () => {
+                  window.location.href = "/teaching/ewu/eco204/05_problem_sets/PS4/Solutions/PS-4_Soln/";
+                },},{id: "teaching-lab-projects",
+              title: 'Lab Projects',
+              description: "",
+              section: "Teaching",handler: () => {
+                  window.location.href = "/teaching/ewu/eco204/06_lab_projects/06_lab_projects/";
+                },},{id: "teaching-exams-details",
+              title: 'Exams Details',
+              description: "",
+              section: "Teaching",handler: () => {
+                  window.location.href = "/teaching/ewu/eco204/07_exam_details/07_exam_details/";
+                },},{id: "teaching-quizzes",
+              title: 'Quizzes',
+              description: "",
+              section: "Teaching",handler: () => {
+                  window.location.href = "/teaching/ewu/eco204/08_quizzes/08_quizzes/";
+                },},{id: "teaching-additional-resources",
+              title: 'Additional Resources',
+              description: "Some additional resources",
+              section: "Teaching",handler: () => {
+                  window.location.href = "/teaching/ewu/eco204/09_additional_resources/09_additional_resources/";
+                },},{id: "teaching-important-notices",
+              title: 'Important Notices',
+              description: "Some important notices for the course",
+              section: "Teaching",handler: () => {
+                  window.location.href = "/teaching/ewu/eco204/10_important_notices/10_important_notices/";
+                },},{id: "teaching-eco-204-statistics-for-business-and-economics-ii",
+              title: 'ECO 204 - Statistics for Business and Economics II',
+              description: "Course Webpage, Fall 2023",
+              section: "Teaching",handler: () => {
+                  window.location.href = "/teaching/ewu/eco204/eco204/";
+                },},{id: "teaching-mat-100-college-mathematics-summer-2022",
+              title: 'MAT 100 - College Mathematics (Summer 2022)',
+              description: "",
+              section: "Teaching",handler: () => {
+                  window.location.href = "/teaching/ewu/mat100/mat100/";
+                },},{id: "teaching-programming-with-julia",
+              title: 'Programming with Julia',
+              description: "Julia Programming Course at TU Dortmund, Fall 2021",
+              section: "Teaching",handler: () => {
+                  window.location.href = "/teaching/tudo/julia_course/julia_course_page/";
+                },},{
+          id: 'light-theme',
+          title: 'Change theme to light',
+          description: 'Change the theme of the site to Light',
+          section: 'Theme',
+          handler: () => {
+            setThemeSetting("light");
+          },
+        },
+        {
+          id: 'dark-theme',
+          title: 'Change theme to dark',
+          description: 'Change the theme of the site to Dark',
+          section: 'Theme',
+          handler: () => {
+            setThemeSetting("dark");
+          },
+        },
+        {
+          id: 'system-theme',
+          title: 'Use system default theme',
+          description: 'Change the theme of the site to System Default',
+          section: 'Theme',
+          handler: () => {
+            setThemeSetting("system");
+          },
+        },];
+  </script>
+  <script src="/assets/js/shortcut-key.js?6f508d74becd347268a7f822bca7309d"></script>
+
 
   </body>
 </html>
