@@ -17,12 +17,12 @@
   
   
     
-      a post with tabs | Sk. Tanvir Hossain
+      ECO 104 - Statistics for Business and Economics I | Sk. Tanvir Hossain
     
   
 </title>
 <meta name="author" content="Sk. Tanvir Hossain">
-<meta name="description" content="this is what included tabs in a post could look like">
+<meta name="description" content="&lt;strong&gt; Course Webpage, Fall 2023 &lt;/strong&gt;">
 
   <meta name="keywords" content="jekyll, jekyll-theme, academic-website, portfolio-website">
 
@@ -50,6 +50,9 @@
 <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-github.css?591dab5a4e56573bf4ef7fd332894c99" media="" id="highlight_theme_light">
 
 
+  <!-- Sidebar Table of Contents -->
+  <link defer href="/assets/css/bootstrap-toc.min.css?6f5af0bb9aab25d79b2448143cbeaa88" rel="stylesheet">
+
 
 <!-- Styles -->
 
@@ -58,7 +61,7 @@
 
 
 <link rel="stylesheet" href="/assets/css/main.css?d41d8cd98f00b204e9800998ecf8427e">
-<link rel="canonical" href="http://localhost:4000/blog/2024/tabs/">
+<link rel="canonical" href="http://localhost:4000/teaching/ewu/eco104/eco104/">
 
 <!-- Dark Mode -->
 <script src="/assets/js/theme.js?9a0c749ec5240d9cda97bc72359a72c0"></script>
@@ -286,9 +289,11 @@
             
               
                 
-                <li class="nav-item ">
+                <li class="nav-item active">
                   
                   <a class="nav-link" href="/teaching/">teaching
+                    
+                      <span class="sr-only">(current)</span>
                     
                   </a>
                 </li>
@@ -325,213 +330,205 @@
     <div class="container mt-5" role="main">
       
         
-
-
-
-
-
-
-
+          <div class="row">
+            <!-- sidebar, which will move to the top on a small screen -->
+            <div class="col-sm-3">
+              <nav id="toc-sidebar" class="sticky-top"></nav>
+            </div>
+            <!-- main content area -->
+            <div class="col-sm-9">
 <div class="post">
   <header class="post-header">
-    <h1 class="post-title">a post with tabs</h1>
-    <p class="post-meta">
-      Created in May 01, 2024
-      
-      
-      
-    </p>
-    <p class="post-tags">
-      
-        <a href="/blog/2024"> <i class="fa-solid fa-calendar fa-sm"></i> 2024 </a>
-      
-      
-          ·  
-        
-          
-            <a href="/blog/tag/formatting"> <i class="fa-solid fa-hashtag fa-sm"></i> formatting</a>
-          
-          
-             
-          
-        
-          
-            <a href="/blog/tag/code"> <i class="fa-solid fa-hashtag fa-sm"></i> code</a>
-          
-          
-        
-      
-
-      
-          ·  
-        
-          
-            <a href="/blog/category/sample-posts">
-              <i class="fa-solid fa-tag fa-sm"></i> sample-posts</a>
-          
-          
-        
-      
-    </p>
+    <h1 class="post-title">ECO 104 - Statistics for Business and Economics I</h1>
+    <p class="post-description"><strong> Course Webpage, Fall 2023 </strong></p>
   </header>
 
-  <article class="post-content">
-    
-    <div id="markdown-content">
-      <p>This is how a post with <a href="https://github.com/Ovski4/jekyll-tabs" rel="external nofollow noopener" target="_blank">tabs</a> looks like. Note that the tabs could be used for different purposes, not only for code.</p>
+  <article>
+    <!--  -->
 
-<h2 id="first-tabs">First tabs</h2>
+<p><img src="../coin_toss_unsplash.jpeg" width="600" height="400" alt="Coin Toss Image"></p>
 
-<p>To add tabs, use the following syntax:</p>
+<p style="font-size: 0.8em; text-align: center;">Photo by <a href="https://unsplash.com/photos/grayscale-photography-of-person-holding-coin-b4D7FKAghoE" target="_blank" rel="external nofollow noopener">ZSun Fu</a> on Unsplash</p>
 
-<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">{%</span><span class="w"> </span><span class="nt">tabs</span><span class="w"> </span><span class="nv">group-name</span><span class="w"> </span><span class="cp">%}</span>
+<p>Randomness is everywhere! Think about tossing a coin. We call this a random experiment. Specifically, a random experiment is an experiment (something that we can repeat) where all possible outcomes are known to us, but before the actual experiment takes place, we don’t know which outcome will occur. For example, in a coin toss, the possible outcomes are heads and tails, but we don’t know which one will appear before the experiment. The work of probability theory is to study these kinds of random experiments systematically. If statistics is the language of data, then probability theory is the language of uncertainty.</p>
 
-<span class="cp">{%</span><span class="w"> </span><span class="nt">tab</span><span class="w"> </span><span class="nv">group-name</span><span class="w"> </span><span class="nv">tab-name-1</span><span class="w"> </span><span class="cp">%}</span>
-
-Content 1
-
-<span class="cp">{%</span><span class="w"> </span><span class="nt">endtab</span><span class="w"> </span><span class="cp">%}</span>
-
-<span class="cp">{%</span><span class="w"> </span><span class="nt">tab</span><span class="w"> </span><span class="nv">group-name</span><span class="w"> </span><span class="nv">tab-name-2</span><span class="w"> </span><span class="cp">%}</span>
-
-Content 2
-
-<span class="cp">{%</span><span class="w"> </span><span class="nt">endtab</span><span class="w"> </span><span class="cp">%}</span>
-
-<span class="cp">{%</span><span class="w"> </span><span class="nt">endtabs</span><span class="w"> </span><span class="cp">%}</span>
-</code></pre></div></div>
-
-<p>With this you can generate visualizations like:</p>
-
-<ul id="log" class="tab" data-tab="172a2725-e242-421a-986b-fa1e13053ea3" data-name="log">
-  
-      <li class="active" id="log-php">
-          <a href="#">php </a>
-      </li>
-  
-      <li id="log-js">
-          <a href="#">js </a>
-      </li>
-  
-      <li id="log-ruby">
-          <a href="#">ruby </a>
-      </li>
-  
-</ul>
-<ul class="tab-content" id="172a2725-e242-421a-986b-fa1e13053ea3" data-name="log">
-  
-      <li class="active">
-<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">var_dump</span><span class="p">(</span><span class="s1">'hello'</span><span class="p">);</span>
-</code></pre></div></div>
-
-</li>
-  
+<h2 id="1-course-information">1. Course Information</h2>
+<ul>
+  <li>
+<strong>Semester:</strong> Fall 2023</li>
+  <li>
+<strong>Instructor:</strong> Shaikh Tanvir Hossain</li>
+  <li>
+<strong>Email:</strong> tanvir.hossain@ewubd.edu</li>
+  <li>
+<strong>Class Schedule:</strong>
+    <ul>
       <li>
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">hello</span><span class="dl">"</span><span class="p">);</span>
-</code></pre></div></div>
-
-</li>
-  
+<strong>Tuesday:</strong> 10:10 - 11:40 PM (FUB, 304)</li>
       <li>
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">pputs</span> <span class="dl">'</span><span class="s1">hello</span><span class="dl">'</span>
-</code></pre></div></div>
-
+<strong>Thursday:</strong> 10:10 - 11:40 PM (Room 533, C.Lab)</li>
+    </ul>
+  </li>
+  <li><strong>Outline in PDF - <a href="../Eco104_outline_Fall2023.pdf">click here</a></strong></li>
+  <li>
+<strong>Office Hours</strong>
+    <ul>
+      <li>
+<strong>Thursdays:</strong> 12:00 - 1:30 PM (Room 345), <em>Please try to come during this time!</em>
 </li>
-  
+    </ul>
+  </li>
 </ul>
 
-<h2 id="another-example">Another example</h2>
-
-<ul id="data-struct" class="tab" data-tab="4f61223f-b8ec-47e1-9d24-1782e75d3726" data-name="data-struct">
-  
-      <li class="active" id="data-struct-yaml">
-          <a href="#">yaml </a>
-      </li>
-  
-      <li id="data-struct-json">
-          <a href="#">json </a>
-      </li>
-  
-</ul>
-<ul class="tab-content" id="4f61223f-b8ec-47e1-9d24-1782e75d3726" data-name="data-struct">
-  
-      <li class="active">
-<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">hello</span><span class="pi">:</span>
-  <span class="pi">-</span> <span class="s2">"</span><span class="s">whatsup"</span>
-  <span class="pi">-</span> <span class="s2">"</span><span class="s">hi"</span>
-</code></pre></div></div>
-
-</li>
-  
-      <li>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"hello"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"whatsup"</span><span class="p">,</span><span class="w"> </span><span class="s2">"hi"</span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-</li>
-  
+<h2 id="2-course-description">2. Course Description</h2>
+<p>This is the first course in the sequence of two Statistics courses offered for the Economics and Business students at EWU (the next one is ECO 204). The course will cover</p>
+<ul>
+  <li>Basic ideas about Statistics and Data Sets.</li>
+  <li>Some Descriptive Statistics (graphical and numerical methods).</li>
+  <li>Introduction to Probability Theory (i.e., defining Probability, Random Variables and Distributions).</li>
+  <li>Ideas about Sampling Distributions.</li>
+  <li>Index numbers.</li>
 </ul>
 
-<h2 id="tabs-for-something-else">Tabs for something else</h2>
+<p>The approach of the class includes both learning the concepts and also how to apply them in real-life
+situations. Students will also be introduced to Microsoft Excel for applications related to business and
+economic data</p>
 
-<ul id="something-else" class="tab" data-tab="a37cd6fb-61df-45ad-9490-558f20a6ce81" data-name="something-else">
-  
-      <li class="active" id="something-else-text">
-          <a href="#">text </a>
-      </li>
-  
-      <li id="something-else-quote">
-          <a href="#">quote </a>
-      </li>
-  
-      <li id="something-else-list">
-          <a href="#">list </a>
-      </li>
-  
+<h2 id="3-prerequisite-courses">3. Prerequisite Courses</h2>
+<p>MAT100 or at least equivalent Math courses.</p>
+
+<h2 id="4-textbooks--notes">4. Textbooks / Notes</h2>
+<p>There will be lecture notes (typed), and you should definitely read that first. In addition, I recommend to use any of the following books for exercises and practice problems.</p>
+
+<ol>
+  <li>Anderson, Sweeney, Williams, Camm, Cochran, Fry and Ohlmann (2020)</li>
+  <li>Newbold, Carlson and Thorne (2020)</li>
+</ol>
+
+<p>Following books are a bit advanced at this level, but nevertheless these are also excellent references.</p>
+
+<ol>
+  <li>DeGroot and Schervish (2012)</li>
+  <li>Casella and Berger (2002)</li>
+</ol>
+
+<h2 id="5-marks-distribution">5. Marks Distribution</h2>
+<ul>
+  <li>
+<strong>Problem Sets:</strong> 5%</li>
+  <li>
+<strong>Quizzes:</strong> 15%</li>
+  <li>
+<strong>Lab Project:</strong> 10%</li>
+  <li>
+<strong>Midterm 1:</strong> 20%</li>
+  <li>
+<strong>Midterm 2:</strong> 20%</li>
+  <li>
+<strong>Final Exam:</strong> 30%</li>
 </ul>
-<ul class="tab-content" id="a37cd6fb-61df-45ad-9490-558f20a6ce81" data-name="something-else">
-  
-      <li class="active">
-<p>Regular text</p>
 
-</li>
-  
-      <li>
-<blockquote>
-  <p>A quote</p>
-</blockquote>
+<h2 id="6-additional-details">6. Additional Details:</h2>
+<ul>
+  <li>
+<strong>Problem Sets:</strong> Usually there will be a problem set every two weeks, and it has to be turned in with your attempted solutions by the following week. Please form groups of a maximum of 3 and submit in groups. DO the problem set seriously!</li>
+  <li>
+<strong>Quizzes:</strong> In total there will be 6 random quizzes (i.e., they can happen any day during the whole semester!) I will take the average of the best 3.</li>
+  <li>
+<strong>Lab Project:</strong> Lastly, there will be a Lab Project. We will talk about the details later in class.</li>
+</ul>
 
-</li>
-  
-      <li>
-<p>Hipster list</p>
+<h2 id="7-lecture-notes">7. Lecture Notes</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Chapter</th>
+      <th>Title</th>
+      <th>Link</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Ch 1 - Descriptive Statistics</td>
+      <td><a href="">Link</a></td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Ch 2 - Probability Theory - 1</td>
+      <td><a href="../eco104/02_prob_theory_1/02_prob_theory_1.pdf">Link</a></td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Ch 3 - Probability Theory - 2</td>
+      <td><a href="../eco104/03_prob_theory_2/03_prob_theory_2.pdf">Link</a></td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Ch 4 - Probability Theory - 3</td>
+      <td><a href="../eco104/04_prob_theory_3/04_prob_theory_3.pdf">Link</a></td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>Ch 5 - Sampling Distributions</td>
+      <td><a href="../eco104/05_sampling_dist/05_sampling_dist.pdf">Link</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="8-problem-sets">8. Problem Sets</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Set</th>
+      <th>Problem Set Link</th>
+      <th>Solutions Link</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>PS 1</td>
+      <td><a href="../eco104/02_problem_sets/PS1/PS_1.pdf">Problem Set</a></td>
+      <td><a href="../eco104/02_problem_sets/PS1/Ch2_solns_2_2_and_2_3.xlsx">Some Solutions (Excel File)</a></td>
+    </tr>
+    <tr>
+      <td>PS 2</td>
+      <td><a href="../eco104/02_problem_sets/PS2/PS_2.pdf">Problem Set</a></td>
+      <td><a href="../eco104/02_problem_sets/PS2/PS_2_withsoln.pdf">Solutions</a></td>
+    </tr>
+    <tr>
+      <td>PS 3</td>
+      <td><a href="../eco104/02_problem_sets/PS3/PS_3.pdf">Problem Set</a></td>
+      <td><a href="../eco104/02_problem_sets/PS3/PS_3_withSoln.pdf">Solutions</a></td>
+    </tr>
+    <tr>
+      <td>PS 4</td>
+      <td><a href="../eco104/02_problem_sets/PS4/PS_4.pdf">Problem Set</a></td>
+      <td><a href="../eco104/02_problem_sets/PS4/PS_4_more_solns.pdf">Solutions</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="9-expectations">9. Expectations</h2>
+<p>Please try to be punctual in class. Regular attendance is important. If your attendance is less than 75%, you won’t be allowed to sit for the final. You are expected to maintain Academic Honesty, which means you should perform all academic activities without any form of cheating, lying, stealing, plagiarism, receiving unauthorized assistance, or using any source of information that is prohibited.</p>
+
+<h2 id="other-resources">Other Resources</h2>
 
 <ul>
-  <li>brunch</li>
-  <li>fixie</li>
-  <li>raybans</li>
-  <li>messenger bag</li>
+  <li>Here is an amazing lecture  <a href="https://www.math.uci.edu/~rvershyn/" rel="external nofollow noopener" target="_blank">Roman Vershynin</a> for Random Variable, <a href="https://www.youtube.com/watch?v=nEikQI1Xeyw&amp;list=PLPjEEUWIWhQVCnBNkMAc4xxCXSILJDJKl&amp;index=23" rel="external nofollow noopener" target="_blank">link</a>. Watch this, this is really good!</li>
 </ul>
 
-</li>
-  
-</ul>
-
-
-    </div>
   </article>
 
   
 
   
-
-  
-
-  
-  
 </div>
-
+</div>
+          </div>
+        
       
     </div>
 
@@ -591,6 +588,9 @@ Content 2
   <script defer src="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous"></script>
   <script defer src="/assets/js/zoom.js?85ddb88934d28b74e78031fd54cf8308"></script>
 
+
+  <!-- Sidebar Table of Contents -->
+  <script defer src="/assets/js/bootstrap-toc.min.js?c82ff4de8b0955d6ff14f5b05eed7eb6"></script>
 
 
 <!-- Bootstrap Table -->
@@ -718,8 +718,6 @@ Content 2
     
 
     
-  <script src="/assets/js/tabs.min.js?b8748955e1076bbe0dabcf28f2549fdc"></script>
-
 
     
   <script src="/assets/js/vanilla-back-to-top.min.js?f40d453793ff4f64e238e420181a1d17"></script>
