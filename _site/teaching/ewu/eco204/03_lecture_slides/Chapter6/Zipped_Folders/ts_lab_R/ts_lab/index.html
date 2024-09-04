@@ -1,0 +1,457 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body><p>```{r}
+rm(list = ls())
+```
+
+R is very powerful when it comes to Time Series Analysis, however the methods that we are looking at this chapter are very basic, so probably you won't appreciate the use of R for these methods. Sorry guys.... ECO204 is just the starting, so we can't cover the advanced methods here and also I think some of the concepts of time series is beyond the scope of this course. However, if you are interested in Time Series Analysis, then you can take some courses in Econometrics and hopefully you will learn more. Nevertheless, here are some resources, 
+
+- [Forecasting: Principles and Practice](https://otexts.com/fpp3/)
+- [Time Series Analysis and Its Applications: With R Examples](https://mybiostats.files.wordpress.com/2015/03/time-series-analysis-and-its-applications-with-examples-in-r.pdf)
+
+## Time Series Objects and Plots
+
+In R for time series analysis there is a special object. We can convert any vector to time series objects by calling the function `ts()`. The `ts()` function takes two arguments, the first one is the data and the second one is the frequency of the data. If we have consecutive time periods for a short amount of time, probably you don't need to do anything with the frequency, but complicated time structure like seasonality or cycles, possibly you should be careful. 
+
+Okay let's see an example, where we will start with a vector and then convert it to a time series object. 
+
+
+```{r}
+raw_data &lt;- c(17, 21,  19,  23,  18, 16, 20, 18, 22, 20, 15, 22, 31, 34, 31, 33, 28, 32, 30, 29, 34, 33)
+
+# here frequency is 1 since we observe the data in every week, we don't need to 
+# set this but I did it just for clarity
+gas_revised &lt;- ts(raw_data, frequency = 1)
+
+# "o" is used to show the circle in the plots
+plot.ts(gas_revised , xlim = c(0, 22), ylim = c(0, 40), type = "o", 
+        xlab = "Week", ylab = "Sales")
+
+```
+
+One very important thing in the time series is the lagged values. We can get the lagged values of a time series object with the function `lag()`. Careful this function will only work for time series objects not for any arbitrary vector. Let's see how we can use this function.
+
+```{r}
+# This will creae a new object called gas_lag which is the lagged value of the gas_revised object
+lag(gas_revised, k = -1)
+```
+
+Note, we used `k = -1`. The way you should understand this, we are in the period "0" currently. Since we want to get the data for the past period, so we used `k = - 1`.  If we use `k = 1` then we will see value in the future, i.e., one period ahead. We can use the function `cbind()` to combine the original time series object and the lagged time series data.
+
+```{r}
+cbind(gas_revised, lag(gas_revised, k = -1))
+```
+
+We can also different lagged values, for different k, you can try this. In R we can also look at directly the difference between the time series object and the lagged time series object. We can do that using the `diff()` function. Since I don't need this I won't use this function now, maybe later!
+
+
+# Horizontal Pattern
+
+When the plot shows a horizontal pattern, then we can say that probably the time series object is stationary. For Horizontal pattern we learned two techniques to forecast,
+
+- 1. Naive Forecast
+- 2. Moving Average Forecast (Equal or Unequal Weights)
+
+Let's see them now
+
+## 1. Naive Forecast
+
+In this method we simply take the last observation (lagged observation) as the forecast for the current period. So the equation is
+
+$$ F_t = y_{t - 1} $$
+
+This means that the forecast for the current period is the last observation. Let's see how we can do this in R. We will use the gasoline data from the Anderson book. First we will load the data, create a time series object and plot it
+
+
+```{r} 
+
+library(readxl)
+raw_data &lt;- read_excel("/home/tanvir/Documents/ownCloud/Git_Repos/EWU_repos/3_Fall_2023/eco_204/ewu-eco204.github.io/pdf_files/slides/06_time_series/Codes/Gasoline.xlsx")
+
+# take only the sales column and convert it to a time series object
+gas_data &lt;- ts(raw_data$Sales, frequency = 1)
+
+
+# see the data
+gas_data
+```
+
+Let's plot the time series object
+
+```{r}
+plot.ts(gas_data, type = "o", xlab = "Week", ylab = "Sales")
+
+```
+
+
+Now we will do the forecast using the naive method and then see `MFE`, `MAE` or other summary measures of the forecast. We will use the `accuracy()` function from the package `forecast` to do that. If you don't have the package installed, then you can install it using the command `install.packages("forecast")`
+
+```{r}
+# get the naive forecast
+gas_forecast_naive &lt;- lag(gas_data, k = -1)
+
+# load the library forecast
+library(forecast)
+
+# get the summary measures for accuracy of the forecast
+accuracy(gas_forecast_naive, gas_data)
+```
+
+
+
+Note that the `accuracy()` function takes two arguments, the first one is the forecast and the second one is the actual data. The output of the `accuracy()` function is a table, which shows the summary statistics of the forecast. 
+
+- The first column `ME` is Mean Forecast Error (MFE), which is the average of the forecast errors.
+- The second column `RMSE` is Root Mean Square Error (RMSE), which is the square root of the average of the squared forecast errors. If you square the RMSE, then you will get the MSE (Mean Squared Error).
+
+- The third column `MAE` is Mean Absolute Error (MAE), which is the average of the absolute forecast errors.
+
+- The fourth column `MPE` is Mean Percentage Error (MPE), which is the average of the percentage forecast errors.
+
+- The fifth column `MAPE` is Mean Absolute Percentage Error (MAPE), which is the average of the absolute percentage forecast errors.
+
+You can ignore the last two columns. Finally we can plot the forecast and the actual data together to see how the forecast looks like. In this case we will use the `plot.ts()` function. To do this first we need to make a matrix of the forecast and the actual data using the `cbind()` function. Then we will use the `plot.ts()` function to plot the data. Let's see how we can do that.
+
+
+
+```{r}
+# make a matrix of the forecast and the actual data
+gas_forecast_naive_m &lt;- cbind( gas_data, gas_forecast_naive)
+gas_forecast_naive_m
+
+# remove the NAs from the matrix
+gas_forecast_naive_m &lt;- na.omit(gas_forecast_naive_m)
+gas_forecast_naive_m 
+
+# plot the data
+plot.ts(gas_forecast_naive_m,  plot.type = "single", xlab = "Week", ylab = "Sales", col = c("red", "blue"),  main = "Naive Forecast", type = "o", lwd = c(2, 1))
+
+legend("topleft", legend=c("Actual", "Forecast"),col=c("red", "blue"), cex=0.8, lwd = c(2, 1))
+
+```
+
+## 2. Moving Average Forecasts (Equal / Unequal Weights)
+
+In this method we take the average of the last few observations as the forecast for the current period. The number of observations that we take the average is called the order. For example, if we take the average of the last 3 observations, then the order is 3. If we write this then,
+
+$$ F_t = \frac{y_{t - 1} + y_{t - 2} + y_{t - 3}}{3} $$
+
+
+
+We will use the function `rollmean()` from the package `xts` to do that. Let's see how we can do that.
+
+
+
+
+```{r}
+library(xts)
+gas_ma &lt;- rollmean(gas_data, k = 3,  align = "right", fill = NA)
+gas_ma
+```
+
+Now this is the data set of forecasts. The problem with the `rollmean()` function is that it does not give us 3 NAs at the beginning of the data set (which we should have), it gives two, but we can fix that using the `lag()` function. So using `lag` and then `cbind()` we can get the data set of forecasts. 
+
+```{r}
+cbind(gas_data, lag(gas_ma, k = -1))
+```
+
+
+Finally we can use the `accuracy()` function to calculate the summary statistics of the forecast. 
+
+```{r}
+# fix the lag
+gas_forecast_ma &lt;- lag(gas_ma, k = -1)
+
+# get the summary measures for accuracy of the forecast
+accuracy(gas_forecast_ma, gas_data)
+```
+
+
+Also here we can plot the forecast and the actual data together to see how the forecast looks like. 
+```{r}
+# make a matrix of the forecast and the actual data
+gas_forecast_ma_m &lt;- cbind( gas_data, gas_forecast_ma)
+
+# remove the NAs from the matrix
+gas_forecast_ma_m &lt;- na.omit(gas_forecast_ma_m)
+gas_forecast_ma_m 
+
+# plot the data
+plot.ts(gas_forecast_ma_m,  plot.type = "single", xlab = "Week", ylab = "Sales", col = c("red", "blue"),  main = "MA Forecast (Equal Weights)", type = "o", lwd = c(2, 1))
+legend("topleft", legend=c("Actual", "Forecast"),col=c("red", "blue"), cex=0.8, lwd = c(2, 1))
+
+```
+
+
+Finally we will do the moving average with unequal weights. For this we can just give weights for the three observations that we are taking the average. Let's see how we can do that. 
+
+
+
+```{r}
+
+gas_ma_unequal &lt;- rollapply(gas_data, width = 3, FUN = function(x){weighted.mean(x, w = c(1/6, 2/6, 3/6))}, align = "right", fill = NA)
+
+
+gas_ma_unequal
+
+```
+
+Again we can use the `accuracy()` function to calculate the summary statistics of the forecast. Let's see how we can do that. 
+
+```{r}
+
+accuracy(lag(gas_ma_unequal, k = -1), gas_data)
+
+```
+
+
+Again Finally we can plot the forecast and the actual data together to see how the forecast looks like. 
+
+```{r}
+# make a matrix of the forecast and the actual data
+gas_forecast_ma_unequal_m &lt;- cbind( gas_data, lag(gas_ma_unequal, k = -1))
+
+# remove the NAs from the matrix
+gas_forecast_ma_unequal_m &lt;- na.omit(gas_forecast_ma_unequal_m)
+gas_forecast_ma_unequal_m
+
+# plot the data
+plot.ts(gas_forecast_ma_unequal_m,  plot.type = "single", xlab = "Week", ylab = "Sales", col = c("red", "blue"),  main = "MA Forecast (Unequal Weights)", type = "o", lwd = c(2, 1))
+legend("topleft", legend=c("Actual", "Forecast"),col=c("red", "blue"), cex=0.8, lwd = c(2, 1))
+
+
+
+```
+
+## 3. Exponential Smoothing
+
+We didn't cover exponential smoothing!
+
+
+# Trend Pattern
+
+Now we will forecasting with trend pattern. For trend pattern we can use forecast using linear or non-linear trend pattern.
+
+## 1. Linear Trend Pattern
+
+Let's load the Bicycle data from the Anderson book. As usual, first we will load the data, create a time series object and plot it
+
+
+```{r}
+
+raw_data &lt;- read_excel("/home/tanvir/Documents/ownCloud/Git_Repos/EWU_repos/3_Fall_2023/eco_204/ewu-eco204.github.io/pdf_files/slides/06_time_series/Codes/Bicycle.xlsx") 
+
+bicycle_data &lt;- ts(raw_data$Sales, frequency = 1)
+
+plot.ts(bicycle_data, type = "o", xlab = "Year", ylab = "Sales")
+```
+
+The data shows a trend pattern. Now we will use the `tslm()` function to fit a linear trend model. Let's see how we can do that. 
+
+```{r}
+
+bicycle_lm &lt;- tslm(bicycle_data ~ trend)
+summary(bicycle_lm)
+
+```
+
+
+Now we will use the `predict()` function to forecast the data. Let's see how we can do that. 
+
+```{r}
+
+bicycle_data_forecast_table &lt;- forecast(bicycle_lm)
+
+bicycle_data_forecast_table
+
+
+# we only need the point forecast now
+bicycle_data_forecast &lt;- bicycle_data_forecast_table$fitted
+```
+
+
+
+Now we will calculate the summary statistics of the forecast. Same technique as before.
+
+```{r}
+accuracy(bicycle_data_forecast, bicycle_data)
+```
+
+Finally we will plot the actual data and the forecasted data together. 
+
+```{r}
+bicycle_data_forecast_m &lt;- cbind(bicycle_data, bicycle_data_forecast)
+bicycle_data_forecast_m &lt;- na.omit(bicycle_data_forecast_m)
+
+
+plot.ts(bicycle_data_forecast_m , type = "o", plot.type = "single", xlab = "Year", ylab = "Sales", col = c("red", "blue"), main = "Linear Trend Forecast", lwd = c(2, 1))
+legend("topleft", legend=c("Actual", "Forecast"),col=c("red", "blue"), cex=0.8, lwd = c(2, 1))
+
+
+```
+
+
+Finally we can fit a quadratic trend model. Let's see how we can do that. In this case we can use the Cholesterol data from the Anderson book. 
+
+
+
+```{r}
+
+raw_data &lt;- read_excel("/home/tanvir/Documents/ownCloud/Git_Repos/EWU_repos/3_Fall_2023/eco_204/ewu-eco204.github.io/pdf_files/slides/06_time_series/Codes/Cholesterol.xlsx")
+
+cholesterol_data &lt;- ts(raw_data$Revenue , frequency = 1)
+
+plot.ts(cholesterol_data, type = "o", xlab = "Year", ylab = "Cholesterol")
+
+cholesterol_lm &lt;- tslm(cholesterol_data ~ trend + I(trend^2))
+
+summary(cholesterol_lm)
+
+cholesterol_data_forecast_table &lt;- forecast(cholesterol_lm)
+
+cholesterol_data_forecast &lt;- cholesterol_data_forecast_table$fitted
+
+accuracy(cholesterol_data_forecast, cholesterol_data)
+
+```
+
+
+Finally we will plot the actual data and the forecasted data together. 
+
+```{r}
+cholesterol_data_forecast_m &lt;- cbind(cholesterol_data, cholesterol_data_forecast)
+cholesterol_data_forecast_m &lt;- na.omit(cholesterol_data_forecast_m)
+
+cholesterol_data_forecast_m
+
+plot.ts(cholesterol_data_forecast_m , type = "o", plot.type = "single", xlab = "Year", ylab = "Cholesterol", col = c("red", "blue"), main = "Quadratic Trend Forecast", lwd = c(2, 1))
+legend("topleft", legend=c("Actual", "Forecast"),col=c("red", "blue"), cex=0.8, lwd = c(2, 1))
+
+
+```
+
+
+# 3. Seasonal Pattern
+
+
+## 1. Seasonality Without Trend
+
+Now we will start looking into Seasonal Pattern's data. Let's load a seasonal data from the Anderson book. As usual, first we will load the data, create a time series object and plot it
+
+```{r}
+
+raw_data &lt;- read_excel("/home/tanvir/Documents/ownCloud/Git_Repos/EWU_repos/3_Fall_2023/eco_204/ewu-eco204.github.io/pdf_files/slides/06_time_series/Codes/Umbrella.xlsx")
+
+# Note that we used frequency = 4 because the data is quarterly data.
+umbrella_data &lt;- ts(raw_data$Sales, frequency = 4, start = c(2018,1))
+
+plot.ts(umbrella_data, type = "o", xlab = "Year", ylab = "Sales")
+```
+
+
+
+Now let's fit a linear model with seasonal dummies. The function `seasonaldummy()` from the package `forecast` can be used to create seasonal dummies. 
+
+```{r}
+seasonaldummy(umbrella_data)
+```
+
+Finally we fit a linear model with seasonal dummies. 
+
+
+
+```{r}
+umbrella_lm &lt;- tslm(umbrella_data ~ season)
+summary(umbrella_lm)
+```
+
+
+Now we can calculate the forecast using the `forecast()` function. Let's see how we can do that. 
+
+```{r}
+Umrella_data_forecast_table &lt;- forecast(umbrella_lm)
+
+
+# we only need the point forecast now
+Umrella_data_forecast &lt;- Umrella_data_forecast_table$fitted
+
+Umrella_data_forecast
+accuracy(Umrella_data_forecast, umbrella_data)
+
+```
+
+
+
+Finally we will plot the actual data and the forecasted data together. 
+
+```{r}
+
+# Nothing to omit here
+Umrella_data_forecast_m &lt;- cbind(umbrella_data, Umrella_data_forecast)
+
+plot.ts(Umrella_data_forecast_m , type = "o", plot.type = "single", xlab = "Year", ylab = "Sales", col = c("red", "blue"), main = "Seasonal Trend Forecast", lwd = c(2, 1))
+legend("topleft", legend=c("Actual", "Forecast"),col=c("red", "blue"), cex=0.8, lwd = c(2, 1))
+
+
+```
+
+## 1. Seasonality With Trend
+
+
+We can also do seasonality and trend together. Here we will use the Smartphones data from the Anderson book. 
+
+```{r}
+
+raw_data &lt;- read_excel("/home/tanvir/Documents/ownCloud/Git_Repos/EWU_repos/3_Fall_2023/eco_204/ewu-eco204.github.io/pdf_files/slides/06_time_series/Codes/SmartphoneSales.xlsx")
+
+smartphone_data &lt;- ts(raw_data$`Sales (1000s)`, frequency = 4, start = c(1,1))
+smartphone_data
+plot.ts(smartphone_data, type = "o", xlab = "Year", ylab = "Sales")
+```
+
+
+
+Now we will fit a linear model with seasonal dummies and trend. Let's see how we can do that. 
+
+```{r}
+smartphone_lm &lt;- tslm(smartphone_data ~ trend + season)
+summary(smartphone_lm)
+```
+
+Now we will calculate the forecast using the `forecast()` function. Let's see how we can do that. 
+
+```{r}
+smartphone_data_forecast_table &lt;- forecast(smartphone_lm)
+
+# we only need the point forecast now
+smartphone_data_forecast &lt;- smartphone_data_forecast_table$fitted
+
+smartphone_data_forecast
+
+accuracy(smartphone_data_forecast, smartphone_data)
+
+```
+
+
+We can also plot the actual data and the forecasted data together. 
+
+```{r}
+
+# Nothing to omit here
+smartphone_data_forecast_m &lt;- cbind(smartphone_data, smartphone_data_forecast)
+
+plot.ts(smartphone_data_forecast_m , type = "o", plot.type = "single", xlab = "Year", ylab = "Sales", col = c("red", "blue"), main = "Seasonal Trend Forecast", lwd = c(2, 1))
+legend("topleft", legend=c("Actual", "Forecast"),col=c("red", "blue"), cex=0.8, lwd = c(2, 1))
+
+
+```
+
+
+```{r, include = FALSE}
+# export R codes
+knitr::purl("ts_lab.Rmd", documentation = 1)
+```
+
+
+
+
+</p></body></html>

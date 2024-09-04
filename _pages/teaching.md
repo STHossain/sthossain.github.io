@@ -15,10 +15,10 @@ horizontal: false
     - Summer 2022
 - ECO104 - *Statistics for Business and Economics - I*
     - Fall 2022
-    - [Fall 2023, Course Website]()
+    - [Fall 2023, Course Materials]()
 - ECO204 - *Statistics for Business and Economics - II*
     - Summer 2022
-    - [Fall 2023 Course Website](https://sthossain.github.io/eco204_ewu_sth/)
+    - [Fall 2023 Course Website](../_teaching/ewu/eco204/eco204_course_page.md)
 
 ---
 
@@ -26,7 +26,7 @@ horizontal: false
 
 - **Instructor**
     - Programming with Julia (MSc. Econometrics/ Data Science) 
-        - [Course Materials](../_teaching/tudo/julia_course/general_outline.md)
+        - [Course Materials](../_teaching/tudo/julia_course/julia_course_page.md)
     - Pre-course Statistics, Part - Statistical Estimation (MSc. Econometrics/ Data Science)
 
 - **Tutor (of Professor Carsten Jentsch)**

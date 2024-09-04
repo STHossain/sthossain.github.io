@@ -10,13 +10,13 @@ nav_order: 2
 
 ##  <ins>*Work in Progress*</ins>
 
-#### 1. **Sequential Treatment Allocation with Interference**: 
-We study the sequential treatment allocation problem (a.k.a multi armed bandit) with interference. The work is motivated from the recent work of <a href="https://arxiv.org/abs/2402.01845" target="_blank">Jia et al. - 2024</a>.
+#### 1. **Sequential Treatment Allocation with Interference**
+We study the sequential treatment allocation problem (a.k.a. multi armed bandit problem) with interference. The work is motivated from the recent work of <a href="https://arxiv.org/abs/2402.01845" target="_blank">Jia et al. - 2024</a>.
 
-#### 2. **Bias correction, Bootstrap and Kernel Estimators**: 
-I Propose a weighted bootstrap based confidence interval for the bias corrected local linear estimator. The idea of bias correction for the kernel estimators is motivated from the work of Calonico, Cattaneo, & Farrell (2018) and Cheng & Chen (2019). Cheng & Chen (2019) already proposed bias corrected paired bootstrap and proved theoretical results for uniform confidence intervals. Here I propose a weighted bootstrap, and investigate the point-wise performance.
+#### 2. **Bias correction, Bootstrap and Kernel Estimators** 
+We propose a weighted bootstrap based confidence interval for the bias corrected local linear estimator. The idea of bias correction for the kernel estimators is motivated from the work of Calonico, Cattaneo, & Farrell (2018) and Cheng & Chen (2019). Cheng & Chen (2019) already proposed bias corrected paired bootstrap and proved theoretical results for uniform confidence intervals. Here we propose a weighted bootstrap, and investigate the point-wise performance.
 
-#### 3. **Autoregressive Dynamic Network Modeling with Serial and Cross Sectional Dependence**:
+#### 3. **Autoregressive Dynamic Network Modeling with Serial and Cross Sectional Dependence**
 This is a joint work with my master thesis supervisor Professor Carsten Jentsch and the key idea came during my master thesis. The primary simulations have been checked, and results looked promising but need to finish some theoretical work. 
 
 

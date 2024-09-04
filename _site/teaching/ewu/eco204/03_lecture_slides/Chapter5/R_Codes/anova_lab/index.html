@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body><p>clear the env
+
+```{r}
+rm(list = ls())
+```
+
+## Doing one way ANOVA
+
+Let's load the service data
+
+```{r}
+library(readxl)
+# Load the data
+data1 &lt;- read_excel("/home/tanvir/Documents/ownCloud/Git_Repos/EWU_repos/3_Fall_2023/eco_204/ewu-eco204.github.io/pdf_files/slides/05_anova/Codes/service_data_1.xlsx")
+
+# this data is in wide format
+# look at the column names
+data1
+```
+
+This data is in wide format and we need to convert this data to long format before running codes for ANOVA (to understand the difference between the wide and long format you can read [this page (click here)](https://libguides.princeton.edu/R-reshape#:~:text=Introduction%20of%20wide%20and%20long,repeat%20in%20the%20first%20column.&amp;text=We%20can%20see%20that%20in,value%20in%20the%20first%20column.) ). There is a classic function in R called `reshape` to convert the data from wide to long format. But I think now there is an excellent package called `tidyr` which does the job beautifully and also it's a good package to learn ([check this](https://tidyr.tidyverse.org/)). We will use a function  `pivot_longer` from the `tidyr` package to convert these kind of data sets in a long format.
+
+
+```{r}
+
+# load the tidyr package
+library(tidyr)
+
+# reshape the data to long format
+data1_long &lt;- pivot_longer(data1, cols = 1:3, names_to = c("service"), values_to = c("score"))
+
+```
+
+
+Here 
+- data1 is our datain wideformat
+- cols = 1:3 means we want to convert column 1 to 3 to long
+- names_to = c("service") the converted column will be named as service
+- values_to = the $Y$ values in the converted column will be named as score
+
+Now let's look at the data
+
+```{r}
+data1_long
+```
+
+We also need to convert the service variable to factor before running the ANOVA
+
+```{r}
+# convert the service to factor
+data1_long$service &lt;- as.factor(data1_long$service)
+
+
+# check the summary stats
+summary(data1_long)
+
+```
+
+Now finally we will run the `aov()` function to run the ANOVA, notice the syntax is similar to the `lm()` function
+
+```{r}
+# now we are ready to run anova
+anova_result1 &lt;- aov(score ~ service, data =data1_long)
+summary(anova_result1)
+
+```
+
+
+## Doing two way ANOVA
+
+Now let's do it for two way. The procedure is similar
+
+```{r}
+# Load the data
+data2 &lt;- read_excel("/home/tanvir/Documents/ownCloud/Git_Repos/EWU_repos/3_Fall_2023/eco_204/ewu-eco204.github.io/pdf_files/slides/05_anova/Codes/service_data_2.xlsx")
+
+# look at the column names
+names(data2)
+```
+
+```{r}
+# reshape from wide to long, we will use pivot_longer from tidyr package
+data2_long &lt;- pivot_longer(data2, cols = starts_with("Service"), names_to = c("service"), values_to = c("score"))
+
+
+# rename the columns
+names(data2_long) &lt;- c("student", "service", "score")
+
+# convert the service and stduent variable to factor
+data2_long$service &lt;- as.factor(data2_long$service)
+data2_long$student &lt;- as.factor(data2_long$student)
+
+summary(data2_long)
+```
+
+Now the run the aov function
+
+```{r}
+
+anova_result2 &lt;- aov(score ~ service + student , data = data2_long)
+summary(anova_result2)
+
+```
+
+
+## ANOVA Vs. LM
+
+Actually ANOVA is a special case of LM. To see this you can run the `lm()` function for the two way ANOVA data and run `anova()` function, then you will get the same result as the `aov()` function
+
+```{r}
+lm_result &lt;- lm(score ~ service + student , data = data2_long)
+
+summary(lm_result)
+
+# in this case the anova function will give you the same result as the aov function
+anova(lm_result)
+```
+
+Now you should understand what does the `anova` function do in R. It runs the `lm()` function removing each of the variable one by one and then compares the model with the full model and gives you the result. 
+
+
+
+
+```{r, include = FALSE}
+knitr::purl("anova_lab.Rmd")
+```
+
+
+
+
+
+</p></body></html>
