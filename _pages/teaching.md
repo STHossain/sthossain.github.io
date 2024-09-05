@@ -44,14 +44,14 @@ toc:
 
     - Pre-course Statistics, Part - Statistical Estimation (MSc. Econometrics/ Data Science)
 
-- **Tutor (of Professor Carsten Jentsch)**
+- **Tutor of the course (taught by Professor Carsten Jentsch)**
     - Asymptotic Theory, Statistical Theory (MSc. Econometrics/ Data Science)
 
     - Econometrics of treatment effects and policy evaluation, (MSc. Econometrics/ Data Science)
     
     - Seminar on Treatment Effect Models, (MSc. Statistics)
 
-*As a tutor my task was to prepare the problem sets, holding the tutorial sessions and also prepare the draft version of the final exam*
+*As a tutor my tasks were to prepare the problem sets, holding the tutorial sessions and also prepare the draft version of the final exam*
      
 ---
 
