@@ -23,8 +23,8 @@ Currently I am an adjunct lecturer at the Economics Department of <a href="https
 I completed M.Sc. in Economics from the <a href="https://www.uni-mannheim.de/en/" target="_blank">University of Mannheim, Germany</a>, and Bachelors in Business with a second major in Economics from <a href="https://www.bracu.ac.bd/" target="_blank">BRAC University, Bangladesh</a>. My research interests lie at the intersection of Causal Inference, Econometrics, and Machine Learning (both theoretical and applied works), and I love coding.
 
 
-You can find my CV [here](/assets/pdf/CV_STHossain.pdf), more about what courses I taught and as well as some course materials in the in the  [teaching](/_pages/teaching.md) page, papers I am currently working in the [research](/_pages/research.md)  page and some additional details in the  [more-details](/_pages/more-details.md) page
+You can find my CV [here](/assets/pdf/CV_STHossain.pdf), more about what courses I taught as well as some course materials in the in the  [teaching](/_pages/teaching.md) page, papers I am currently working in the [research](/_pages/research.md)  page and some additional details in the  [more-details](/_pages/more-details.md) page.
 
 <br>
 
-<i class="fas fa-envelope"></i> To contact, you can send me an email at <tt>tanvir.hossain@tu-dortmund.de</tt>
+<i class="fas fa-envelope"></i> Thanks for dropping by, to contact please send me an email @ <tt>tanvir.hossain@tu-dortmund.de</tt>
