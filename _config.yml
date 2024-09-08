@@ -55,7 +55,7 @@ navbar_fixed: true
 footer_fixed: true
 search_enabled: true
 socials_in_search: false
-bib_search: false
+bib_search: true
 
 # Dimensions
 max_width: 930px
@@ -153,7 +153,7 @@ related_blog_posts:
 # Giscus comments (RECOMMENDED)
 # Follow instructions on https://giscus.app/ to setup for your repo to fill out the information below.
 giscus:
-  repo: # <your-github-user-name>/<your-github-repo-name>
+  repo: STHossain/sthossain.github.io # your repo (format: owner/repo)
   repo_id: # leave empty or specify your repo_id (see https://giscus.app/)
   category: Comments # name of the category under which discussions will be created
   category_id: # leave empty or specify your category_id (see https://giscus.app/)
