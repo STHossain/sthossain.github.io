@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2024-09-09T00:11:42+06:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">blank</title><subtitle>Website of Sk. Tanvir Hossain.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2024-09-09T07:48:58+06:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">blank</title><subtitle>Website of Sk. Tanvir Hossain.
 </subtitle><entry><title type="html">Subgaussian Random Variables</title><link href="http://localhost:4000/blog/2024/distill/" rel="alternate" type="text/html" title="Subgaussian Random Variables" /><published>2024-09-08T00:00:00+06:00</published><updated>2024-09-08T00:00:00+06:00</updated><id>http://localhost:4000/blog/2024/distill</id><content type="html" xml:base="http://localhost:4000/blog/2024/distill/"><![CDATA[<p>When I started to read multi armed bandit (a.k.a sequential treatment allocation) literature, again I had to deal with concentration bounds (I have a love and hate relationship with this). The key idea is essentially bounding the tail probabilities of the random variables.</p>
 
 <p>Since I myself sometimes forget many details, I decided to write everyday (even if this is very short) about the concentration bounds. Hopefully by this I will also learn many things in this area. This is the first post of the series of posts on concentration bounds that I will try to write.</p>
@@ -6,6 +6,8 @@
 <p><strong>References:</strong> There are many nice books, I will share some details. For example you can see a short and quick overview of the basic techniques in Lattimore, T., &amp; Szepesvári, C. (2020) <d-cite key="lattimore2020bandit"></d-cite></p>
 
 <h2 id="basic-definition-and-properties">Basic Definition and Properties</h2>
+
+<h1 id="example-of-latex-like-environments-in-markdown">Example of LaTeX-like environments in Markdown</h1>
 
 <p>There are different but equivalent ways to define a subgaussain random variable, I will follow following definitions,</p>
 
@@ -15,23 +17,72 @@
 
 <p>We write this with $X \sim s \mathcal{G}(\sigma) $</p>
 
-<p>Now I will quickly state some important things that is possible to derive using this definition,</p>
+<p>Now I will quickly state some important properties of subgaussian random variables, that is possible to derive using this definition,</p>
 
-<ul>
+<p><strong>Proprties of Subgaussian Random Variables</strong></p>
+
+<ol>
   <li>Using Markov’s inequality, we can show that for any $\epsilon &gt; 0$,</li>
-</ul>
+</ol>
 
-\[\mathbb{P}(|X| \geq \epsilon) \leq 2 e^{-\frac{\epsilon^2}{2 \sigma^2}}\]
+\[\mathbb{P}(X \geq \epsilon) \leq e^{-\frac{\epsilon^2}{2 \sigma^2}} \quad \text{ and } \quad  \mathbb{P}(|X| \geq \epsilon) \leq 2 e^{-\frac{\epsilon^2}{2 \sigma^2}}\]
 
 <ul>
-  <li>If $X_1 \sim s\mathcal{G}(\sigma_1)$ and $X_2 \sim s\mathcal{G}(\sigma_2)$ then $X_1 + X_2 \sim s\mathcal{G}(\sqrt{\sigma_1^2 + \sigma_2^2})$</li>
+  <li>this is often called Chernoff bound, and is very useful in many places.</li>
 </ul>
 
-<!-- 
-## Footnotes
+<ol>
+  <li>
+    <p>If $X_1 \sim s\mathcal{G}(\sigma_1)$ and $X_2 \sim s\mathcal{G}(\sigma_2)$ then $X_1 + X_2 \sim s\mathcal{G}(\sqrt{\sigma_1^2 + \sigma_2^2})$</p>
+  </li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>if $X \sim s\mathcal{G}(\sigma)$, then $aX \sim s\mathcal{G}(</td>
+          <td>a</td>
+          <td>\sigma)$</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>
+    <p>We can extend this is to a sequence of random variables, for example if we have a sequence of random variables $X_1, X_2, \ldots, X_n$ such that $X_i \sim s\mathcal{G}(\sigma_i)$ then $\sum_{i = 1}^{n} X_i \sim s\mathcal{G}(\sigma)$, where  $ \sigma = \sqrt{\sum_{i=1}^n \sigma_i^2}$, a special case of this is when all $\sigma_i$ are same, i.e., $\sigma_i = \sigma$ then $\sum_{i = 1}^{n} X_i \sim s\mathcal{G}(\sqrt{n} \sigma)$</p>
+  </li>
+  <li>
+    <p>Also similarly let $\bar{X} := \frac{1}{n}\sum_{i = 1}^{n} X_i$, then $\bar{X} \sim s\mathcal{G}(\frac{\sigma}{\sqrt{n}})$</p>
+  </li>
+  <li>Now applying the result from property 1, we get that for any $\epsilon &gt; 0$,</li>
+</ol>
 
-Just wrap the text you would like to show up in a footnote in a `<d-footnote>` tag.
-The number of the footnote will be automatically generated.<d-footnote>This will become a hoverable footnote.</d-footnote> -->
+\[\mathbb{P}(\bar{X} \geq \epsilon) \leq e^{-\frac{n \epsilon^2}{2 \sigma^2}}\]
+
+<ul>
+  <li>this is a very important result, which we will use in many places.</li>
+</ul>
+
+<ol>
+  <li>Many random variables are subgaussian, for example,
+    <ul>
+      <li>$X \sim \mathcal{N}(\mu, \sigma^2)$, then $X - \mu \sim s\mathcal{G}(\sigma)$,</li>
+      <li>Bounded Random Variable $X$, for example $X \in [a, b]$ then  $X - \mu \sim s\mathcal{G}(\frac{b-a}{2})$. So if we have a sequence of bounded random variables $X_1, X_2, \ldots, X_n$ such that $X_i \sim s\mathcal{G}\left(\frac{b_{i}-a_{i}}{2}\right)$ then $ \sum_{i = 1}^{n} X_i \sim s\mathcal{G}\left(\sqrt{\sum_{i=1}^n \frac{(b_{i}-a_{i})^2}{4}}\right)$, then applying Chernoff bound we get that for any $\epsilon &gt; 0$,</li>
+    </ul>
+  </li>
+</ol>
+
+\[\mathbb{P}\left(S_N \geq \epsilon\right) \leq \exp \left(-\frac{\epsilon^2}{2 \sigma_S^2}\right)\]
+
+\[\mathbb{P}\left\{\sum_{i=1}^N\left(X_i-\mathbb{E}\left[X_i\right]\right) \geq \epsilon\right\} \leq \exp \left(-\frac{2 \epsilon^2}{\sum_{i=1}^N\left(M_i-m_i\right)^2}\right)\]
+
+<ul>
+  <li>this is often called Hoeffding’s inequality, and is very useful in many places.
+&lt;!–
+    <h2 id="footnotes">Footnotes</h2>
+  </li>
+</ul>
+
+<p>Just wrap the text you would like to show up in a footnote in a <code class="language-plaintext highlighter-rouge">&lt;d-footnote&gt;</code> tag.
+The number of the footnote will be automatically generated.<d-footnote>This will become a hoverable footnote.</d-footnote> –&gt;</p>
 
 <!-- 
 ## Code Blocks

@@ -1,6 +1,11 @@
 <!doctype html>
 <html>
   <head>
+    <link rel="stylesheet" href="{{ '/assets/css/latex_env.css' | relative_url }}">
+
+    <script src="{{ '/assets/js/latex_env.js' | relative_url }}"></script>
+
+
     {% include head.liquid %}
     {% if site.enable_medium_zoom %}
       <!-- Medium Zoom JS -->
@@ -123,5 +128,8 @@
     {% include scripts/progressBar.liquid %}
     {% include scripts/back_to_top.liquid %}
     {% include scripts/search.liquid %}
+  
+    <script src="{{ '/assets/js/latex_env.js' | relative_url }}"></script>
+
   </body>
 </html>
