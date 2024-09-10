@@ -4,11 +4,13 @@
     "email": "tanvir.hossain@tu-dortmund.de",
     "url": "https://sthossain.github.io",
     "summary": "Researcher in Econometrics, Causal Inference, and Machine Learning",
+    "cv in PDF": "This is a short cv, please see the PDF version for more details (click on the pdf logo on top)",
     "location": {
       "countryCode": "BD",
       "region": "Bangladesh"
     }
   },
+  
   "work": [
     {
       "name": "East West University",
@@ -55,26 +57,25 @@
     {
       "institution": "University of Mannheim",
       "url": "https://www.uni-mannheim.de/",
-      "area": "Economics",
-      "studyType": "Master of Science",
+      "area": "Majority courses in Econometrics",
+      "studyType": "Master of Science in Economics",
       "startDate": "2015-01-01",
       "endDate": "2017-01-01",
       "score": "1.7",
-      "courses": [
+      "scale": "German grading system with 1 being the best and 5 being the worst",
+      "thesis title": [
         "LASSO & Vector Autoregressive Models - Application to Dynamic Stochastic Networks"
       ]
     },
     {
       "institution": "BRAC University",
       "url": "https://www.bracu.ac.bd/",
-      "area": "Business and Economics",
-      "studyType": "Bachelors",
+      "area": "Economics and Finance",
+      "studyType": "Bachelors in Business with a second major in Economics",
       "startDate": "2008-01-01",
       "endDate": "2012-01-01",
       "score": "3.64",
-      "courses": [
-        "Double major in Economics and Finance"
-      ]
+      "scale": "4.0"
     }
   ],
   "skills": [
