@@ -1,0 +1,166 @@
+---
+layout: distill
+title: Explore than Commit (or Explore first)
+description: ETC a stochastic bandit algorithm
+tags: stochastic_bandits
+categories: bandits
+giscus_comments: true
+date: 2024-09-14
+featured: false
+pseudocode: true
+navbar: false
+
+
+# authors:
+#   - name: Albert Einstein
+#     url: "https://en.wikipedia.org/wiki/Albert_Einstein"
+#     affiliations:
+#       name: IAS, Princeton
+#   - name: Boris Podolsky
+#     url: "https://en.wikipedia.org/wiki/Boris_Podolsky"
+#     affiliations:
+#       name: IAS, Princeton
+#   - name: Nathan Rosen
+#     url: "https://en.wikipedia.org/wiki/Nathan_Rosen"
+#     affiliations:
+#       name: IAS, Princeton
+
+bibliography: 2024-09-08-sG1-distill.bib
+
+# Optionally, you can add a table of contents to your post.
+# NOTES:
+#   - make sure that TOC names match the actual section names
+#     for hyperlinks within the post to work correctly.
+#   - we may want to automate TOC generation in the future using
+#     jekyll-toc plugin (https://github.com/toshimaru/jekyll-toc).
+
+
+# toc:
+#   - name: Equations
+#     # if a section has subsections, you can add them as follows:
+#     # subsections:
+#     #   - name: Example Child Subsection 1
+#     #   - name: Example Child Subsection 2
+#   - name: Citations
+#   - name: Footnotes
+#   - name: Code Blocks
+#   - name: Interactive Plots
+#   - name: Layouts
+#   - name: Other Typography?
+
+# Below is an example of injecting additional post-specific styles.
+# If you use this post as a template, delete this _styles block.
+_styles: >
+  .fake-img {
+    background: #bbb;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 12px;
+  }
+  .fake-img p {
+    font-family: monospace;
+    color: white;
+    text-align: left;
+    margin: 12px 0;
+    text-align: center;
+    font-size: 16px;
+  }
+
+
+
+---
+
+## Explore then commit (ETC) algorithm
+
+
+<!-- 
+## Bandit Notations
+We will let, 
+
+- $\mathcal{W}$ be a finite set of arms, usually we assume $\mathcal{W}= [K]$, 
+- $T$ be the horizon, 
+- $Y_t(k)$ be the potential reward of arm $k \in \mathcal{W}$ at time $t$, 
+- $W_t$ be the arm selected by the learner at time $t$, 
+- $Y_t$ be the observed reward at time $t$, therefore $Y_t = Y_t(W_t)$, 
+- $\mu(k) = \mathbb{E}(Y_t(k))$ be the expected reward of arm $k$ and we will let $k^* = \arg\max_{k \in \mathcal{W}} \mu(k)$ then $\mu^* = \max_{k \in \mathcal{W}} \mu(k) = \mu(k^*)$. 
+- $\Delta_k = \mu^{*} - \mu_k$ be sub-optimality gap or simply gap of arm $k$ from the optimal arm.
+
+- $\mathcal{S}_{T}=\sum_{t = 1}^{T} Y_{t}$ be the cumulative reward till time $t$.
+- $\mathcal{T}_{t}(k) = \sum_{s=1}^{t} \mathbf{1} \{ W_{s} = k \}$ be the number of times arm $k$ has been played up to time $t$, and
+-  $\widehat{\mu}_t(k)=\frac{1}{\mathcal{T}_t(k)} \sum_{s=1}^t \mathbf{1}\{W_s=k\} Y_s$ be the sample mean of the rewards of arm $k$ up to time $t$ which learner computes.
+
+
+
+
+
+## Explore then commit (ETC) algorithm
+
+The basic algorithm is following
+
+1. **Exploration phase**: Play each arm a fixed number of times, let's say $m$ times 
+2. **Commit phase**: After the exploration phase, play the arm with the highest sample mean, i.e., play $\hat{\mu}_{mK} = \max_{k\in\mathcal{W}} \hat{\mu}_{mK}$ till the end of the horizon.
+
+The algorithm achives linear regret without optimizing the exploration parameter $m$, but can achieve sub-linear regret by optimizing the exploration parameter $m$. We will follow the approach of analysis suggested in Silvkins. <d-cite key="silvkins2019"></d-cite>
+
+## Analysis of ETC
+
+
+We assume $X_i \overset{i.i.d.}{\sim} s\mathcal{G}(1)$, in this case we have $\overline{X}_n - \mu \sim s\mathcal{G}(\frac{1}{\sqrt{n}})$, and applying the Chernoff bound we get, 
+
+$$
+\mathbb{P}(|\overline{X} - \mu | > \epsilon) \leq 2 \cdot  \underbrace{\exp{\left(-\frac{1}{2}n\epsilon^2\right)}}_{\delta}  
+$$
+
+
+Let $\delta = \exp{\left(-\frac{1}{2}n\epsilon^2\right)}$, then we can derive, 
+
+$$
+\epsilon = \sqrt{\frac{2 \ln(\frac{1}{\delta})}{n}}
+$$
+
+plugging this we can get,
+
+$$
+\mathbb{P}\left(|\overline{X} - \mu | > \sqrt{\frac{2 \ln(\frac{1}{\delta})}{n}}\right) \leq 2 \cdot \delta
+$$
+
+or equivalently we can write, 
+
+$$
+\mathbb{P}\left(|\overline{X} - \mu | \leq \sqrt{\frac{2 \ln(\frac{1}{\delta})}{n}}\right) \geq 1 - 2 \cdot \delta
+$$
+
+Now, it seems to me that from here if we want to follow Silvkin, we can plug $\delta = \frac{1}{T}$ or $\delta  = \frac{1}{T^2}$ and then we can get the regret bound. So let's plug $\delta = \frac{1}{T}$ and see what we get. So now we have
+
+$$
+\mathbb{P}\left(|\overline{X} - \mu | \leq \sqrt{\frac{2 \ln(T)}{n}}\right) \geq 1 - \frac{2}{T}
+$$
+
+Silvkins did the analysis with two arms, so we will follow this approach, first recall we can write, 
+
+
+$$
+\mathcal{R}_T = \sum_{ k=1 }^{K} \Delta_k \mathcal{T}_{T}(k) = \sum_{ \substack{ k = 1\\ k \neq k^*} }^{K} \Delta_k \mathcal{T}_{T}(k) 
+$$
+
+
+For the case of $K = 2$ we have simply 
+
+$$
+\mathcal{R}_T = \Delta_2 \mathcal{T}_{T}(2) 
+$$
+
+Since $\Delta_2$ is constant, to bound the regret we can simply boung number of suboptimal plays $\mathcal{T}_{T}(2)$, we can write,
+
+
+
+
+
+
+
+
+
+
+
+
+ -->

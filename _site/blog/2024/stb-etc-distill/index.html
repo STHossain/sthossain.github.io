@@ -1,10 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
-  <!-- Head -->
+<html>
   <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-    
     <!-- Metadata, OpenGraph and Schema.org -->
 
 
@@ -18,13 +16,12 @@
   
   
     
-      more-details | Sk. Tanvir Hossain
+      Explore than Commit (or Explore first) | Sk. Tanvir Hossain
     
   
 </title>
 <meta name="author" content="Sk. Tanvir Hossain">
-<meta name="description" content="Website of Sk. Tanvir Hossain.
-">
+<meta name="description" content="ETC a stochastic bandit algorithm">
 
   <meta name="keywords" content="jekyll, jekyll-theme, academic-website, portfolio-website">
 
@@ -57,10 +54,12 @@
 
 <!-- pseudocode -->
 
+  <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pseudocode@2.4.1/build/pseudocode.min.css" integrity="sha256-VwMV//xgBPDyRFVSOshhRhzJRDyBmIACniLPpeXNUdc=" crossorigin="anonymous">
+
 
 
 <link rel="stylesheet" href="/assets/css/main.css?d41d8cd98f00b204e9800998ecf8427e">
-<link rel="canonical" href="http://localhost:4000/more-details/">
+<link rel="canonical" href="http://localhost:4000/blog/2024/stb-etc-distill/">
 
 <!-- Dark Mode -->
 <script src="/assets/js/theme.js?9a0c749ec5240d9cda97bc72359a72c0"></script>
@@ -81,10 +80,72 @@
 
 
 
+    
+      <!-- Medium Zoom JS -->
+      <script defer src="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous"></script>
+      <script defer src="/assets/js/zoom.js?85ddb88934d28b74e78031fd54cf8308"></script>
+    
+    <!-- jQuery -->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    
+  
+
+
+    <!-- Distill js -->
+    <script src="/assets/js/distillpub/template.v2.js"></script>
+    <script src="/assets/js/distillpub/transforms.v2.js"></script>
+    <script src="/assets/js/distillpub/overrides.js"></script>
+    
+      <!-- Page/Post style -->
+      <style type="text/css">
+        .fake-img {
+  background: #bbb;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 12px;
+} .fake-img p {
+  font-family: monospace;
+  color: white;
+  text-align: left;
+  margin: 12px 0;
+  text-align: center;
+  font-size: 16px;
+}
+
+      </style>
+    
   </head>
 
-  <!-- Body -->
-  <body class="fixed-top-nav ">
+  <body>
+<d-front-matter>
+    <script async type="text/json">
+      {
+            "title": "Explore than Commit (or Explore first)",
+            "description": "ETC a stochastic bandit algorithm",
+            "published": "September 14, 2024",
+            "authors": [
+              
+            ],
+            "katex": {
+              "delimiters": [
+                {
+                  "left": "$",
+                  "right": "$",
+                  "display": false
+                },
+                {
+                  "left": "$$",
+                  "right": "$$",
+                  "display": true
+                }
+              ]
+            }
+          }
+    </script>
+  </d-front-matter>
+
+  
     <!-- Header -->
     <header>
   <!-- Nav Bar -->
@@ -122,8 +183,6 @@
 
           <!-- Other pages -->
           
-          
-            
           
             
           
@@ -188,11 +247,9 @@
             
               
                 
-                <li class="nav-item active">
+                <li class="nav-item ">
                   
                   <a class="nav-link" href="/more-details/">more-details
-                    
-                      <span class="sr-only">(current)</span>
                     
                   </a>
                 </li>
@@ -202,7 +259,7 @@
             
               
                 
-                <li class="nav-item ">
+                <li class="nav-item active">
                   
                   <a class="nav-link" href="/blog/">blog
                     
@@ -245,32 +302,147 @@
 
 
     <!-- Content -->
-    <div class="container mt-5" role="main">
+    <div class="post distill">
+      <d-title>
+        <h1>Explore than Commit (or Explore first)</h1>
+        <p>ETC a stochastic bandit algorithm</p>
+      </d-title>
       
-        <div class="post">
-  <header class="post-header">
-    <h1 class="post-title">more-details</h1>
-    <p class="post-description"></p>
-  </header>
 
-  <article>
-    <p>In this page I try to give more details about my academic career. …</p>
+      <d-article>
+        
+        <h2 id="explore-then-commit-etc-algorithm">Explore then commit (ETC) algorithm</h2>
 
 <!-- 
-[^1]: *Thanks Professor Jentsch, for your unbelievable patience with me and honestly I am really sorry for my failures. Your belief in my potential pushed me to continue striving for excellence but I don't know whether I could make you proud but I tried and I will try my best!*
-[^2]: *Sir,  your door was always open and if there is one person I know who always responded for his students it was you* 
-[^3]: *O God, forgive him and have mercy on him, protect him and pardon him, and grant him an honorable reception. You were the person who taught me how to love Statistics*
-[^4]: *Sir, you always motivated me to continue to study and give my best, there were times I was completely down but the with small discussion with you changed my inner state, thank you Sir!*
+## Bandit Notations
+We will let, 
+
+- $\mathcal{W}$ be a finite set of arms, usually we assume $\mathcal{W}= [K]$, 
+- $T$ be the horizon, 
+- $Y_t(k)$ be the potential reward of arm $k \in \mathcal{W}$ at time $t$, 
+- $W_t$ be the arm selected by the learner at time $t$, 
+- $Y_t$ be the observed reward at time $t$, therefore $Y_t = Y_t(W_t)$, 
+- $\mu(k) = \mathbb{E}(Y_t(k))$ be the expected reward of arm $k$ and we will let $k^* = \arg\max_{k \in \mathcal{W}} \mu(k)$ then $\mu^* = \max_{k \in \mathcal{W}} \mu(k) = \mu(k^*)$. 
+- $\Delta_k = \mu^{*} - \mu_k$ be sub-optimality gap or simply gap of arm $k$ from the optimal arm.
+
+- $\mathcal{S}_{T}=\sum_{t = 1}^{T} Y_{t}$ be the cumulative reward till time $t$.
+- $\mathcal{T}_{t}(k) = \sum_{s=1}^{t} \mathbf{1} \{ W_{s} = k \}$ be the number of times arm $k$ has been played up to time $t$, and
+-  $\widehat{\mu}_t(k)=\frac{1}{\mathcal{T}_t(k)} \sum_{s=1}^t \mathbf{1}\{W_s=k\} Y_s$ be the sample mean of the rewards of arm $k$ up to time $t$ which learner computes.
+
+
+
+
+
+## Explore then commit (ETC) algorithm
+
+The basic algorithm is following
+
+1. **Exploration phase**: Play each arm a fixed number of times, let's say $m$ times 
+2. **Commit phase**: After the exploration phase, play the arm with the highest sample mean, i.e., play $\hat{\mu}_{mK} = \max_{k\in\mathcal{W}} \hat{\mu}_{mK}$ till the end of the horizon.
+
+The algorithm achives linear regret without optimizing the exploration parameter $m$, but can achieve sub-linear regret by optimizing the exploration parameter $m$. We will follow the approach of analysis suggested in Silvkins. <d-cite key="silvkins2019"></d-cite>
+
+## Analysis of ETC
+
+
+We assume $X_i \overset{i.i.d.}{\sim} s\mathcal{G}(1)$, in this case we have $\overline{X}_n - \mu \sim s\mathcal{G}(\frac{1}{\sqrt{n}})$, and applying the Chernoff bound we get, 
+
+$$
+\mathbb{P}(|\overline{X} - \mu | > \epsilon) \leq 2 \cdot  \underbrace{\exp{\left(-\frac{1}{2}n\epsilon^2\right)}}_{\delta}  
+$$
+
+
+Let $\delta = \exp{\left(-\frac{1}{2}n\epsilon^2\right)}$, then we can derive, 
+
+$$
+\epsilon = \sqrt{\frac{2 \ln(\frac{1}{\delta})}{n}}
+$$
+
+plugging this we can get,
+
+$$
+\mathbb{P}\left(|\overline{X} - \mu | > \sqrt{\frac{2 \ln(\frac{1}{\delta})}{n}}\right) \leq 2 \cdot \delta
+$$
+
+or equivalently we can write, 
+
+$$
+\mathbb{P}\left(|\overline{X} - \mu | \leq \sqrt{\frac{2 \ln(\frac{1}{\delta})}{n}}\right) \geq 1 - 2 \cdot \delta
+$$
+
+Now, it seems to me that from here if we want to follow Silvkin, we can plug $\delta = \frac{1}{T}$ or $\delta  = \frac{1}{T^2}$ and then we can get the regret bound. So let's plug $\delta = \frac{1}{T}$ and see what we get. So now we have
+
+$$
+\mathbb{P}\left(|\overline{X} - \mu | \leq \sqrt{\frac{2 \ln(T)}{n}}\right) \geq 1 - \frac{2}{T}
+$$
+
+Silvkins did the analysis with two arms, so we will follow this approach, first recall we can write, 
+
+
+$$
+\mathcal{R}_T = \sum_{ k=1 }^{K} \Delta_k \mathcal{T}_{T}(k) = \sum_{ \substack{ k = 1\\ k \neq k^*} }^{K} \Delta_k \mathcal{T}_{T}(k) 
+$$
+
+
+For the case of $K = 2$ we have simply 
+
+$$
+\mathcal{R}_T = \Delta_2 \mathcal{T}_{T}(2) 
+$$
+
+Since $\Delta_2$ is constant, to bound the regret we can simply boung number of suboptimal plays $\mathcal{T}_{T}(2)$, we can write,
+
+
+
+
+
+
+
+
+
+
+
+
  -->
 
-<h2 id="my-school-and-college">My School and College:</h2>
+      </d-article>
 
-<p>I studied …</p>
+      <d-appendix>
+        <d-footnote-list></d-footnote-list>
+        <d-citation-list></d-citation-list>
+      </d-appendix>
 
-  </article>
+      <d-bibliography src="/assets/bibliography/2024-09-08-sG1-distill.bib"></d-bibliography>
 
+      
+      
+        <div id="giscus_thread" style="max-width: 930px; margin: 0 auto;">
   
+    <script>
+      let giscusTheme = determineComputedTheme();
+      let giscusAttributes = {
+        src: 'https://giscus.app/client.js',
+        'data-repo': 'STHossain/sthossain.github.io',
+        'data-repo-id': '',
+        'data-category': 'Comments',
+        'data-category-id': '',
+        'data-mapping': 'title',
+        'data-strict': '1',
+        'data-reactions-enabled': '1',
+        'data-emit-metadata': '0',
+        'data-input-position': 'bottom',
+        'data-theme': giscusTheme,
+        'data-lang': 'en',
+        crossorigin: 'anonymous',
+        async: '',
+      };
 
+      let giscusScript = document.createElement('script');
+      Object.entries(giscusAttributes).forEach(([key, value]) => giscusScript.setAttribute(key, value));
+      document.getElementById('giscus_thread').appendChild(giscusScript);
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://giscus.app/?ref_noscript" rel="external nofollow noopener" target="_blank">comments powered by giscus.</a>
+</noscript>
   
 </div>
 
@@ -295,83 +467,10 @@ Hosted by <a href="https://pages.github.com/" target="_blank" rel="external nofo
   </footer>
 
 
-
-    <!-- JavaScripts -->
-    <!-- jQuery -->
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-
     <!-- Bootsrap & MDB scripts -->
 <script src="/assets/js/bootstrap.bundle.min.js"></script>
 <!-- <script src="/assets/js/mdb.min.js"></script> -->
 <script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.20.0/js/mdb.min.js" integrity="sha256-NdbiivsvWt7VYCt6hYNT3h/th9vSTL4EDWeGs5SN3DA=" crossorigin="anonymous"></script>
-
-    
-  <!-- Masonry & imagesLoaded -->
-  <script defer src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha256-Nn1q/fx0H7SNLZMQ5Hw5JLaTRZp0yILA/FRexe19VdI=" crossorigin="anonymous"></script>
-  <script defer src="https://cdn.jsdelivr.net/npm/imagesloaded@5.0.0/imagesloaded.pkgd.min.js" integrity="sha256-htrLFfZJ6v5udOG+3kNLINIKh2gvoKqwEhHYfTTMICc=" crossorigin="anonymous"></script>
-  <script defer src="/assets/js/masonry.js" type="text/javascript"></script>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-  <!-- Medium Zoom JS -->
-  <script defer src="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous"></script>
-  <script defer src="/assets/js/zoom.js?85ddb88934d28b74e78031fd54cf8308"></script>
-
-
-
-<!-- Bootstrap Table -->
-
-
-<!-- Load Common JS -->
-<script src="/assets/js/no_defer.js?2781658a0a2b13ed609542042a859126"></script>
-<script defer src="/assets/js/common.js?e0514a05c5c95ac1a93a8dfd5249b92e"></script>
-<script defer src="/assets/js/copy_code.js?12775fdf7f95e901d7119054556e495f" type="text/javascript"></script>
-
-<!-- Jupyter Open External Links New Tab -->
-<script defer src="/assets/js/jupyter_new_tab.js?d9f17b6adc2311cbabd747f4538bb15f"></script>
-
-
-
-    
-  <script async src="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js"></script>
-
-
-  <script async src="https://badge.dimensions.ai/badge.js"></script>
-
-
-    
-  
-    <!-- MathJax -->
-    <script type="text/javascript">
-      window.MathJax = {
-        tex: {
-          tags: 'ams',
-        },
-      };
-    </script>
-    <script defer type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js" integrity="sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI=" crossorigin="anonymous"></script>
-    <script defer src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6" crossorigin="anonymous"></script>
-  
-
-
-    
 
     
 
@@ -455,12 +554,6 @@ Hosted by <a href="https://pages.github.com/" target="_blank" rel="external nofo
     }
   </script>
 
-
-    
-
-    
-
-    
 
     
   <script src="/assets/js/vanilla-back-to-top.min.js?f40d453793ff4f64e238e420181a1d17"></script>
@@ -693,5 +786,6 @@ Hosted by <a href="https://pages.github.com/" target="_blank" rel="external nofo
 
   
 
-  </body>
+  
+</body>
 </html>
