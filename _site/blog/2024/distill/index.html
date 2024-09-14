@@ -322,10 +322,15 @@
 
 <h2 id="basic-definitions-and-properties">Basic Definitions and Properties</h2>
 
-<blockquote>
-  <p><strong>Definition 1 [Subgaussain random variable]:</strong> We say a random variable is a subgaussain random variable with subgausian parameter $\sigma$, we write $X \sim s\mathcal{G}(\sigma)$, if following holds
-\(\mathbb{E}(e^{\lambda X}) \leq e^{\frac{1}{2} \lambda^2 \sigma^2}\)</p>
-</blockquote>
+<p>========================================================================</p>
+
+<p><strong>Definition 1 [Subgaussain random variable]:</strong></p>
+
+<p>We say a random variable is a subgaussain random variable with subgausian parameter $\sigma$, we write $X \sim s\mathcal{G}(\sigma)$, if following holds</p>
+
+\[\mathbb{E}(e^{\lambda X}) \leq e^{\frac{1}{2} \lambda^2 \sigma^2}\]
+
+<p>========================================================================</p>
 
 <p>Now I will quickly state some important properties of subgaussian random variables, that is possible to derive using this definition,</p>
 
@@ -368,18 +373,6 @@ If $X \sim s \mathcal{G}(\sigma)$, then
 </li>
 
 
-<li>
-
-From the last two results when $X_i \overset{i.i.d.}{\sim} s\mathcal{G}(\sigma)$, we have  $\bar{X}_n \sim s\mathcal{G}(\frac{\sigma}{\sqrt{n}})$, where ${\bar{X}_n := \frac{1}{n}\sum_{i = 1}^{n} X_i}$. In this case, applying the result from property 1, or Chernoff bound, we get for any $\epsilon &gt; 0$,
-
-$$
-  \mathbb{P}(\bar{X}_n \geq \epsilon) \leq e^{-\frac{n \epsilon^2}{2 \sigma^2}}
-$$
-
-  this is a very important result, which we will use in many places.
-
-</li>
-
 
 <li>
 
@@ -415,234 +408,85 @@ Many random variables are subgaussian, for example,
 
 </ol>
 
-<h2 id="hoeffdings-inequality">Hoeffding’s Inequality</h2>
+<h2 id="hoeffdings-bound">Hoeffding’s Bound</h2>
 
-<!-- 
+<p>The idea of the Hoeffding’s Bound is to get a tail bound for the average / sum of the subgaussian random variables, i.e., we are looking for</p>
 
-## Footnotes
+\[\mathbb{P}\left[\frac{1}{n}\sum_{i=1}^n\left(X_i-\mu_i\right) \geq \epsilon \right] \leq \text{?}\]
 
-Just wrap the text you would like to show up in a footnote in a `<d-footnote>` tag.
-The number of the footnote will be automatically generated.<d-footnote>This will become a hoverable footnote.</d-footnote> -->
+<p>or more simply,</p>
 
-<!-- 
-## Code Blocks
+\[\mathbb{P}\left[ \overline{X}_{n} - \mu \geq \epsilon \right] \leq \text{?}\]
 
-Syntax highlighting is provided within `<d-code>` tags.
-An example of inline code snippets: `<d-code language="html">let x = 10;</d-code>`.
-For larger blocks of code, add a `block` attribute:
+<p>In this case the key step is to first derive the subgaussian parameter of $\frac{1}{n}\sum_{i=1}^n\left(X_i-\mu_i\right)$ or $\overline{X}_n - \mu$. This might vary depending on the setup. But if we know this, for example, if we know</p>
 
-<d-code block language="javascript">
-  var x = 25;
-  function(x) {
-    return x * x;
-  }
-</d-code>
+\[\overline{X}_n - \mu \sim s\mathcal{G}\left(\tilde{\sigma}_{S}\right)\]
 
-**Note:** `<d-code>` blocks do not look good in the dark mode.
-You can always use the default code-highlight using the `highlight` liquid tag:
+<p>then applying Chernoff bound, we get</p>
 
+\[\mathbb{P}\left[\overline{X}_n - \mu \geq \epsilon \right] \leq \exp{\left(-\frac{1}{2} \cdot \frac{\epsilon^2}{ \tilde{\sigma}_S^2}\right)}\]
 
-<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">25</span><span class="p">;</span>
-<span class="kd">function</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span> <span class="p">{</span>
-<span class="k">return</span> <span class="nx">x</span> <span class="err">\</span><span class="o">*</span> <span class="nx">x</span><span class="p">;</span>
-<span class="p">}</span></code></pre></figure>
- -->
+<p>We will see some specific examples first and then outline the porposition from the book by Wainwright <d-cite key="wainwright2019high"></d-cite>.</p>
 
-<!-- 
-## Interactive Plots
+<hr>
+<p><strong>[Example 1]</strong></p>
 
-You can add interative plots using plotly + iframes :framed_picture:
+<p>If we have $X_i - \mu_i \overset{i.i.d.}{\sim} s\mathcal{G}(\sigma_i)$, then we have</p>
 
-<div class="l-page">
-  <iframe src="/assets/plotly/demo.html" frameborder='0' scrolling='no' height="500px" width="100%" style="border: 1px dashed grey;"></iframe>
-</div>
+\[\frac{1}{n}\sum_{i=1}^n\left(X_i-\mu_i\right) \sim s\mathcal{G}\left(\frac{1}{n}\sqrt{\sum_{i = 1}^{n}\sigma_i^2}\right)\]
 
-The plot must be generated separately and saved into an HTML file.
-To generate the plot that you see above, you can use the following code snippet:
+<p>and applying Chernoff bound, we get for all $\epsilon \geq 0$,</p>
 
+\[\mathbb{P}\left[\frac{1}{n}\sum_{i=1}^n\left(X_i-\mu_i\right) \geq \epsilon \right] \leq \exp{\left(- \frac{1}{2}\cdot \frac{n^2 \epsilon^2}{\sum_{i=1}^n \sigma_i^2}\right)}\]
 
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="n">pandas</span> <span class="k">as</span> <span class="n">pd</span>
-<span class="kn">import</span> <span class="n">plotly.express</span> <span class="k">as</span> <span class="n">px</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="nf">read_csv</span><span class="p">(</span>
-<span class="sh">'</span><span class="s">https://raw.githubusercontent.com/plotly/datasets/master/earthquakes-23k.csv</span><span class="sh">'</span>
-<span class="p">)</span>
-<span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="p">.</span><span class="nf">density_mapbox</span><span class="p">(</span>
-<span class="n">df</span><span class="p">,</span>
-<span class="n">lat</span><span class="o">=</span><span class="sh">'</span><span class="s">Latitude</span><span class="sh">'</span><span class="p">,</span>
-<span class="n">lon</span><span class="o">=</span><span class="sh">'</span><span class="s">Longitude</span><span class="sh">'</span><span class="p">,</span>
-<span class="n">z</span><span class="o">=</span><span class="sh">'</span><span class="s">Magnitude</span><span class="sh">'</span><span class="p">,</span>
-<span class="n">radius</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
-<span class="n">center</span><span class="o">=</span><span class="nf">dict</span><span class="p">(</span><span class="n">lat</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">lon</span><span class="o">=</span><span class="mi">180</span><span class="p">),</span>
-<span class="n">zoom</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
-<span class="n">mapbox_style</span><span class="o">=</span><span class="sh">"</span><span class="s">stamen-terrain</span><span class="sh">"</span><span class="p">,</span>
-<span class="p">)</span>
-<span class="n">fig</span><span class="p">.</span><span class="nf">show</span><span class="p">()</span>
-<span class="n">fig</span><span class="p">.</span><span class="nf">write_html</span><span class="p">(</span><span class="sh">'</span><span class="s">assets/plotly/demo.html</span><span class="sh">'</span><span class="p">)</span></code></pre></figure>
+<hr>
 
+<p><strong>[Example 2]</strong></p>
 
---- -->
+<p>if we have $X_i - \mu \overset{i.i.d.}{\sim} s\mathcal{G}(\sigma)$, then we have</p>
 
-<!-- ## Details boxes
+\[\overline{X}_n - \mu \sim s\mathcal{G}\left(\frac{\sigma}{\sqrt{n}}\right)\]
 
-Details boxes are collapsible boxes which hide additional information from the user. They can be added with the `details` liquid tag:
+<p>And applying Chernoff bound, we get for all $\epsilon \geq 0$,
+\(\mathbb{P}(\overline{X}_n - \mu \geq \epsilon) \leq \exp{\left(-\frac{1}{2}\frac{n \epsilon^2}{\sigma^2}\right)}\)</p>
 
-<details><summary>Click here to know more</summary>
-<p>Additional details, where math \(2x - 1\) and <code class="language-plaintext highlighter-rouge">code</code> is rendered correctly.</p>
-</details> -->
+<hr>
 
-<!-- 
-## Layouts
+<p><strong>[Example 3]</strong></p>
 
-The main text column is referred to as the body.
-It is the assumed layout of any direct descendants of the `d-article` element.
+<p>if all $X_i$ are bounded random variables where $X_i \in [a_i, b_i]$ , then we have</p>
 
-<div class="fake-img l-body">
-  <p>.l-body</p>
-</div>
+\[\frac{1}{n}\sum_{i=1}^n\left(X_i-\mu_i\right) \sim s\mathcal{G}\left(\frac{1}{n}\sqrt{ \sum_{i =1}^{n} \frac{(b_i - a_i)^2}{4} }\right)\]
 
-For images you want to display a little larger, try `.l-page`:
+<p>And applying Chernoff bound, we get for all $\epsilon \geq 0$,</p>
 
-<div class="fake-img l-page">
-  <p>.l-page</p>
-</div>
+<p>\(\mathbb{P}\left[\frac{1}{n}\sum_{i=1}^n\left(X_i-\mu_i\right) \geq \epsilon \right] \leq \exp{\left(- \frac{1}{2}\cdot \frac{n^2 \epsilon^2}{\sum_{i=1}^n \frac{(b_i - a_i)^2}{4}}\right)} = \exp{\left(- \frac{2 n^2 \epsilon^2}{\sum_{i=1}^n (b_i - a_i)^2}\right)}\)
+—</p>
 
-All of these have an outset variant if you want to poke out from the body text a little bit.
-For instance:
+<p><strong>[Example 4]</strong></p>
 
-<div class="fake-img l-body-outset">
-  <p>.l-body-outset</p>
-</div>
+<p>Again another special case when $X_i \in [a, b]$, then we have</p>
 
-<div class="fake-img l-page-outset">
-  <p>.l-page-outset</p>
-</div>
+\[\overline{X}_n - \mu \sim s\mathcal{G}\left(\frac{1}{\sqrt{n}}\frac{(b-a)}{2}\right)\]
 
-Occasionally you’ll want to use the full browser width.
-For this, use `.l-screen`.
-You can also inset the element a little from the edge of the browser by using the inset variant.
+<p>And applying Chernoff bound, we get for all $\epsilon \geq 0$,</p>
 
-<div class="fake-img l-screen">
-  <p>.l-screen</p>
-</div>
-<div class="fake-img l-screen-inset">
-  <p>.l-screen-inset</p>
-</div>
+<p>$$
+\mathbb{P}(\overline{X}_n - \mu \geq \epsilon) \leq \exp{\left(  -\frac{2 n \epsilon^2}{ (b-a)^2 }  \right)}</p>
 
-The final layout is for marginalia, asides, and footnotes.
-It does not interrupt the normal flow of `.l-body` sized text except on mobile screen sizes.
+<h2>$$</h2>
 
-<div class="fake-img l-gutter">
-  <p>.l-gutter</p>
-</div>
+<p>These are all examples of Hoeffding’s bound. Following is the general form of the Hoeffding’s bound, proposition is taken from the book of Wainwright <d-cite key="wainwright2019high"></d-cite></p>
 
---- -->
-<!-- 
-## Other Typography?
+<blockquote>
+  <p><strong>Proposition [Hoeffding bound</strong>]: Suppose we have a sequence $X_i - \mu_i \overset{i.i.d.}{\sim} s\mathcal{G}(\sigma_i)$, then for all $\epsilon \geq 0$, we have</p>
 
-Emphasis, aka italics, with _asterisks_ (`*asterisks*`) or _underscores_ (`_underscores_`).
+\[\mathbb{P}\left[\frac{1}{n}\sum_{i=1}^n\left(X_i-\mu_i\right) \geq \epsilon \right] \leq \exp{\left(- \frac{1}{2}\cdot \frac{n^2 \epsilon^2}{\sum_{i=1}^n \sigma_i^2}\right)}\]
+</blockquote>
 
-Strong emphasis, aka bold, with **asterisks** or **underscores**.
+<p>Finally if $X_i \in [0, 1]$, for all $i$ and they are independent, we have a very simple bound,</p>
 
-Combined emphasis with **asterisks and _underscores_**.
-
-Strikethrough uses two tildes. ~~Scratch this.~~
-
-1. First ordered list item
-2. Another item
-   ⋅⋅\* Unordered sub-list.
-3. Actual numbers don't matter, just that it's a number
-   ⋅⋅1. Ordered sub-list
-4. And another item.
-
-⋅⋅⋅You can have properly indented paragraphs within list items. Notice the blank line above, and the leading spaces (at least one, but we'll use three here to also align the raw Markdown).
-
-⋅⋅⋅To have a line break without a paragraph, you will need to use two trailing spaces.⋅⋅
-⋅⋅⋅Note that this line is separate, but within the same paragraph.⋅⋅
-⋅⋅⋅(This is contrary to the typical GFM line break behaviour, where trailing spaces are not required.)
-
-- Unordered list can use asterisks
-
-* Or minuses
-
-- Or pluses
-
-[I'm an inline-style link](https://www.google.com)
-
-[I'm an inline-style link with title](https://www.google.com "Google's Homepage")
-
-[I'm a reference-style link][Arbitrary case-insensitive reference text]
-
-[You can use numbers for reference-style link definitions][1]
-
-Or leave it empty and use the [link text itself].
-
-URLs and URLs in angle brackets will automatically get turned into links.
-http://www.example.com or <http://www.example.com> and sometimes
-example.com (but not on Github, for example).
-
-Some text to show that the reference links can follow later.
-
-[arbitrary case-insensitive reference text]: https://www.mozilla.org
-[1]: http://slashdot.org
-[link text itself]: http://www.reddit.com
-
-Here's our logo (hover to see the title text):
-
-Inline-style:
-![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
-
-Reference-style:
-![alt text][logo]
-
-[logo]: https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 2"
-
-Inline `code` has `back-ticks around` it.
-
-```javascript
-var s = "JavaScript syntax highlighting";
-alert(s);
-```
-
-```python
-s = "Python syntax highlighting"
-print s
-```
-
-```
-No language indicated, so no syntax highlighting.
-But let's throw in a <b>tag</b>.
-```
-
-Colons can be used to align columns.
-
-| Tables        |      Are      |  Cool |
-| ------------- | :-----------: | ----: |
-| col 3 is      | right-aligned | $1600 |
-| col 2 is      |   centered    |   $12 |
-| zebra stripes |   are neat    |    $1 |
-
-There must be at least 3 dashes separating each header cell.
-The outer pipes (|) are optional, and you don't need to make the
-raw Markdown line up prettily. You can also use inline Markdown.
-
-| Markdown | Less      | Pretty     |
-| -------- | --------- | ---------- |
-| _Still_  | `renders` | **nicely** |
-| 1        | 2         | 3          |
-
-> Blockquotes are very handy in email to emulate reply text.
-> This line is part of the same quote.
-
-Quote break.
-
-> This is a very long line that will still be quoted properly when it wraps. Oh boy let's keep writing to make sure this is long enough to actually wrap for everyone. Oh, you can _put_ **Markdown** into a blockquote.
-
-Here's a line for us to start with.
-
-This line is separated from the one above by two newlines, so it will be a _separate paragraph_.
-
-This line is also a separate paragraph, but...
-This line is only separated by a single newline, so it's a separate line in the _same paragraph_. -->
+\[\mathbb{P}(\overline{X}_n - \mu \geq \epsilon) \leq \exp{\left(  - 2 n \epsilon^2  \right)}\]
 
       </d-article>
 
@@ -700,7 +544,7 @@ Hosted by <a href="https://pages.github.com/" target="_blank" rel="external nofo
 
       
       
-        Last updated: September 12, 2024.
+        Last updated: September 14, 2024.
       
     </div>
   </footer>
