@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2024-09-16T12:42:31+06:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">blank</title><subtitle>Website of Sk. Tanvir Hossain.
-</subtitle><entry><title type="html">Explore than Commit (or Explore first)</title><link href="http://localhost:4000/blog/2024/stb-etc-distill/" rel="alternate" type="text/html" title="Explore than Commit (or Explore first)" /><published>2024-09-14T00:00:00+06:00</published><updated>2024-09-14T00:00:00+06:00</updated><id>http://localhost:4000/blog/2024/stb-etc-distill</id><content type="html" xml:base="http://localhost:4000/blog/2024/stb-etc-distill/"><![CDATA[<h2 id="explore-then-commit-etc-algorithm">Explore then commit (ETC) algorithm</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2024-09-16T21:08:30+06:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">blank</title><subtitle>Website of Sk. Tanvir Hossain.
+</subtitle><entry><title type="html">Explore than Commit (or Explore first)</title><link href="http://localhost:4000/blog/2024/stb-etc/" rel="alternate" type="text/html" title="Explore than Commit (or Explore first)" /><published>2024-09-14T00:00:00+06:00</published><updated>2024-09-14T00:00:00+06:00</updated><id>http://localhost:4000/blog/2024/stb-etc</id><content type="html" xml:base="http://localhost:4000/blog/2024/stb-etc/"><![CDATA[<h2 id="explore-then-commit-etc-algorithm">Explore then commit (ETC) algorithm</h2>
 
 <!-- 
 ## Bandit Notations
@@ -91,7 +91,7 @@ Since $\Delta_2$ is constant, to bound the regret we can simply boung number of 
 
 
 
- -->]]></content><author><name></name></author><category term="bandits" /><category term="stochastic_bandits" /><summary type="html"><![CDATA[ETC a stochastic bandit algorithm]]></summary></entry><entry><title type="html">Subgaussian Random Variables</title><link href="http://localhost:4000/blog/2024/sG1-distill/" rel="alternate" type="text/html" title="Subgaussian Random Variables" /><published>2024-09-08T00:00:00+06:00</published><updated>2024-09-08T00:00:00+06:00</updated><id>http://localhost:4000/blog/2024/sG1-distill</id><content type="html" xml:base="http://localhost:4000/blog/2024/sG1-distill/"><![CDATA[<p>When I started to read multi armed bandit (a.k.a. sequential treatment allocation) literature, had to deal with concentration bounds (somehow I love and hate this topic). The key idea is essentially bounding the tail probabilities of the random variables. Since I myself sometimes forget many details, I decided to write <del>everyday</del>, time to time (even if it’s very little). Hopefully by this I will learn many things and this helps people who has struggled like me.</p>
+ -->]]></content><author><name></name></author><category term="bandits" /><category term="stochastic_bandits" /><summary type="html"><![CDATA[ETC a stochastic bandit algorithm]]></summary></entry><entry><title type="html">Subgaussian Random Variables</title><link href="http://localhost:4000/blog/2024/sG1/" rel="alternate" type="text/html" title="Subgaussian Random Variables" /><published>2024-09-08T00:00:00+06:00</published><updated>2024-09-08T00:00:00+06:00</updated><id>http://localhost:4000/blog/2024/sG1</id><content type="html" xml:base="http://localhost:4000/blog/2024/sG1/"><![CDATA[<p>When I started to read multi armed bandit (a.k.a. sequential treatment allocation) literature, had to deal with concentration bounds (somehow I love and hate this topic). The key idea is essentially bounding the tail probabilities of the random variables. Since I myself sometimes forget many details, I decided to write <del>everyday</del>, time to time (even if it’s very little). Hopefully by this I will learn many things and this helps people who has struggled like me.</p>
 
 <p>This is the first post of the series of posts on concentration bounds that I will try to write. There are different but equivalent ways to define a subgaussain random variable, I will follow following definitions,</p>
 
@@ -246,10 +246,13 @@ Many random variables are subgaussian, for example,
 
 <p>And applying Chernoff bound, we get for all $\epsilon \geq 0$,</p>
 
-<p>$$
-\mathbb{P}(\overline{X}_n - \mu \geq \epsilon) \leq \exp{\left(  -\frac{2 n \epsilon^2}{ (b-a)^2 }  \right)}</p>
+\[\mathbb{P}(\overline{X}_n - \mu \geq \epsilon) \leq \exp{\left(  -\frac{2 n \epsilon^2}{ (b-a)^2 }  \right)}\]
 
-<h2>$$</h2>
+<p>for $a = 0$ and $b = 1$, we have a very simple bound,</p>
+
+\[\mathbb{P}(\overline{X}_n - \mu \geq \epsilon) \leq \exp{\left(  - 2 n \epsilon^2  \right)}\]
+
+<hr />
 
 <p>These are all examples of Hoeffding’s bound. Following is the general form of the Hoeffding’s bound, proposition is taken from the book of Wainwright <d-cite key="wainwright2019high"></d-cite></p>
 
@@ -257,8 +260,4 @@ Many random variables are subgaussian, for example,
   <p><strong>Proposition [Hoeffding bound</strong>]: Suppose we have a sequence $X_i - \mu_i \overset{i.i.d.}{\sim} s\mathcal{G}(\sigma_i)$, then for all $\epsilon \geq 0$, we have</p>
 
 \[\mathbb{P}\left[\frac{1}{n}\sum_{i=1}^n\left(X_i-\mu_i\right) \geq \epsilon \right] \leq \exp{\left(- \frac{1}{2}\cdot \frac{n^2 \epsilon^2}{\sum_{i=1}^n \sigma_i^2}\right)}\]
-</blockquote>
-
-<p>Finally if $X_i \in [0, 1]$, for all $i$ and they are independent, we have a very simple bound,</p>
-
-\[\mathbb{P}(\overline{X}_n - \mu \geq \epsilon) \leq \exp{\left(  - 2 n \epsilon^2  \right)}\]]]></content><author><name></name></author><category term="concentration_bounds" /><category term="subgaussain_random_variables" /><summary type="html"><![CDATA[Some details on Subgaussian]]></summary></entry></feed>
+</blockquote>]]></content><author><name></name></author><category term="concentration_bounds" /><category term="subgaussain_random_variables" /><summary type="html"><![CDATA[Some details on Subgaussian]]></summary></entry></feed>
