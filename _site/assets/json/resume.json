@@ -10,7 +10,31 @@
       "region": "Bangladesh"
     }
   },
-  
+  "education": [
+    {
+      "institution": "University of Mannheim",
+      "url": "https://www.uni-mannheim.de/",
+      "area": "Majority courses in Econometrics",
+      "studyType": "Master of Science in Economics",
+      "startDate": "2015-01-01",
+      "endDate": "2017-01-01",
+      "score": "1.7",
+      "scale": "German grading system with 1 being the best and 5 being the worst",
+      "thesis title": [
+        "LASSO & Vector Autoregressive Models - Application to Dynamic Stochastic Networks"
+      ]
+    },
+    {
+      "institution": "BRAC University",
+      "url": "https://www.bracu.ac.bd/",
+      "area": "Economics and Finance",
+      "studyType": "Bachelors in Business with a second major in Economics",
+      "startDate": "2008-01-01",
+      "endDate": "2012-01-01",
+      "score": "3.64",
+      "scale": "4.0"
+    }
+  ],
   "work": [
     {
       "name": "East West University",
@@ -51,31 +75,6 @@
       "startDate": "2012-09-01",
       "endDate": "2012-12-01",
       "summary": ""
-    }
-  ],
-  "education": [
-    {
-      "institution": "University of Mannheim",
-      "url": "https://www.uni-mannheim.de/",
-      "area": "Majority courses in Econometrics",
-      "studyType": "Master of Science in Economics",
-      "startDate": "2015-01-01",
-      "endDate": "2017-01-01",
-      "score": "1.7",
-      "scale": "German grading system with 1 being the best and 5 being the worst",
-      "thesis title": [
-        "LASSO & Vector Autoregressive Models - Application to Dynamic Stochastic Networks"
-      ]
-    },
-    {
-      "institution": "BRAC University",
-      "url": "https://www.bracu.ac.bd/",
-      "area": "Economics and Finance",
-      "studyType": "Bachelors in Business with a second major in Economics",
-      "startDate": "2008-01-01",
-      "endDate": "2012-01-01",
-      "score": "3.64",
-      "scale": "4.0"
     }
   ],
   "skills": [
