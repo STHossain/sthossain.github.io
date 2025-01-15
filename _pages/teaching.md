@@ -28,7 +28,7 @@ toc:
 
 - ECO204 - *Statistics for Business and Economics - II*
     - Summer 2022
-    - [Fall 2023, Course Website](../_teaching/ewu/eco204/eco204.md)
+    - [Fall 2023, Course Materials](../_teaching/ewu/eco204/eco204.md)
 
 *Note: All the courses above are Bachelor level courses*
 
