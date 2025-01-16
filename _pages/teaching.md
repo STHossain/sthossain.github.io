@@ -11,7 +11,7 @@ toc:
 ---
 
 
-*I approach teaching with deep respect and responsibility, knowing that my own journey would not have been possible without the guidance of my teachers. I also owe a lot to my students, who indeed taught me many things. Here I share what I have prepared over my teaching career!*
+*I love teaching and I am deeply grateful to all my students who taught me a lot. Here I share some of the resources I've created throughout my teaching journey! Feel free to use them however you'd would like. I tried to make the notes as error-free as possible, but I know there may still be a few mistakes, so I’d be grateful if you could let me know if you find any, tahnks a lot!*
 
 
 ---
@@ -20,7 +20,11 @@ toc:
 
 
 - MAT100 - *College Mathematics*  
-    - Summer 2022
+    - Summer 2022 
+    - Fall 2023
+
+- MA211 - *Mathematics for Business and Economics - II*  
+    - Fall 2023
 
 - ECO104 - *Statistics for Business and Economics - I*
     - Fall 2022
