@@ -9,20 +9,24 @@
       value: sthossain.github.io
     - name: Research Interests
       value: Econometrics, Causal Inference, and Machine Learning
-    - name: Nationality
-      value: Bangladeshi
-    - name: Languages
-      value: Bangla (Native), English (Fluent), German (Basic)
+    - name: Short CV
+      value: "This is a short CV. For a detailed CV in PDF, please click on the logo at the top right"
 
 - title: Education
   type: time_table
   contents:
+    - title: Doctoral Studies in Economics
+      institution: Technical University of Dortmund, Dortmund, Germany
+      year: 2022 - Present
+      description:
+        - "Dissertation Topic: Sequential Treatment Allocation, Interference and Bandit Algorithms"
+        - "Supervisor: Professor Carsten Jentsch"
     - title: Master of Science in Economics (2-year Program)
       institution: University of Mannheim, Mannheim, Germany
       year: 2017
       description:
         - "Focus areas: Statistics and Econometrics"
-        - "Thesis: LASSO & Vector Autoregressive Models - With an Application to Dynamic Stochastic Networks"
+        - "Thesis Title: LASSO & Vector Autoregressive Models - With an Application to Dynamic Stochastic Networks"
         - "Overall grade: 1.7 (with 1.0 being the best)"
     - title: Bachelors in Business with a Second Major in Economics
       institution: BRAC University, Dhaka, Bangladesh

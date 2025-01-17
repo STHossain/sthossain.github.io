@@ -38,15 +38,46 @@
           <h6 class="title font-weight-bold ml-1 ml-md-4">
             <a href="{{ content.url }}">{{ content.studyType }}</a>
           </h6>
-          <h6 class="ml-1 ml-md-4" style="font-size: 0.95rem">{{ content.institution }}</h6>
-          <h6 class="ml-1 ml-md-4" style="font-size: 0.95rem; font-style: italic">{{ content.area }}</h6>
-          <ul class="items">
-            {% for item in content.courses %}
-              <li>
-                <span class="item">{{ item }}</span>
-              </li>
-            {% endfor %}
-          </ul>
+          <h6 class="ml-1 ml-md-4" style="font-size: 0.95rem">
+            <a href="{{ content.universityUrl }}">{{ content.institution }}</a>
+          </h6>
+          <h6 class="ml-1 ml-md-4" style="font-size: 0.95rem">{{ content.area }}</h6>
+          {% if content.department %}
+            <p class="ml-1 ml-md-4" style="font-size: 0.95rem; margin-bottom: 0;">
+              <strong>Department:</strong> {{ content.department }}
+            </p>
+          {% endif %}
+          {% if content.majors %}
+            <p class="ml-1 ml-md-4" style="font-size: 0.95rem; margin-bottom: 0;">
+              <strong>Majors:</strong> {{ content.majors | join: ', ' }}
+            </p>
+          {% endif %}
+          {% if content.thesisTopic %}
+            <p class="ml-1 ml-md-4" style="font-size: 0.95rem; margin-bottom: 0;">
+              <strong>Thesis Topic:</strong> {{ content.thesisTopic | join: ', ' }}
+            </p>
+          {% endif %}
+          {% if content.supervisor %}
+            <p class="ml-1 ml-md-4" style="font-size: 0.95rem; margin-bottom: 0;">
+              <strong>Supervisor:</strong>
+              <a href="{{ content.supervisorUrl }}">{{ content.supervisor }}</a>
+            </p>
+          {% endif %}
+          {% if content.focusArea %}
+            <p class="ml-1 ml-md-4" style="font-size: 0.95rem; margin-bottom: 0;">
+              <strong>Focus Area:</strong> {{ content.focusArea }}
+            </p>
+          {% endif %}
+          {% if content.grade %}
+            <p class="ml-1 ml-md-4" style="font-size: 0.95rem; margin-bottom: 0;">
+              <strong>Grade:</strong> {{ content.grade }}
+            </p>
+          {% endif %}
+          {% if content.dissertationTopic %}
+            <p class="ml-1 ml-md-4" style="font-size: 0.95rem; margin-bottom: 0;">
+              <strong>Dissertation Topic:</strong> {{ content.dissertationTopic | join: ', ' }}
+            </p>
+          {% endif %}
         </div>
       </div>
     </li>

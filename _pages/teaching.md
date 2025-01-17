@@ -11,7 +11,11 @@ toc:
 ---
 
 
-*I love teaching and I am deeply grateful to all my students who taught me a lot. Here I share some of the resources I've created throughout my teaching journey! Feel free to use them however you'd would like. I tried to make the notes as error-free as possible, but I know there may still be a few mistakes, so I’d be grateful if you could let me know if you find any, tahnks a lot!*
+*As a student I am thankful to all my teachers, who gave their best to support me, and honestly without them I would not be here. I am equally grateful to all my students who have taught me along the way.* 
+
+*Here, I share some of the resources I’ve created throughout my teaching journey. Please feel free to use them in any way you’d like. I’ve tried my best to make these notes as accurate as possible, but I know there may still be a few errors. If you happen to find any mistakes, I would truly appreciate your feedback.*
+
+*Thank you so much!!*
 
 
 ---

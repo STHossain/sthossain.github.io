@@ -4,7 +4,7 @@
     "email": "tanvir.hossain@tu-dortmund.de",
     "url": "https://sthossain.github.io",
     "summary": "Researcher in Econometrics, Causal Inference, and Machine Learning",
-    "cv in PDF": "This is a short cv, please see the PDF version for more details (click on the pdf logo on top)",
+    "cv in PDF": "This is a short CV, please see the PDF version for more details (click on the PDF logo on top)",
     "location": {
       "countryCode": "BD",
       "region": "Bangladesh"
@@ -12,22 +12,35 @@
   },
   "education": [
     {
+      "institution": "Technical University of Dortmund (TU-Dortmund)",
+      "url": "https://www.tu-dortmund.de/",
+      "universityUrl": "https://www.tu-dortmund.de/",
+      "department": "Business and Economics",
+      "studyType": "Doctoral Student",
+      "startDate": "2019-04",
+      "endDate": "ongoing",
+      "dissertationTopic": "Sequential Treatment Allocation, Interference and Bandit Algorithms",
+      "focusArea": "Econometrics, Causal Inference, Machine Learning",
+      "supervisor": "Professor Carsten Jentsch",
+      "supervisorUrl": "https://lwus.statistik.tu-dortmund.de/en/chair/team/jentsch/"
+    },
+    {
       "institution": "University of Mannheim",
-      "url": "https://www.uni-mannheim.de/",
-      "area": "Majority courses in Econometrics",
+      "universityUrl": "https://www.uni-mannheim.de/",
+      "department": "Economics",
       "studyType": "Master of Science in Economics",
-      "startDate": "2015-01-01",
-      "endDate": "2017-01-01",
+      "startDate": "2014-08",
+      "endDate": "2017-02",
       "score": "1.7",
       "scale": "German grading system with 1 being the best and 5 being the worst",
-      "thesis title": [
+      "thesisTopic": [
         "LASSO & Vector Autoregressive Models - Application to Dynamic Stochastic Networks"
       ]
     },
     {
       "institution": "BRAC University",
-      "url": "https://www.bracu.ac.bd/",
-      "area": "Economics and Finance",
+      "universityUrl": "https://www.bracu.ac.bd/",
+      "majors": "Economics and Finance",
       "studyType": "Bachelors in Business with a second major in Economics",
       "startDate": "2008-01-01",
       "endDate": "2012-01-01",
@@ -124,15 +137,18 @@
   "references": [
     {
       "name": "Professor Carsten Jentsch",
-      "reference": "Chair of Business and Social Statistics, Technical University of Dortmund"
+      "url": "https://lwus.statistik.tu-dortmund.de/en/chair/team/jentsch/",
+      "reference": "Professsor and Head of the Chair of Business and Social Statistics, Technical University of Dortmund, Germany"
     },
     {
       "name": "Professor Wasiqur Rahaman Khan",
-      "reference": "BRAC University, Dept. of Economics and Social Sciences"
+      "url": "https://www.bracu.ac.bd/about/people/wasiqur-rahman-khan-phd",
+      "reference": "Professor and Chairperson of Dept. of Economics and Social Sciences, BRAC University, Bangladesh"
     },
     {
       "name": "Professor A.M Tanvir Hussain",
-      "reference": "East West University, Dept. of Economics"
+      "url":"https://fbe.ewubd.edu/economics-department/faculty-view/hussain",
+      "reference": "Associate Professor of Department of Economics, East West University, Bangladesh"
     }
   ]
 }
