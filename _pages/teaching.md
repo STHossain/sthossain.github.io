@@ -11,12 +11,7 @@ toc:
 ---
 
 
-*As a student I am thankful to all my teachers, who gave their best to support me, and honestly without them I would not be here. I am equally grateful to all my students who have taught me along the way.* 
-
-*Here, I share some of the resources I’ve created throughout my teaching journey. Please feel free to use them in any way you’d like. I’ve tried my best to make these notes as accurate as possible, but I know there may still be a few errors. If you happen to find any mistakes, I would truly appreciate your feedback.*
-
-*Thank you so much!!*
-
+*As a student I am thankful to all my teachers, who gave their best to support me, and honestly without them I would not be here. I am equally grateful to all my students who have taught me along the way. Here, I share some of the resources I’ve created throughout my teaching journey. Please feel free to use them in any way you’d like. I’ve tried my best to make then error free, but I know still there might be a few mistakes here and there. If you happen to find any, please let men know, thanks!*
 
 ---
 
