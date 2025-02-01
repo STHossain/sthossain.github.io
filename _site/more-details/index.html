@@ -65,11 +65,6 @@
 <!-- Dark Mode -->
 <script src="/assets/js/theme.js?9a0c749ec5240d9cda97bc72359a72c0"></script>
 
-  <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-native.css?5847e5ed4a4568527aa6cfab446049ca" media="none" id="highlight_theme_dark">
-  <script>
-    initTheme();
-  </script>
-
 
 <!-- GeoJSON support via Leaflet -->
 
@@ -194,15 +189,6 @@
             </li>
           
           
-            <!-- Toogle theme mode -->
-            <li class="toggle-container">
-              <button id="light-toggle" title="Change theme">
-                <i class="ti ti-sun-moon" id="light-toggle-system"></i>
-                <i class="ti ti-moon-filled" id="light-toggle-dark"></i>
-                <i class="ti ti-sun-filled" id="light-toggle-light"></i>
-              </button>
-            </li>
-          
         </ul>
       </div>
     </div>
@@ -263,7 +249,7 @@ Hosted by <a href="https://pages.github.com/" target="_blank" rel="external nofo
 
       
       
-        Last updated: January 27, 2025.
+        Last updated: February 01, 2025.
       
     </div>
   </footer>
@@ -609,33 +595,7 @@ Hosted by <a href="https://pages.github.com/" target="_blank" rel="external nofo
               description: "Julia Programming Course at TU Dortmund, Fall 2021",
               section: "Teaching",handler: () => {
                   window.location.href = "/teaching/tudo/julia_course/julia_course_page/";
-                },},{
-          id: 'light-theme',
-          title: 'Change theme to light',
-          description: 'Change the theme of the site to Light',
-          section: 'Theme',
-          handler: () => {
-            setThemeSetting("light");
-          },
-        },
-        {
-          id: 'dark-theme',
-          title: 'Change theme to dark',
-          description: 'Change the theme of the site to Dark',
-          section: 'Theme',
-          handler: () => {
-            setThemeSetting("dark");
-          },
-        },
-        {
-          id: 'system-theme',
-          title: 'Use system default theme',
-          description: 'Change the theme of the site to System Default',
-          section: 'Theme',
-          handler: () => {
-            setThemeSetting("system");
-          },
-        },];
+                },},];
   </script>
   <script src="/assets/js/shortcut-key.js?6f508d74becd347268a7f822bca7309d"></script>
 
