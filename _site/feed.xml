@@ -1,14 +1,25 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2025-07-07T00:16:09+06:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">blank</title><subtitle>Website of Sk. Tanvir Hossain.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2025-07-07T00:28:48+06:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">blank</title><subtitle>Website of Sk. Tanvir Hossain.
 </subtitle><entry><title type="html">Assumptions for Regression</title><link href="http://localhost:4000/blog/2025/metrics1/" rel="alternate" type="text/html" title="Assumptions for Regression" /><published>2025-06-07T00:00:00+06:00</published><updated>2025-06-07T00:00:00+06:00</updated><id>http://localhost:4000/blog/2025/metrics1</id><content type="html" xml:base="http://localhost:4000/blog/2025/metrics1/"><![CDATA[<h1 id="regression-assumptions">Regression Assumptions</h1>
 
 <p>Recently was discussing with a friend (Mashrur bhai) about the assumptions for regression, and I thought it would be useful to write down some of the key points. There are essentially two approaches we can introduce the assumptions,</p>
 
 <ul>
   <li>Writing the linear regression model first and then imposing the assumptions on the error term (this is the most common approach in undergraduate textbooks), or</li>
-  <li>Starting with the CEF (Conditional Expectation Function) and then deriving the assumptions from there (This approach is more common in graduate textbooks, in particular the beautifulm book by Hansen <d-cite key="hansen_2022"></d-cite>, also Angrist and Pischke <d-cite key="angrist_2009a"></d-cite> and the note by Chaisemartin <d-cite key="dechaisemartin_"></d-cite>).</li>
+  <li>Starting with the CEF (Conditional Expectation Function) and then deriving the assumptions from there (This approach is more common in graduate textbooks. You can look at the the beautiful book by <strong>Hansen</strong> <d-cite key="hansen_2022"></d-cite>, and also the book by <strong>Angrist and Pischke</strong> <d-cite key="angrist_2009a"></d-cite> and the excellent notes by <strong>Chaisemartin</strong><d-cite key="dechaisemartin_"></d-cite>).</li>
 </ul>
 
-<p>….  coming …</p>]]></content><author><name></name></author><category term="Econometrics" /><category term="Regression" /><summary type="html"><![CDATA[CEF and the assumptions for regression]]></summary></entry><entry><title type="html">Subgaussian Random Variables</title><link href="http://localhost:4000/blog/2024/sG1/" rel="alternate" type="text/html" title="Subgaussian Random Variables" /><published>2024-09-08T00:00:00+06:00</published><updated>2024-09-08T00:00:00+06:00</updated><id>http://localhost:4000/blog/2024/sG1</id><content type="html" xml:base="http://localhost:4000/blog/2024/sG1/"><![CDATA[<h1 id="sub-gaussian-random-variables-and-hoeffdings-bound">Sub-Gaussian Random Variables and Hoeffding’s Bound</h1>
+<p>The idea is we start from the idea of CEF, since this is the best prediction function. Here is the setup</p>
+
+<p><strong>Setup:</strong> Suppose we have a random variable $Y$ and we would like to predict it using a set of random variables $X = (X_1, X_2, \ldots, X_k)$, where $X$ is a vector of random variables, i.e.,</p>
+
+\[X = \begin{pmatrix}
+X_1 \\
+X_2 \\
+\vdots \\
+X_k
+\end{pmatrix}\]
+
+<p>Then the CEF is defined as</p>]]></content><author><name></name></author><category term="Econometrics" /><category term="Regression" /><summary type="html"><![CDATA[CEF and the assumptions for regression]]></summary></entry><entry><title type="html">Subgaussian Random Variables</title><link href="http://localhost:4000/blog/2024/sG1/" rel="alternate" type="text/html" title="Subgaussian Random Variables" /><published>2024-09-08T00:00:00+06:00</published><updated>2024-09-08T00:00:00+06:00</updated><id>http://localhost:4000/blog/2024/sG1</id><content type="html" xml:base="http://localhost:4000/blog/2024/sG1/"><![CDATA[<h1 id="sub-gaussian-random-variables-and-hoeffdings-bound">Sub-Gaussian Random Variables and Hoeffding’s Bound</h1>
 
 <h2 id="some-comments">Some Comments</h2>
 <p>When I started to read multi armed bandit (a.k.a. sequential treatment allocation) literature, had to deal with concentration bounds, the key idea is essentially bounding the tail probabilities of the random variables. Since I myself sometimes forget many details, I decided to write someting about it... hopefully by this I will learn many things and this helps people who has struggled like me. </p>
