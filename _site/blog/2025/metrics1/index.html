@@ -1,10 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
-  <!-- Head -->
+<html>
   <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-    
     <!-- Metadata, OpenGraph and Schema.org -->
 
 
@@ -18,13 +16,12 @@
   
   
     
-      MAT 100 - College Mathematics (Summer 2022) | Sk. Tanvir Hossain
+      Assumptions for Regression | Sk. Tanvir Hossain
     
   
 </title>
 <meta name="author" content="Sk. Tanvir Hossain">
-<meta name="description" content="Website of Sk. Tanvir Hossain.
-">
+<meta name="description" content="CEF and the assumptions for regression">
 
   <meta name="keywords" content="jekyll, jekyll-theme, academic-website, portfolio-website">
 
@@ -60,7 +57,7 @@
 
 
 <link rel="stylesheet" href="/assets/css/main.css?d41d8cd98f00b204e9800998ecf8427e">
-<link rel="canonical" href="http://localhost:4000/teaching/ewu/mat100/mat100/">
+<link rel="canonical" href="http://localhost:4000/blog/2025/metrics1/">
 
 <!-- Dark Mode -->
 <script src="/assets/js/theme.js?9a0c749ec5240d9cda97bc72359a72c0"></script>
@@ -76,10 +73,65 @@
 
 
 
+    
+      <!-- Medium Zoom JS -->
+      <script defer src="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous"></script>
+      <script defer src="/assets/js/zoom.js?85ddb88934d28b74e78031fd54cf8308"></script>
+    
+    <!-- jQuery -->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    
+  
+    <!-- MathJax -->
+    <script type="text/javascript">
+      window.MathJax = {
+        tex: {
+          tags: 'ams',
+        },
+      };
+    </script>
+    <script defer type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js" integrity="sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI=" crossorigin="anonymous"></script>
+    <script defer src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6" crossorigin="anonymous"></script>
+  
+
+
+    <!-- Distill js -->
+    <script src="/assets/js/distillpub/template.v2.js"></script>
+    <script src="/assets/js/distillpub/transforms.v2.js"></script>
+    <script src="/assets/js/distillpub/overrides.js"></script>
+    
   </head>
 
-  <!-- Body -->
-  <body class="fixed-top-nav ">
+  <body>
+<d-front-matter>
+    <script async type="text/json">
+      {
+            "title": "Assumptions for Regression",
+            "description": "CEF and the assumptions for regression",
+            "published": "June 07, 2025",
+            "authors": [
+              
+            ],
+            "katex": {
+              "delimiters": [
+                {
+                  "left": "$",
+                  "right": "$",
+                  "display": false
+                },
+                {
+                  "left": "$$",
+                  "right": "$$",
+                  "display": true
+                }
+              ]
+            }
+          }
+    </script>
+  </d-front-matter>
+
+  
     <!-- Header -->
     <header>
   <!-- Nav Bar -->
@@ -171,11 +223,9 @@
             
               
                 
-                <li class="nav-item active">
+                <li class="nav-item ">
                   
                   <a class="nav-link" href="/teaching/">teaching
-                    
-                      <span class="sr-only">(current)</span>
                     
                   </a>
                 </li>
@@ -187,7 +237,7 @@
             
               
                 
-                <li class="nav-item ">
+                <li class="nav-item active">
                   
                   <a class="nav-link" href="/blog/">blog
                     
@@ -221,209 +271,64 @@
 
 
     <!-- Content -->
-    <div class="container mt-5" role="main">
+    <div class="post distill">
+      <d-title>
+        <h1>Assumptions for Regression</h1>
+        <p>CEF and the assumptions for regression</p>
+      </d-title>
       
-        <div class="post">
-  <header class="post-header">
-    <h1 class="post-title">MAT 100 - College Mathematics (Summer 2022)</h1>
-    <p class="post-description"></p>
-  </header>
 
-  <article>
-    <h1 id="mat-100---college-mathematics"><span style="color: darkblue;">MAT 100 - College Mathematics</span></h1>
+      <d-article>
+        
+        <h1 id="regression-assumptions">Regression Assumptions</h1>
 
-<p><strong><span style="color: darkgreen;">East West University</span></strong></p>
-
-<p><strong><span style="color: darkred;">Summer 2022</span></strong></p>
-
-<hr>
-
-<p><strong>Instructor:</strong> <span style="color: darkorange;">Sk. Tanvir Hossain</span><br>
-<strong>Email:</strong> <span style="color: darkorange;">tanvir.hossain@ewubd.edu</span><br>
-<strong>Time:</strong> <span style="color: darkorange;">Mon &amp; Wed - 8:30 - 10:00 PM</span><br>
-<strong>Room:</strong> <span style="color: darkorange;">338 (Section 7)</span><br>
-<strong>Office Hours:</strong> <span style="color: darkorange;">Monday - 10.30 - 12.30 (Room - 345)</span></p>
-
-<p>If you cannot come during this time, then please send me an email with your queries/questions, and we will find a way to solve them.</p>
-
-<hr>
-
-<h2 id="tentative-course-outline">
-<span style="color: darkblue;">Tentative Course Outline</span>:</h2>
-
-<p>This is an introductory level course on Mathematics offered for the undergraduate students from Business, Economics, Pharmacy and other departments. The core topics are Functions, Differential and Integral Calculus, Matrix Algebra and some Counting Methods, e.g., Permutation and Combination. More or less we will start from scratch, so no previous knowledge of Calculus or Matrix algebra is required. However, you are expected to think critically and understand the problem rather than just memorizing formulas and applying them.</p>
-
-<p>Here is the list of topics in detail:</p>
+<p>Recently was discussing with a friend (Mashrur bhai) about the assumptions for regression, and I thought it would be useful to write down some of the key points. There are essentially two approaches we can introduce the assumptions,</p>
 
 <ul>
-  <li>
-<strong><span style="color: purple;">Derivatives / Differential Calculus:</span></strong> Functions, Limits &amp; Continuity, Techniques of Differentiation, Maxima and Minima of Functions, Point of Inflection, Functions of Two or More Variables, Partial Derivatives.</li>
-  <li>
-<strong><span style="color: purple;">Integral Calculus:</span></strong> Integration as an inverse of Differentiation, Integration as an area problem, Techniques of Integration - Integration by substitution, Integration by parts, Calculating definite Integrals.</li>
-  <li>
-<strong><span style="color: purple;">Counting Methods:</span></strong> Some basic counting methods like - Multiplication rules, Permutation, Combination and Binomial theorem.</li>
-  <li>
-<strong><span style="color: purple;">Matrix Calculus:</span></strong> Introduction to Matrices, Different types of Matrices (e.g., Identity Matrix, Diagonal Matrix) and Matrix operations, Finding inverse of a Matrix. Using Matrices to solve systems of linear equations by using both Gauss Jordan Elimination Algorithm and Inverse Method, Cramer’s rule.</li>
+  <li>Writing the linear regression model first and then imposing the assumptions on the error term (this is the most common approach in undergraduate textbooks), or</li>
+  <li>Starting with the CEF (Conditional Expectation Function) and then deriving the assumptions from there (This approach is more common in graduate textbooks, in particular the beautifulm book by Hansen <d-cite key="hansen_2022"></d-cite>, also Angrist and Pischke <d-cite key="angrist_2009a"></d-cite> and the note by Chaisemartin <d-cite key="dechaisemartin_"></d-cite>).</li>
 </ul>
 
-<h2 id="learning-outcomes">
-<span style="color: darkblue;">Learning Outcomes</span>:</h2>
+<p>….  coming …</p>
 
-<ol>
-  <li>Understanding the basic concepts of functions, classification of functions, and the graphs.</li>
-  <li>Identify and compute the systems of linear equations by using various methods.</li>
-  <li>Describe the various types of matrices and use the techniques of matrix operations.</li>
-  <li>Understand the basic concept of derivative and familiarize with the various rules of differentiation to solve problems.</li>
-  <li>Describe the concept of permutation and combination, problem solutions, state and expand the binomial theorem with problem solution.</li>
-  <li>Understand the basic concept of integral and familiarize with the various rules of integration to solve problems.</li>
-</ol>
+      </d-article>
 
-<h2 id="reference-books">
-<span style="color: darkblue;">Reference Books</span>:</h2>
+      <d-appendix>
+        <d-footnote-list></d-footnote-list>
+        <d-citation-list></d-citation-list>
+      </d-appendix>
 
-<p>There are several books which could be profitably used for this course. Barnett, Ziegler, Byleen, and Stocker (2019) is an easy reference and a good one. This is the primary reference. However, for Calculus, Thomas and Finney (1996) is an excellent reference and from time to time we will need that. Also, Stewart, Clegg, and Watson (2020) and Anton, Bivens, and Davis (2011) are classics. I will give more details in the class.</p>
+      <d-bibliography src="/assets/bibliography/econometrics.bib"></d-bibliography>
 
-<h2 id="lectures"><span style="color: darkblue;">Lectures</span></h2>
-
-<p>This section can include the topics covered in each lecture along with any accompanying resources or notes.</p>
-
-<hr>
-
-<h2 id="problem-sets"><span style="color: darkblue;">Problem Sets</span></h2>
-
-<ul>
-  <li>
-<strong>Problem Set 1:</strong> [Link to Problem Set 1]</li>
-  <li>
-<strong>Problem Set 2:</strong> [Link to Problem Set 2]</li>
-  <li>
-<strong>Problem Set 3:</strong> [Link to Problem Set 3]</li>
-  <li><em>…</em></li>
-</ul>
-
-<p>Include deadlines and additional instructions for submitting problem sets.</p>
-
-<hr>
-
-<h2 id="exam-questions"><span style="color: darkblue;">Exam Questions</span></h2>
-
-<ul>
-  <li>
-<strong>Midterm 1 Review Questions:</strong> [Link to Midterm 1 Review]</li>
-  <li>
-<strong>Midterm 2 Review Questions:</strong> [Link to Midterm 2 Review]</li>
-  <li>
-<strong>Final Exam Review Questions:</strong> [Link to Final Exam Review]</li>
-  <li><em>…</em></li>
-</ul>
-
-<h2 id="grading"><span style="color: darkblue;">Grading</span></h2>
-
-<h3 id="distribution"><span style="color: darkgreen;">Distribution</span></h3>
-
-<table style="width:50%">
-  <tr>
-    <th style="text-align:left">Assessment Type</th>
-    <th style="text-align:left">Weight</th>
-  </tr>
-  <tr>
-    <td style="text-align:left"><span style="color: maroon;">Problem Sets</span></td>
-    <td style="text-align:left">15%</td>
-  </tr>
-  <tr>
-    <td style="text-align:left"><span style="color: maroon;">Quizzes</span></td>
-    <td style="text-align:left">15%</td>
-  </tr>
-  <tr>
-    <td style="text-align:left"><span style="color: maroon;">Midterm 1</span></td>
-    <td style="text-align:left">25%</td>
-  </tr>
-  <tr>
-    <td style="text-align:left"><span style="color: maroon;">Midterm 2</span></td>
-    <td style="text-align:left">20%</td>
-  </tr>
-  <tr>
-    <td style="text-align:left"><span style="color: maroon;">Final</span></td>
-    <td style="text-align:left">25%</td>
-  </tr>
-</table>
-
-<h3 id="grading-scheme"><span style="color: darkgreen;">Grading Scheme</span></h3>
-
-<table style="width:70%">
-  <tr>
-    <th style="text-align:left; width:25%">Numerical Scores (%)</th>
-    <th style="text-align:left; width:25%">Letter Grade</th>
-    <th style="text-align:left; width:25%">Numerical Scores (%)</th>
-    <th style="text-align:left; width:25%">Letter Grade</th>
-  </tr>
-  <tr>
-    <td style="text-align:left"><span style="color: darkred;">97 &amp; above</span></td>
-    <td style="text-align:left"><span style="color: darkred;">A+</span></td>
-    <td style="text-align:left"><span style="color: darkred;">73-below 77</span></td>
-    <td style="text-align:left"><span style="color: darkred;">C+</span></td>
-  </tr>
-  <tr>
-    <td style="text-align:left"><span style="color: darkred;">90-below 97</span></td>
-    <td style="text-align:left"><span style="color: darkred;">A</span></td>
-    <td style="text-align:left"><span style="color: darkred;">70-below 73</span></td>
-    <td style="text-align:left"><span style="color: darkred;">C</span></td>
-  </tr>
-  <tr>
-    <td style="text-align:left"><span style="color: darkred;">87-below 90</span></td>
-    <td style="text-align:left"><span style="color: darkred;">A-</span></td>
-    <td style="text-align:left"><span style="color: darkred;">67-below 70</span></td>
-    <td style="text-align:left"><span style="color: darkred;">C-</span></td>
-  </tr>
-  <tr>
-    <td style="text-align:left"><span style="color: darkred;">83-below 87</span></td>
-    <td style="text-align:left"><span style="color: darkred;">B+</span></td>
-    <td style="text-align:left"><span style="color: darkred;">63-below 67</span></td>
-    <td style="text-align:left"><span style="color: darkred;">D+</span></td>
-  </tr>
-  <tr>
-    <td style="text-align:left"><span style="color: darkred;">80-below 83</span></td>
-    <td style="text-align:left"><span style="color: darkred;">B</span></td>
-    <td style="text-align:left"><span style="color: darkred;">60-below 63</span></td>
-    <td style="text-align:left"><span style="color: darkred;">D</span></td>
-  </tr>
-  <tr>
-    <td style="text-align:left"><span style="color: darkred;">77-below 80</span></td>
-    <td style="text-align:left"><span style="color: darkred;">B-</span></td>
-    <td style="text-align:left"><span style="color: darkred;">Below 60</span></td>
-    <td style="text-align:left"><span style="color: darkred;">F</span></td>
-  </tr>
-</table>
-
-<h3 id="important-dates">
-<span style="color: darkgreen;">Important Dates</span>:</h3>
-
-<ul>
-  <li>Quiz #1: <strong><span style="color: darkblue;">June 22 (Wed)</span></strong>
-</li>
-  <li>Midterm #1: <strong><span style="color: darkblue;">July 6 (Wed)</span></strong>
-</li>
-  <li>Quiz #2: <strong><span style="color: darkblue;">July 27 (Wed)</span></strong>
-</li>
-  <li>Midterm #2: <strong><span style="color: darkblue;">August 10 (Wed)</span></strong>
-</li>
-  <li>Quiz #3: <strong><span style="color: darkblue;">August 24 (Wed)</span></strong>
-</li>
-  <li>Final Exam: <strong><span style="color: darkblue;">September 14 (Tue)</span></strong>
-</li>
-</ul>
-
-<p><em><span style="color: darkred;">Note that July 11, July 13, and August 15 are holidays, so there will be no classes on these days.</span></em></p>
-
-<p>Include practice questions, past exam papers, and review guides.</p>
-
-<p>Mathematics is the language of Science, so needless to say, for any scientific study you need Math. Actually, nowadays, even if you study medicine or business, sometimes you need to know a good level of Math. Often some students think “math is only for some genius guys and I was dumb in school so math is not for me”. This idea is wrong and quite frankly very damaging. Real life scenario is often quite contrary to this and many math students learn proper math at the University. In principle, you can learn mathematics at any age. Yes, sometimes it can be challenging, however, it can also be very fun and enjoyable too! And now, in this era of Science and Technology, this might be a valuable resource.</p>
-
-
-  </article>
-
+      
+      
+        <div id="giscus_thread" style="max-width: 930px; margin: 0 auto;">
   
+    <script>
+      let giscusTheme = determineComputedTheme();
+      let giscusAttributes = {
+        src: 'https://giscus.app/client.js',
+        'data-repo': 'STHossain/sthossain.github.io',
+        'data-repo-id': '',
+        'data-category': 'Comments',
+        'data-category-id': '',
+        'data-mapping': 'title',
+        'data-strict': '1',
+        'data-reactions-enabled': '1',
+        'data-emit-metadata': '0',
+        'data-input-position': 'bottom',
+        'data-theme': giscusTheme,
+        'data-lang': 'en',
+        crossorigin: 'anonymous',
+        async: '',
+      };
 
+      let giscusScript = document.createElement('script');
+      Object.entries(giscusAttributes).forEach(([key, value]) => giscusScript.setAttribute(key, value));
+      document.getElementById('giscus_thread').appendChild(giscusScript);
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://giscus.app/?ref_noscript" rel="external nofollow noopener" target="_blank">comments powered by giscus.</a>
+</noscript>
   
 </div>
 
@@ -448,83 +353,10 @@ Hosted by <a href="https://pages.github.com/" target="_blank" rel="external nofo
   </footer>
 
 
-
-    <!-- JavaScripts -->
-    <!-- jQuery -->
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-
     <!-- Bootsrap & MDB scripts -->
 <script src="/assets/js/bootstrap.bundle.min.js"></script>
 <!-- <script src="/assets/js/mdb.min.js"></script> -->
 <script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.20.0/js/mdb.min.js" integrity="sha256-NdbiivsvWt7VYCt6hYNT3h/th9vSTL4EDWeGs5SN3DA=" crossorigin="anonymous"></script>
-
-    
-  <!-- Masonry & imagesLoaded -->
-  <script defer src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha256-Nn1q/fx0H7SNLZMQ5Hw5JLaTRZp0yILA/FRexe19VdI=" crossorigin="anonymous"></script>
-  <script defer src="https://cdn.jsdelivr.net/npm/imagesloaded@5.0.0/imagesloaded.pkgd.min.js" integrity="sha256-htrLFfZJ6v5udOG+3kNLINIKh2gvoKqwEhHYfTTMICc=" crossorigin="anonymous"></script>
-  <script defer src="/assets/js/masonry.js" type="text/javascript"></script>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-  <!-- Medium Zoom JS -->
-  <script defer src="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous"></script>
-  <script defer src="/assets/js/zoom.js?85ddb88934d28b74e78031fd54cf8308"></script>
-
-
-
-<!-- Bootstrap Table -->
-
-
-<!-- Load Common JS -->
-<script src="/assets/js/no_defer.js?2781658a0a2b13ed609542042a859126"></script>
-<script defer src="/assets/js/common.js?e0514a05c5c95ac1a93a8dfd5249b92e"></script>
-<script defer src="/assets/js/copy_code.js?12775fdf7f95e901d7119054556e495f" type="text/javascript"></script>
-
-<!-- Jupyter Open External Links New Tab -->
-<script defer src="/assets/js/jupyter_new_tab.js?d9f17b6adc2311cbabd747f4538bb15f"></script>
-
-
-
-    
-  <script async src="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js"></script>
-
-
-  <script async src="https://badge.dimensions.ai/badge.js"></script>
-
-
-    
-  
-    <!-- MathJax -->
-    <script type="text/javascript">
-      window.MathJax = {
-        tex: {
-          tags: 'ams',
-        },
-      };
-    </script>
-    <script defer type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js" integrity="sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI=" crossorigin="anonymous"></script>
-    <script defer src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6" crossorigin="anonymous"></script>
-  
-
-
-    
 
     
 
@@ -608,12 +440,6 @@ Hosted by <a href="https://pages.github.com/" target="_blank" rel="external nofo
     }
   </script>
 
-
-    
-
-    
-
-    
 
     
   <script src="/assets/js/vanilla-back-to-top.min.js?f40d453793ff4f64e238e420181a1d17"></script>
@@ -813,5 +639,6 @@ Hosted by <a href="https://pages.github.com/" target="_blank" rel="external nofo
 
   
 
-  </body>
+  
+</body>
 </html>
