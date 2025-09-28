@@ -1,0 +1,352 @@
+[
+  {
+    "objectID": "teaching.html",
+    "href": "teaching.html",
+    "title": "Teaching",
+    "section": "",
+    "text": "I believe I am passionate in teaching statistics, econometrics, and programming. I love coding and statistical theories and I want my students will love them too … but that doesn’t always happen."
+  },
+  {
+    "objectID": "teaching.html#ewu-logo-east-west-university-bangladesh",
+    "href": "teaching.html#ewu-logo-east-west-university-bangladesh",
+    "title": "Teaching",
+    "section": " East West University, Bangladesh",
+    "text": "East West University, Bangladesh\n\nECO 204: Statistics for Business and Economics II\nInstitution: East West University\nThis course covers inferential statistics including point and interval estimation, hypothesis testing, simple and multiple linear regression, basic time series analysis, and ANOVA techniques. The course emphasizes both theoretical understanding and practical application using R programming.\nKey Features: - Balanced approach between theory and practice - Extensive use of R programming for statistical analysis - Group lab projects for hands-on experience - Comprehensive problem sets and quizzes\nSemesters Taught: - Fall 2023: Course Materials | Course Outline - Summer 2025: Course Website\n\n\nECO 104: Statistics for Business and Economics I\nInstitution: East West University\nIntroductory statistics course covering probability theory, descriptive statistics, and basic statistical inference. This course provides the foundation for advanced statistical methods.\nSemesters Taught: - Fall 2023: Course Materials | Course Outline - Summer 2025: Course Website"
+  },
+  {
+    "objectID": "teaching.html#tu-dortmund-logo-tu-dortmund-university-germany",
+    "href": "teaching.html#tu-dortmund-logo-tu-dortmund-university-germany",
+    "title": "Teaching",
+    "section": " TU Dortmund University, Germany",
+    "text": "TU Dortmund University, Germany\n\nProgramming with Julia\nSemester: Spring 2021 Institution: TU Dortmund University\nIntensive 5-day programming course introducing Julia language for scientific computing. The course covered basic syntax, type systems, multiple dispatch, performance optimization, and metaprogramming.\nCourse Structure: - 5-day intensive format with live Zoom sessions - Hands-on exercises with Jupyter notebooks - Graded assignments and live quiz evaluation - Focus on high-performance scientific computing\nCourse Materials"
+  },
+  {
+    "objectID": "posts/bandit-hoeffdings/index.html",
+    "href": "posts/bandit-hoeffdings/index.html",
+    "title": "Bandit Notations and Hoefddings Inequality",
+    "section": "",
+    "text": "Assume we have a sequence of random variables \\(Y_1, Y_2, \\ldots, Y_n\\) where for all \\(i\\), \\(Y_i \\sim s\\mathcal{G}(1)\\) (all random variables are sub-Gaussian-1. Let \\(\\bar{Y} = \\frac{1}{n} \\sum_{i=1}^n Y_i\\) be the sample mean of the sequence and also assume \\(\\mathbb{E}[Y_i] = \\mu\\), then we can apply Hoeffding’s bound to get, \\[\n\\mathbb{P} \\left( \\mid \\overline{Y}_n - \\mu \\geq \\epsilon \\mid \\right) \\leq 2 \\cdot \\exp\\left( -\\frac{1}{2} n \\epsilon^2 \\right)\n\\]\nNow there is another version of this inequality where we let \\(\\delta = \\exp\\left( -\\frac{1}{2} n \\epsilon^2 \\right)\\), this leads to \\(\\epsilon = \\sqrt{\\frac{2 \\log\\left(\\frac{1}{\\delta}\\right)}{n}}\\), and now we have\n\\[\n\\mathbb{P}\\left( \\mid \\bar{Y}_n - \\mu \\geq \\sqrt{\\frac{2 \\log\\left(\\frac{1}{\\delta}\\right)}{n}} \\mid \\right) \\leq 2 \\delta\n\\]\nThis is often useful in the bandit setting and we\n\\[\n\\mathbb{P}\\left( \\mid \\bar{Y}_n - \\mu \\leq \\sqrt{\\frac{2 \\log\\left(\\frac{1}{\\delta}\\right)}{n}} \\mid \\right) \\geq 1 - 2\\delta\n\\]\nIn the bandit setting we will often want this inequality to be hold for all time points and all arms (this is called clean event in the handout by Silvkins)"
+  },
+  {
+    "objectID": "posts/bandit-hoeffdings/index.html#applying-hoeffdings-inequality-to-the-bandit-setting",
+    "href": "posts/bandit-hoeffdings/index.html#applying-hoeffdings-inequality-to-the-bandit-setting",
+    "title": "Bandit Notations and Hoefddings Inequality",
+    "section": "Applying Hoeffding’s inequality to the bandit setting",
+    "text": "Applying Hoeffding’s inequality to the bandit setting\nHow do we apply Hoeffding’s inequality to the bandit setting? Fix an arm \\(k \\in \\mathcal{W}\\), and fix \\(t\\in [T]\\), then we want the following to hold,\n\\[\n\\mathbb{P}\\left( \\mid \\widehat{\\mu}_t(k) - \\mu(k) \\mid  \\leq \\underbrace{ \\sqrt{\\frac{2 \\log \\left(\\frac{1}{\\delta}\\right)}{n_t(k)}}}_{r_t(k)} \\right) \\geq 1 - 2 \\delta\n\\]\nwhere \\(r_t(k)=\\sqrt{\\frac{2 \\log \\left(\\frac{1}{\\delta}\\right)}{n_t(k)}}\\), is the confidence radius for arm \\(k\\) at time \\(t\\), with error probability \\(\\delta\\). This seems easy however in the bandit setting there is an issue since \\(n_t(k)\\) is a random quantity which depends on the algorithm and rewards and in the Hoeffding’s inequality we need to have a fixed number of samples, e.g., \\(n_t(k) = t\\).\nSilvkins proposed an elementary solution to this problem (and also pointed out that Martingale concentration inequalities can be used to solve this problem), we discuss the elementary solution that he proposed. The key idea is to show that for any arm \\(k\\) the event\n\\[\n\\mathcal{E}(a)=\\left\\{ \\forall t \\in[T]:\\left|\\widehat{\\mu}_t(k)-\\mu(k)\\right| \\leq \\sqrt{\\frac{2 \\ln \\left(\\frac{1}{\\delta}\\right)}{n_k(t)}}\\right\\} = \\bigcap_{t=1}^T\\left\\{\\left|\\widehat{\\mu}_t(k)-\\mu(k)\\right| \\leq \\sqrt{\\frac{2 \\ln \\left(\\frac{1}{\\delta}\\right)}{n_t(k)}}\\right\\}\n\\]\nholds with high probability. Or equivalently, the complement event \\(\\mathcal{E}^c\\) has low probability, where\n\\[\n\\mathcal{E}^c(k)=\\bigcup_{t=1}^T\\left\\{\\left|\\widehat{\\mu}_t(k)-\\mu(k)\\right| \\geq \\sqrt{\\frac{2 \\ln \\left(\\frac{1}{\\delta}\\right)}{n_t(k)}}\\right\\}\n\\]\nWe can achive this with union bound, however we need following trick,\n\\[\n\\mathbb{P}\\left(\\mathcal{E}^c(k) \\right) = \\mathbb{P}\\left(\\bigcup_{t=1}^T\\left\\{\\left|\\widehat{\\mu}_t(k)-\\mu(k)\\right| \\geq \\sqrt{\\frac{2 \\ln \\left(\\frac{1}{\\delta}\\right)}{n_t(k)}}\\right\\} \\right) \\leq \\mathbb{P}\\left( \\bigcup_{j=1}^T\\left\\{\\left|\\bar{v}_j(k)-\\mu(k)\\right| \\geq \\sqrt{\\frac{2 \\ln \\left(\\frac{1}{\\delta}\\right)}{j}}\\right\\} \\right)\n\\]\nwhere \\(\\bar{v}_j(k)\\) which is the average of the first \\(j\\) rewards from arm \\(k\\). So Silvkins explained this with the idea of a pre-genrated reward tape for each arm where we already have the rewards of for all arms for all time points. Now fix an arm \\(k\\), and then for each possible number of plays \\(j \\geq 1\\), we can calculate the average of the first \\(j\\) rewards from arm \\(k\\). Important to note that here for each \\(j\\), we can think we have an iid sequence of rewards. Also note for each \\(j\\), we can apply Hoeffding’s inequality to get\n\\[\n\\mathbb{P}\\left(\\left|\\bar{v}_j(k)-\\mu(k)\\right| \\geq \\sqrt{\\frac{2 \\ln \\left(\\frac{1}{\\delta}\\right)}{j}}\\right) \\leq 2 \\delta\n\\]\nFinally we can apply union bound to get,\n\\[\n\\mathbb{P}\\left(\\mathcal{E}^c(k)\\right) \\leq\\sum_{j=1}^T \\mathbb{P}\\left(\\left|\\bar{v}_j(k)-\\mu(k)\\right| \\geq \\sqrt{\\frac{2 \\ln \\left(\\frac{1}{\\delta}\\right)}{j}}\\right) \\leq  T \\cdot 2 \\delta\n\\]\nnow if we want to have this for all arms, we can apply union bound again,\n\\[\n\\mathbb{P}\\left(\\mathcal{E}^c \\right) = \\mathbb{P}\\left(\\underbrace{\\bigcup_{k \\in \\mathcal{W}} \\mathcal{E}^c(k)}_{\\mathcal{E}^c}\\right) \\leq K \\cdot T \\cdot 2 \\delta\n\\]\nwhere \\(K\\) is the number of arms. Now setting \\(\\delta = \\frac{1}{T^2}\\), we get\n\\[\n\\mathbb{P}\\left(\\mathcal{E}^c \\right)  \\leq \\frac{2K}{T}\n\\]\nThis means, the event\n\\[\n\\mathcal{E}=\\left\\{ \\forall k\\in \\mathcal{W}, \\forall t \\in[T]:\\left|\\widehat{\\mu}_t(k)-\\mu(k)\\right| \\leq \\sqrt{\\frac{2 \\ln \\left(\\frac{1}{\\delta}\\right)}{n_k(t)}}\\right\\}\n\\]\nholds with probability at least \\(1-\\frac{2K}{T}\\). Silvkins called this clean event, and this shows that we can apply Hoeffding’s inequality to the bandit setting for any arm \\(k\\) and at any time point \\(t\\). In particular this means,\n\\[\n\\mathbb{P}\\left(\\mathcal{E} \\right)  \\geq 1 - \\frac{2K}{T}\n\\]\nNote that in this case the radius \\(r_t(a)\\) becomes (which is known as upper confidence bound in the bandit setting),\n\\[\nr_t(k) = \\sqrt{\\frac{2 \\ln T^2}{n_t(k)}} =  \\sqrt{\\frac{4 \\ln T}{n_t(k)}}\n\\]\nIn the bandit setting typically we will do the analysis under the clean event.\nFinally if you are reading the handout by Silvkins, then we can plug in \\(\\delta = \\frac{1}{T^4}\\), and since \\(K \\leq T\\), we get\n\\[\n\\begin{aligned}\n\\mathbb{P}\\left(\\mathcal{E}^c \\right)  &\\leq K \\cdot T \\cdot 2 \\delta \\\\\n&\\leq \\frac{2}{T^2}\n\\end{aligned}\n\\]\nAnd in this case, the \\(r_t(a)\\) becomes\n\\[\nr_t(k) = \\sqrt{\\frac{2 \\ln T^4}{n_t(k)}} =  \\sqrt{\\frac{8 \\ln T}{n_t(k)}}\n\\]\nAlthough probably I wrote way more than needed, I hope this explanation helps to understand the idea behind the clean event.\nIf this helps, please do me a favor and plase Let me know if you find any mistakes or have any questions"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Welcome",
+    "section": "",
+    "text": "I am a final-year doctoral student in the Business and Economics Department at Technical University of Dortmund (TU Dortmund) under the supervision of Professor Carsten Jentsch. I have also been a lecturer at the Department of Economics, East West University, Bangladesh. From 2018 to 2022, I worked as a research associate (Wissenschaftlicher Mitarbeiter) in the Department of Statistics at TU Dortmund (alumni page), and I gratefully acknowledge all their support and guidance during this period.\nI obtained an M.Sc. in Economics from the University of Mannheim, Germany and a Bachelor’s degree in Business with a second major in Economics from BRAC University, Bangladesh. After finishing my Bachelors I worked as a project assistant at the Innovations for Poverty Action (IPA) in Bangladesh, on a project titled Building management hierarchies for growth in LICs: understanding the role of supervisor training in Bangladeshi garment sector, led by Professor Christopher Woodruff (Oxford), Professor Rocco Macchiavello (LSE), and Professor Atonu Rabbani (Dhaka University) as Principal Investigators.\nMy research interests lie at the intersection of Causal Inference, Econometrics, and Machine Learning. In my dissertation, I focus on sequential policy learning (a.k.a. bandit algorithms), both theoretical and applied perspectives."
+  },
+  {
+    "objectID": "index.html#about-me",
+    "href": "index.html#about-me",
+    "title": "Welcome",
+    "section": "",
+    "text": "I am a final-year doctoral student in the Business and Economics Department at Technical University of Dortmund (TU Dortmund) under the supervision of Professor Carsten Jentsch. I have also been a lecturer at the Department of Economics, East West University, Bangladesh. From 2018 to 2022, I worked as a research associate (Wissenschaftlicher Mitarbeiter) in the Department of Statistics at TU Dortmund (alumni page), and I gratefully acknowledge all their support and guidance during this period.\nI obtained an M.Sc. in Economics from the University of Mannheim, Germany and a Bachelor’s degree in Business with a second major in Economics from BRAC University, Bangladesh. After finishing my Bachelors I worked as a project assistant at the Innovations for Poverty Action (IPA) in Bangladesh, on a project titled Building management hierarchies for growth in LICs: understanding the role of supervisor training in Bangladeshi garment sector, led by Professor Christopher Woodruff (Oxford), Professor Rocco Macchiavello (LSE), and Professor Atonu Rabbani (Dhaka University) as Principal Investigators.\nMy research interests lie at the intersection of Causal Inference, Econometrics, and Machine Learning. In my dissertation, I focus on sequential policy learning (a.k.a. bandit algorithms), both theoretical and applied perspectives."
+  },
+  {
+    "objectID": "eco104.html",
+    "href": "eco104.html",
+    "title": "ECO 104 - Statistics for Business and Economics I",
+    "section": "",
+    "text": "Coin toss\nPhoto by ZSun Fu on Unsplash\nRandomness is everywhere! Think about tossing a coin. We call this a random experiment. Specifically, a random experiment is an experiment (something that we can repeat) where all possible outcomes are known to us, but before the actual experiment takes place, we don’t know which outcome will occur. For example, in a coin toss, the possible outcomes are heads and tails, but we don’t know which one will appear before the experiment. The work of probability theory is to study these kinds of random experiments systematically. If statistics is the language of data, then probability theory is the language of uncertainty."
+  },
+  {
+    "objectID": "eco104.html#course-information",
+    "href": "eco104.html#course-information",
+    "title": "ECO 104 - Statistics for Business and Economics I",
+    "section": "Course Information",
+    "text": "Course Information\n\nSemester: Fall 2023\nInstructor: Shaikh Tanvir Hossain\nEmail: tanvir.hossain@ewubd.edu\nClass Schedule:\n\nTuesday: 10:10 - 11:40 AM (FUB, 304)\nThursday: 10:10 - 11:40 AM (Room 533, C.Lab)\n\nOutline in PDF: Course Outline\nOffice Hours\n\nThursday: 12:00 - 1:30 PM (Room 345), Please try to come during this time!"
+  },
+  {
+    "objectID": "eco104.html#course-description",
+    "href": "eco104.html#course-description",
+    "title": "ECO 104 - Statistics for Business and Economics I",
+    "section": "Course Description",
+    "text": "Course Description\nThis is the first course in the sequence of two Statistics courses offered for the Economics and Business students at EWU (the next one is ECO 204). The course will cover:\n\nBasic ideas about Statistics and Data Sets\nSome Descriptive Statistics (graphical and numerical methods)\nIntroduction to Probability Theory (i.e., defining Probability, Random Variables and Distributions)\nIdeas about Sampling Distributions\nIndex numbers\n\nThe approach of the class includes both learning the concepts and also how to apply them in real-life situations. Students will also be introduced to Microsoft Excel for applications related to business and economic data."
+  },
+  {
+    "objectID": "eco104.html#prerequisite-courses",
+    "href": "eco104.html#prerequisite-courses",
+    "title": "ECO 104 - Statistics for Business and Economics I",
+    "section": "Prerequisite Courses",
+    "text": "Prerequisite Courses\nMAT100 or at least equivalent Math courses."
+  },
+  {
+    "objectID": "eco104.html#textbooks-notes",
+    "href": "eco104.html#textbooks-notes",
+    "title": "ECO 104 - Statistics for Business and Economics I",
+    "section": "Textbooks / Notes",
+    "text": "Textbooks / Notes\nThere will be lecture notes (typed), and you should definitely read that first. In addition, I recommend to use any of the following books for exercises and practice problems:\n\nAnderson, Sweeney, Williams, Camm, Cochran, Fry and Ohlmann (2020)\nNewbold, Carlson and Thorne (2020)\n\nFollowing books are a bit advanced at this level, but nevertheless these are also excellent references:\n\nDeGroot and Schervish (2012)\nCasella and Berger (2002)"
+  },
+  {
+    "objectID": "eco104.html#marks-distribution",
+    "href": "eco104.html#marks-distribution",
+    "title": "ECO 104 - Statistics for Business and Economics I",
+    "section": "Marks Distribution",
+    "text": "Marks Distribution\n\nProblem Sets: 5%\nQuizzes: 15%\nLab Project: 10%\nMidterm 1: 20%\nMidterm 2: 20%\nFinal Exam: 30%"
+  },
+  {
+    "objectID": "eco104.html#additional-details",
+    "href": "eco104.html#additional-details",
+    "title": "ECO 104 - Statistics for Business and Economics I",
+    "section": "Additional Details",
+    "text": "Additional Details\n\nProblem Sets: Usually there will be a problem set every two weeks, and it has to be turned in with your attempted solutions by the following week. Please form groups of a maximum of 3 and submit in groups. DO the problem set seriously!\nQuizzes: In total there will be 6 random quizzes (i.e., they can happen any day during the whole semester!) I will take the average of the best 3.\nLab Project: Lastly, there will be a Lab Project. We will talk about the details later in class."
+  },
+  {
+    "objectID": "eco104.html#lecture-notes",
+    "href": "eco104.html#lecture-notes",
+    "title": "ECO 104 - Statistics for Business and Economics I",
+    "section": "Lecture Notes",
+    "text": "Lecture Notes\n\n\n\nChapter\nTitle\nLink\n\n\n\n\n1\nCh 1 - Descriptive Statistics\n-\n\n\n2\nCh 2 - Probability Theory - 1\nPDF\n\n\n3\nCh 3 - Probability Theory - 2\nPDF\n\n\n4\nCh 4 - Probability Theory - 3\nPDF\n\n\n5\nCh 5 - Sampling Distributions\nPDF"
+  },
+  {
+    "objectID": "eco104.html#problem-sets",
+    "href": "eco104.html#problem-sets",
+    "title": "ECO 104 - Statistics for Business and Economics I",
+    "section": "Problem Sets",
+    "text": "Problem Sets\n\n\n\nSet\nProblem Set\nSolutions\n\n\n\n\nPS 1\nProblem Set 1\nSolutions (Excel)\n\n\nPS 2\nProblem Set 2\nSolutions\n\n\nPS 3\nProblem Set 3\nSolutions\n\n\nPS 4\nProblem Set 4\nSolutions"
+  },
+  {
+    "objectID": "eco104.html#expectations",
+    "href": "eco104.html#expectations",
+    "title": "ECO 104 - Statistics for Business and Economics I",
+    "section": "Expectations",
+    "text": "Expectations\nPlease try to be punctual in class. Regular attendance is important. If your attendance is less than 75%, you won’t be allowed to sit for the final. You are expected to maintain Academic Honesty, which means you should perform all academic activities without any form of cheating, lying, stealing, plagiarism, receiving unauthorized assistance, or using any source of information that is prohibited."
+  },
+  {
+    "objectID": "blog.html",
+    "href": "blog.html",
+    "title": "Shaikh Tanvir Hossain",
+    "section": "",
+    "text": "Bandit Notations and Hoefddings Inequality\n\n\n\nbandits\n\nstochastic_bandits\n\n\n\nIntroducing Bandit Notations and applying Hoeffding’s inequality\n\n\n\n\n\nSep 14, 2024\n\n\nShaikh Tanvir Hossain\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "eco204.html",
+    "href": "eco204.html",
+    "title": "ECO 204 - Statistics for Business and Economics II",
+    "section": "",
+    "text": "Children learning\nThe credit for the image goes to unicef.org. Click here to see the actual page.\nOnly 64 percent of children complete their secondary education in our country. Considering there are 58 million children—constituting 34 percent of the entire population and more importantly we know that they will form the backbone of our future workforce, this number alone is concerning. The pressing question for us is: Are we heading in the right direction?\nEconomists and policymakers often engage themselves with such questions by turning to meaningful data. They use numbers like the 64 percent (which we call a sample proportion) to gain insights. These numbers are also called statistics. By analyzing these statistics, they can better understand the current situation and then craft effective policies aimed at improving outcomes.\nThis example highlights the vital role of Statistics as a discipline. Accurate data collection, analysis, and interpretation are not just academic exercises, they directly inform decisions that shape our society’s future. In essence, the power of Statistical reasoning extends far beyond our classroom; it is fundamental to making effective and evidence-based policies."
+  },
+  {
+    "objectID": "eco204.html#course-information",
+    "href": "eco204.html#course-information",
+    "title": "ECO 204 - Statistics for Business and Economics II",
+    "section": "Course Information",
+    "text": "Course Information\n\nSemester: Fall 2023\nInstructor: Shaikh Tanvir Hossain\nEmail: tanvir.hossain@ewubd.edu\nClass Schedule:\n\nTuesday: 1:30 - 3:00 PM (Room 530, C. Lab)\nThursday: 1:30 - 3:00 PM (Room 338)\n\nOutline in PDF: Course Outline\nOffice Hours\n\nTuesday: 12:00 - 1:30 PM (Room 345), Please try to come during this time!"
+  },
+  {
+    "objectID": "eco204.html#course-description",
+    "href": "eco204.html#course-description",
+    "title": "ECO 204 - Statistics for Business and Economics II",
+    "section": "Course Description",
+    "text": "Course Description\nThis is a continuation of the course ECO104. The students will be introduced to Inferential Statistics, and the core topics are: - Point and Interval Estimation - Hypothesis Testing - Simple and Multiple Linear Regression Model - Basic Time Series Analysis - Goodness of fit test and some Non-Parametric tests (e.g., sign test and rank test), if time permits! - Analysis of Variance Techniques\nThe course follows a balanced approach between theory and practice. Students will learn the concepts and also apply them using R. There will be a lab project to evaluate the applied skills."
+  },
+  {
+    "objectID": "eco204.html#prerequisite-courses",
+    "href": "eco204.html#prerequisite-courses",
+    "title": "ECO 204 - Statistics for Business and Economics II",
+    "section": "Prerequisite Courses",
+    "text": "Prerequisite Courses\n\nECO101 and ECO104 offered at the East West University."
+  },
+  {
+    "objectID": "eco204.html#textbooks-notes",
+    "href": "eco204.html#textbooks-notes",
+    "title": "ECO 204 - Statistics for Business and Economics II",
+    "section": "Textbooks / Notes",
+    "text": "Textbooks / Notes\nThere will be lecture notes (typed), and you should definitely read that first. In addition, I recommend to use any of the following books for exercises and practice problems:\n\nAnderson, Sweeney, Williams, Camm, Cochran, Fry and Ohlmann (2020)\nNewbold, Carlson and Thorne (2020)\n\nFollowing books are a bit advanced at this level, but nevertheless these are also excellent references. In particular, if you are an Economics student, you should look into Wooldridge (2019).\n\nDeGroot and Schervish (2012)\nCasella and Berger (2002)\nWooldridge (2019)"
+  },
+  {
+    "objectID": "eco204.html#marks-distribution",
+    "href": "eco204.html#marks-distribution",
+    "title": "ECO 204 - Statistics for Business and Economics II",
+    "section": "Marks Distribution",
+    "text": "Marks Distribution\n\nProblem Sets: 5%\nQuizzes: 15%\nLab Project: 10%\nMidterm 1: 20%\nMidterm 2: 20%\nFinal Exam: 30%"
+  },
+  {
+    "objectID": "eco204.html#course-materials",
+    "href": "eco204.html#course-materials",
+    "title": "ECO 204 - Statistics for Business and Economics II",
+    "section": "Course Materials",
+    "text": "Course Materials\n\nLecture Slides\n\nChapter 1 (Estimation)\n\nEstimation Slides\nEstimation Slides (4-per-page)\n\n\n\nChapter 2 (Testing)\n\nTesting Slides\nTesting Slides (4-per-page)\n\n\n\nChapter 3 (Simple Linear Regression)\n\nSLR Slides\nSLR Lab\nR Code\n\n\n\nChapter 4 (Multiple Linear Regression)\n\nMLR Slides\nR Markdown File\n\n\n\nChapter 5 (ANOVA)\n\nANOVA Slides\nANOVA Lab R Code\n\n\n\nChapter 6 (Time Series Analysis)\n\nTime Series Lab R Code\nTime Series Lab HTML"
+  },
+  {
+    "objectID": "eco204.html#problem-sets",
+    "href": "eco204.html#problem-sets",
+    "title": "ECO 204 - Statistics for Business and Economics II",
+    "section": "Problem Sets",
+    "text": "Problem Sets\n\nProblem Set 1\n\nPS 1 Questions\nPS 1 Solutions\n\n\n\nProblem Set 2\n\nPS 2 Questions\nPS 2 Partial Solutions\n\n\n\nProblem Set 3\n\nPS 3 Questions\n\n\n\nProblem Set 4\n\nPS 4 Questions\nPS 4 Solutions"
+  },
+  {
+    "objectID": "eco204.html#using-r-and-rstudio",
+    "href": "eco204.html#using-r-and-rstudio",
+    "title": "ECO 204 - Statistics for Business and Economics II",
+    "section": "Using R and RStudio",
+    "text": "Using R and RStudio\n \n\nHow to Install R and RStudio\nTo use R in RStudio, first you need to install R and then RStudio:\n\nDownload R using this link: R for Windows\nDownload RStudio using this link: RStudio\n\nImportant: First install R, then install RStudio. Do NOT install RStudio first and then R.\n\n\nR Resources\n\nVideo Tutorial: Learn R - Stanford Lecture\nR Code File: Ch2-statlearn-lab_videocode.R\nData Set: Auto.csv"
+  },
+  {
+    "objectID": "eco204.html#lab-project",
+    "href": "eco204.html#lab-project",
+    "title": "ECO 204 - Statistics for Business and Economics II",
+    "section": "Lab Project",
+    "text": "Lab Project\nThere will be a group lab project at the end of the semester where you apply what you’ve learned with a real dataset.\n\nTemplates\n\nMS Word Template: ECO204_Template.docx\nLaTeX Template: Project_Paper_Template_EWU.zip"
+  },
+  {
+    "objectID": "julia_course.html",
+    "href": "julia_course.html",
+    "title": "Programming with Julia",
+    "section": "",
+    "text": "Julia Logo"
+  },
+  {
+    "objectID": "julia_course.html#course-schedule",
+    "href": "julia_course.html#course-schedule",
+    "title": "Programming with Julia",
+    "section": "Course Schedule",
+    "text": "Course Schedule\n\nInstructor: Shaikh Tanvir Hossain\nCourse Dates: The course is divided into two weeks (a total of 5 days from 8.30 to 5.00, including lunch breaks):\n\nWeek 1: 23rd and 24th of March\nWeek 2: 29th to 31st of March\n\nExercise Schedule: All exercises will be given in the second week.\nFinal Evaluation: To get points, you need to solve the exercises. The final evaluation will be an interview quiz (short question-answer session via Zoom). More details will be posted here gradually. For now, please install Julia, VSCode, and Jupyter Notebook."
+  },
+  {
+    "objectID": "julia_course.html#course-details",
+    "href": "julia_course.html#course-details",
+    "title": "Programming with Julia",
+    "section": "Course Details",
+    "text": "Course Details\n\nAbout Jupyter Notebooks\nI already uploaded a video in Moodle. In the first video, I mentioned that you only need to install VSCode as an IDE, but actually, we also need Jupyter Notebook. In particular, you will need Jupyter Notebooks to solve the problem sets. The submissions must be done using Jupyter Notebooks, so please install it. Visit the Jupyter Notebook site and install it. If you face any issues, consider installing Anaconda. Once you have installed Jupyter Notebook, you need to install the IJulia package inside a Julia kernel.\n\n\nRough Guideline for the 5 Days\nAll clock times given are in local time in Germany.\n\n23rd of March:\n\nLive Zoom session from 8:30 AM to 12:00 PM (with short breaks).\nSolve some practice exercises (not graded) on your own.\nDiscuss solutions and answer questions in another live Zoom session from 5:00 PM to 6:00 PM.\n\n24th of March:\n\nSame as Day 1.\n\nThe exercises for these two days are for practice only and won’t be graded. I’ll discuss the solutions, and you should correct your mistakes. Feel free to ask questions during the Q&A sessions from 5:00 PM to 6:00 PM.\n29th of March:\n\nLive Zoom session from 8:30 AM to 12:00 PM (with short breaks).\nSolve graded exercises and submit via Moodle within 2-3 hours of being posted.\nDiscuss solutions in a live Zoom session from 5:00 PM to 6:00 PM.\n\n30th of March:\n\nSame as Day 3.\nAnother graded exercise sheet will be given; submit via Moodle.\nDiscuss solutions in a live Zoom session from 5:00 PM to 6:00 PM.\n\n31st of March:\n\nBefore the afternoon, same as the last two days.\nA graded exercise sheet will be given, and you need to submit via Moodle.\nA short quiz will be held from 4:00 PM to 6:00 PM via Zoom.\n\n\n\n\nEvaluation\nSubmission of all three graded exercise sheets is mandatory to pass the course. You only need to score at least 40% on each exercise sheet to pass. The exercise sheets must be submitted within 2-3 hours of being posted on Moodle. Additionally, you must be present for the live quiz session via Zoom on 31st March from 4:00 PM to 6:00 PM to pass the course.\nThe final exam consists of the following two components:\n\nPassing the Exercise Sheets: Scoring 40% on each exercise sheet.\nPassing the Quiz: Performance in the quiz will impact your grade."
+  },
+  {
+    "objectID": "julia_course.html#resources-to-start",
+    "href": "julia_course.html#resources-to-start",
+    "title": "Programming with Julia",
+    "section": "Resources to Start",
+    "text": "Resources to Start\n\nTutorial to Basic Syntax: This is an introduction to the Basic Syntax in Julia. Please install Jupyter Notebook and go along with it. All notebooks are available in a github repo\nManual for 1.5.3 version: Julia is being updated currently from 1.5.3 to 1.5.4., so you might not find the manual for the 1.5.4 yet! But soon there should be manual on the Julia Documentation page. Here is the older one for 1.5.3\nA playlist for basic syntax: This uses an older version of the Julia. The one in the above is relatively newer. But this playlist also has an instruction how to use Jupyter notebooks.\nGithub Repo from the Julia Academy.\nDifferent Courses from Julia Academy: Julia Academy provides different courses and here you will find all resources that are used in the video lectures.\nWhy Julia is fast (By Steven Johnson, MIT): Excellent presentation, watch it if you can. This also explains the issue of two language problem, and why Julia is a solution for that.\nThink Julia: This is free online book, you can have a look if you want!\nJulia Programming for Nervous Beginners If you are struggling with for loops, if else conditions, and the basic programming techniques, then this might be helpful."
+  },
+  {
+    "objectID": "julia_course.html#course-materials",
+    "href": "julia_course.html#course-materials",
+    "title": "Programming with Julia",
+    "section": "Course Materials",
+    "text": "Course Materials\n\nDay 1\n\nPart 1: Introduction, HTML file, PDF, Zipped folder\nPart 2: Basic Syntax, HTML file, PDF, Zipped folder\nPart 3: Generic Programming, HTML file, PDF, Zipped folder\n\n\n\nDay 2\n\nPart 4: Type Inference and Type Stability, HTML file, PDF, Zipped folder\nPart 5: Multiple Dispatch, HTML file, PDF, Zipped folder\nPart 6: Type Construction, HTML file, PDF, Zipped folder\n\n\n\nDay 3\n\nPart 7: Again Types, HTML file, Zipped folder\n\n\n\nDay 4\n\nPart 8: Arrays, HTML file 1, HTML file 2, Zipped folder\n\n\n\nDay 5\n\nPart 9: Metaprogramming, HTML file"
+  },
+  {
+    "objectID": "julia_course.html#practice-problems",
+    "href": "julia_course.html#practice-problems",
+    "title": "Programming with Julia",
+    "section": "Practice Problems",
+    "text": "Practice Problems\n\nPractice Problem 1, HTML file, Julia file, Zipped folder"
+  },
+  {
+    "objectID": "julia_course.html#graded-assignments",
+    "href": "julia_course.html#graded-assignments",
+    "title": "Programming with Julia",
+    "section": "Graded Assignments",
+    "text": "Graded Assignments\n\nProblem Set 1\n\nExercise 1: HTML file, Julia file\n\n\n\nProblem Set 2\n\nExercise 2: HTML file"
+  },
+  {
+    "objectID": "research.html",
+    "href": "research.html",
+    "title": "Research",
+    "section": "",
+    "text": "1. Sequential Treatment Allocation with Interference\nWe study the sequential treatment allocation problem (a.k.a. multi armed bandit problem) with interference. The work is motivated from the recent work of Jia et al. (2024). We propose some new algorithms for this problem and investigate their performance in the bandit setting.\n\n\n2. Bias correction, Bootstrap and Kernel Estimators\nWe propose a weighted bootstrap based confidence interval for the bias corrected local linear estimator. The idea of bias correction for the kernel estimators is motivated from the work of Calonico, Cattaneo, & Farrell (2018) and Cheng & Chen (2019). Here Cheng & Chen (2019) already proposed bias corrected paired bootstrap and proved theoretical results for uniform confidence intervals. In our work we propose a weighted bootstrap, and investigate the point-wise performance.\n\n\n3. Autoregressive Dynamic Network Modeling with Serial and Cross Sectional Dependence\nThis is a joint work with my supervisor Professor Carsten Jentsch and an extension of my master thesis.\nI will provide the draft version of the papers soon…"
+  },
+  {
+    "objectID": "cv.html",
+    "href": "cv.html",
+    "title": "Sk. Tanvir Hossain",
+    "section": "",
+    "text": "Name: Shaikh Tanvir Hossain Email: tanvir.hossain@tu-dortmund.de Personal URL: https://sthossain.github.io Summary: Researcher in Econometrics, Causal Inference, and Machine Learning\n\n\n\n\n\nDoctoral Student, Technical University of Dortmund (2019-present) Dortmund, Germany\nMaster’s in Economics, University of Mannheim (2014-2017) Mannheim, Germany\nBachelor’s in Business, BRAC University (2008-2012) Dhaka, Bangladesh\n\n\n\n\n\nLecturer, East West University (2022-Present) Dhaka, Bangladesh - Teaching undergraduate courses in statistics and econometrics - Course development and curriculum design - Student supervision and academic mentoring\nResearch Associate, Technical University of Dortmund (2018-2022) Dortmund, Germany - Research in econometrics and time series analysis - Teaching assistance for graduate courses - Academic collaboration and project management\nResearch Associate, University of Mannheim (2017-2018) Mannheim, Germany - Empirical research in applied economics - Data analysis and statistical modeling - Research publication and presentation\n\n\n\n\n\nR - Advanced level for statistical analysis and data visualization Julia - Intermediate level for scientific computing Python - Intermediate level for machine learning applications STATA - Advanced level for econometric analysis LaTeX - Advanced level for academic writing\n\n\n\n\n\nBangla - Native speaker English - Fluent German - Basic conversational level\n\n\n\n\n\n\nDAAD Scholarship (2017) German Academic Exchange Service Full funding for doctoral studies in Germany\nVice Chancellor’s List Award (2010) BRAC University Recognition for academic excellence\n\n\n\n\n\n\n\nProfessor Carsten Jentsch Professor and Head of the Chair of Business and Social Statistics Technical University of Dortmund, Germany\nProfessor Wasiqur Rahaman Khan Professor and Chairperson of Dept. of Economics and Social Sciences BRAC University, Bangladesh\nProfessor A.M Tanvir Hussain Associate Professor of Department of Economics East West University, Bangladesh"
+  },
+  {
+    "objectID": "cv.html#basics",
+    "href": "cv.html#basics",
+    "title": "Sk. Tanvir Hossain",
+    "section": "",
+    "text": "Name: Shaikh Tanvir Hossain Email: tanvir.hossain@tu-dortmund.de Personal URL: https://sthossain.github.io Summary: Researcher in Econometrics, Causal Inference, and Machine Learning"
+  },
+  {
+    "objectID": "cv.html#education",
+    "href": "cv.html#education",
+    "title": "Sk. Tanvir Hossain",
+    "section": "",
+    "text": "Doctoral Student, Technical University of Dortmund (2019-present) Dortmund, Germany\nMaster’s in Economics, University of Mannheim (2014-2017) Mannheim, Germany\nBachelor’s in Business, BRAC University (2008-2012) Dhaka, Bangladesh"
+  },
+  {
+    "objectID": "cv.html#work-experience",
+    "href": "cv.html#work-experience",
+    "title": "Sk. Tanvir Hossain",
+    "section": "",
+    "text": "Lecturer, East West University (2022-Present) Dhaka, Bangladesh - Teaching undergraduate courses in statistics and econometrics - Course development and curriculum design - Student supervision and academic mentoring\nResearch Associate, Technical University of Dortmund (2018-2022) Dortmund, Germany - Research in econometrics and time series analysis - Teaching assistance for graduate courses - Academic collaboration and project management\nResearch Associate, University of Mannheim (2017-2018) Mannheim, Germany - Empirical research in applied economics - Data analysis and statistical modeling - Research publication and presentation"
+  },
+  {
+    "objectID": "cv.html#skills",
+    "href": "cv.html#skills",
+    "title": "Curriculum Vitae",
+    "section": "Skills",
+    "text": "Skills\n\nProgramming Languages\n\nR - Advanced (data analysis, visualization, statistical modeling)\nJulia - Intermediate (scientific computing, optimization)\nPython - Intermediate (machine learning, data science)\nSTATA - Advanced (econometric analysis)\nLaTeX - Advanced (academic writing, presentations)\n\n\n\nWeb Technologies\n\nHTML/CSS - Intermediate\nQuarto/R Markdown - Advanced\nGit/GitHub - Intermediate\n\n\n\nLanguages\n\nBangla - Native\nEnglish - Fluent (Professional working proficiency)\nGerman - Basic (Conversational level)"
+  },
+  {
+    "objectID": "cv.html#research-interests",
+    "href": "cv.html#research-interests",
+    "title": "Curriculum Vitae",
+    "section": "Research Interests",
+    "text": "Research Interests\n\nEconometrics: Time series analysis, panel data methods\nCausal Inference: Difference-in-differences, instrumental variables\nMachine Learning: Statistical learning, prediction methods\nApplied Economics: Labor economics, development economics"
+  },
+  {
+    "objectID": "cv.html#publications-working-papers",
+    "href": "cv.html#publications-working-papers",
+    "title": "Curriculum Vitae",
+    "section": "Publications & Working Papers",
+    "text": "Publications & Working Papers\n\nWorking Papers\n\n“Stochastic Bandits and Thompson Sampling: A Comprehensive Analysis” (In preparation)\n“Advanced Time Series Methods in Economic Forecasting” (Under review)\n\n\n\nConference Presentations\n\nEuropean Economic Association Annual Congress (2022)\nGerman Economic Association Meeting (2021)"
+  },
+  {
+    "objectID": "cv.html#teaching-experience",
+    "href": "cv.html#teaching-experience",
+    "title": "Curriculum Vitae",
+    "section": "Teaching Experience",
+    "text": "Teaching Experience\n\nCourses Taught\nEast West University - ECO 204: Statistics for Business and Economics II (Fall 2023, Summer 2025) - ECO 104: Statistics for Business and Economics I (Fall 2023, Summer 2025)\nTechnical University of Dortmund - Programming with Julia (Spring 2021) - Intensive 5-day course - Econometrics Tutorial Sessions (2019-2022)\n\n\nTeaching Philosophy\nI believe in hands-on learning that combines theoretical understanding with practical application. My courses emphasize computational skills and real-world data analysis."
+  },
+  {
+    "objectID": "cv.html#awards-and-honors",
+    "href": "cv.html#awards-and-honors",
+    "title": "Curriculum Vitae",
+    "section": "Awards and Honors",
+    "text": "Awards and Honors\nDAAD Scholarship | German Academic Exchange Service | 2017 - Full scholarship for doctoral studies in Germany\nVice Chancellor’s List Award | BRAC University | 2010 - Recognition for academic excellence\nDean’s List | BRAC University | 2009, 2011 - Consistent academic performance"
+  },
+  {
+    "objectID": "cv.html#professional-activities",
+    "href": "cv.html#professional-activities",
+    "title": "Curriculum Vitae",
+    "section": "Professional Activities",
+    "text": "Professional Activities\n\nMemberships\n\nGerman Economic Association (Verein für Socialpolitik)\nEuropean Economic Association\nEconometric Society\n\n\n\nReviewer\n\nJournal of Applied Econometrics\nComputational Statistics & Data Analysis"
+  },
+  {
+    "objectID": "cv.html#references",
+    "href": "cv.html#references",
+    "title": "Sk. Tanvir Hossain",
+    "section": "",
+    "text": "Professor Carsten Jentsch Professor and Head of the Chair of Business and Social Statistics Technical University of Dortmund, Germany\nProfessor Wasiqur Rahaman Khan Professor and Chairperson of Dept. of Economics and Social Sciences BRAC University, Bangladesh\nProfessor A.M Tanvir Hussain Associate Professor of Department of Economics East West University, Bangladesh"
+  },
+  {
+    "objectID": "cv.html#programming",
+    "href": "cv.html#programming",
+    "title": "Sk. Tanvir Hossain",
+    "section": "",
+    "text": "R - Advanced level for statistical analysis and data visualization Julia - Intermediate level for scientific computing Python - Intermediate level for machine learning applications STATA - Advanced level for econometric analysis LaTeX - Advanced level for academic writing"
+  },
+  {
+    "objectID": "cv.html#languages",
+    "href": "cv.html#languages",
+    "title": "Sk. Tanvir Hossain",
+    "section": "",
+    "text": "Bangla - Native speaker English - Fluent German - Basic conversational level"
+  },
+  {
+    "objectID": "cv.html#awards",
+    "href": "cv.html#awards",
+    "title": "Sk. Tanvir Hossain",
+    "section": "",
+    "text": "DAAD Scholarship (2017) German Academic Exchange Service Full funding for doctoral studies in Germany\nVice Chancellor’s List Award (2010) BRAC University Recognition for academic excellence"
+  }
+]

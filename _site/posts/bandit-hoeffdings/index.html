@@ -6,8 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Shaikh Tanvir Hossain">
+<meta name="dcterms.date" content="2024-09-14">
+<meta name="description" content="Introducing Bandit Notations and applying Hoeffding’s inequality">
 
-<title>Welcome – Shaikh Tanvir Hossain</title>
+<title>Bandit Notations and Hoefddings Inequality – Shaikh Tanvir Hossain</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,27 +26,28 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b651517ce65839d647a86e2780455cfb.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-08e37edbabbb74645398bc55ae2d8cf3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-5e0868bd19085b1cb53ab43700120046.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-08e37edbabbb74645398bc55ae2d8cf3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b651517ce65839d647a86e2780455cfb.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-08e37edbabbb74645398bc55ae2d8cf3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-5e0868bd19085b1cb53ab43700120046.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-08e37edbabbb74645398bc55ae2d8cf3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -72,8 +76,37 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<link rel="stylesheet" href="styles.css">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -245,9 +278,9 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
     </a>
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Shaikh Tanvir Hossain</span>
     </a>
   </div>
@@ -258,23 +291,23 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./research.html"> 
+    <a class="nav-link" href="../../research.html"> 
 <span class="menu-text">Research</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./teaching.html"> 
+    <a class="nav-link" href="../../teaching.html"> 
 <span class="menu-text">Teaching</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./blog.html"> 
+    <a class="nav-link" href="../../blog.html"> 
 <span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./cv.html"> 
+    <a class="nav-link" href="../../cv.html"> 
 <span class="menu-text">CV</span></a>
   </li>  
 </ul>
@@ -292,77 +325,171 @@ ul.task-list li input[type="checkbox"] {
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
+   
   <ul>
-  <li><a href="#about-me" id="toc-about-me" class="nav-link active" data-scroll-target="#about-me">About Me</a></li>
+  <li><a href="#some-details-on-hoeffdings-inequality" id="toc-some-details-on-hoeffdings-inequality" class="nav-link active" data-scroll-target="#some-details-on-hoeffdings-inequality">Some Details on Hoeffding’s inequality</a></li>
+  <li><a href="#bandit-notations" id="toc-bandit-notations" class="nav-link" data-scroll-target="#bandit-notations">Bandit Notations</a>
+  <ul class="collapse">
+  <li><a href="#applying-hoeffdings-inequality-to-the-bandit-setting" id="toc-applying-hoeffdings-inequality-to-the-bandit-setting" class="nav-link" data-scroll-target="#applying-hoeffdings-inequality-to-the-bandit-setting">Applying Hoeffding’s inequality to the bandit setting</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<div class="quarto-about-trestles column-page-left">
-  <div class="about-entity">
-    <img src="img/prof_pic.png" class="about-image
-  rounded " style="width: 20em;">
+<main class="content column-page-left" id="quarto-document-content">
+
+
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Welcome</h1>
+<h1 class="title">Bandit Notations and Hoefddings Inequality</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">bandits</div>
+    <div class="quarto-category">stochastic_bandits</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    Introducing Bandit Notations and applying Hoeffding’s inequality
+  </div>
 </div>
+
+
 <div class="quarto-title-meta column-page-left">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Shaikh Tanvir Hossain </p>
+          </div>
   </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">September 14, 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
 </header>
-    <div class="about-links">
-  <a href="https://twitter.com" class="about-link" rel="" target="">
-    <i class="bi bi-twitter"></i>
-     <span class="about-link-text">Twitter</span>
-  </a>
-  <a href="https://github.com" class="about-link" rel="" target="">
-    <i class="bi bi-github"></i>
-     <span class="about-link-text">Github</span>
-  </a>
-  <a href="https://linkedin.com" class="about-link" rel="" target="">
-    <i class="bi bi-linkedin"></i>
-     <span class="about-link-text">LinkedIn</span>
-  </a>
-  <a href="mailto:your.email@example.com" class="about-link" rel="" target="">
-    <i class="bi bi-envelope"></i>
-     <span class="about-link-text">Email</span>
-  </a>
-</div>
-  </div>
-  <div class="about-contents"><main class="content column-page-left" id="quarto-document-content">
 
 
-<style>
-.quarto-about-trestles {
-  max-width: 1200px !important;
-  margin: 0 auto !important;
-}
-.quarto-about-trestles .about-image {
-  border-radius: 0 !important;
-  max-width: 400px !important;
-  width: 100% !important;
-  height: auto !important;
-}
-.quarto-about-trestles .about-image img {
-  border-radius: 0 !important;
-  width: 100% !important;
-  height: auto !important;
-}
-.about-contents {
-  font-size: 1.1em !important;
-  line-height: 1.6 !important;
-}
-</style>
-<section id="about-me" class="level2">
-<h2 data-anchor-id="about-me">About Me</h2>
-<p>I am a final-year doctoral student in the Business and Economics Department at <a href="https://www.tu-dortmund.de/en/">Technical University of Dortmund (TU Dortmund)</a> under the supervision of <a href="https://lwus.statistik.tu-dortmund.de/en/chair/team/jentsch/">Professor Carsten Jentsch</a>. I have also been a lecturer at the Department of Economics, <a href="https://www.ewubd.edu/">East West University, Bangladesh</a>. From 2018 to 2022, I worked as a research associate (Wissenschaftlicher Mitarbeiter) in the Department of Statistics at TU Dortmund (<a href="https://lwus.statistik.tu-dortmund.de/en/chair/alumni/">alumni page</a>), and I gratefully acknowledge all their support and guidance during this period.</p>
-<p>I obtained an M.Sc. in Economics from the <a href="https://www.uni-mannheim.de/en/">University of Mannheim, Germany</a> and a Bachelor’s degree in Business with a second major in Economics from <a href="https://www.bracu.ac.bd/">BRAC University, Bangladesh</a>. After finishing my Bachelors I worked as a project assistant at the Innovations for Poverty Action (IPA) in Bangladesh, on a project titled <em>Building management hierarchies for growth in LICs: understanding the role of supervisor training in Bangladeshi garment sector</em>, led by <a href="https://www.qeh.ox.ac.uk/people/christopher-woodruff">Professor Christopher Woodruff (Oxford)</a>, <a href="https://www.lse.ac.uk/management/people/academic-staff/rocco-macchiavello">Professor Rocco Macchiavello (LSE)</a>, and <a href="https://www.du.ac.bd/faculty/faculty_details/ECO/401">Professor Atonu Rabbani (Dhaka University)</a> as Principal Investigators.</p>
-<p>My research interests lie at the intersection of Causal Inference, Econometrics, and Machine Learning. In my dissertation, I focus on sequential policy learning (a.k.a. bandit algorithms), both theoretical and applied perspectives.</p>
+<section id="some-details-on-hoeffdings-inequality" class="level1">
+<h1>Some Details on Hoeffding’s inequality</h1>
+<p>Assume we have a sequence of random variables <span class="math inline">\(Y_1, Y_2, \ldots, Y_n\)</span> where for all <span class="math inline">\(i\)</span>, <span class="math inline">\(Y_i \sim s\mathcal{G}(1)\)</span> (all random variables are sub-Gaussian-1. Let <span class="math inline">\(\bar{Y} = \frac{1}{n} \sum_{i=1}^n Y_i\)</span> be the sample mean of the sequence and also assume <span class="math inline">\(\mathbb{E}[Y_i] = \mu\)</span>, then we can apply Hoeffding’s bound to get, <span class="math display">\[
+\mathbb{P} \left( \mid \overline{Y}_n - \mu \geq \epsilon \mid \right) \leq 2 \cdot \exp\left( -\frac{1}{2} n \epsilon^2 \right)
+\]</span></p>
+<p>Now there is another version of this inequality where we let <span class="math inline">\(\delta = \exp\left( -\frac{1}{2} n \epsilon^2 \right)\)</span>, this leads to <span class="math inline">\(\epsilon = \sqrt{\frac{2 \log\left(\frac{1}{\delta}\right)}{n}}\)</span>, and now we have</p>
+<p><span class="math display">\[
+\mathbb{P}\left( \mid \bar{Y}_n - \mu \geq \sqrt{\frac{2 \log\left(\frac{1}{\delta}\right)}{n}} \mid \right) \leq 2 \delta
+\]</span></p>
+<p>This is often useful in the bandit setting and we</p>
+<p><span class="math display">\[
+\mathbb{P}\left( \mid \bar{Y}_n - \mu \leq \sqrt{\frac{2 \log\left(\frac{1}{\delta}\right)}{n}} \mid \right) \geq 1 - 2\delta
+\]</span></p>
+<p>In the bandit setting we will often want this inequality to be hold for all time points and all arms (this is called <strong>clean event</strong> in the handout by Silvkins)</p>
+</section>
+<section id="bandit-notations" class="level1">
+<h1>Bandit Notations</h1>
+<p>We will follow following notations,</p>
+<ul>
+<li><strong>Arms and Rewards:</strong>
+<ul>
+<li><span class="math inline">\(\mathcal{W}\)</span> : set of arms, we will generally assume <span class="math inline">\(\mathcal{W} = \{1, 2, \ldots, K\} =: [K]\)</span>.</li>
+<li><span class="math inline">\(k^*\)</span> : an optimal arm (with the highest expected reward).</li>
+<li><span class="math inline">\(W_t\)</span> : the arm chosen by the algorithm at round <span class="math inline">\(t\)</span> (this is a random quantity)</li>
+<li><span class="math inline">\(\mu(k)\)</span> : the true expected reward of arm <span class="math inline">\(k\)</span>.</li>
+<li><span class="math inline">\(\mu\left(k^{*}\right)=\max _{k \in \mathcal{W}} \mu(k)\)</span>.</li>
+<li><span class="math inline">\(\Delta(k)=\mu\left(k^{*}\right)-\mu(k)\)</span> : the suboptimality gap of arm <span class="math inline">\(k\)</span>.</li>
+<li><span class="math inline">\(Y_s(k)\)</span> : the reward obtained from arm <span class="math inline">\(k\)</span> at its <span class="math inline">\(s\)</span>-th play, assume <span class="math inline">\(Y_s(a) \sim s\)</span>.</li>
+</ul></li>
+<li><strong>Empirical Estimates:</strong>
+<ul>
+<li><p><span class="math inline">\(n_t(k)\)</span>: where <span class="math inline">\(n_t(k)  = \sum_{s = 1}^{t} \mathbf{1} \{ W_t = k \}\)</span> the number of times arm <span class="math inline">\(k\)</span> has been played up to time <span class="math inline">\(t\)</span> (including <span class="math inline">\(t\)</span>).</p></li>
+<li><p><span class="math inline">\(\widehat{\mu}_t(k)=\frac{1}{n_t(k)} \sum_{s=1}^{t} \mathbf{1} \{ W_t = a \}  Y_s\)</span> empirical mean reward of arm <span class="math inline">\(k\)</span> up to time <span class="math inline">\(t\)</span></p></li>
+</ul></li>
+<li><strong>Confidence Bounds:</strong>
+<ul>
+<li><span class="math inline">\(r_t(k)=\sqrt{\frac{2 \log \left(\frac{1}{\delta}\right)}{n_t(k)}}\)</span> : confidence radius for arm <span class="math inline">\(k\)</span> at time <span class="math inline">\(t\)</span>, with error probability <span class="math inline">\(\delta\)</span>.</li>
+<li><span class="math inline">\(\mathrm{UCB}_t(k)=\widehat{\mu}_t(k)+r_t(k)\)</span> : Upper Confidence Bound for arm <span class="math inline">\(k\)</span> at time <span class="math inline">\(t\)</span>.</li>
+</ul></li>
+<li><strong>Regret:</strong>
+<ul>
+<li><span class="math inline">\(R(T)=\sum_{t=1}^T\left(\mu\left(k^{*}\right)-\mu\left(W_t\right)\right)\)</span> : cumulative regret up to time <span class="math inline">\(T\)</span>.</li>
+</ul></li>
+</ul>
+<section id="applying-hoeffdings-inequality-to-the-bandit-setting" class="level2">
+<h2 class="anchored" data-anchor-id="applying-hoeffdings-inequality-to-the-bandit-setting">Applying Hoeffding’s inequality to the bandit setting</h2>
+<p>How do we apply Hoeffding’s inequality to the bandit setting? Fix an arm <span class="math inline">\(k \in \mathcal{W}\)</span>, and fix <span class="math inline">\(t\in [T]\)</span>, then we want the following to hold,</p>
+<p><span class="math display">\[
+\mathbb{P}\left( \mid \widehat{\mu}_t(k) - \mu(k) \mid  \leq \underbrace{ \sqrt{\frac{2 \log \left(\frac{1}{\delta}\right)}{n_t(k)}}}_{r_t(k)} \right) \geq 1 - 2 \delta
+\]</span></p>
+<p>where <span class="math inline">\(r_t(k)=\sqrt{\frac{2 \log \left(\frac{1}{\delta}\right)}{n_t(k)}}\)</span>, is the confidence radius for arm <span class="math inline">\(k\)</span> at time <span class="math inline">\(t\)</span>, with error probability <span class="math inline">\(\delta\)</span>. This seems easy however in the bandit setting there is an issue since <span class="math inline">\(n_t(k)\)</span> is a random quantity which depends on the algorithm and rewards and in the Hoeffding’s inequality we need to have a fixed number of samples, e.g., <span class="math inline">\(n_t(k) = t\)</span>.</p>
+<p>Silvkins proposed an elementary solution to this problem (and also pointed out that Martingale concentration inequalities can be used to solve this problem), we discuss the elementary solution that he proposed. The key idea is to show that for any arm <span class="math inline">\(k\)</span> the event</p>
+<p><span class="math display">\[
+\mathcal{E}(a)=\left\{ \forall t \in[T]:\left|\widehat{\mu}_t(k)-\mu(k)\right| \leq \sqrt{\frac{2 \ln \left(\frac{1}{\delta}\right)}{n_k(t)}}\right\} = \bigcap_{t=1}^T\left\{\left|\widehat{\mu}_t(k)-\mu(k)\right| \leq \sqrt{\frac{2 \ln \left(\frac{1}{\delta}\right)}{n_t(k)}}\right\}
+\]</span></p>
+<p>holds with high probability. Or equivalently, the complement event <span class="math inline">\(\mathcal{E}^c\)</span> has low probability, where</p>
+<p><span class="math display">\[
+\mathcal{E}^c(k)=\bigcup_{t=1}^T\left\{\left|\widehat{\mu}_t(k)-\mu(k)\right| \geq \sqrt{\frac{2 \ln \left(\frac{1}{\delta}\right)}{n_t(k)}}\right\}
+\]</span></p>
+<p>We can achive this with union bound, however we need following trick,</p>
+<p><span class="math display">\[
+\mathbb{P}\left(\mathcal{E}^c(k) \right) = \mathbb{P}\left(\bigcup_{t=1}^T\left\{\left|\widehat{\mu}_t(k)-\mu(k)\right| \geq \sqrt{\frac{2 \ln \left(\frac{1}{\delta}\right)}{n_t(k)}}\right\} \right) \leq \mathbb{P}\left( \bigcup_{j=1}^T\left\{\left|\bar{v}_j(k)-\mu(k)\right| \geq \sqrt{\frac{2 \ln \left(\frac{1}{\delta}\right)}{j}}\right\} \right)
+\]</span></p>
+<p>where <span class="math inline">\(\bar{v}_j(k)\)</span> which is the average of the first <span class="math inline">\(j\)</span> rewards from arm <span class="math inline">\(k\)</span>. So Silvkins explained this with the idea of a pre-genrated reward tape for each arm where we already have the rewards of for all arms for all time points. Now fix an arm <span class="math inline">\(k\)</span>, and then for each possible number of plays <span class="math inline">\(j \geq 1\)</span>, we can calculate the average of the first <span class="math inline">\(j\)</span> rewards from arm <span class="math inline">\(k\)</span>. Important to note that here for each <span class="math inline">\(j\)</span>, we can think we have an iid sequence of rewards. Also note for each <span class="math inline">\(j\)</span>, we can apply Hoeffding’s inequality to get</p>
+<p><span class="math display">\[
+\mathbb{P}\left(\left|\bar{v}_j(k)-\mu(k)\right| \geq \sqrt{\frac{2 \ln \left(\frac{1}{\delta}\right)}{j}}\right) \leq 2 \delta
+\]</span></p>
+<p>Finally we can apply union bound to get,</p>
+<p><span class="math display">\[
+\mathbb{P}\left(\mathcal{E}^c(k)\right) \leq\sum_{j=1}^T \mathbb{P}\left(\left|\bar{v}_j(k)-\mu(k)\right| \geq \sqrt{\frac{2 \ln \left(\frac{1}{\delta}\right)}{j}}\right) \leq  T \cdot 2 \delta
+\]</span></p>
+<p>now if we want to have this for all arms, we can apply union bound again,</p>
+<p><span class="math display">\[
+\mathbb{P}\left(\mathcal{E}^c \right) = \mathbb{P}\left(\underbrace{\bigcup_{k \in \mathcal{W}} \mathcal{E}^c(k)}_{\mathcal{E}^c}\right) \leq K \cdot T \cdot 2 \delta
+\]</span></p>
+<p>where <span class="math inline">\(K\)</span> is the number of arms. Now setting <span class="math inline">\(\delta = \frac{1}{T^2}\)</span>, we get</p>
+<p><span class="math display">\[
+\mathbb{P}\left(\mathcal{E}^c \right)  \leq \frac{2K}{T}
+\]</span></p>
+<p>This means, the event</p>
+<p><span class="math display">\[
+\mathcal{E}=\left\{ \forall k\in \mathcal{W}, \forall t \in[T]:\left|\widehat{\mu}_t(k)-\mu(k)\right| \leq \sqrt{\frac{2 \ln \left(\frac{1}{\delta}\right)}{n_k(t)}}\right\}
+\]</span></p>
+<p>holds with probability at least <span class="math inline">\(1-\frac{2K}{T}\)</span>. Silvkins called this <strong>clean event</strong>, and this shows that we can apply Hoeffding’s inequality to the bandit setting for any arm <span class="math inline">\(k\)</span> and at any time point <span class="math inline">\(t\)</span>. In particular this means,</p>
+<p><span class="math display">\[
+\mathbb{P}\left(\mathcal{E} \right)  \geq 1 - \frac{2K}{T}
+\]</span></p>
+<p>Note that in this case the radius <span class="math inline">\(r_t(a)\)</span> becomes (which is known as upper confidence bound in the bandit setting),</p>
+<p><span class="math display">\[
+r_t(k) = \sqrt{\frac{2 \ln T^2}{n_t(k)}} =  \sqrt{\frac{4 \ln T}{n_t(k)}}
+\]</span></p>
+<p>In the bandit setting typically we will do the analysis under the clean event.</p>
+<p>Finally if you are reading the handout by Silvkins, then we can plug in <span class="math inline">\(\delta = \frac{1}{T^4}\)</span>, and since <span class="math inline">\(K \leq T\)</span>, we get</p>
+<p><span class="math display">\[
+\begin{aligned}
+\mathbb{P}\left(\mathcal{E}^c \right)  &amp;\leq K \cdot T \cdot 2 \delta \\
+&amp;\leq \frac{2}{T^2}
+\end{aligned}
+\]</span></p>
+<p>And in this case, the <span class="math inline">\(r_t(a)\)</span> becomes</p>
+<p><span class="math display">\[
+r_t(k) = \sqrt{\frac{2 \ln T^4}{n_t(k)}} =  \sqrt{\frac{8 \ln T}{n_t(k)}}
+\]</span></p>
+<p>Although probably I wrote way more than needed, I hope this explanation helps to understand the idea behind the clean event.</p>
+<p><strong>If this helps, please do me a favor and plase Let me know if you find any mistakes or have any questions</strong></p>
 
 
 </section>
-</main></div>
-</div>
- <!-- /main -->
+</section>
+
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
@@ -378,6 +505,13 @@ ul.task-list li input[type="checkbox"] {
       window.document.body.appendChild(a);
     }
     setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
     const isCodeAnnotation = (el) => {
       for (const clz of el.classList) {
         if (clz.startsWith('code-annotation-')) {                     

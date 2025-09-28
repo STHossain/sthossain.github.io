@@ -1,0 +1,156 @@
+---
+layout: distill
+title: Bandit Notations and Hoefddings Inequality
+description: Introducing Bandit Notations and applying Hoeffding's inequality
+tags: stochastic_bandits
+categories: bandits
+giscus_comments: true
+date: 2024-09-14
+featured: false
+pseudocode: true
+
+bibliography: 2024-09-08-sG1.bib
+
+---
+
+# Some Details on Hoeffding's inequality
+
+Assume we have a sequence of random variables $Y_1, Y_2, \ldots, Y_n$ where for all $i$,  $Y_i \sim s\mathcal{G}(1)$ (all random variables are sub-Gaussian-1.  Let $\bar{Y} = \frac{1}{n} \sum_{i=1}^n Y_i$ be the sample mean of the sequence and also assume $\mathbb{E}[Y_i] = \mu$, then we can apply Hoeffding's bound to get, 
+$$
+\mathbb{P} \left( \mid \overline{Y}_n - \mu \geq \epsilon \mid \right) \leq 2 \cdot \exp\left( -\frac{1}{2} n \epsilon^2 \right)
+$$
+
+Now there is another version of this inequality where we let $\delta = \exp\left( -\frac{1}{2} n \epsilon^2 \right)$, this leads to $\epsilon = \sqrt{\frac{2 \log\left(\frac{1}{\delta}\right)}{n}}$, and now we have
+
+$$
+\mathbb{P}\left( \mid \bar{Y}_n - \mu \geq \sqrt{\frac{2 \log\left(\frac{1}{\delta}\right)}{n}} \mid \right) \leq 2 \delta
+$$
+
+
+This is often useful in the bandit setting and we 
+
+$$
+\mathbb{P}\left( \mid \bar{Y}_n - \mu \leq \sqrt{\frac{2 \log\left(\frac{1}{\delta}\right)}{n}} \mid \right) \geq 1 - 2\delta
+$$
+
+In the bandit setting we will often want this inequality to be hold for all time points and all arms (this is called **clean event** in the handout by Silvkins)
+
+# Bandit Notations
+
+We will follow following notations, 
+
+- **Arms and Rewards:**
+    - $\mathcal{W}$ : set  of arms, we will generally assume $\mathcal{W} = \{1, 2, \ldots, K\} =: [K]$.
+    - $k^*$ : an optimal arm (with the highest expected reward).
+    - $W_t$ : the arm chosen by the algorithm at round $t$ (this is a random quantity)
+    - $\mu(k)$ : the true expected reward of arm $k$.
+    - $\mu\left(k^{*}\right)=\max _{k \in \mathcal{W}} \mu(k)$.
+    - $\Delta(k)=\mu\left(k^{*}\right)-\mu(k)$ : the suboptimality gap of arm $k$.
+    - $Y_s(k)$ : the reward obtained from arm $k$ at its $s$-th play, assume $Y_s(a) \sim s$.
+- **Empirical Estimates:**
+    - $n_t(k)$: where $n_t(k)  = \sum_{s = 1}^{t} \mathbf{1} \{ W_t = k \}$ the number of times arm $k$ has been played up to time $t$ (including $t$).
+
+    - $\widehat{\mu}_t(k)=\frac{1}{n_t(k)} \sum_{s=1}^{t} \mathbf{1} \{ W_t = a \}  Y_s$  empirical mean reward of arm $k$ up to time $t$
+- **Confidence Bounds:**
+    - $r_t(k)=\sqrt{\frac{2 \log \left(\frac{1}{\delta}\right)}{n_t(k)}}$ : confidence radius for arm $k$ at time $t$,  with error probability $\delta$.
+    - $\mathrm{UCB}_t(k)=\widehat{\mu}_t(k)+r_t(k)$ : Upper Confidence Bound for arm $k$ at time $t$.
+- **Regret:**
+    - $R(T)=\sum_{t=1}^T\left(\mu\left(k^{*}\right)-\mu\left(W_t\right)\right)$ : cumulative regret up to time $T$.
+
+## Applying Hoeffding's inequality to the bandit setting
+
+How do we apply Hoeffding's inequality to the bandit setting? Fix an arm $k \in \mathcal{W}$, and fix $t\in [T]$, then we want the following to hold,
+
+$$
+\mathbb{P}\left( \mid \widehat{\mu}_t(k) - \mu(k) \mid  \leq \underbrace{ \sqrt{\frac{2 \log \left(\frac{1}{\delta}\right)}{n_t(k)}}}_{r_t(k)} \right) \geq 1 - 2 \delta
+$$
+
+where $r_t(k)=\sqrt{\frac{2 \log \left(\frac{1}{\delta}\right)}{n_t(k)}}$, is the confidence radius for arm $k$ at time $t$, with error probability $\delta$. This seems easy however in the bandit setting there is an issue since $n_t(k)$ is a random quantity which depends on the algorithm and rewards and in the Hoeffding's inequality we need to have a fixed number of samples, e.g., $n_t(k) = t$. 
+
+Silvkins proposed an elementary solution to this problem (and also pointed out that Martingale concentration inequalities can be used to solve this problem), we discuss the elementary solution that he proposed. The key idea is to show that for any arm $k$ the event 
+
+$$
+\mathcal{E}(a)=\left\{ \forall t \in[T]:\left|\widehat{\mu}_t(k)-\mu(k)\right| \leq \sqrt{\frac{2 \ln \left(\frac{1}{\delta}\right)}{n_k(t)}}\right\} = \bigcap_{t=1}^T\left\{\left|\widehat{\mu}_t(k)-\mu(k)\right| \leq \sqrt{\frac{2 \ln \left(\frac{1}{\delta}\right)}{n_t(k)}}\right\}
+$$
+
+holds with high probability. Or equivalently, the complement event $\mathcal{E}^c$ has low probability, where 
+
+$$
+\mathcal{E}^c(k)=\bigcup_{t=1}^T\left\{\left|\widehat{\mu}_t(k)-\mu(k)\right| \geq \sqrt{\frac{2 \ln \left(\frac{1}{\delta}\right)}{n_t(k)}}\right\}
+$$
+
+We can achive this with union bound, however we need following trick, 
+
+$$
+\mathbb{P}\left(\mathcal{E}^c(k) \right) = \mathbb{P}\left(\bigcup_{t=1}^T\left\{\left|\widehat{\mu}_t(k)-\mu(k)\right| \geq \sqrt{\frac{2 \ln \left(\frac{1}{\delta}\right)}{n_t(k)}}\right\} \right) \leq \mathbb{P}\left( \bigcup_{j=1}^T\left\{\left|\bar{v}_j(k)-\mu(k)\right| \geq \sqrt{\frac{2 \ln \left(\frac{1}{\delta}\right)}{j}}\right\} \right)
+$$
+
+where $\bar{v}_j(k)$ which is the average of the first $j$ rewards from arm $k$. So Silvkins explained this with the idea of a pre-genrated reward tape for each arm where we already have the rewards of for all arms for all time points. Now fix an arm $k$, and then for each possible number of plays $j \geq 1$, we can calculate the average of the first $j$ rewards from arm $k$. Important to note that here for each $j$, we can think we have an iid sequence of rewards. Also note for each $j$, we can apply Hoeffding's inequality to get
+
+$$
+\mathbb{P}\left(\left|\bar{v}_j(k)-\mu(k)\right| \geq \sqrt{\frac{2 \ln \left(\frac{1}{\delta}\right)}{j}}\right) \leq 2 \delta
+$$
+
+
+Finally we can apply union bound to get, 
+
+$$
+\mathbb{P}\left(\mathcal{E}^c(k)\right) \leq\sum_{j=1}^T \mathbb{P}\left(\left|\bar{v}_j(k)-\mu(k)\right| \geq \sqrt{\frac{2 \ln \left(\frac{1}{\delta}\right)}{j}}\right) \leq  T \cdot 2 \delta
+$$
+
+now if we want to have this for all arms, we can apply union bound again,
+
+$$
+\mathbb{P}\left(\mathcal{E}^c \right) = \mathbb{P}\left(\underbrace{\bigcup_{k \in \mathcal{W}} \mathcal{E}^c(k)}_{\mathcal{E}^c}\right) \leq K \cdot T \cdot 2 \delta
+$$
+
+where $K$ is the number of arms. Now setting $\delta = \frac{1}{T^2}$, we get
+
+$$
+\mathbb{P}\left(\mathcal{E}^c \right)  \leq \frac{2K}{T}
+$$
+
+
+
+This means, the event 
+
+$$
+\mathcal{E}=\left\{ \forall k\in \mathcal{W}, \forall t \in[T]:\left|\widehat{\mu}_t(k)-\mu(k)\right| \leq \sqrt{\frac{2 \ln \left(\frac{1}{\delta}\right)}{n_k(t)}}\right\}
+$$
+
+holds with probability at least $1-\frac{2K}{T}$. Silvkins called this **clean event**, and this shows that we can apply Hoeffding's inequality to the bandit setting for any arm $k$ and at  any time point $t$. In particular this means, 
+
+$$
+\mathbb{P}\left(\mathcal{E} \right)  \geq 1 - \frac{2K}{T}
+$$
+
+Note that in this case the radius $r_t(a)$ becomes (which is known as upper confidence bound in the bandit setting),
+
+$$
+r_t(k) = \sqrt{\frac{2 \ln T^2}{n_t(k)}} =  \sqrt{\frac{4 \ln T}{n_t(k)}}
+$$
+
+In the bandit setting typically we will do the analysis under the clean event. 
+
+Finally if you are reading the handout by Silvkins, then we can plug in $\delta = \frac{1}{T^4}$, and since $K \leq T$, we get 
+
+$$
+\begin{aligned}
+\mathbb{P}\left(\mathcal{E}^c \right)  &\leq K \cdot T \cdot 2 \delta \\
+&\leq \frac{2}{T^2}
+\end{aligned}
+$$
+
+And in this case, the $r_t(a)$ becomes
+
+$$
+r_t(k) = \sqrt{\frac{2 \ln T^4}{n_t(k)}} =  \sqrt{\frac{8 \ln T}{n_t(k)}}
+$$
+
+
+Although probably I wrote way more than needed, I hope this explanation helps to understand the idea behind the clean event.
+
+**If this helps, please do me a favor and plase Let me know if you find any mistakes or have any questions** 
+
+
+

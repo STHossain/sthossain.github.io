@@ -1,0 +1,105 @@
+---
+title: "Sk. Tanvir Hossain"
+format:
+  html:
+    css: cv-style.css
+    toc: false
+---
+
+<div class="cv-container">
+
+## Basics
+
+<div class="cv-basics">
+**Name:** Shaikh Tanvir Hossain
+**Email:** tanvir.hossain@tu-dortmund.de
+**Personal URL:** [https://sthossain.github.io](https://sthossain.github.io)
+**Summary:** Researcher in Econometrics, Causal Inference, and Machine Learning
+</div>
+
+## Education
+
+<div class="cv-entry">
+**Doctoral Student, Technical University of Dortmund** (2019-present)
+*Dortmund, Germany*
+
+**Master's in Economics, University of Mannheim** (2014-2017)
+*Mannheim, Germany*
+
+**Bachelor's in Business, BRAC University** (2008-2012)
+*Dhaka, Bangladesh*
+</div>
+
+## Work Experience
+
+<div class="cv-entry">
+**Lecturer, East West University** (2022-Present)
+*Dhaka, Bangladesh*
+- Teaching undergraduate courses in statistics and econometrics
+- Course development and curriculum design
+- Student supervision and academic mentoring
+
+**Research Associate, Technical University of Dortmund** (2018-2022)
+*Dortmund, Germany*
+- Research in econometrics and time series analysis
+- Teaching assistance for graduate courses
+- Academic collaboration and project management
+
+**Research Associate, University of Mannheim** (2017-2018)
+*Mannheim, Germany*
+- Empirical research in applied economics
+- Data analysis and statistical modeling
+- Research publication and presentation
+</div>
+
+## Programming
+
+<div class="programming-skills">
+**R** - Advanced level for statistical analysis and data visualization
+**Julia** - Intermediate level for scientific computing
+**Python** - Intermediate level for machine learning applications
+**STATA** - Advanced level for econometric analysis
+**LaTeX** - Advanced level for academic writing
+</div>
+
+## Languages
+
+<div class="languages">
+**Bangla** - Native speaker
+**English** - Fluent
+**German** - Basic conversational level
+</div>
+
+## Awards
+
+<div class="awards">
+<div class="cv-entry">
+**DAAD Scholarship** (2017)
+*German Academic Exchange Service*
+Full funding for doctoral studies in Germany
+
+**Vice Chancellor's List Award** (2010)
+*BRAC University*
+Recognition for academic excellence
+</div>
+</div>
+
+## References
+
+<div class="references">
+<div class="cv-entry">
+**Professor Carsten Jentsch**
+*Professor and Head of the Chair of Business and Social Statistics*
+Technical University of Dortmund, Germany
+
+**Professor Wasiqur Rahaman Khan**
+*Professor and Chairperson of Dept. of Economics and Social Sciences*
+BRAC University, Bangladesh
+
+**Professor A.M Tanvir Hussain**
+*Associate Professor of Department of Economics*
+East West University, Bangladesh
+</div>
+</div>
+
+</div>

@@ -1,0 +1,115 @@
+/* Custom styles for personal website */
+
+/* Google Fonts import */
+@import url('https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap');
+
+/* Navbar styling */
+.navbar {
+  background-color: #4B0000 !important;
+}
+
+.navbar-brand {
+  color: white !important;
+  font-family: 'Berkshire Swash', cursive !important;
+  font-size: 1.5rem !important;
+}
+
+.navbar-nav .nav-link {
+  color: white !important;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #f0f0f0 !important;
+}
+
+/* Title block banner styling */
+.title-block-banner,
+.quarto-title-banner,
+.quarto-title-block,
+.page-header,
+.hero-banner {
+  background-color: white !important;
+  background: white !important;
+  color: #212529 !important;
+}
+
+.title-block-banner .title,
+.quarto-title-banner .title,
+.quarto-title-block .title,
+.page-header h1,
+.hero-banner h1 {
+  color: #212529 !important;
+}
+
+.index-grid {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.index-g-col-4 {
+  flex: 1;
+  margin: 0 5px;
+}
+
+/* Navigation dropdown styles */
+.dropdown-menu {
+  max-height: 400px;
+  overflow: auto;
+}
+
+.quarto-navbar-tools .dropdown-menu.show {
+  right: 0px;
+  left: auto;
+}
+
+@media (max-width: 988px) {
+  .quarto-navbar-tools .dropdown-menu.show {
+    right: -80px;
+  }
+}
+
+/* About page styling */
+.about-entity {
+  margin-bottom: 2rem;
+}
+
+.about-links {
+  margin-top: 1rem;
+}
+
+/* Blog listing styles */
+.listing-item {
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.listing-item:last-child {
+  border-bottom: none;
+}
+
+/* Research page styles */
+.research-section {
+  margin-bottom: 2rem;
+}
+
+.publication-item {
+  margin-bottom: 1rem;
+}
+
+/* Teaching page styles */
+.course-item {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background-color: #f8f9fa;
+  border-radius: 0.5rem;
+}
+
+/* Footer styles */
+.page-footer {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid #e9ecef;
+}

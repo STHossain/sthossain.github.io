@@ -1,0 +1,132 @@
+---
+title: "ECO 204 - Statistics for Business and Economics II"
+description: "Course Webpage, Fall 2023"
+---
+
+![Children learning](teaching/ewu/eco204/children_unicef.jpeg){width=600 height=400}
+
+*The credit for the image goes to [unicef.org](https://www.unicef.org/bangladesh/en/education){target="_blank"}. Click [here](https://www.unicef.org/bangladesh/en/education){target="_blank"} to see the actual page.*
+
+Only 64 percent of children complete their secondary education in our country. Considering there are 58 million children—constituting 34 percent of the entire population and more importantly we know that they will form the backbone of our future workforce, this number alone is concerning. The pressing question for us is: *Are we heading in the right direction?*
+
+Economists and policymakers often engage themselves with such questions by turning to meaningful data. They use numbers like the 64 percent (which we call a **sample proportion**) to gain insights. These numbers are also called **statistics**. By analyzing these statistics, they can better understand the current situation and then craft effective policies aimed at improving outcomes.
+
+This example highlights the vital role of *Statistics* as a discipline. Accurate data collection, analysis, and interpretation are not just academic exercises, they directly inform decisions that shape our society's future. In essence, the power of *Statistical reasoning* extends far beyond our classroom; it is fundamental to making effective and evidence-based policies.
+
+## Course Information
+- **Semester:** Fall 2023
+- **Instructor:** Shaikh Tanvir Hossain
+- **Email:** tanvir.hossain@ewubd.edu
+- **Class Schedule:**
+  - **Tuesday:** 1:30 - 3:00 PM (Room 530, C. Lab)
+  - **Thursday:** 1:30 - 3:00 PM (Room 338)
+- **Outline in PDF:** [Course Outline](teaching/ewu/eco204/Eco204_outline_Fall2023.pdf)
+- **Office Hours**
+  - **Tuesday:** 12:00 - 1:30 PM (Room 345), *Please try to come during this time!*
+
+## Course Description
+This is a continuation of the course ECO104. The students will be introduced to Inferential Statistics, and the core topics are:
+- Point and Interval Estimation
+- Hypothesis Testing
+- Simple and Multiple Linear Regression Model
+- Basic Time Series Analysis
+- Goodness of fit test and some Non-Parametric tests (e.g., sign test and rank test), if time permits!
+- Analysis of Variance Techniques
+
+The course follows a balanced approach between theory and practice. Students will learn the concepts and also apply them using R. There will be a lab project to evaluate the applied skills.
+
+## Prerequisite Courses
+- ECO101 and ECO104 offered at the East West University.
+
+## Textbooks / Notes
+There will be lecture notes (typed), and you should definitely read that first. In addition, I recommend to use any of the following books for exercises and practice problems:
+
+1. Anderson, Sweeney, Williams, Camm, Cochran, Fry and Ohlmann (2020)
+2. Newbold, Carlson and Thorne (2020)
+
+Following books are a bit advanced at this level, but nevertheless these are also excellent references. In particular, if you are an Economics student, you should look into Wooldridge (2019).
+
+4. DeGroot and Schervish (2012)
+5. Casella and Berger (2002)
+6. Wooldridge (2019)
+
+## Marks Distribution
+- **Problem Sets:** 5%
+- **Quizzes:** 15%
+- **Lab Project:** 10%
+- **Midterm 1:** 20%
+- **Midterm 2:** 20%
+- **Final Exam:** 30%
+
+## Course Materials
+
+### Lecture Slides
+
+#### Chapter 1 (Estimation)
+- [Estimation Slides](teaching/ewu/eco204/03_lecture_slides/Chapter1/01_estimation.pdf)
+- [Estimation Slides (4-per-page)](teaching/ewu/eco204/03_lecture_slides/Chapter1/01_estimation_4p_layout.pdf)
+
+#### Chapter 2 (Testing)
+- [Testing Slides](teaching/ewu/eco204/03_lecture_slides/Chapter2/02_testing.pdf)
+- [Testing Slides (4-per-page)](teaching/ewu/eco204/03_lecture_slides/Chapter2/02_testing_4p_layout.pdf)
+
+#### Chapter 3 (Simple Linear Regression)
+- [SLR Slides](teaching/ewu/eco204/03_lecture_slides/Chapter3/03_regression_slr.pdf)
+- [SLR Lab](teaching/ewu/eco204/03_lecture_slides/Chapter3/slr_lab.pdf)
+- [R Code](teaching/ewu/eco204/03_lecture_slides/Chapter3/R_Codes/slr_lab.R)
+
+#### Chapter 4 (Multiple Linear Regression)
+- [MLR Slides](teaching/ewu/eco204/03_lecture_slides/Chapter4/04_regression_mlr.pdf)
+- [R Markdown File](teaching/ewu/eco204/03_lecture_slides/Chapter4/R_Codes/advdata_codes_mlr.Rmd)
+
+#### Chapter 5 (ANOVA)
+- [ANOVA Slides](teaching/ewu/eco204/03_lecture_slides/Chapter5/05_anova.pdf)
+- [ANOVA Lab R Code](teaching/ewu/eco204/03_lecture_slides/Chapter5/R_Codes/anova_lab.R)
+
+#### Chapter 6 (Time Series Analysis)
+- [Time Series Lab R Code](teaching/ewu/eco204/03_lecture_slides/Chapter6/R_Codes/ts_lab.R)
+- [Time Series Lab HTML](teaching/ewu/eco204/03_lecture_slides/Chapter6/R_Codes/ts_lab.html)
+
+## Problem Sets
+
+### Problem Set 1
+- [PS 1 Questions](teaching/ewu/eco204/05_problem_sets/PS1/Questions/PS_1.pdf)
+- [PS 1 Solutions](teaching/ewu/eco204/05_problem_sets/PS1/Solutions/PS_1_solutions_8_1.R)
+
+### Problem Set 2
+- [PS 2 Questions](teaching/ewu/eco204/05_problem_sets/PS2/Questions/PS_2.pdf)
+- [PS 2 Partial Solutions](teaching/ewu/eco204/05_problem_sets/PS2/Solutions/PS_2_partial_solutions_9_3.R)
+
+### Problem Set 3
+- [PS 3 Questions](teaching/ewu/eco204/05_problem_sets/PS3/Questions/PS_3.pdf)
+
+### Problem Set 4
+- [PS 4 Questions](teaching/ewu/eco204/05_problem_sets/PS4/Questions/PS_4.pdf)
+- [PS 4 Solutions](teaching/ewu/eco204/05_problem_sets/PS4/Solutions/PS-4_Soln.html)
+
+## Using R and RStudio
+
+![R Logo](teaching/ewu/eco204/04_R_RStudio/images/R_Logo.jpeg){width=150 height=100}
+![RStudio Logo](teaching/ewu/eco204/04_R_RStudio/images/RStudio.png){width=250 height=100}
+
+### How to Install R and RStudio
+
+To use R in RStudio, first you need to install R and then RStudio:
+
+- Download R using this link: [R for Windows](https://cran.r-project.org/bin/windows/base/R-4.3.2-win.exe)
+- Download RStudio using this link: [RStudio](https://download1.rstudio.org/electron/windows/RStudio-2023.09.0-463.exe)
+
+**Important:** First install R, then install RStudio. Do NOT install RStudio first and then R.
+
+### R Resources
+- **Video Tutorial:** [Learn R - Stanford Lecture](https://www.youtube.com/watch?v=L03A81OgLlk&list=PLoROMvodv4rOzrYsAxzQyHb8n_RWNuS1e&index=8&ab_channel=StanfordOnline)
+- **R Code File:** [Ch2-statlearn-lab_videocode.R](teaching/ewu/eco204/04_R_RStudio/Ch2-statlearn-lab_videocode.R)
+- **Data Set:** [Auto.csv](teaching/ewu/eco204/04_R_RStudio/Auto.csv)
+
+## Lab Project
+
+There will be a group lab project at the end of the semester where you apply what you've learned with a real dataset.
+
+### Templates
+- **MS Word Template:** [ECO204_Template.docx](teaching/ewu/eco204/06_lab_projects/MS-Word_Stuffs/ECO204_Template.docx)
+- **LaTeX Template:** [Project_Paper_Template_EWU.zip](teaching/ewu/eco204/06_lab_projects/LaTeX_Stuffs/Project_Paper_Template_EWU.zip)

@@ -1,0 +1,58 @@
+---
+title: "Welcome"
+about:
+  template: trestles
+  image: img/prof_pic.png
+  links:
+    - icon: twitter
+      text: Twitter
+      href: https://twitter.com
+    - icon: github
+      text: Github
+      href: https://github.com
+    - icon: linkedin
+      text: LinkedIn
+      href: https://linkedin.com
+    - icon: envelope
+      text: Email
+      href: mailto:your.email@example.com
+format:
+  html:
+    css: styles.css
+---
+
+<style>
+.quarto-about-trestles {
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+}
+
+.quarto-about-trestles .about-image {
+  border-radius: 0 !important;
+  max-width: 400px !important;
+  width: 100% !important;
+  height: auto !important;
+}
+
+.quarto-about-trestles .about-image img {
+  border-radius: 0 !important;
+  width: 100% !important;
+  height: auto !important;
+}
+
+.about-contents {
+  font-size: 1.1em !important;
+  line-height: 1.6 !important;
+}
+</style>
+
+## About Me
+
+
+
+I am a final-year doctoral student in the Business and Economics Department at [Technical University of Dortmund (TU Dortmund)](https://www.tu-dortmund.de/en/) under the supervision of [Professor Carsten Jentsch](https://lwus.statistik.tu-dortmund.de/en/chair/team/jentsch/). I have also been a lecturer at the Department of Economics, [East West University, Bangladesh](https://www.ewubd.edu/). From 2018 to 2022, I worked as a research associate (Wissenschaftlicher Mitarbeiter) in the Department of Statistics at TU Dortmund ([alumni page](https://lwus.statistik.tu-dortmund.de/en/chair/alumni/)), and I gratefully acknowledge all their support and guidance during this period.
+
+I obtained an M.Sc. in Economics from the [University of Mannheim, Germany](https://www.uni-mannheim.de/en/) and a Bachelor's degree in Business with a second major in Economics from [BRAC University, Bangladesh](https://www.bracu.ac.bd/). After finishing my Bachelors I worked as a project assistant at the Innovations for Poverty Action (IPA) in Bangladesh, on a project titled *Building management hierarchies for growth in LICs: understanding the role of supervisor training in Bangladeshi garment sector*, led by [Professor Christopher Woodruff (Oxford)](https://www.qeh.ox.ac.uk/people/christopher-woodruff), [Professor Rocco Macchiavello (LSE)](https://www.lse.ac.uk/management/people/academic-staff/rocco-macchiavello), and [Professor Atonu Rabbani (Dhaka University)](https://www.du.ac.bd/faculty/faculty_details/ECO/401) as Principal Investigators.
+
+My research interests lie at the intersection of Causal Inference, Econometrics, and Machine Learning. In my dissertation, I focus on sequential policy learning (a.k.a. bandit algorithms), both theoretical and applied perspectives.
+

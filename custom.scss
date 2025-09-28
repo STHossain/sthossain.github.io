@@ -1,0 +1,75 @@
+/*-- scss:defaults --*/
+
+// Custom color variables
+$primary: #0d6efd;
+$secondary: #6c757d;
+$success: #198754;
+$info: #0dcaf0;
+$warning: #ffc107;
+$danger: #dc3545;
+$light: #f8f9fa;
+$dark: #212529;
+
+// Typography
+$font-family-sans-serif: "Open Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+$headings-font-family: "Source Sans Pro", $font-family-sans-serif;
+
+// Code styling
+$code-color: #e83e8c;
+$code-bg: #f8f9fa;
+
+/*-- scss:rules --*/
+
+// Custom title banner styling
+.quarto-title-banner .quarto-title .title {
+  color: #fff;
+  font-weight: 600;
+}
+
+// About page enhancements
+.about-entity .about-image {
+  border-radius: 50%;
+  max-width: 200px;
+  filter: grayscale(100%) contrast(1.2) brightness(1.1);
+}
+
+// Navigation enhancements
+.navbar-nav .nav-link {
+  font-weight: 500;
+}
+
+// Blog post styling
+.listing-item .listing-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.listing-item .listing-subtitle {
+  color: $secondary;
+  font-size: 0.9rem;
+}
+
+// Research section styling
+.research-section h3 {
+  color: $primary;
+  border-bottom: 2px solid $light;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+// Teaching course styling
+.course-item {
+  border-left: 4px solid $primary;
+  transition: box-shadow 0.2s ease;
+}
+
+.course-item:hover {
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+// Footer styling
+.page-footer {
+  background-color: $light;
+  color: $dark;
+}

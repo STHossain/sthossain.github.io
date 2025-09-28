@@ -1,0 +1,81 @@
+---
+title: "ECO 104 - Statistics for Business and Economics I"
+description: "Course Webpage, Fall 2023"
+---
+
+![Coin toss](teaching/ewu/eco104/coin_toss_unsplash.jpeg){width=600 height=400}
+
+*Photo by [ZSun Fu](https://unsplash.com/photos/grayscale-photography-of-person-holding-coin-b4D7FKAghoE){target="_blank"} on Unsplash*
+
+Randomness is everywhere! Think about tossing a coin. We call this a random experiment. Specifically, a random experiment is an experiment (something that we can repeat) where all possible outcomes are known to us, but before the actual experiment takes place, we don't know which outcome will occur. For example, in a coin toss, the possible outcomes are heads and tails, but we don't know which one will appear before the experiment. The work of probability theory is to study these kinds of random experiments systematically. If statistics is the language of data, then probability theory is the language of uncertainty.
+
+## Course Information
+- **Semester:** Fall 2023
+- **Instructor:** Shaikh Tanvir Hossain
+- **Email:** tanvir.hossain@ewubd.edu
+- **Class Schedule:**
+  - **Tuesday:** 10:10 - 11:40 AM (FUB, 304)
+  - **Thursday:** 10:10 - 11:40 AM (Room 533, C.Lab)
+- **Outline in PDF:** [Course Outline](teaching/ewu/eco104/Eco104_outline_Fall2023.pdf)
+- **Office Hours**
+  - **Thursday:** 12:00 - 1:30 PM (Room 345), *Please try to come during this time!*
+
+## Course Description
+This is the first course in the sequence of two Statistics courses offered for the Economics and Business students at EWU (the next one is ECO 204). The course will cover:
+
+- Basic ideas about Statistics and Data Sets
+- Some Descriptive Statistics (graphical and numerical methods)
+- Introduction to Probability Theory (i.e., defining Probability, Random Variables and Distributions)
+- Ideas about Sampling Distributions
+- Index numbers
+
+The approach of the class includes both learning the concepts and also how to apply them in real-life situations. Students will also be introduced to Microsoft Excel for applications related to business and economic data.
+
+## Prerequisite Courses
+MAT100 or at least equivalent Math courses.
+
+## Textbooks / Notes
+There will be lecture notes (typed), and you should definitely read that first. In addition, I recommend to use any of the following books for exercises and practice problems:
+
+1. Anderson, Sweeney, Williams, Camm, Cochran, Fry and Ohlmann (2020)
+2. Newbold, Carlson and Thorne (2020)
+
+Following books are a bit advanced at this level, but nevertheless these are also excellent references:
+
+1. DeGroot and Schervish (2012)
+2. Casella and Berger (2002)
+
+## Marks Distribution
+- **Problem Sets:** 5%
+- **Quizzes:** 15%
+- **Lab Project:** 10%
+- **Midterm 1:** 20%
+- **Midterm 2:** 20%
+- **Final Exam:** 30%
+
+## Additional Details
+- **Problem Sets:** Usually there will be a problem set every two weeks, and it has to be turned in with your attempted solutions by the following week. Please form groups of a maximum of 3 and submit in groups. DO the problem set seriously!
+- **Quizzes:** In total there will be 6 random quizzes (i.e., they can happen any day during the whole semester!) I will take the average of the best 3.
+- **Lab Project:** Lastly, there will be a Lab Project. We will talk about the details later in class.
+
+## Lecture Notes
+
+| Chapter | Title | Link |
+|---------|-------|------|
+| 1 | Ch 1 - Descriptive Statistics | - |
+| 2 | Ch 2 - Probability Theory - 1 | [PDF](teaching/ewu/eco104/01_lecture_slides/02_prob_theory_1.pdf) |
+| 3 | Ch 3 - Probability Theory - 2 | [PDF](teaching/ewu/eco104/01_lecture_slides/03_prob_theory_2.pdf) |
+| 4 | Ch 4 - Probability Theory - 3 | [PDF](teaching/ewu/eco104/01_lecture_slides/04_prob_theory_3.pdf) |
+| 5 | Ch 5 - Sampling Distributions | [PDF](teaching/ewu/eco104/01_lecture_slides/05_sampling_dist.pdf) |
+
+## Problem Sets
+
+| Set | Problem Set | Solutions |
+|-----|-------------|-----------|
+| PS 1 | [Problem Set 1](teaching/ewu/eco104/02_problem_sets/PS1/PS_1.pdf) | [Solutions (Excel)](teaching/ewu/eco104/02_problem_sets/PS1/Ch2_solns_2_2_and_2_3.xlsx) |
+| PS 2 | [Problem Set 2](teaching/ewu/eco104/02_problem_sets/PS2/PS_2.pdf) | [Solutions](teaching/ewu/eco104/02_problem_sets/PS2/PS_2_withsoln.pdf) |
+| PS 3 | [Problem Set 3](teaching/ewu/eco104/02_problem_sets/PS3/PS_3.pdf) | [Solutions](teaching/ewu/eco104/02_problem_sets/PS3/PS_3_withSoln.pdf) |
+| PS 4 | [Problem Set 4](teaching/ewu/eco104/02_problem_sets/PS4/PS_4.pdf) | [Solutions](teaching/ewu/eco104/02_problem_sets/PS4/PS_4_more_solns.pdf) |
+
+## Expectations
+Please try to be punctual in class. Regular attendance is important. If your attendance is less than 75%, you won't be allowed to sit for the final. You are expected to maintain Academic Honesty, which means you should perform all academic activities without any form of cheating, lying, stealing, plagiarism, receiving unauthorized assistance, or using any source of information that is prohibited.

@@ -1,0 +1,47 @@
+{
+  "posts/research-update/index.qmd": {
+    "index.html": "092a8a6f"
+  },
+  "posts/first-post/index.qmd": {
+    "index.html": "dd313f1d"
+  },
+  "research.qmd": {
+    "research.html": "06db2e8a"
+  },
+  "index.qmd": {
+    "index.html": "f4e437bd"
+  },
+  "blog.qmd": {
+    "blog.html": "0318bec6"
+  },
+  "teaching.qmd": {
+    "teaching.html": "6b1a41aa"
+  },
+  "posts/mathematical-analysis/index.qmd": {
+    "index.html": "f06b47d9"
+  },
+  "teaching/ewu/mat100/mat100.md": {
+    "mat100.html": "27562758"
+  },
+  "teaching/ewu/eco204/03_lecture_slides/03_lecture_slides.md": {
+    "03_lecture_slides.html": "31fe4df7"
+  },
+  "eco204.qmd": {
+    "eco204.html": "971da0c6"
+  },
+  "eco104.qmd": {
+    "eco104.html": "79f54c08"
+  },
+  "teaching/ewu/eco104/04_important_notices/10_important_notices.md": {
+    "10_important_notices.html": "4b3dcea1"
+  },
+  "julia_course.qmd": {
+    "julia_course.html": "2c3deb24"
+  },
+  "posts/bandit-hoeffdings/index.qmd": {
+    "index.html": "0db2205c"
+  },
+  "cv.qmd": {
+    "cv.html": "3e575509"
+  }
+}

@@ -1,0 +1,50 @@
+project:
+  type: website
+  output-dir: _site
+  render:
+    - "*.qmd"
+    - "!teaching/**/*.md"
+    - "!teaching/**/*.Rmd"
+
+website:
+  title: "Shaikh Tanvir Hossain"
+  description: "Academic personal website"
+
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: research.qmd
+        text: Research
+      - href: teaching.qmd
+        text: Teaching
+      - href: blog.qmd
+        text: Blog
+      - href: cv.qmd
+        text: CV
+
+  page-footer:
+    left: "© 2024 Your Name"
+    right: "Built with [Quarto](https://quarto.org/)"
+
+  comments:
+    giscus:
+      repo: "STHossain/sthossain.github.io"
+      repo-id: "your-repo-id"
+      category: "General"
+      category-id: "your-category-id"
+      mapping: "pathname"
+      reactions-enabled: true
+      input-position: "bottom"
+      theme: "light"
+      language: "en"
+      loading: "lazy"
+
+format:
+  html:
+    theme:
+      light: [flatly, custom.scss]
+      dark: [darkly, custom.scss]
+    css: styles.css
+    toc: true
+    page-layout: full
