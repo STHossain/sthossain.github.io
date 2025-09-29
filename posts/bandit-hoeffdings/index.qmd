@@ -4,6 +4,18 @@ description: "Introducing Bandit Notations and applying Hoeffding's inequality"
 author: "Shaikh Tanvir Hossain"
 date: "2024-09-14"
 categories: [bandits, stochastic_bandits]
+comments:
+  giscus:
+    repo: "STHossain/sthossain.github.io"
+    repo-id: "your-repo-id"
+    category: "General"
+    category-id: "your-category-id"
+    mapping: "pathname"
+    reactions-enabled: true
+    input-position: "bottom"
+    theme: "light"
+    language: "en"
+    loading: "lazy"
 ---
 
 # Some Details on Hoeffding's inequality

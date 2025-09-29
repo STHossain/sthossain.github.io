@@ -5,9 +5,11 @@ project:
     - "*.qmd"
     - "!teaching/**/*.md"
     - "!teaching/**/*.Rmd"
+  resources:
+    - "cv/"
 
 website:
-  title: "Shaikh Tanvir Hossain"
+  title: "S. Tanvir Hossain"
   description: "Academic personal website"
 
   navbar:
@@ -20,25 +22,11 @@ website:
         text: Teaching
       - href: blog.qmd
         text: Blog
-      - href: cv.qmd
-        text: CV
 
   page-footer:
-    left: "© 2024 Your Name"
+    left: "© 2024 S. Tanvir Hossain. All rights reserved."
     right: "Built with [Quarto](https://quarto.org/)"
 
-  comments:
-    giscus:
-      repo: "STHossain/sthossain.github.io"
-      repo-id: "your-repo-id"
-      category: "General"
-      category-id: "your-category-id"
-      mapping: "pathname"
-      reactions-enabled: true
-      input-position: "bottom"
-      theme: "light"
-      language: "en"
-      loading: "lazy"
 
 format:
   html:

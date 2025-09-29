@@ -2,7 +2,8 @@
 title: "Teaching"
 ---
 
-I believe I am passionate in teaching statistics, econometrics, and programming. I love coding and statistical theories and I want my students will love them too ... but that doesn't always happen.
+
+I am passionate about teaching statistics, econometrics, and programming. I love coding and statistical theories and I want my students to love them too... but that doesn't always happen.
 
 # Past Courses
 

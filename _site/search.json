@@ -4,7 +4,7 @@
     "href": "teaching.html",
     "title": "Teaching",
     "section": "",
-    "text": "I believe I am passionate in teaching statistics, econometrics, and programming. I love coding and statistical theories and I want my students will love them too … but that doesn’t always happen."
+    "text": "I am passionate about teaching statistics, econometrics, and programming. I love coding and statistical theories and I want my students to love them too… but that doesn’t always happen."
   },
   {
     "objectID": "teaching.html#ewu-logo-east-west-university-bangladesh",
@@ -37,16 +37,16 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Welcome",
+    "title": "Welcome to the site",
     "section": "",
-    "text": "I am a final-year doctoral student in the Business and Economics Department at Technical University of Dortmund (TU Dortmund) under the supervision of Professor Carsten Jentsch. I have also been a lecturer at the Department of Economics, East West University, Bangladesh. From 2018 to 2022, I worked as a research associate (Wissenschaftlicher Mitarbeiter) in the Department of Statistics at TU Dortmund (alumni page), and I gratefully acknowledge all their support and guidance during this period.\nI obtained an M.Sc. in Economics from the University of Mannheim, Germany and a Bachelor’s degree in Business with a second major in Economics from BRAC University, Bangladesh. After finishing my Bachelors I worked as a project assistant at the Innovations for Poverty Action (IPA) in Bangladesh, on a project titled Building management hierarchies for growth in LICs: understanding the role of supervisor training in Bangladeshi garment sector, led by Professor Christopher Woodruff (Oxford), Professor Rocco Macchiavello (LSE), and Professor Atonu Rabbani (Dhaka University) as Principal Investigators.\nMy research interests lie at the intersection of Causal Inference, Econometrics, and Machine Learning. In my dissertation, I focus on sequential policy learning (a.k.a. bandit algorithms), both theoretical and applied perspectives."
+    "text": "I am a final-year doctoral student in the Business and Economics Department at Technical University of Dortmund (TU Dortmund) under the supervision of Professor Carsten Jentsch. I have also been a lecturer at the Department of Economics, East West University, Bangladesh. From 2018 to 2022, I worked as a research associate (Wissenschaftlicher Mitarbeiter) in the Department of Statistics at TU Dortmund (alumni page), and I gratefully acknowledge all their support and guidance during this period.\nI obtained an M.Sc. in Economics from the University of Mannheim, Germany and a Bachelor’s degree in Business with a second major in Economics from BRAC University, Bangladesh. After finishing my Bachelors I worked as a project assistant at the Innovations for Poverty Action (IPA) in Bangladesh, on a project titled Building management hierarchies for growth in LICs: understanding the role of supervisor training in Bangladeshi garment sector, led by Professor Christopher Woodruff (Oxford), Professor Rocco Macchiavello (LSE), and Professor Atonu Rabbani (Dhaka University) as Principal Investigators.\nMy research interests lie at the intersection of Causal Inference, Econometrics, and Machine Learning. In my dissertation, I focus on sequential policy learning (a.k.a. bandit algorithms), both theoretical and applied perspectives.\nI am passionate about teaching statistics, econometrics, and programming. I love coding and statistical theories and I want my students to love them too… but that doesn’t always happen."
   },
   {
     "objectID": "index.html#about-me",
     "href": "index.html#about-me",
-    "title": "Welcome",
+    "title": "Welcome to the site",
     "section": "",
-    "text": "I am a final-year doctoral student in the Business and Economics Department at Technical University of Dortmund (TU Dortmund) under the supervision of Professor Carsten Jentsch. I have also been a lecturer at the Department of Economics, East West University, Bangladesh. From 2018 to 2022, I worked as a research associate (Wissenschaftlicher Mitarbeiter) in the Department of Statistics at TU Dortmund (alumni page), and I gratefully acknowledge all their support and guidance during this period.\nI obtained an M.Sc. in Economics from the University of Mannheim, Germany and a Bachelor’s degree in Business with a second major in Economics from BRAC University, Bangladesh. After finishing my Bachelors I worked as a project assistant at the Innovations for Poverty Action (IPA) in Bangladesh, on a project titled Building management hierarchies for growth in LICs: understanding the role of supervisor training in Bangladeshi garment sector, led by Professor Christopher Woodruff (Oxford), Professor Rocco Macchiavello (LSE), and Professor Atonu Rabbani (Dhaka University) as Principal Investigators.\nMy research interests lie at the intersection of Causal Inference, Econometrics, and Machine Learning. In my dissertation, I focus on sequential policy learning (a.k.a. bandit algorithms), both theoretical and applied perspectives."
+    "text": "I am a final-year doctoral student in the Business and Economics Department at Technical University of Dortmund (TU Dortmund) under the supervision of Professor Carsten Jentsch. I have also been a lecturer at the Department of Economics, East West University, Bangladesh. From 2018 to 2022, I worked as a research associate (Wissenschaftlicher Mitarbeiter) in the Department of Statistics at TU Dortmund (alumni page), and I gratefully acknowledge all their support and guidance during this period.\nI obtained an M.Sc. in Economics from the University of Mannheim, Germany and a Bachelor’s degree in Business with a second major in Economics from BRAC University, Bangladesh. After finishing my Bachelors I worked as a project assistant at the Innovations for Poverty Action (IPA) in Bangladesh, on a project titled Building management hierarchies for growth in LICs: understanding the role of supervisor training in Bangladeshi garment sector, led by Professor Christopher Woodruff (Oxford), Professor Rocco Macchiavello (LSE), and Professor Atonu Rabbani (Dhaka University) as Principal Investigators.\nMy research interests lie at the intersection of Causal Inference, Econometrics, and Machine Learning. In my dissertation, I focus on sequential policy learning (a.k.a. bandit algorithms), both theoretical and applied perspectives.\nI am passionate about teaching statistics, econometrics, and programming. I love coding and statistical theories and I want my students to love them too… but that doesn’t always happen."
   },
   {
     "objectID": "eco104.html",
@@ -121,9 +121,65 @@
   {
     "objectID": "blog.html",
     "href": "blog.html",
-    "title": "Shaikh Tanvir Hossain",
+    "title": "S. Tanvir Hossain",
     "section": "",
     "text": "Bandit Notations and Hoefddings Inequality\n\n\n\nbandits\n\nstochastic_bandits\n\n\n\nIntroducing Bandit Notations and applying Hoeffding’s inequality\n\n\n\n\n\nSep 14, 2024\n\n\nShaikh Tanvir Hossain\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "cv.html",
+    "href": "cv.html",
+    "title": "Sk. Tanvir Hossain",
+    "section": "",
+    "text": "Name: Shaikh Tanvir Hossain Email: tanvir.hossain@tu-dortmund.de Personal URL: https://sthossain.github.io Summary: Researcher in Econometrics, Causal Inference, and Machine Learning\n\n\n\n\n\nDoctoral Student, Technical University of Dortmund (2019-present) Dortmund, Germany\nMaster’s in Economics, University of Mannheim (2014-2017) Mannheim, Germany\nBachelor’s in Business, BRAC University (2008-2012) Dhaka, Bangladesh\n\n\n\n\n\nLecturer, East West University (2022-Present) Dhaka, Bangladesh - Teaching undergraduate courses in statistics and econometrics - Course development and curriculum design - Student supervision and academic mentoring\nResearch Associate, Technical University of Dortmund (2018-2022) Dortmund, Germany - Research in econometrics and time series analysis - Teaching assistance for graduate courses - Academic collaboration and project management\nResearch Associate, University of Mannheim (2017-2018) Mannheim, Germany - Empirical research in applied economics - Data analysis and statistical modeling - Research publication and presentation\n\n\n\n\n\nR - Advanced level for statistical analysis and data visualization Julia - Intermediate level for scientific computing Python - Intermediate level for machine learning applications STATA - Advanced level for econometric analysis LaTeX - Advanced level for academic writing\n\n\n\n\n\nBangla - Native speaker English - Fluent German - Basic conversational level\n\n\n\n\n\n\nDAAD Scholarship (2017) German Academic Exchange Service Full funding for doctoral studies in Germany\nVice Chancellor’s List Award (2010) BRAC University Recognition for academic excellence\n\n\n\n\n\n\n\nProfessor Carsten Jentsch Professor and Head of the Chair of Business and Social Statistics Technical University of Dortmund, Germany\nProfessor Wasiqur Rahaman Khan Professor and Chairperson of Dept. of Economics and Social Sciences BRAC University, Bangladesh\nProfessor A.M Tanvir Hussain Associate Professor of Department of Economics East West University, Bangladesh"
+  },
+  {
+    "objectID": "cv.html#basics",
+    "href": "cv.html#basics",
+    "title": "Sk. Tanvir Hossain",
+    "section": "",
+    "text": "Name: Shaikh Tanvir Hossain Email: tanvir.hossain@tu-dortmund.de Personal URL: https://sthossain.github.io Summary: Researcher in Econometrics, Causal Inference, and Machine Learning"
+  },
+  {
+    "objectID": "cv.html#education",
+    "href": "cv.html#education",
+    "title": "Sk. Tanvir Hossain",
+    "section": "",
+    "text": "Doctoral Student, Technical University of Dortmund (2019-present) Dortmund, Germany\nMaster’s in Economics, University of Mannheim (2014-2017) Mannheim, Germany\nBachelor’s in Business, BRAC University (2008-2012) Dhaka, Bangladesh"
+  },
+  {
+    "objectID": "cv.html#work-experience",
+    "href": "cv.html#work-experience",
+    "title": "Sk. Tanvir Hossain",
+    "section": "",
+    "text": "Lecturer, East West University (2022-Present) Dhaka, Bangladesh - Teaching undergraduate courses in statistics and econometrics - Course development and curriculum design - Student supervision and academic mentoring\nResearch Associate, Technical University of Dortmund (2018-2022) Dortmund, Germany - Research in econometrics and time series analysis - Teaching assistance for graduate courses - Academic collaboration and project management\nResearch Associate, University of Mannheim (2017-2018) Mannheim, Germany - Empirical research in applied economics - Data analysis and statistical modeling - Research publication and presentation"
+  },
+  {
+    "objectID": "cv.html#programming",
+    "href": "cv.html#programming",
+    "title": "Sk. Tanvir Hossain",
+    "section": "",
+    "text": "R - Advanced level for statistical analysis and data visualization Julia - Intermediate level for scientific computing Python - Intermediate level for machine learning applications STATA - Advanced level for econometric analysis LaTeX - Advanced level for academic writing"
+  },
+  {
+    "objectID": "cv.html#languages",
+    "href": "cv.html#languages",
+    "title": "Sk. Tanvir Hossain",
+    "section": "",
+    "text": "Bangla - Native speaker English - Fluent German - Basic conversational level"
+  },
+  {
+    "objectID": "cv.html#awards",
+    "href": "cv.html#awards",
+    "title": "Sk. Tanvir Hossain",
+    "section": "",
+    "text": "DAAD Scholarship (2017) German Academic Exchange Service Full funding for doctoral studies in Germany\nVice Chancellor’s List Award (2010) BRAC University Recognition for academic excellence"
+  },
+  {
+    "objectID": "cv.html#references",
+    "href": "cv.html#references",
+    "title": "Sk. Tanvir Hossain",
+    "section": "",
+    "text": "Professor Carsten Jentsch Professor and Head of the Chair of Business and Social Statistics Technical University of Dortmund, Germany\nProfessor Wasiqur Rahaman Khan Professor and Chairperson of Dept. of Economics and Social Sciences BRAC University, Bangladesh\nProfessor A.M Tanvir Hussain Associate Professor of Department of Economics East West University, Bangladesh"
   },
   {
     "objectID": "eco204.html",
@@ -250,103 +306,5 @@
     "title": "Research",
     "section": "",
     "text": "1. Sequential Treatment Allocation with Interference\nWe study the sequential treatment allocation problem (a.k.a. multi armed bandit problem) with interference. The work is motivated from the recent work of Jia et al. (2024). We propose some new algorithms for this problem and investigate their performance in the bandit setting.\n\n\n2. Bias correction, Bootstrap and Kernel Estimators\nWe propose a weighted bootstrap based confidence interval for the bias corrected local linear estimator. The idea of bias correction for the kernel estimators is motivated from the work of Calonico, Cattaneo, & Farrell (2018) and Cheng & Chen (2019). Here Cheng & Chen (2019) already proposed bias corrected paired bootstrap and proved theoretical results for uniform confidence intervals. In our work we propose a weighted bootstrap, and investigate the point-wise performance.\n\n\n3. Autoregressive Dynamic Network Modeling with Serial and Cross Sectional Dependence\nThis is a joint work with my supervisor Professor Carsten Jentsch and an extension of my master thesis.\nI will provide the draft version of the papers soon…"
-  },
-  {
-    "objectID": "cv.html",
-    "href": "cv.html",
-    "title": "Sk. Tanvir Hossain",
-    "section": "",
-    "text": "Name: Shaikh Tanvir Hossain Email: tanvir.hossain@tu-dortmund.de Personal URL: https://sthossain.github.io Summary: Researcher in Econometrics, Causal Inference, and Machine Learning\n\n\n\n\n\nDoctoral Student, Technical University of Dortmund (2019-present) Dortmund, Germany\nMaster’s in Economics, University of Mannheim (2014-2017) Mannheim, Germany\nBachelor’s in Business, BRAC University (2008-2012) Dhaka, Bangladesh\n\n\n\n\n\nLecturer, East West University (2022-Present) Dhaka, Bangladesh - Teaching undergraduate courses in statistics and econometrics - Course development and curriculum design - Student supervision and academic mentoring\nResearch Associate, Technical University of Dortmund (2018-2022) Dortmund, Germany - Research in econometrics and time series analysis - Teaching assistance for graduate courses - Academic collaboration and project management\nResearch Associate, University of Mannheim (2017-2018) Mannheim, Germany - Empirical research in applied economics - Data analysis and statistical modeling - Research publication and presentation\n\n\n\n\n\nR - Advanced level for statistical analysis and data visualization Julia - Intermediate level for scientific computing Python - Intermediate level for machine learning applications STATA - Advanced level for econometric analysis LaTeX - Advanced level for academic writing\n\n\n\n\n\nBangla - Native speaker English - Fluent German - Basic conversational level\n\n\n\n\n\n\nDAAD Scholarship (2017) German Academic Exchange Service Full funding for doctoral studies in Germany\nVice Chancellor’s List Award (2010) BRAC University Recognition for academic excellence\n\n\n\n\n\n\n\nProfessor Carsten Jentsch Professor and Head of the Chair of Business and Social Statistics Technical University of Dortmund, Germany\nProfessor Wasiqur Rahaman Khan Professor and Chairperson of Dept. of Economics and Social Sciences BRAC University, Bangladesh\nProfessor A.M Tanvir Hussain Associate Professor of Department of Economics East West University, Bangladesh"
-  },
-  {
-    "objectID": "cv.html#basics",
-    "href": "cv.html#basics",
-    "title": "Sk. Tanvir Hossain",
-    "section": "",
-    "text": "Name: Shaikh Tanvir Hossain Email: tanvir.hossain@tu-dortmund.de Personal URL: https://sthossain.github.io Summary: Researcher in Econometrics, Causal Inference, and Machine Learning"
-  },
-  {
-    "objectID": "cv.html#education",
-    "href": "cv.html#education",
-    "title": "Sk. Tanvir Hossain",
-    "section": "",
-    "text": "Doctoral Student, Technical University of Dortmund (2019-present) Dortmund, Germany\nMaster’s in Economics, University of Mannheim (2014-2017) Mannheim, Germany\nBachelor’s in Business, BRAC University (2008-2012) Dhaka, Bangladesh"
-  },
-  {
-    "objectID": "cv.html#work-experience",
-    "href": "cv.html#work-experience",
-    "title": "Sk. Tanvir Hossain",
-    "section": "",
-    "text": "Lecturer, East West University (2022-Present) Dhaka, Bangladesh - Teaching undergraduate courses in statistics and econometrics - Course development and curriculum design - Student supervision and academic mentoring\nResearch Associate, Technical University of Dortmund (2018-2022) Dortmund, Germany - Research in econometrics and time series analysis - Teaching assistance for graduate courses - Academic collaboration and project management\nResearch Associate, University of Mannheim (2017-2018) Mannheim, Germany - Empirical research in applied economics - Data analysis and statistical modeling - Research publication and presentation"
-  },
-  {
-    "objectID": "cv.html#skills",
-    "href": "cv.html#skills",
-    "title": "Curriculum Vitae",
-    "section": "Skills",
-    "text": "Skills\n\nProgramming Languages\n\nR - Advanced (data analysis, visualization, statistical modeling)\nJulia - Intermediate (scientific computing, optimization)\nPython - Intermediate (machine learning, data science)\nSTATA - Advanced (econometric analysis)\nLaTeX - Advanced (academic writing, presentations)\n\n\n\nWeb Technologies\n\nHTML/CSS - Intermediate\nQuarto/R Markdown - Advanced\nGit/GitHub - Intermediate\n\n\n\nLanguages\n\nBangla - Native\nEnglish - Fluent (Professional working proficiency)\nGerman - Basic (Conversational level)"
-  },
-  {
-    "objectID": "cv.html#research-interests",
-    "href": "cv.html#research-interests",
-    "title": "Curriculum Vitae",
-    "section": "Research Interests",
-    "text": "Research Interests\n\nEconometrics: Time series analysis, panel data methods\nCausal Inference: Difference-in-differences, instrumental variables\nMachine Learning: Statistical learning, prediction methods\nApplied Economics: Labor economics, development economics"
-  },
-  {
-    "objectID": "cv.html#publications-working-papers",
-    "href": "cv.html#publications-working-papers",
-    "title": "Curriculum Vitae",
-    "section": "Publications & Working Papers",
-    "text": "Publications & Working Papers\n\nWorking Papers\n\n“Stochastic Bandits and Thompson Sampling: A Comprehensive Analysis” (In preparation)\n“Advanced Time Series Methods in Economic Forecasting” (Under review)\n\n\n\nConference Presentations\n\nEuropean Economic Association Annual Congress (2022)\nGerman Economic Association Meeting (2021)"
-  },
-  {
-    "objectID": "cv.html#teaching-experience",
-    "href": "cv.html#teaching-experience",
-    "title": "Curriculum Vitae",
-    "section": "Teaching Experience",
-    "text": "Teaching Experience\n\nCourses Taught\nEast West University - ECO 204: Statistics for Business and Economics II (Fall 2023, Summer 2025) - ECO 104: Statistics for Business and Economics I (Fall 2023, Summer 2025)\nTechnical University of Dortmund - Programming with Julia (Spring 2021) - Intensive 5-day course - Econometrics Tutorial Sessions (2019-2022)\n\n\nTeaching Philosophy\nI believe in hands-on learning that combines theoretical understanding with practical application. My courses emphasize computational skills and real-world data analysis."
-  },
-  {
-    "objectID": "cv.html#awards-and-honors",
-    "href": "cv.html#awards-and-honors",
-    "title": "Curriculum Vitae",
-    "section": "Awards and Honors",
-    "text": "Awards and Honors\nDAAD Scholarship | German Academic Exchange Service | 2017 - Full scholarship for doctoral studies in Germany\nVice Chancellor’s List Award | BRAC University | 2010 - Recognition for academic excellence\nDean’s List | BRAC University | 2009, 2011 - Consistent academic performance"
-  },
-  {
-    "objectID": "cv.html#professional-activities",
-    "href": "cv.html#professional-activities",
-    "title": "Curriculum Vitae",
-    "section": "Professional Activities",
-    "text": "Professional Activities\n\nMemberships\n\nGerman Economic Association (Verein für Socialpolitik)\nEuropean Economic Association\nEconometric Society\n\n\n\nReviewer\n\nJournal of Applied Econometrics\nComputational Statistics & Data Analysis"
-  },
-  {
-    "objectID": "cv.html#references",
-    "href": "cv.html#references",
-    "title": "Sk. Tanvir Hossain",
-    "section": "",
-    "text": "Professor Carsten Jentsch Professor and Head of the Chair of Business and Social Statistics Technical University of Dortmund, Germany\nProfessor Wasiqur Rahaman Khan Professor and Chairperson of Dept. of Economics and Social Sciences BRAC University, Bangladesh\nProfessor A.M Tanvir Hussain Associate Professor of Department of Economics East West University, Bangladesh"
-  },
-  {
-    "objectID": "cv.html#programming",
-    "href": "cv.html#programming",
-    "title": "Sk. Tanvir Hossain",
-    "section": "",
-    "text": "R - Advanced level for statistical analysis and data visualization Julia - Intermediate level for scientific computing Python - Intermediate level for machine learning applications STATA - Advanced level for econometric analysis LaTeX - Advanced level for academic writing"
-  },
-  {
-    "objectID": "cv.html#languages",
-    "href": "cv.html#languages",
-    "title": "Sk. Tanvir Hossain",
-    "section": "",
-    "text": "Bangla - Native speaker English - Fluent German - Basic conversational level"
-  },
-  {
-    "objectID": "cv.html#awards",
-    "href": "cv.html#awards",
-    "title": "Sk. Tanvir Hossain",
-    "section": "",
-    "text": "DAAD Scholarship (2017) German Academic Exchange Service Full funding for doctoral studies in Germany\nVice Chancellor’s List Award (2010) BRAC University Recognition for academic excellence"
   }
 ]
