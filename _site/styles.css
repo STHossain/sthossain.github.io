@@ -113,3 +113,60 @@
   padding-top: 2rem;
   border-top: 1px solid #e9ecef;
 }
+
+/* Theorem-like environments */
+.lemma, .theorem, .proposition, .corollary, .definition {
+  background-color: #f8f9fa;
+  border-left: 4px solid #007bff;
+  padding: 1rem 1rem 1rem 1.5rem;
+  margin: 1rem 0;
+  border-radius: 0.25rem;
+}
+
+.lemma::before {
+  content: "Lemma. ";
+  font-weight: bold;
+  color: #007bff;
+}
+
+.theorem::before {
+  content: "Theorem. ";
+  font-weight: bold;
+  color: #007bff;
+}
+
+.proposition::before {
+  content: "Proposition. ";
+  font-weight: bold;
+  color: #007bff;
+}
+
+.corollary::before {
+  content: "Corollary. ";
+  font-weight: bold;
+  color: #007bff;
+}
+
+.definition::before {
+  content: "Definition. ";
+  font-weight: bold;
+  color: #007bff;
+}
+
+.proof {
+  padding: 1rem 0;
+  margin: 1rem 0;
+}
+
+.proof::before {
+  content: "Proof. ";
+  font-weight: bold;
+  font-style: italic;
+  color: #6c757d;
+}
+
+.proof::after {
+  content: " ∎";
+  float: right;
+  font-weight: bold;
+}

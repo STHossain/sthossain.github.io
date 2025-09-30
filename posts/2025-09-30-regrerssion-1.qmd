@@ -1,6 +1,6 @@
 ---
 title: "Regression Basics - 1"
-description: "Elementary Regression Concepts from Advanced Point of View"
+description: "Elementary Regression Concepts from an Advanced Point of View"
 author: "Shaikh Tanvir Hossain"
 date: "2024-09-14"
 categories: [Regression, Econometrics]
@@ -18,7 +18,19 @@ comments:
     loading: "lazy"
 ---
 
-# Idea of CEF and its Properties
+# Introduction
+
+In the series of posts I will discuss some elementary regression concepts, but using the idea of Conditional Expectation Function. Not all econometrics books discuss these concepts from this point of view, but I think it is a very useful way to think about regression, exceptions are Hansen's Econometrics and Angrist and Pischke's Mostly Harmless Econometrics. I am taking some materials from these books and also from my own understanding. Please correct me if you think something is wrong. 
+
+Usually when we think about regression, we think about a function $f(X)$ to predict $Y$, here usually $X$ is a vector of covariates or features or regressors , i.e.,  $X:=(X_1, X_2, \ldots, X_k)$ and $Y$ is a scalar. Most of the time we think about additive error, in that case we can define the error as $\epsilon := Y - f(X)$ and then write the model as
+
+$$
+Y = f(X) + \epsilon
+$$
+
+In this post we will talk about what is the best choice of $f(X)$? This question is a bit vague, since we need to be more specific about what do we mean by "best". We will pick an easy definition of "best", and that is to minimize the mean squared error, i.e., we want to find $f$ such that it minimizes $\mathbb{E}\left[(Y - f(X))^2\right]$. It turns out that in  this minimum MSE sense the answer is  Conditional Expectation Function (CEF) $\mathbb{E}[Y \mid X]$. Below we first explain what is CEF, discuss some properties and show how it is the best predictor of $Y$ in minimum MSE sense.
+
+## Conditional Expectation Function (CEF)
 
 Suppose we have two random variables $X$ and $Y$. Let $f_{X, Y}(x, y)$ be the joint density of $X$ and $Y$, and $f_X(x)$, $f_Y(y)$ be the marginal densities, and $f_{Y \mid X}(y \mid x)=\frac{f_{X, Y}(x, y)}{f_X(x)}$ when $f_X(x)>0$ are the conditional densities. The Conditional Expectation Function (CEF) is defined as, 
 
@@ -34,9 +46,21 @@ $$
 
 We will see the proof of this statement shortly, but first we will see some properties of CEF which will be useful in the proof.
 
-::: {.theorem #thm-integral}
+::: {.callout-note}
+## Lemma: CEF Properties
 
-- Property 1 - Law of Iterated Expectations: $\mathbb{E}[\mathbb{E}[Y \mid X]]=\mathbb{E}[Y]$.
+- Property 1: Law of Iterated Expectations: $\mathbb{E}[\mathbb{E}[Y \mid X]]=\mathbb{E}[Y]$.
+- Property 2 : Iterated Condition on a smaller subset $\mathbb{E}\left[\mathbb{E}\left[Y \mid X_1, X_2\right] \mid X_1\right]=\mathbb{E}\left[Y \mid X_1\right]$
+- Property 3 : "Take out what's known": for any function $g$ of $X$, $\mathbb{E}[g(X) Y \mid X]=g(X) \mathbb{E}[Y \mid X]$ and $\mathbb{E}[g(X) Y]=\mathbb{E}[g(X) \mathbb{E}[Y \mid X]]$.
+- Property 4 : CEF residuals are mean-zero and orthogonal to $X$: for $\epsilon:=Y-m(X)$, we have $\mathbb{E}[\epsilon \mid X]=0$ and $\mathbb{E}[\epsilon]=0$, and also $\mathbb{E}[g(X) \epsilon]=0$ for any function $g$ of $X$ such that $\mathbb{E}\left[g(X)^2\right]<\infty$.
+
+:::
+
+
+::: {.callout-tip collapse="true"}
+## Proof of CEF Properties
+
+**Proof of Property 1:**
 
 $$
 \begin{gathered}
@@ -45,49 +69,8 @@ $$
 \end{gathered}
 $$
 
-- Property 2 - "Tower" with nested conditioning:
-
-$$
-\mathbb{E}\left[\mathbb{E}\left[Y \mid X_1, X_2\right] \mid X_1\right]=\mathbb{E}\left[Y \mid X_1\right]
-$$
-
-::: {.theorem #thm-integral}
-
-- Write $m\left(x_1, x_2\right)=\int y f_{Y \mid X_1, X_2}\left(y \mid x_1, x_2\right) d y$. Then
-
-$$
-\begin{gathered}
-\mathbb{E}\left[m\left(X_1, X_2\right) \mid X_1=x_1\right]=\int m\left(x_1, x_2\right) f_{X_2 \mid X_1}\left(x_2 \mid x_1\right) d x_2 \\
-=\int\left(\int y f_{Y \mid X_1, X_2}\left(y \mid x_1, x_2\right) d y\right) f_{X_2 \mid X_1}\left(x_2 \mid x_1\right) d x_2=\int y\left(\int f_{Y \mid X_1, X_2}\left(y \mid x_1, x_2\right) f_{X_2 \mid X_1}\left(x_2 \mid x_1\right) d x_2\right) \\
-=\int y f_{Y \mid X_1}\left(y \mid x_1\right) d y=\mathbb{E}\left[Y \mid X_1=x_1\right]
-\end{gathered}
-$$
-
-where we used the law of total probability:
-
-$$
-f_{Y \mid X_1}\left(y \mid x_1\right)=\int f_{Y \mid X_1, X_2}\left(y \mid x_1, x_2\right) f_{X_2 \mid X_1}\left(x_2 \mid x_1\right) d x_2
-$$
-
-- Property 3 - "Take out what's known":
-- Conditional: for any function $g$ of $X$,
-
-$$
-\mathbb{E}[g(X) Y \mid X=x]=\int g(x) y f_{Y \mid X}(y \mid x) d y=g(x) \int y f_{Y \mid X}(y \mid x) d y=g(x) \mathbb{E}[Y \mid X=x]
-$$
-
-- Unconditional:
-
-$$
-\mathbb{E}[g(X) Y]=\iint g(x) y f_{X, Y}(x, y) d y d x=\int g(x)\left(\int y f_{Y \mid X}(y \mid x) d y\right) f_X(x) d x=\mathbb{E}[g(X) m(X)]
-$$
+We will talk about the proof of other properties later.
 
 
-Property 4 - CEF residuals are mean-zero and orthogonal to $X$ :
-- Define $e:=Y-m(X)$. Then for any $x$,
+:::
 
-$$
-\mathbb{E}[e \mid X=x]=\int(y-m(x)) f_{Y \mid X}(y \mid x) d y=\underbrace{\int y f_{Y \mid X}(y \mid x) d y}_{\downarrow}-m(x) \underbrace{\int f_{Y \mid X}(y \mid x) d y}_{=1}=0 .
-$$
-
-- Hence $\mathbb{E}[e]=\int \mathbb{E}[e \mid X=x] f_X(x) d x=0$.

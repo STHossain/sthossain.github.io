@@ -8,7 +8,7 @@
 
 <meta name="author" content="Shaikh Tanvir Hossain">
 <meta name="dcterms.date" content="2024-09-14">
-<meta name="description" content="Elementary Regression Concepts from Advanced Point of View">
+<meta name="description" content="Elementary Regression Concepts from an Advanced Point of View">
 
 <title>Regression Basics - 1 – S. Tanvir Hossain</title>
 <style>
@@ -323,7 +323,10 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#idea-of-cef-and-its-properties" id="toc-idea-of-cef-and-its-properties" class="nav-link active" data-scroll-target="#idea-of-cef-and-its-properties">Idea of CEF and its Properties</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a>
+  <ul class="collapse">
+  <li><a href="#conditional-expectation-function-cef" id="toc-conditional-expectation-function-cef" class="nav-link" data-scroll-target="#conditional-expectation-function-cef">Conditional Expectation Function (CEF)</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -342,7 +345,7 @@ window.Quarto = {
 
 <div>
   <div class="description">
-    Elementary Regression Concepts from Advanced Point of View
+    Elementary Regression Concepts from an Advanced Point of View
   </div>
 </div>
 
@@ -371,8 +374,16 @@ window.Quarto = {
 </header>
 
 
-<section id="idea-of-cef-and-its-properties" class="level1">
-<h1>Idea of CEF and its Properties</h1>
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
+<p>In the series of posts I will discuss some elementary regression concepts, but using the idea of Conditional Expectation Function. Not all econometrics books discuss these concepts from this point of view, but I think it is a very useful way to think about regression, exceptions are Hansen’s Econometrics and Angrist and Pischke’s Mostly Harmless Econometrics. I am taking some materials from these books and also from my own understanding. Please correct me if you think something is wrong.</p>
+<p>Usually when we think about regression, we think about a function <span class="math inline">\(f(X)\)</span> to predict <span class="math inline">\(Y\)</span>, here usually <span class="math inline">\(X\)</span> is a vector of covariates or features or regressors , i.e., <span class="math inline">\(X:=(X_1, X_2, \ldots, X_k)\)</span> and <span class="math inline">\(Y\)</span> is a scalar. Most of the time we think about additive error, in that case we can define the error as <span class="math inline">\(\epsilon := Y - f(X)\)</span> and then write the model as</p>
+<p><span class="math display">\[
+Y = f(X) + \epsilon
+\]</span></p>
+<p>In this post we will talk about what is the best choice of <span class="math inline">\(f(X)\)</span>? This question is a bit vague, since we need to be more specific about what do we mean by “best”. We will pick an easy definition of “best”, and that is to minimize the mean squared error, i.e., we want to find <span class="math inline">\(f\)</span> such that it minimizes <span class="math inline">\(\mathbb{E}\left[(Y - f(X))^2\right]\)</span>. It turns out that in this minimum MSE sense the answer is Conditional Expectation Function (CEF) <span class="math inline">\(\mathbb{E}[Y \mid X]\)</span>. Below we first explain what is CEF, discuss some properties and show how it is the best predictor of <span class="math inline">\(Y\)</span> in minimum MSE sense.</p>
+<section id="conditional-expectation-function-cef" class="level2">
+<h2 class="anchored" data-anchor-id="conditional-expectation-function-cef">Conditional Expectation Function (CEF)</h2>
 <p>Suppose we have two random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>. Let <span class="math inline">\(f_{X, Y}(x, y)\)</span> be the joint density of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>, and <span class="math inline">\(f_X(x)\)</span>, <span class="math inline">\(f_Y(y)\)</span> be the marginal densities, and <span class="math inline">\(f_{Y \mid X}(y \mid x)=\frac{f_{X, Y}(x, y)}{f_X(x)}\)</span> when <span class="math inline">\(f_X(x)&gt;0\)</span> are the conditional densities. The Conditional Expectation Function (CEF) is defined as,</p>
 <p><span class="math display">\[
 m(x):=\mathbb{E}[Y \mid X=x]=\int y f_{Y \mid X}(y \mid x) d y
@@ -382,63 +393,50 @@ m(x):=\mathbb{E}[Y \mid X=x]=\int y f_{Y \mid X}(y \mid x) d y
 \mathbb{E}\left[\left(Y-g(X)\right)^2\right]\geq \mathbb{E}\left[\left(Y-m(X)\right)^2\right]
 \]</span></p>
 <p>We will see the proof of this statement shortly, but first we will see some properties of CEF which will be useful in the proof.</p>
-<div id="thm-integral" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 2</strong></span> &nbsp;</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Lemma: CEF Properties
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <ul>
-<li>Property 1 - Law of Iterated Expectations: <span class="math inline">\(\mathbb{E}[\mathbb{E}[Y \mid X]]=\mathbb{E}[Y]\)</span>.</li>
+<li>Property 1: Law of Iterated Expectations: <span class="math inline">\(\mathbb{E}[\mathbb{E}[Y \mid X]]=\mathbb{E}[Y]\)</span>.</li>
+<li>Property 2 : Iterated Condition on a smaller subset <span class="math inline">\(\mathbb{E}\left[\mathbb{E}\left[Y \mid X_1, X_2\right] \mid X_1\right]=\mathbb{E}\left[Y \mid X_1\right]\)</span></li>
+<li>Property 3 : “Take out what’s known”: for any function <span class="math inline">\(g\)</span> of <span class="math inline">\(X\)</span>, <span class="math inline">\(\mathbb{E}[g(X) Y \mid X]=g(X) \mathbb{E}[Y \mid X]\)</span> and <span class="math inline">\(\mathbb{E}[g(X) Y]=\mathbb{E}[g(X) \mathbb{E}[Y \mid X]]\)</span>.</li>
+<li>Property 4 : CEF residuals are mean-zero and orthogonal to <span class="math inline">\(X\)</span>: for <span class="math inline">\(\epsilon:=Y-m(X)\)</span>, we have <span class="math inline">\(\mathbb{E}[\epsilon \mid X]=0\)</span> and <span class="math inline">\(\mathbb{E}[\epsilon]=0\)</span>, and also <span class="math inline">\(\mathbb{E}[g(X) \epsilon]=0\)</span> for any function <span class="math inline">\(g\)</span> of <span class="math inline">\(X\)</span> such that <span class="math inline">\(\mathbb{E}\left[g(X)^2\right]&lt;\infty\)</span>.</li>
 </ul>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Proof of CEF Properties
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Proof of Property 1:</strong></p>
 <p><span class="math display">\[
 \begin{gathered}
 \mathbb{E}[m(X)]=\int m(x) f_X(x) d x=\int\left(\int y f_{Y \mid X}(y \mid x) d y\right) f_X(x) d x=\iint y f_{Y \mid X}(y \mid x) f_X(x) d y d x \\
 =\iint y f_{X, Y}(x, y) d y d x=\mathbb{E}[Y]
 \end{gathered}
 \]</span></p>
-<ul>
-<li>Property 2 - “Tower” with nested conditioning:</li>
-</ul>
-<p><span class="math display">\[
-\mathbb{E}\left[\mathbb{E}\left[Y \mid X_1, X_2\right] \mid X_1\right]=\mathbb{E}\left[Y \mid X_1\right]
-\]</span></p>
-<div id="thm-integral" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 1</strong></span> &nbsp;</p>
-<ul>
-<li>Write <span class="math inline">\(m\left(x_1, x_2\right)=\int y f_{Y \mid X_1, X_2}\left(y \mid x_1, x_2\right) d y\)</span>. Then</li>
-</ul>
-<p><span class="math display">\[
-\begin{gathered}
-\mathbb{E}\left[m\left(X_1, X_2\right) \mid X_1=x_1\right]=\int m\left(x_1, x_2\right) f_{X_2 \mid X_1}\left(x_2 \mid x_1\right) d x_2 \\
-=\int\left(\int y f_{Y \mid X_1, X_2}\left(y \mid x_1, x_2\right) d y\right) f_{X_2 \mid X_1}\left(x_2 \mid x_1\right) d x_2=\int y\left(\int f_{Y \mid X_1, X_2}\left(y \mid x_1, x_2\right) f_{X_2 \mid X_1}\left(x_2 \mid x_1\right) d x_2\right) \\
-=\int y f_{Y \mid X_1}\left(y \mid x_1\right) d y=\mathbb{E}\left[Y \mid X_1=x_1\right]
-\end{gathered}
-\]</span></p>
-<p>where we used the law of total probability:</p>
-<p><span class="math display">\[
-f_{Y \mid X_1}\left(y \mid x_1\right)=\int f_{Y \mid X_1, X_2}\left(y \mid x_1, x_2\right) f_{X_2 \mid X_1}\left(x_2 \mid x_1\right) d x_2
-\]</span></p>
-<ul>
-<li>Property 3 - “Take out what’s known”:</li>
-<li>Conditional: for any function <span class="math inline">\(g\)</span> of <span class="math inline">\(X\)</span>,</li>
-</ul>
-<p><span class="math display">\[
-\mathbb{E}[g(X) Y \mid X=x]=\int g(x) y f_{Y \mid X}(y \mid x) d y=g(x) \int y f_{Y \mid X}(y \mid x) d y=g(x) \mathbb{E}[Y \mid X=x]
-\]</span></p>
-<ul>
-<li>Unconditional:</li>
-</ul>
-<p><span class="math display">\[
-\mathbb{E}[g(X) Y]=\iint g(x) y f_{X, Y}(x, y) d y d x=\int g(x)\left(\int y f_{Y \mid X}(y \mid x) d y\right) f_X(x) d x=\mathbb{E}[g(X) m(X)]
-\]</span></p>
-<p>Property 4 - CEF residuals are mean-zero and orthogonal to <span class="math inline">\(X\)</span> : - Define <span class="math inline">\(e:=Y-m(X)\)</span>. Then for any <span class="math inline">\(x\)</span>,</p>
-<p><span class="math display">\[
-\mathbb{E}[e \mid X=x]=\int(y-m(x)) f_{Y \mid X}(y \mid x) d y=\underbrace{\int y f_{Y \mid X}(y \mid x) d y}_{\downarrow}-m(x) \underbrace{\int f_{Y \mid X}(y \mid x) d y}_{=1}=0 .
-\]</span></p>
-<ul>
-<li>Hence <span class="math inline">\(\mathbb{E}[e]=\int \mathbb{E}[e \mid X=x] f_X(x) d x=0\)</span>.</li>
-</ul>
-
-
+<p>We will talk about the proof of other properties later.</p>
 </div>
 </div>
+</div>
+
+
+</section>
 </section>
 
 </main> <!-- /main -->

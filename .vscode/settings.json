@@ -1,6 +1,7 @@
 {
     "cSpell.words": [
-        "Autoregressive"
+        "Autoregressive",
+        "covariates"
     ],
     "quarto.mathjax.theme": "dark",
     "quarto.render.previewMath": true,
