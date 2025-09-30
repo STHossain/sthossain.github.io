@@ -64,5 +64,5 @@ I obtained an M.Sc. in Economics from the [University of Mannheim, Germany](http
 
 My research interests lie at the intersection of Causal Inference, Econometrics, and Machine Learning. In my dissertation, I focus on sequential policy learning (a.k.a. bandit algorithms), both theoretical and applied perspectives.
 
-I am passionate about teaching statistics, econometrics, and programming. I love coding and statistical theories and I want my students to love them too... but that doesn't always happen.
+I am passionate about teaching statistics, econometrics, and programming. I love coding and theories related to different topics, and I want my students to love them too... but that doesn't always happen. You can find some of my CV [here](cv/Tanvir_cv.pdf), and some of the past teaching materials [here](teaching.qmd)
 

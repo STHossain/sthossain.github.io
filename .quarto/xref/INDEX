@@ -43,5 +43,8 @@
   },
   "cv.qmd": {
     "cv.html": "3e575509"
+  },
+  "posts/2024-09-14-bandit-hoeffdings.qmd": {
+    "2024-09-14-bandit-hoeffdings.html": "28fc47bf"
   }
 }

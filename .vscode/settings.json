@@ -1,5 +1,11 @@
 {
     "cSpell.words": [
         "Autoregressive"
-    ]
+    ],
+    "quarto.mathjax.theme": "dark",
+    "quarto.render.previewMath": true,
+    "workbench.colorCustomizations": {
+        "editorHoverWidget.background": "#2d3748",
+        "editorHoverWidget.foreground": "#ffffff"
+    }
 }

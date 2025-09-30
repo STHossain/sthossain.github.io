@@ -36,3 +36,11 @@ format:
     css: styles.css
     toc: true
     page-layout: full
+    html-math-method: mathjax
+    mathjax:
+      config:
+        tex:
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+          displayMath: [['$$', '$$'], ['\\[', '\\]']]
+        options:
+          skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']

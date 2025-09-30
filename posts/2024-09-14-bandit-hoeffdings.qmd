@@ -20,7 +20,8 @@ comments:
 
 # Some Details on Hoeffding's inequality
 
-Assume we have a sequence of random variables $Y_1, Y_2, \ldots, Y_n$ where for all $i$,  $Y_i \sim s\mathcal{G}(1)$ (all random variables are sub-Gaussian-1.  Let $\bar{Y} = \frac{1}{n} \sum_{i=1}^n Y_i$ be the sample mean of the sequence and also assume $\mathbb{E}[Y_i] = \mu$, then we can apply Hoeffding's bound to get,
+Assume we have a sequence of random variables $Y_1, Y_2, \ldots, Y_n$ where for all $i$, we assume they are $1$ sub-Gaussian, i.e.,  $Y_i \sim s\mathcal{G}(1)$. Let $\bar{Y} = \frac{1}{n} \sum_{i=1}^n Y_i$ be the sample mean of the sequence and also assume $\mathbb{E}[Y_i] = \mu$, then we can apply Hoeffding's bound to get, assuming $\epsilon > 0$,
+
 $$
 \mathbb{P} \left( \mid \overline{Y}_n - \mu \geq \epsilon \mid \right) \leq 2 \cdot \exp\left( -\frac{1}{2} n \epsilon^2 \right)
 $$
