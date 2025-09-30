@@ -1,0 +1,93 @@
+---
+title: "Regression Basics - 1"
+description: "Elementary Regression Concepts from Advanced Point of View"
+author: "Shaikh Tanvir Hossain"
+date: "2024-09-14"
+categories: [Regression, Econometrics]
+comments:
+  giscus:
+    repo: "STHossain/sthossain.github.io"
+    repo-id: "your-repo-id"
+    category: "General"
+    category-id: "your-category-id"
+    mapping: "pathname"
+    reactions-enabled: true
+    input-position: "bottom"
+    theme: "light"
+    language: "en"
+    loading: "lazy"
+---
+
+# Idea of CEF and its Properties
+
+Suppose we have two random variables $X$ and $Y$. Let $f_{X, Y}(x, y)$ be the joint density of $X$ and $Y$, and $f_X(x)$, $f_Y(y)$ be the marginal densities, and $f_{Y \mid X}(y \mid x)=\frac{f_{X, Y}(x, y)}{f_X(x)}$ when $f_X(x)>0$ are the conditional densities. The Conditional Expectation Function (CEF) is defined as, 
+
+$$
+m(x):=\mathbb{E}[Y \mid X=x]=\int y f_{Y \mid X}(y \mid x) d y
+$$
+
+Here we assume $\mathbb{E}[|Y|]<\infty$ (and $\mathbb{E}\left[Y^2\right]<\infty$, but these are standard assumptions). We will show that **the CEF is the best predictor of $Y$ given $X$ in the mean squared error sense**. That is, for any function $g(x)$ such that $\mathbb{E}\left[g(X)^2\right]<\infty$, we have
+
+$$
+\mathbb{E}\left[\left(Y-g(X)\right)^2\right]\geq \mathbb{E}\left[\left(Y-m(X)\right)^2\right]
+$$
+
+We will see the proof of this statement shortly, but first we will see some properties of CEF which will be useful in the proof.
+
+::: {.theorem #thm-integral}
+
+- Property 1 - Law of Iterated Expectations: $\mathbb{E}[\mathbb{E}[Y \mid X]]=\mathbb{E}[Y]$.
+
+$$
+\begin{gathered}
+\mathbb{E}[m(X)]=\int m(x) f_X(x) d x=\int\left(\int y f_{Y \mid X}(y \mid x) d y\right) f_X(x) d x=\iint y f_{Y \mid X}(y \mid x) f_X(x) d y d x \\
+=\iint y f_{X, Y}(x, y) d y d x=\mathbb{E}[Y]
+\end{gathered}
+$$
+
+- Property 2 - "Tower" with nested conditioning:
+
+$$
+\mathbb{E}\left[\mathbb{E}\left[Y \mid X_1, X_2\right] \mid X_1\right]=\mathbb{E}\left[Y \mid X_1\right]
+$$
+
+::: {.theorem #thm-integral}
+
+- Write $m\left(x_1, x_2\right)=\int y f_{Y \mid X_1, X_2}\left(y \mid x_1, x_2\right) d y$. Then
+
+$$
+\begin{gathered}
+\mathbb{E}\left[m\left(X_1, X_2\right) \mid X_1=x_1\right]=\int m\left(x_1, x_2\right) f_{X_2 \mid X_1}\left(x_2 \mid x_1\right) d x_2 \\
+=\int\left(\int y f_{Y \mid X_1, X_2}\left(y \mid x_1, x_2\right) d y\right) f_{X_2 \mid X_1}\left(x_2 \mid x_1\right) d x_2=\int y\left(\int f_{Y \mid X_1, X_2}\left(y \mid x_1, x_2\right) f_{X_2 \mid X_1}\left(x_2 \mid x_1\right) d x_2\right) \\
+=\int y f_{Y \mid X_1}\left(y \mid x_1\right) d y=\mathbb{E}\left[Y \mid X_1=x_1\right]
+\end{gathered}
+$$
+
+where we used the law of total probability:
+
+$$
+f_{Y \mid X_1}\left(y \mid x_1\right)=\int f_{Y \mid X_1, X_2}\left(y \mid x_1, x_2\right) f_{X_2 \mid X_1}\left(x_2 \mid x_1\right) d x_2
+$$
+
+- Property 3 - "Take out what's known":
+- Conditional: for any function $g$ of $X$,
+
+$$
+\mathbb{E}[g(X) Y \mid X=x]=\int g(x) y f_{Y \mid X}(y \mid x) d y=g(x) \int y f_{Y \mid X}(y \mid x) d y=g(x) \mathbb{E}[Y \mid X=x]
+$$
+
+- Unconditional:
+
+$$
+\mathbb{E}[g(X) Y]=\iint g(x) y f_{X, Y}(x, y) d y d x=\int g(x)\left(\int y f_{Y \mid X}(y \mid x) d y\right) f_X(x) d x=\mathbb{E}[g(X) m(X)]
+$$
+
+
+Property 4 - CEF residuals are mean-zero and orthogonal to $X$ :
+- Define $e:=Y-m(X)$. Then for any $x$,
+
+$$
+\mathbb{E}[e \mid X=x]=\int(y-m(x)) f_{Y \mid X}(y \mid x) d y=\underbrace{\int y f_{Y \mid X}(y \mid x) d y}_{\downarrow}-m(x) \underbrace{\int f_{Y \mid X}(y \mid x) d y}_{=1}=0 .
+$$
+
+- Hence $\mathbb{E}[e]=\int \mathbb{E}[e \mid X=x] f_X(x) d x=0$.

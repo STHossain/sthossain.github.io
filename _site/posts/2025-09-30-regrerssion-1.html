@@ -6,8 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Shaikh Tanvir Hossain">
+<meta name="dcterms.date" content="2024-09-14">
+<meta name="description" content="Elementary Regression Concepts from Advanced Point of View">
 
-<title>blog – S. Tanvir Hossain</title>
+<title>Regression Basics - 1 – S. Tanvir Hossain</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,30 +26,28 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b651517ce65839d647a86e2780455cfb.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-08e37edbabbb74645398bc55ae2d8cf3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-5e0868bd19085b1cb53ab43700120046.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-08e37edbabbb74645398bc55ae2d8cf3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b651517ce65839d647a86e2780455cfb.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-08e37edbabbb74645398bc55ae2d8cf3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-5e0868bd19085b1cb53ab43700120046.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-08e37edbabbb74645398bc55ae2d8cf3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -74,35 +75,6 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -134,7 +106,7 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../styles.css">
 </head>
 
 <body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -306,9 +278,9 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
     </a>
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">S. Tanvir Hossain</span>
     </a>
   </div>
@@ -319,19 +291,19 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
+    <a class="nav-link" href="../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./research.html"> 
+    <a class="nav-link" href="../research.html"> 
 <span class="menu-text">Research</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./teaching.html"> 
+    <a class="nav-link" href="../teaching.html"> 
 <span class="menu-text">Teaching</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./blog.html" aria-current="page"> 
+    <a class="nav-link" href="../blog.html"> 
 <span class="menu-text">Blog</span></a>
   </li>  
 </ul>
@@ -347,88 +319,129 @@ window.Quarto = {
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(2)</span></div><div class="category" data-category="YmFuZGl0cw==">bandits <span class="quarto-category-count">(1)</span></div><div class="category" data-category="RWNvbm9tZXRyaWNz">Econometrics <span class="quarto-category-count">(1)</span></div><div class="category" data-category="UmVncmVzc2lvbg==">Regression <span class="quarto-category-count">(1)</span></div><div class="category" data-category="c3RvY2hhc3RpY19iYW5kaXRz">stochastic_bandits <span class="quarto-category-count">(1)</span></div></div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#idea-of-cef-and-its-properties" id="toc-idea-of-cef-and-its-properties" class="nav-link active" data-scroll-target="#idea-of-cef-and-its-properties">Idea of CEF and its Properties</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<main class="content column-page-left" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content column-page-left" id="quarto-document-content">
 
 
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Regression Basics - 1</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">Regression</div>
+    <div class="quarto-category">Econometrics</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    Elementary Regression Concepts from Advanced Point of View
+  </div>
+</div>
 
 
+<div class="quarto-title-meta column-page-left">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Shaikh Tanvir Hossain </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">September 14, 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
 
 
+</header>
 
 
+<section id="idea-of-cef-and-its-properties" class="level1">
+<h1>Idea of CEF and its Properties</h1>
+<p>Suppose we have two random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>. Let <span class="math inline">\(f_{X, Y}(x, y)\)</span> be the joint density of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>, and <span class="math inline">\(f_X(x)\)</span>, <span class="math inline">\(f_Y(y)\)</span> be the marginal densities, and <span class="math inline">\(f_{Y \mid X}(y \mid x)=\frac{f_{X, Y}(x, y)}{f_X(x)}\)</span> when <span class="math inline">\(f_X(x)&gt;0\)</span> are the conditional densities. The Conditional Expectation Function (CEF) is defined as,</p>
+<p><span class="math display">\[
+m(x):=\mathbb{E}[Y \mid X=x]=\int y f_{Y \mid X}(y \mid x) d y
+\]</span></p>
+<p>Here we assume <span class="math inline">\(\mathbb{E}[|Y|]&lt;\infty\)</span> (and <span class="math inline">\(\mathbb{E}\left[Y^2\right]&lt;\infty\)</span>, but these are standard assumptions). We will show that <strong>the CEF is the best predictor of <span class="math inline">\(Y\)</span> given <span class="math inline">\(X\)</span> in the mean squared error sense</strong>. That is, for any function <span class="math inline">\(g(x)\)</span> such that <span class="math inline">\(\mathbb{E}\left[g(X)^2\right]&lt;\infty\)</span>, we have</p>
+<p><span class="math display">\[
+\mathbb{E}\left[\left(Y-g(X)\right)^2\right]\geq \mathbb{E}\left[\left(Y-m(X)\right)^2\right]
+\]</span></p>
+<p>We will see the proof of this statement shortly, but first we will see some properties of CEF which will be useful in the proof.</p>
+<div id="thm-integral" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 2</strong></span> &nbsp;</p>
+<ul>
+<li>Property 1 - Law of Iterated Expectations: <span class="math inline">\(\mathbb{E}[\mathbb{E}[Y \mid X]]=\mathbb{E}[Y]\)</span>.</li>
+</ul>
+<p><span class="math display">\[
+\begin{gathered}
+\mathbb{E}[m(X)]=\int m(x) f_X(x) d x=\int\left(\int y f_{Y \mid X}(y \mid x) d y\right) f_X(x) d x=\iint y f_{Y \mid X}(y \mid x) f_X(x) d y d x \\
+=\iint y f_{X, Y}(x, y) d y d x=\mathbb{E}[Y]
+\end{gathered}
+\]</span></p>
+<ul>
+<li>Property 2 - “Tower” with nested conditioning:</li>
+</ul>
+<p><span class="math display">\[
+\mathbb{E}\left[\mathbb{E}\left[Y \mid X_1, X_2\right] \mid X_1\right]=\mathbb{E}\left[Y \mid X_1\right]
+\]</span></p>
+<div id="thm-integral" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 1</strong></span> &nbsp;</p>
+<ul>
+<li>Write <span class="math inline">\(m\left(x_1, x_2\right)=\int y f_{Y \mid X_1, X_2}\left(y \mid x_1, x_2\right) d y\)</span>. Then</li>
+</ul>
+<p><span class="math display">\[
+\begin{gathered}
+\mathbb{E}\left[m\left(X_1, X_2\right) \mid X_1=x_1\right]=\int m\left(x_1, x_2\right) f_{X_2 \mid X_1}\left(x_2 \mid x_1\right) d x_2 \\
+=\int\left(\int y f_{Y \mid X_1, X_2}\left(y \mid x_1, x_2\right) d y\right) f_{X_2 \mid X_1}\left(x_2 \mid x_1\right) d x_2=\int y\left(\int f_{Y \mid X_1, X_2}\left(y \mid x_1, x_2\right) f_{X_2 \mid X_1}\left(x_2 \mid x_1\right) d x_2\right) \\
+=\int y f_{Y \mid X_1}\left(y \mid x_1\right) d y=\mathbb{E}\left[Y \mid X_1=x_1\right]
+\end{gathered}
+\]</span></p>
+<p>where we used the law of total probability:</p>
+<p><span class="math display">\[
+f_{Y \mid X_1}\left(y \mid x_1\right)=\int f_{Y \mid X_1, X_2}\left(y \mid x_1, x_2\right) f_{X_2 \mid X_1}\left(x_2 \mid x_1\right) d x_2
+\]</span></p>
+<ul>
+<li>Property 3 - “Take out what’s known”:</li>
+<li>Conditional: for any function <span class="math inline">\(g\)</span> of <span class="math inline">\(X\)</span>,</li>
+</ul>
+<p><span class="math display">\[
+\mathbb{E}[g(X) Y \mid X=x]=\int g(x) y f_{Y \mid X}(y \mid x) d y=g(x) \int y f_{Y \mid X}(y \mid x) d y=g(x) \mathbb{E}[Y \mid X=x]
+\]</span></p>
+<ul>
+<li>Unconditional:</li>
+</ul>
+<p><span class="math display">\[
+\mathbb{E}[g(X) Y]=\iint g(x) y f_{X, Y}(x, y) d y d x=\int g(x)\left(\int y f_{Y \mid X}(y \mid x) d y\right) f_X(x) d x=\mathbb{E}[g(X) m(X)]
+\]</span></p>
+<p>Property 4 - CEF residuals are mean-zero and orthogonal to <span class="math inline">\(X\)</span> : - Define <span class="math inline">\(e:=Y-m(X)\)</span>. Then for any <span class="math inline">\(x\)</span>,</p>
+<p><span class="math display">\[
+\mathbb{E}[e \mid X=x]=\int(y-m(x)) f_{Y \mid X}(y \mid x) d y=\underbrace{\int y f_{Y \mid X}(y \mid x) d y}_{\downarrow}-m(x) \underbrace{\int f_{Y \mid X}(y \mid x) d y}_{=1}=0 .
+\]</span></p>
+<ul>
+<li>Hence <span class="math inline">\(\mathbb{E}[e]=\int \mathbb{E}[e \mid X=x] f_X(x) d x=0\)</span>.</li>
+</ul>
 
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="YmFuZGl0cyUyQ3N0b2NoYXN0aWNfYmFuZGl0cw==" data-listing-date-sort="1726250400000" data-listing-file-modified-sort="1759193661128" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="966">
-<div class="thumbnail"><a href="./posts/2024-09-14-bandit-hoeffdings.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/2024-09-14-bandit-hoeffdings.html" class="no-external">Bandit Notations and Hoefddings Inequality</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('YmFuZGl0cw=='); return false;">bandits</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('c3RvY2hhc3RpY19iYW5kaXRz'); return false;">stochastic_bandits</div>
 
 </div>
-<div class="delink listing-description"><a href="./posts/2024-09-14-bandit-hoeffdings.html" class="no-external">
-<p>Introducing Bandit Notations and applying Hoeffding’s inequality</p>
-</a></div>
 </div>
-<div class="metadata">
-<a href="./posts/2024-09-14-bandit-hoeffdings.html" class="no-external">
-<div class="listing-date">
-Sep 14, 2024
-</div>
-<div class="listing-author">
-Shaikh Tanvir Hossain
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="UmVncmVzc2lvbiUyQ0Vjb25vbWV0cmljcw==" data-listing-date-sort="1726250400000" data-listing-file-modified-sort="1759201203897" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="398">
-<div class="thumbnail"><a href="./posts/2025-09-30-regrerssion-1.html" class="no-external">
+</section>
 
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/2025-09-30-regrerssion-1.html" class="no-external">Regression Basics - 1</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('UmVncmVzc2lvbg=='); return false;">Regression</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('RWNvbm9tZXRyaWNz'); return false;">Econometrics</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/2025-09-30-regrerssion-1.html" class="no-external">
-<p>Elementary Regression Concepts from Advanced Point of View</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/2025-09-30-regrerssion-1.html" class="no-external">
-<div class="listing-date">
-Sep 14, 2024
-</div>
-<div class="listing-author">
-Shaikh Tanvir Hossain
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">No matching items</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
@@ -842,6 +855,38 @@ Shaikh Tanvir Hossain
     }
   });
   </script>
+<input type="hidden" id="giscus-base-theme" value="light">
+<input type="hidden" id="giscus-alt-theme" value="light">
+<script>
+  function loadGiscus() {
+    // Function to get the theme based on body class
+    const getTheme = () => {
+      let baseTheme = document.getElementById('giscus-base-theme').value;
+      let altTheme = document.getElementById('giscus-alt-theme').value;
+      if (authorPrefersDark) {
+          [baseTheme, altTheme] = [altTheme, baseTheme];
+      }
+      return document.body.classList.contains('quarto-dark') ? altTheme : baseTheme;
+    };
+    const script = document.createElement("script");
+    script.src = "https://giscus.app/client.js";
+    script.async = true;
+    script.dataset.repo = "STHossain/sthossain.github.io";
+    script.dataset.repoId = "your-repo-id";
+    script.dataset.category = "General";
+    script.dataset.categoryId = "your-category-id";
+    script.dataset.mapping = "pathname";
+    script.dataset.reactionsEnabled = "1";
+    script.dataset.emitMetadata = "0";
+    script.dataset.inputPosition = "bottom";
+    script.dataset.theme = getTheme();
+    script.dataset.lang = "en";
+    script.crossOrigin = "anonymous";
+    // Append the script to the desired div instead of at the end of the body
+    document.getElementById("quarto-content").appendChild(script);
+  }
+  loadGiscus();
+</script>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
