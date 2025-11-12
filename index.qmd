@@ -2,7 +2,7 @@
 title: "Welcome to the site"
 about:
   template: trestles
-  image: img/pic_use.png
+  image: img/prof_pic.png
   links:
     - icon: github
       text: Github
@@ -19,6 +19,9 @@ format:
 ---
 
 <style>
+/* Import Arabic calligraphic font */
+@import url('https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&display=swap');
+
 .quarto-about-trestles {
   max-width: 1200px !important;
   margin: 0 auto !important;
@@ -49,11 +52,32 @@ format:
   color: #2c3e50 !important;
   text-shadow: 1px 1px 2px rgba(0,0,0,0.1) !important;
 }
+
+/* Alhamdulillah text - calligraphic styling */
+.alhamdulillah {
+  font-family: 'Aref Ruqaa', serif !important;
+  color: white !important;
+  font-size: 1.2em !important;
+  font-weight: 700 !important;
+}
+
+/* Alhamdulillah text color - Dark mode */
+@media (prefers-color-scheme: dark) {
+  .alhamdulillah {
+    color: black !important;
+  }
+}
+
+body.quarto-dark .alhamdulillah,
+html[data-bs-theme="dark"] .alhamdulillah {
+  color: black !important;
+}
 </style>
 
 ## About Me {.unnumbered}
 
 
+<!-- Bismillah Alhamdulillah -->
 
 I am a final-year doctoral student in the Business and Economics Department at [Technical University of Dortmund (TU Dortmund)](https://www.tu-dortmund.de/en/) under the supervision of [Professor Carsten Jentsch](https://lwus.statistik.tu-dortmund.de/en/chair/team/jentsch/). Previously I have been a lecturer at the Department of Economics, [East West University, Bangladesh](https://www.ewubd.edu/). From 2018 to 2022, I worked as a research associate (Wissenschaftlicher Mitarbeiter) in the Department of Statistics at TU Dortmund ([alumni page](https://lwus.statistik.tu-dortmund.de/en/chair/alumni/)), and I gratefully acknowledge all their support and guidance during this period.
 

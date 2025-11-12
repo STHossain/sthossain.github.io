@@ -343,21 +343,22 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#concentration-inequalities" id="toc-concentration-inequalities" class="nav-link active" data-scroll-target="#concentration-inequalities"><span class="header-section-number">1</span> Concentration Inequalities</a>
+  <li><a href="#concentration-inequalities" id="toc-concentration-inequalities" class="nav-link active" data-scroll-target="#concentration-inequalities"><span class="header-section-number">1</span> Concentration Inequalities</a></li>
+  <li><a href="#put-some-comments-here" id="toc-put-some-comments-here" class="nav-link" data-scroll-target="#put-some-comments-here"><span class="header-section-number">2</span> put some comments here</a>
   <ul class="collapse">
-  <li><a href="#markovs-inequality" id="toc-markovs-inequality" class="nav-link" data-scroll-target="#markovs-inequality"><span class="header-section-number">1.1</span> Markov’s Inequality</a></li>
-  <li><a href="#chebyshevs-inequality" id="toc-chebyshevs-inequality" class="nav-link" data-scroll-target="#chebyshevs-inequality"><span class="header-section-number">1.2</span> Chebyshev’s Inequality</a></li>
-  <li><a href="#chernoff-bounds" id="toc-chernoff-bounds" class="nav-link" data-scroll-target="#chernoff-bounds"><span class="header-section-number">1.3</span> Chernoff Bounds</a></li>
-  <li><a href="#subgaussian-random-variables" id="toc-subgaussian-random-variables" class="nav-link" data-scroll-target="#subgaussian-random-variables"><span class="header-section-number">1.4</span> SubGaussian Random Variables</a>
+  <li><a href="#markovs-inequality" id="toc-markovs-inequality" class="nav-link" data-scroll-target="#markovs-inequality"><span class="header-section-number">2.1</span> Markov’s Inequality</a></li>
+  <li><a href="#chebyshevs-inequality" id="toc-chebyshevs-inequality" class="nav-link" data-scroll-target="#chebyshevs-inequality"><span class="header-section-number">2.2</span> Chebyshev’s Inequality</a></li>
+  <li><a href="#chernoff-bounds" id="toc-chernoff-bounds" class="nav-link" data-scroll-target="#chernoff-bounds"><span class="header-section-number">2.3</span> Chernoff Bounds</a></li>
+  <li><a href="#subgaussian-random-variables" id="toc-subgaussian-random-variables" class="nav-link" data-scroll-target="#subgaussian-random-variables"><span class="header-section-number">2.4</span> SubGaussian Random Variables</a>
   <ul class="collapse">
-  <li><a href="#some-examples-of-sub-gaussian-random-variables" id="toc-some-examples-of-sub-gaussian-random-variables" class="nav-link" data-scroll-target="#some-examples-of-sub-gaussian-random-variables"><span class="header-section-number">1.4.1</span> Some examples of Sub-Gaussian Random Variables</a></li>
+  <li><a href="#some-examples-of-sub-gaussian-random-variables" id="toc-some-examples-of-sub-gaussian-random-variables" class="nav-link" data-scroll-target="#some-examples-of-sub-gaussian-random-variables"><span class="header-section-number">2.4.1</span> Some examples of Sub-Gaussian Random Variables</a></li>
   </ul></li>
-  <li><a href="#subgaussian-case-for-independent-random-variables" id="toc-subgaussian-case-for-independent-random-variables" class="nav-link" data-scroll-target="#subgaussian-case-for-independent-random-variables"><span class="header-section-number">1.5</span> SubGaussian Case for Independent Random Variables:</a>
+  <li><a href="#subgaussian-case-for-independent-random-variables" id="toc-subgaussian-case-for-independent-random-variables" class="nav-link" data-scroll-target="#subgaussian-case-for-independent-random-variables"><span class="header-section-number">2.5</span> SubGaussian Case for Independent Random Variables:</a>
   <ul class="collapse">
-  <li><a href="#rewriting-hoeffdings-inequality" id="toc-rewriting-hoeffdings-inequality" class="nav-link" data-scroll-target="#rewriting-hoeffdings-inequality"><span class="header-section-number">1.5.1</span> Rewriting Hoeffding’s Inequality</a></li>
+  <li><a href="#rewriting-hoeffdings-inequality" id="toc-rewriting-hoeffdings-inequality" class="nav-link" data-scroll-target="#rewriting-hoeffdings-inequality"><span class="header-section-number">2.5.1</span> Rewriting Hoeffding’s Inequality</a></li>
   </ul></li>
   </ul></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">2</span> References</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">3</span> References</a></li>
   </ul>
 </nav>
     </div>
@@ -407,6 +408,10 @@ window.Quarto = {
 
 <section id="concentration-inequalities" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> Concentration Inequalities</h1>
+</section>
+<section id="put-some-comments-here" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> put some comments here</h1>
+<!-- Bismillah Alhamdulillah -->
 <p>Yet another short summary of concentration inequalities based on <span class="citation" data-cites="duchi_2025">Duchi (<a href="#ref-duchi_2025" role="doc-biblioref">2025</a>)</span> lecture notes. Concentration inequalities are useful to bound the tail probabilities of random variables. They are currently state of the art techniques in analyzing different estimators or algorithms in Statistics / Econometrics and Machine Learning. Here I will summarize some of the important concentration inequalities that I found useful to start with.</p>
 <p>The basic idea of concentration inequalities is to provide bounds on how a random variable deviates from some value (often its expectation). These inequalities are particularly useful in probability theory, statistics, and machine learning, where they help to understand the behavior of sums of random variables, empirical processes, and other stochastic phenomena.</p>
 <p>Some of the most well-known concentration inequalities include:</p>
@@ -417,8 +422,8 @@ window.Quarto = {
 <li><strong>Hoeffding’s Inequality</strong>: A specific case of Chernoff bounds for bounded independent random variables.</li>
 </ol>
 <p>We start from Markov’s inequality and build up to more complex inequalities.</p>
-<section id="markovs-inequality" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="markovs-inequality"><span class="header-section-number">1.1</span> Markov’s Inequality</h2>
+<section id="markovs-inequality" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="markovs-inequality"><span class="header-section-number">2.1</span> Markov’s Inequality</h2>
 <p>Markov’s inequality states that for a non-negative random variable <span class="math inline">\(X\)</span> and any <span class="math inline">\(t &gt; 0\)</span>:</p>
 <p><span class="math display">\[
     \mathbb{P}(X \geq \epsilon) \leq \frac{\mathbb{E}[X]}{\epsilon}
@@ -447,10 +452,9 @@ window.Quarto = {
 &amp;= \epsilon \mathbb{P}(X \geq \epsilon)
 \end{aligned}
 \]</span></p>
-<p>Q.E.D (quod erat demonstrandum, meaning “what was to be demonstrated), Alhamdulillah!</p>
 </section>
-<section id="chebyshevs-inequality" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="chebyshevs-inequality"><span class="header-section-number">1.2</span> Chebyshev’s Inequality</h2>
+<section id="chebyshevs-inequality" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="chebyshevs-inequality"><span class="header-section-number">2.2</span> Chebyshev’s Inequality</h2>
 <p>Chebyshev’s inequality states that for any random variable <span class="math inline">\(X\)</span> with finite mean <span class="math inline">\(\mu\)</span> and finite variance <span class="math inline">\(\sigma^2\)</span>, and for any <span class="math inline">\(k &gt; 0\)</span>:</p>
 <p><span class="math display">\[
     \mathbb{P}(|X - \mu| \geq \epsilon) \leq \frac{\mathbb{V}(X)}{\epsilon^2}
@@ -468,10 +472,9 @@ window.Quarto = {
 <p><span class="math display">\[
 \mathbb{P}(|X - \mu| \geq \epsilon) \leq \frac{\mathbb{V}(X)}{\epsilon^2}
 \]</span></p>
-<p>Q.E.D (quod erat demonstrandum, meaning “what was to be demonstrated), Alhamdulillah!</p>
 </section>
-<section id="chernoff-bounds" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="chernoff-bounds"><span class="header-section-number">1.3</span> Chernoff Bounds</h2>
+<section id="chernoff-bounds" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="chernoff-bounds"><span class="header-section-number">2.3</span> Chernoff Bounds</h2>
 <p>Chernoff Bound or sometimes we say Chernoff trick is an application of Markov but to the exponential function of a random variable.</p>
 <p>Let <span class="math inline">\(X\)</span> be a mean zero random variable. For any <span class="math inline">\(\epsilon &gt; 0\)</span> and any <span class="math inline">\(\lambda &gt; 0\)</span>, we have:</p>
 <p><span class="math display">\[
@@ -507,8 +510,8 @@ M_X(\lambda) = e^{\frac{\lambda^2\sigma^2}{2}}
 \mathbb{P}(X \geq \epsilon) \leq e^{-\frac{t^2}{2\sigma^2}}
 \]</span></p>
 </section>
-<section id="subgaussian-random-variables" class="level2" data-number="1.4">
-<h2 data-number="1.4" class="anchored" data-anchor-id="subgaussian-random-variables"><span class="header-section-number">1.4</span> SubGaussian Random Variables</h2>
+<section id="subgaussian-random-variables" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="subgaussian-random-variables"><span class="header-section-number">2.4</span> SubGaussian Random Variables</h2>
 <p>The idea of the sub-Gaussian random variable comes from the Gaussian tail bound. A random variable is said to be sub-Gaussian if it satisfies a tail bound similar to the one we derived for the Gaussian distribution. Specifically, a random variable <span class="math inline">\(X\)</span> is sub-Gaussian with parameter <span class="math inline">\(\sigma^2\)</span>, we will write <span class="math inline">\(X \sim s\mathcal{G}(\sigma^2)\)</span> if we have</p>
 <p><span class="math display">\[
 \mathbb{E}[e^{\lambda X}] \leq e^{\frac{\lambda^2\sigma^2}{2}}
@@ -523,8 +526,8 @@ M_X(\lambda) = e^{\frac{\lambda^2\sigma^2}{2}}
 \mathbb{P}(X \geq \epsilon) \leq e^{-\frac{\epsilon^2}{2\sigma^2}}
 \]</span></p>
 <p>But the difference is that now we have the sub-Gaussian parameter <span class="math inline">\(\sigma^2\)</span> which may not be the actual variance of the random variable.</p>
-<section id="some-examples-of-sub-gaussian-random-variables" class="level3" data-number="1.4.1">
-<h3 data-number="1.4.1" class="anchored" data-anchor-id="some-examples-of-sub-gaussian-random-variables"><span class="header-section-number">1.4.1</span> Some examples of Sub-Gaussian Random Variables</h3>
+<section id="some-examples-of-sub-gaussian-random-variables" class="level3" data-number="2.4.1">
+<h3 data-number="2.4.1" class="anchored" data-anchor-id="some-examples-of-sub-gaussian-random-variables"><span class="header-section-number">2.4.1</span> Some examples of Sub-Gaussian Random Variables</h3>
 <p>Let’s see some examples of sub-Gaussian random variables that we will need for the bandit settings</p>
 <ol type="1">
 <li><p><strong>Gaussian Random Variables</strong>: Definitely first comes Gaussian random variable where <span class="math inline">\(\sigma^2\)</span> is the variance.</p></li>
@@ -537,8 +540,8 @@ M_X(\lambda) = e^{\frac{\lambda^2\sigma^2}{2}}
 <p>This is an important result that we will use later in the Hoeffding’s inequality section.</p>
 </section>
 </section>
-<section id="subgaussian-case-for-independent-random-variables" class="level2" data-number="1.5">
-<h2 data-number="1.5" class="anchored" data-anchor-id="subgaussian-case-for-independent-random-variables"><span class="header-section-number">1.5</span> SubGaussian Case for Independent Random Variables:</h2>
+<section id="subgaussian-case-for-independent-random-variables" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="subgaussian-case-for-independent-random-variables"><span class="header-section-number">2.5</span> SubGaussian Case for Independent Random Variables:</h2>
 <p>If we have a collection of independent sub-Gaussian random variables <span class="math inline">\(X_1, X_2, \ldots, X_n\)</span> with parameters <span class="math inline">\(\sigma_1^2, \sigma_2^2, \ldots, \sigma_n^2\)</span> respectively, then the sum <span class="math inline">\(S_n = \sum_{i=1}^n X_i\)</span> is also sub-Gaussian with parameter <span class="math inline">\(\sigma_S^2 = \sum_{i=1}^n \sigma_i^2\)</span>. This is easy to see using the property of moment-generating functions:</p>
 <p>The MGF of the sum of independent random variables can be wriiten as</p>
 <p><span class="math display">\[
@@ -587,8 +590,8 @@ M_{S_n}\left(\frac{\lambda}{n}\right) \leq e^{\frac{(\lambda / n)^2 \sigma_S^2}{
 <p><span class="math display">\[
 \mathbb{P}\left(\bar{X}_n \geq t\right) \leq e^{-\frac{2 n t^2}{(b-a)^2}}
 \]</span></p>
-<section id="rewriting-hoeffdings-inequality" class="level3" data-number="1.5.1">
-<h3 data-number="1.5.1" class="anchored" data-anchor-id="rewriting-hoeffdings-inequality"><span class="header-section-number">1.5.1</span> Rewriting Hoeffding’s Inequality</h3>
+<section id="rewriting-hoeffdings-inequality" class="level3" data-number="2.5.1">
+<h3 data-number="2.5.1" class="anchored" data-anchor-id="rewriting-hoeffdings-inequality"><span class="header-section-number">2.5.1</span> Rewriting Hoeffding’s Inequality</h3>
 <p>Now this bound tells if we set <span class="math inline">\(t\)</span> what is the probability that the average deviates from the mean by at least <span class="math inline">\(t\)</span>. we can ask the reverse question that is for a given probability level <span class="math inline">\(\delta\)</span>, what is the value of <span class="math inline">\(t\)</span> such that the bound holds. So we set the right-hand side to <span class="math inline">\(\delta\)</span> and solve for <span class="math inline">\(t\)</span>:</p>
 <p><span class="math display">\[
 e^{-\frac{n t^2}{2 \sigma^2}} = \delta
@@ -626,8 +629,8 @@ t = \sigma \sqrt{\frac{2 \log(1/\delta)}{n}}
 </section>
 </section>
 </section>
-<section id="references" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> References</h1>
+<section id="references" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> References</h1>
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-duchi_2025" class="csl-entry" role="listitem">
 Duchi, John. 2025. <span>“Statistics and <span>Information Theory</span>.”</span>

@@ -296,7 +296,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <div class="quarto-about-trestles column-page-left">
   <div class="about-entity">
-    <img src="img/pic_use.png" class="about-image
+    <img src="img/prof_pic.png" class="about-image
   rounded " style="width: 20em;">
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -324,6 +324,8 @@ ul.task-list li input[type="checkbox"] {
 
 
 <style>
+/* Import Arabic calligraphic font */
+@import url('https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&display=swap');
 .quarto-about-trestles {
   max-width: 1200px !important;
   margin: 0 auto !important;
@@ -350,9 +352,27 @@ ul.task-list li input[type="checkbox"] {
   color: #2c3e50 !important;
   text-shadow: 1px 1px 2px rgba(0,0,0,0.1) !important;
 }
+/* Alhamdulillah text - calligraphic styling */
+.alhamdulillah {
+  font-family: 'Aref Ruqaa', serif !important;
+  color: white !important;
+  font-size: 1.2em !important;
+  font-weight: 700 !important;
+}
+/* Alhamdulillah text color - Dark mode */
+@media (prefers-color-scheme: dark) {
+  .alhamdulillah {
+    color: black !important;
+  }
+}
+body.quarto-dark .alhamdulillah,
+html[data-bs-theme="dark"] .alhamdulillah {
+  color: black !important;
+}
 </style>
 <section id="about-me" class="level2 unnumbered">
 <h2 class="unnumbered" data-anchor-id="about-me">About Me</h2>
+<!-- Bismillah Alhamdulillah -->
 <p>I am a final-year doctoral student in the Business and Economics Department at <a href="https://www.tu-dortmund.de/en/">Technical University of Dortmund (TU Dortmund)</a> under the supervision of <a href="https://lwus.statistik.tu-dortmund.de/en/chair/team/jentsch/">Professor Carsten Jentsch</a>. Previously I have been a lecturer at the Department of Economics, <a href="https://www.ewubd.edu/">East West University, Bangladesh</a>. From 2018 to 2022, I worked as a research associate (Wissenschaftlicher Mitarbeiter) in the Department of Statistics at TU Dortmund (<a href="https://lwus.statistik.tu-dortmund.de/en/chair/alumni/">alumni page</a>), and I gratefully acknowledge all their support and guidance during this period.</p>
 <p>I obtained an M.Sc. in Economics from the <a href="https://www.uni-mannheim.de/en/">University of Mannheim, Germany</a> and a Bachelor’s degree in Business with a second major in Economics from <a href="https://www.bracu.ac.bd/">BRAC University, Bangladesh</a>. After finishing my Bachelors I worked as a project assistant at the Innovations for Poverty Action (IPA) in Bangladesh, on a project titled <em>Building management hierarchies for growth in LICs: understanding the role of supervisor training in Bangladeshi garment sector</em>, led by <a href="https://www.qeh.ox.ac.uk/people/christopher-woodruff">Professor Christopher Woodruff (Oxford)</a>, <a href="https://www.lse.ac.uk/management/people/academic-staff/rocco-macchiavello">Professor Rocco Macchiavello (LSE)</a>, and <a href="https://www.du.ac.bd/faculty/faculty_details/ECO/401">Professor Atonu Rabbani (Dhaka University)</a> as Principal Investigators.</p>
 <p>My research interests lie at the intersection of Causal Inference, Econometrics, and Machine Learning. In my dissertation, I focus on sequential policy learning (a.k.a. bandit algorithms), both theoretical and applied perspectives.</p>

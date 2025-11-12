@@ -21,6 +21,11 @@ comments:
 
 # Concentration Inequalities
 
+# put some comments here
+
+<!-- Bismillah Alhamdulillah -->
+
+
 Yet another short summary of concentration inequalities based on @duchi_2025 lecture notes. Concentration inequalities are useful to bound the tail probabilities of random variables. They are currently state of the art techniques in analyzing different estimators or algorithms in Statistics / Econometrics and Machine Learning. Here I will summarize some of the important concentration inequalities that I found useful to start with.
 
 The basic idea of concentration inequalities is to provide bounds on how a random variable deviates from some value (often its expectation). These inequalities are particularly useful in probability theory, statistics, and machine learning, where they help to understand the behavior of sums of random variables, empirical processes, and other stochastic phenomena.
@@ -75,7 +80,7 @@ $$
 \end{aligned}
 $$
 
-Q.E.D (quod erat demonstrandum, meaning "what was to be demonstrated), Alhamdulillah!
+
 
 ## Chebyshev's Inequality
 
@@ -107,7 +112,6 @@ $$
 
 
 
-Q.E.D (quod erat demonstrandum, meaning "what was to be demonstrated), Alhamdulillah!
 
 
 
