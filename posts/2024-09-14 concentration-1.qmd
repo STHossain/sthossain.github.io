@@ -21,31 +21,24 @@ comments:
 
 # Concentration Inequalities
 
-# put some comments here
 
-<!-- Bismillah Alhamdulillah -->
+Yet another short summary of concentration inequalities based on the lecture notes of John Duchi (@duchi_2025). Concentration inequalities are useful to bound the tail probabilities of random variables. They are currently state of the art techniques in analyzing different estimators or algorithms in Statistics, Econometrics and Machine Learning. Here I will summarize some of the important concentration inequalities that I found useful to start with. The basic idea these inequalities is to provide bounds on how a random variable deviates from some value (often its expectation). 
 
-
-Yet another short summary of concentration inequalities based on @duchi_2025 lecture notes. Concentration inequalities are useful to bound the tail probabilities of random variables. They are currently state of the art techniques in analyzing different estimators or algorithms in Statistics / Econometrics and Machine Learning. Here I will summarize some of the important concentration inequalities that I found useful to start with.
-
-The basic idea of concentration inequalities is to provide bounds on how a random variable deviates from some value (often its expectation). These inequalities are particularly useful in probability theory, statistics, and machine learning, where they help to understand the behavior of sums of random variables, empirical processes, and other stochastic phenomena.
-
-Some of the most well-known concentration inequalities include:
-
-1. **Markov's Inequality**: Provides a bound on the probability that a non-negative random variable is greater than a certain value.
-2. **Chebyshev's Inequality**: Gives a bound on the probability that a random variable deviates from its mean.
-3. **Chernoff Bounds**: Provide exponentially decreasing bounds on tail distributions, the useful thing is it provides bounds on sums of independent random variables.
-4. **Hoeffding's Inequality**: A specific case of Chernoff bounds for bounded independent random variables.
-
-
-We start from Markov's inequality and build up to more complex inequalities.
+Some of the most well-known concentration inequalities include, Markov's inequality, Chebyshev's inequality, Chernoff bounds, and Hoeffding's inequality. Below is a brief overview of each of these inequalities along with their proofs. We start from Markov's inequality and build up to more complex inequalities.
 
 ## Markov's Inequality
-Markov's inequality states that for a non-negative random variable $X$ and any $t > 0$:
+
+Here is the basic version of Markov's inequality.
+
+::: {#thm-markov-inequality}
+
+For any non-negative random variable $X$ and any $\epsilon > 0$:
 
 $$
     \mathbb{P}(X \geq \epsilon) \leq \frac{\mathbb{E}[X]}{\epsilon} 
 $$
+
+:::
 
 Proof: 
 
@@ -55,7 +48,7 @@ $$
 \begin{aligned}
 \mathbb{E}[X] &= \int_{x<\epsilon} x f_X(x) dx + \int_{x \geq \epsilon} x f_X(x) dx \\
 &\geq \int_{x \geq \epsilon} x f_X(x) dx \\
-&\geq \epsilon \int_{x \geq \epsilon} f_X(x) dx = \epsilon \mathbb{P}(X \geq \epsilon)
+&\geq \epsilon \int_{x \geq \epsilon} f_X(x) dx = \epsilon \; \mathbb{P}(X \geq \epsilon)
 \end{aligned}
 $$
 
@@ -117,9 +110,7 @@ $$
 
 ## Chernoff Bounds
 
-Chernoff Bound or sometimes we say Chernoff trick is an application of Markov but to the exponential function of a random variable.
-
-Let $X$ be a mean zero random variable. For any $\epsilon > 0$ and any $\lambda > 0$, we have:
+Chernoff Bound or sometimes we say Chernoff trick is an application of Markov but to the exponential function of a random variable. Let $X$ be a mean zero random variable. For any $\epsilon > 0$ and any $\lambda > 0$, applying Markov's inequality to the non-negative random variable $e^{\lambda X}$, we have:
 
 $$
 \mathbb{P}(X \geq \epsilon)  = \mathbb{P}(e^{\lambda X} \geq e^{\lambda \epsilon}) \leq \frac{\mathbb{E}[e^{\lambda X}]}{e^{\lambda \epsilon}}

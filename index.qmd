@@ -29,7 +29,7 @@ format:
 
 .quarto-about-trestles .about-image {
   border-radius: 0 !important;
-  max-width: 216px !important;
+  max-width: 173px !important;
   width: 100% !important;
   height: auto !important;
 }

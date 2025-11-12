@@ -194,7 +194,7 @@ html[data-bs-theme="dark"] h1.title {
   border-top: 1px solid #e9ecef;
 }
 
-/* Theorem-like environments */
+/* Theorem-like environments styling (without labels - Quarto crossref handles labels) */
 .lemma, .theorem, .proposition, .corollary, .definition {
   background-color: #f8f9fa;
   border-left: 4px solid #007bff;
@@ -203,35 +203,7 @@ html[data-bs-theme="dark"] h1.title {
   border-radius: 0.25rem;
 }
 
-.lemma::before {
-  content: "Lemma. ";
-  font-weight: bold;
-  color: #007bff;
-}
-
-.theorem::before {
-  content: "Theorem. ";
-  font-weight: bold;
-  color: #007bff;
-}
-
-.proposition::before {
-  content: "Proposition. ";
-  font-weight: bold;
-  color: #007bff;
-}
-
-.corollary::before {
-  content: "Corollary. ";
-  font-weight: bold;
-  color: #007bff;
-}
-
-.definition::before {
-  content: "Definition. ";
-  font-weight: bold;
-  color: #007bff;
-}
+/* Removed ::before rules to prevent duplication with Quarto's crossref labels */
 
 .proof {
   padding: 1rem 0;
