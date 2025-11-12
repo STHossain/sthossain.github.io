@@ -1,0 +1,97 @@
+---
+title: "Theorem Environment Example"
+description: "How to use numbered theorems, lemmas, and cross-references in Quarto"
+author: "Shaikh Tanvir Hossain"
+date: "2025-10-01"
+categories: [Tutorial]
+---
+
+# Using Theorem Environments in Quarto
+
+This document shows how to use numbered theorem-like environments and cross-references in Quarto, similar to LaTeX.
+
+## Available Environments
+
+Quarto supports the following theorem-like environments with automatic numbering:
+
+- `#thm-` for theorems
+- `#lem-` for lemmas
+- `#cor-` for corollaries
+- `#prp-` for propositions
+- `#cnj-` for conjectures
+- `#def-` for definitions
+- `#exm-` for examples
+- `#exr-` for exercises
+
+## Example: Theorem
+
+::: {#thm-pythagorean}
+## Pythagorean Theorem
+
+For a right triangle with sides $a$ and $b$, and hypotenuse $c$, we have:
+
+$$
+a^2 + b^2 = c^2
+$$
+:::
+
+## Example: Lemma
+
+::: {#lem-triangle-inequality}
+## Triangle Inequality
+
+For any real numbers $x$ and $y$, we have:
+
+$$
+|x + y| \leq |x| + |y|
+$$
+:::
+
+## Example: Definition
+
+::: {#def-metric-space}
+## Metric Space
+
+A metric space is a set $X$ together with a function $d: X \times X \to \mathbb{R}$ that satisfies:
+
+1. $d(x,y) \geq 0$ for all $x, y \in X$
+2. $d(x,y) = 0$ if and only if $x = y$
+3. $d(x,y) = d(y,x)$ for all $x, y \in X$
+4. $d(x,z) \leq d(x,y) + d(y,z)$ for all $x, y, z \in X$
+:::
+
+## Cross-Referencing
+
+You can reference these environments using `@` followed by the ID:
+
+- "By @thm-pythagorean, we know that..."
+- "Using @lem-triangle-inequality and @def-metric-space..."
+- "See @thm-pythagorean for details"
+
+For example: The famous @thm-pythagorean is a fundamental result in geometry. It relies on basic properties like @lem-triangle-inequality. When working in a @def-metric-space, these results generalize nicely.
+
+## Using Proofs
+
+You can add collapsible proof blocks using callout-tip:
+
+::: {.callout-tip collapse="true"}
+## Proof of @lem-triangle-inequality
+
+Without loss of generality, assume $x, y \geq 0$. Then:
+
+$$
+\begin{aligned}
+|x + y| &= x + y \\
+&\leq |x| + |y|
+\end{aligned}
+$$
+
+The other cases follow similarly. ∎
+:::
+
+## Tips
+
+1. **Always use unique IDs**: Each theorem environment needs a unique ID with the appropriate prefix
+2. **Title is optional**: You can omit the `##` title line if you don't want a name
+3. **Cross-references are automatic**: Quarto will automatically number and link your references
+4. **Works with different output formats**: HTML, PDF, DOCX all support this syntax

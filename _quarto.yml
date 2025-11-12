@@ -9,7 +9,7 @@ project:
     - "cv/"
 
 website:
-  title: "S. Tanvir Hossain"
+  title: "Shaikh Tanvir Hossain"
   description: "Academic personal website"
 
   navbar:
@@ -44,3 +44,9 @@ format:
           displayMath: [['$$', '$$'], ['\\[', '\\]']]
         options:
           skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    number-sections: true
+    crossref:
+      thm-title: "Theorem"
+      lem-title: "Lemma"
+      prp-title: "Proposition"
+      def-title: "Definition"

@@ -1,4 +1,5 @@
 ---
+title: "For the Love of Theories"
 listing:
   contents: posts
   sort: "date desc"
@@ -8,3 +9,9 @@ listing:
   filter-ui: false
 page-layout: full
 ---
+
+<style>
+h1.title {
+  color: #8B0000 !important;
+}
+</style>

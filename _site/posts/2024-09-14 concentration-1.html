@@ -2,15 +2,15 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.24">
+<meta name="generator" content="quarto-1.8.25">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Shaikh Tanvir Hossain">
-<meta name="dcterms.date" content="2024-09-14">
-<meta name="description" content="Introducing Bandit Notations and applying Hoeffding’s inequality">
+<meta name="dcterms.date" content="2025-11-12">
+<meta name="description" content="Short Summary of Concentration Inequalities">
 
-<title>Bandit Notations and Hoefddings Inequality – S. Tanvir Hossain</title>
+<title>Concentration Inequalities – Shaikh Tanvir Hossain</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,7 +23,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -40,14 +60,14 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b651517ce65839d647a86e2780455cfb.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-707d8167ce6003fca903bfe2be84ab7f.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-08e37edbabbb74645398bc55ae2d8cf3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-5e0868bd19085b1cb53ab43700120046.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-08e37edbabbb74645398bc55ae2d8cf3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-5ad713dd53cf0447b4b8db1cc295084c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-30218b3595291fd805d777f2d3e2a741.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-5ad713dd53cf0447b4b8db1cc295084c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -281,7 +301,7 @@ window.Quarto = {
     <a href="../index.html" class="navbar-brand navbar-brand-logo">
     </a>
     <a class="navbar-brand" href="../index.html">
-    <span class="navbar-title">S. Tanvir Hossain</span>
+    <span class="navbar-title">Shaikh Tanvir Hossain</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -323,11 +343,21 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#some-details-on-hoeffdings-inequality" id="toc-some-details-on-hoeffdings-inequality" class="nav-link active" data-scroll-target="#some-details-on-hoeffdings-inequality">Some Details on Hoeffding’s inequality</a></li>
-  <li><a href="#bandit-notations" id="toc-bandit-notations" class="nav-link" data-scroll-target="#bandit-notations">Bandit Notations</a>
+  <li><a href="#concentration-inequalities" id="toc-concentration-inequalities" class="nav-link active" data-scroll-target="#concentration-inequalities"><span class="header-section-number">1</span> Concentration Inequalities</a>
   <ul class="collapse">
-  <li><a href="#applying-hoeffdings-inequality-to-the-bandit-setting" id="toc-applying-hoeffdings-inequality-to-the-bandit-setting" class="nav-link" data-scroll-target="#applying-hoeffdings-inequality-to-the-bandit-setting">Applying Hoeffding’s inequality to the bandit setting</a></li>
+  <li><a href="#markovs-inequality" id="toc-markovs-inequality" class="nav-link" data-scroll-target="#markovs-inequality"><span class="header-section-number">1.1</span> Markov’s Inequality</a></li>
+  <li><a href="#chebyshevs-inequality" id="toc-chebyshevs-inequality" class="nav-link" data-scroll-target="#chebyshevs-inequality"><span class="header-section-number">1.2</span> Chebyshev’s Inequality</a></li>
+  <li><a href="#chernoff-bounds" id="toc-chernoff-bounds" class="nav-link" data-scroll-target="#chernoff-bounds"><span class="header-section-number">1.3</span> Chernoff Bounds</a></li>
+  <li><a href="#subgaussian-random-variables" id="toc-subgaussian-random-variables" class="nav-link" data-scroll-target="#subgaussian-random-variables"><span class="header-section-number">1.4</span> SubGaussian Random Variables</a>
+  <ul class="collapse">
+  <li><a href="#some-examples-of-sub-gaussian-random-variables" id="toc-some-examples-of-sub-gaussian-random-variables" class="nav-link" data-scroll-target="#some-examples-of-sub-gaussian-random-variables"><span class="header-section-number">1.4.1</span> Some examples of Sub-Gaussian Random Variables</a></li>
   </ul></li>
+  <li><a href="#subgaussian-case-for-independent-random-variables" id="toc-subgaussian-case-for-independent-random-variables" class="nav-link" data-scroll-target="#subgaussian-case-for-independent-random-variables"><span class="header-section-number">1.5</span> SubGaussian Case for Independent Random Variables:</a>
+  <ul class="collapse">
+  <li><a href="#rewriting-hoeffdings-inequality" id="toc-rewriting-hoeffdings-inequality" class="nav-link" data-scroll-target="#rewriting-hoeffdings-inequality"><span class="header-section-number">1.5.1</span> Rewriting Hoeffding’s Inequality</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">2</span> References</a></li>
   </ul>
 </nav>
     </div>
@@ -337,16 +367,16 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Bandit Notations and Hoefddings Inequality</h1>
+<h1 class="title">Concentration Inequalities</h1>
   <div class="quarto-categories">
-    <div class="quarto-category">bandits</div>
-    <div class="quarto-category">stochastic_bandits</div>
+    <div class="quarto-category">Concentration Inequalities</div>
+    <div class="quarto-category">Probability</div>
   </div>
   </div>
 
 <div>
   <div class="description">
-    Introducing Bandit Notations and applying Hoeffding’s inequality
+    Short Summary of Concentration Inequalities
   </div>
 </div>
 
@@ -363,7 +393,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">September 14, 2024</p>
+      <p class="date">November 12, 2025</p>
     </div>
   </div>
   
@@ -375,115 +405,236 @@ window.Quarto = {
 </header>
 
 
-<section id="some-details-on-hoeffdings-inequality" class="level1">
-<h1>Some Details on Hoeffding’s inequality</h1>
-<p>Assume we have a sequence of random variables <span class="math inline">\(Y_1, Y_2, \ldots, Y_n\)</span> where for all <span class="math inline">\(i\)</span>, we assume they are <span class="math inline">\(1\)</span> sub-Gaussian, i.e., <span class="math inline">\(Y_i \sim s\mathcal{G}(1)\)</span>. Let <span class="math inline">\(\bar{Y} = \frac{1}{n} \sum_{i=1}^n Y_i\)</span> be the sample mean of the sequence and also assume <span class="math inline">\(\mathbb{E}[Y_i] = \mu\)</span>, then we can apply Hoeffding’s bound to get, assuming <span class="math inline">\(\epsilon &gt; 0\)</span>,</p>
+<section id="concentration-inequalities" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Concentration Inequalities</h1>
+<p>Yet another short summary of concentration inequalities based on <span class="citation" data-cites="duchi_2025">Duchi (<a href="#ref-duchi_2025" role="doc-biblioref">2025</a>)</span> lecture notes. Concentration inequalities are useful to bound the tail probabilities of random variables. They are currently state of the art techniques in analyzing different estimators or algorithms in Statistics / Econometrics and Machine Learning. Here I will summarize some of the important concentration inequalities that I found useful to start with.</p>
+<p>The basic idea of concentration inequalities is to provide bounds on how a random variable deviates from some value (often its expectation). These inequalities are particularly useful in probability theory, statistics, and machine learning, where they help to understand the behavior of sums of random variables, empirical processes, and other stochastic phenomena.</p>
+<p>Some of the most well-known concentration inequalities include:</p>
+<ol type="1">
+<li><strong>Markov’s Inequality</strong>: Provides a bound on the probability that a non-negative random variable is greater than a certain value.</li>
+<li><strong>Chebyshev’s Inequality</strong>: Gives a bound on the probability that a random variable deviates from its mean.</li>
+<li><strong>Chernoff Bounds</strong>: Provide exponentially decreasing bounds on tail distributions, the useful thing is it provides bounds on sums of independent random variables.</li>
+<li><strong>Hoeffding’s Inequality</strong>: A specific case of Chernoff bounds for bounded independent random variables.</li>
+</ol>
+<p>We start from Markov’s inequality and build up to more complex inequalities.</p>
+<section id="markovs-inequality" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="markovs-inequality"><span class="header-section-number">1.1</span> Markov’s Inequality</h2>
+<p>Markov’s inequality states that for a non-negative random variable <span class="math inline">\(X\)</span> and any <span class="math inline">\(t &gt; 0\)</span>:</p>
 <p><span class="math display">\[
-\mathbb{P} \left( \mid \overline{Y}_n - \mu \geq \epsilon \mid \right) \leq 2 \cdot \exp\left( -\frac{1}{2} n \epsilon^2 \right)
+    \mathbb{P}(X \geq \epsilon) \leq \frac{\mathbb{E}[X]}{\epsilon}
 \]</span></p>
-<p>Now there is another version of this inequality where we let <span class="math inline">\(\delta = \exp\left( -\frac{1}{2} n \epsilon^2 \right)\)</span>, this leads to <span class="math inline">\(\epsilon = \sqrt{\frac{2 \log\left(\frac{1}{\delta}\right)}{n}}\)</span>, and now we have</p>
-<p><span class="math display">\[
-\mathbb{P}\left( \mid \bar{Y}_n - \mu \geq \sqrt{\frac{2 \log\left(\frac{1}{\delta}\right)}{n}} \mid \right) \leq 2 \delta
-\]</span></p>
-<p>This is often useful in the bandit setting and we</p>
-<p><span class="math display">\[
-\mathbb{P}\left( \mid \bar{Y}_n - \mu \leq \sqrt{\frac{2 \log\left(\frac{1}{\delta}\right)}{n}} \mid \right) \geq 1 - 2\delta
-\]</span></p>
-<p>In the bandit setting we will often want this inequality to be hold for all time points and all arms (this is called <strong>clean event</strong> in the handout by Silvkins)</p>
-</section>
-<section id="bandit-notations" class="level1">
-<h1>Bandit Notations</h1>
-<p>We will follow following notations,</p>
-<ul>
-<li><strong>Arms and Rewards:</strong>
-<ul>
-<li><span class="math inline">\(\mathcal{W}\)</span> : set of arms, we will generally assume <span class="math inline">\(\mathcal{W} = \{1, 2, \ldots, K\} =: [K]\)</span>.</li>
-<li><span class="math inline">\(k^*\)</span> : an optimal arm (with the highest expected reward).</li>
-<li><span class="math inline">\(W_t\)</span> : the arm chosen by the algorithm at round <span class="math inline">\(t\)</span> (this is a random quantity)</li>
-<li><span class="math inline">\(\mu(k)\)</span> : the true expected reward of arm <span class="math inline">\(k\)</span>.</li>
-<li><span class="math inline">\(\mu\left(k^{*}\right)=\max _{k \in \mathcal{W}} \mu(k)\)</span>.</li>
-<li><span class="math inline">\(\Delta(k)=\mu\left(k^{*}\right)-\mu(k)\)</span> : the suboptimality gap of arm <span class="math inline">\(k\)</span>.</li>
-<li><span class="math inline">\(Y_s(k)\)</span> : the reward obtained from arm <span class="math inline">\(k\)</span> at its <span class="math inline">\(s\)</span>-th play, assume <span class="math inline">\(Y_s(a) \sim s\)</span>.</li>
-</ul></li>
-<li><strong>Empirical Estimates:</strong>
-<ul>
-<li><p><span class="math inline">\(n_t(k)\)</span>: where <span class="math inline">\(n_t(k)  = \sum_{s = 1}^{t} \mathbf{1} \{ W_t = k \}\)</span> the number of times arm <span class="math inline">\(k\)</span> has been played up to time <span class="math inline">\(t\)</span> (including <span class="math inline">\(t\)</span>).</p></li>
-<li><p><span class="math inline">\(\widehat{\mu}_t(k)=\frac{1}{n_t(k)} \sum_{s=1}^{t} \mathbf{1} \{ W_t = a \}  Y_s\)</span> empirical mean reward of arm <span class="math inline">\(k\)</span> up to time <span class="math inline">\(t\)</span></p></li>
-</ul></li>
-<li><strong>Confidence Bounds:</strong>
-<ul>
-<li><span class="math inline">\(r_t(k)=\sqrt{\frac{2 \log \left(\frac{1}{\delta}\right)}{n_t(k)}}\)</span> : confidence radius for arm <span class="math inline">\(k\)</span> at time <span class="math inline">\(t\)</span>, with error probability <span class="math inline">\(\delta\)</span>.</li>
-<li><span class="math inline">\(\mathrm{UCB}_t(k)=\widehat{\mu}_t(k)+r_t(k)\)</span> : Upper Confidence Bound for arm <span class="math inline">\(k\)</span> at time <span class="math inline">\(t\)</span>.</li>
-</ul></li>
-<li><strong>Regret:</strong>
-<ul>
-<li><span class="math inline">\(R(T)=\sum_{t=1}^T\left(\mu\left(k^{*}\right)-\mu\left(W_t\right)\right)\)</span> : cumulative regret up to time <span class="math inline">\(T\)</span>.</li>
-</ul></li>
-</ul>
-<section id="applying-hoeffdings-inequality-to-the-bandit-setting" class="level2">
-<h2 class="anchored" data-anchor-id="applying-hoeffdings-inequality-to-the-bandit-setting">Applying Hoeffding’s inequality to the bandit setting</h2>
-<p>How do we apply Hoeffding’s inequality to the bandit setting? Fix an arm <span class="math inline">\(k \in \mathcal{W}\)</span>, and fix <span class="math inline">\(t\in [T]\)</span>, then we want the following to hold,</p>
-<p><span class="math display">\[
-\mathbb{P}\left( \mid \widehat{\mu}_t(k) - \mu(k) \mid  \leq \underbrace{ \sqrt{\frac{2 \log \left(\frac{1}{\delta}\right)}{n_t(k)}}}_{r_t(k)} \right) \geq 1 - 2 \delta
-\]</span></p>
-<p>where <span class="math inline">\(r_t(k)=\sqrt{\frac{2 \log \left(\frac{1}{\delta}\right)}{n_t(k)}}\)</span>, is the confidence radius for arm <span class="math inline">\(k\)</span> at time <span class="math inline">\(t\)</span>, with error probability <span class="math inline">\(\delta\)</span>. This seems easy however in the bandit setting there is an issue since <span class="math inline">\(n_t(k)\)</span> is a random quantity which depends on the algorithm and rewards and in the Hoeffding’s inequality we need to have a fixed number of samples, e.g., <span class="math inline">\(n_t(k) = t\)</span>.</p>
-<p>Silvkins proposed an elementary solution to this problem (and also pointed out that Martingale concentration inequalities can be used to solve this problem), we discuss the elementary solution that he proposed. The key idea is to show that for any arm <span class="math inline">\(k\)</span> the event</p>
-<p><span class="math display">\[
-\mathcal{E}(a)=\left\{ \forall t \in[T]:\left|\widehat{\mu}_t(k)-\mu(k)\right| \leq \sqrt{\frac{2 \ln \left(\frac{1}{\delta}\right)}{n_k(t)}}\right\} = \bigcap_{t=1}^T\left\{\left|\widehat{\mu}_t(k)-\mu(k)\right| \leq \sqrt{\frac{2 \ln \left(\frac{1}{\delta}\right)}{n_t(k)}}\right\}
-\]</span></p>
-<p>holds with high probability. Or equivalently, the complement event <span class="math inline">\(\mathcal{E}^c\)</span> has low probability, where</p>
-<p><span class="math display">\[
-\mathcal{E}^c(k)=\bigcup_{t=1}^T\left\{\left|\widehat{\mu}_t(k)-\mu(k)\right| \geq \sqrt{\frac{2 \ln \left(\frac{1}{\delta}\right)}{n_t(k)}}\right\}
-\]</span></p>
-<p>We can achive this with union bound, however we need following trick,</p>
-<p><span class="math display">\[
-\mathbb{P}\left(\mathcal{E}^c(k) \right) = \mathbb{P}\left(\bigcup_{t=1}^T\left\{\left|\widehat{\mu}_t(k)-\mu(k)\right| \geq \sqrt{\frac{2 \ln \left(\frac{1}{\delta}\right)}{n_t(k)}}\right\} \right) \leq \mathbb{P}\left( \bigcup_{j=1}^T\left\{\left|\bar{v}_j(k)-\mu(k)\right| \geq \sqrt{\frac{2 \ln \left(\frac{1}{\delta}\right)}{j}}\right\} \right)
-\]</span></p>
-<p>where <span class="math inline">\(\bar{v}_j(k)\)</span> which is the average of the first <span class="math inline">\(j\)</span> rewards from arm <span class="math inline">\(k\)</span>. So Silvkins explained this with the idea of a pre-genrated reward tape for each arm where we already have the rewards of for all arms for all time points. Now fix an arm <span class="math inline">\(k\)</span>, and then for each possible number of plays <span class="math inline">\(j \geq 1\)</span>, we can calculate the average of the first <span class="math inline">\(j\)</span> rewards from arm <span class="math inline">\(k\)</span>. Important to note that here for each <span class="math inline">\(j\)</span>, we can think we have an iid sequence of rewards. Also note for each <span class="math inline">\(j\)</span>, we can apply Hoeffding’s inequality to get</p>
-<p><span class="math display">\[
-\mathbb{P}\left(\left|\bar{v}_j(k)-\mu(k)\right| \geq \sqrt{\frac{2 \ln \left(\frac{1}{\delta}\right)}{j}}\right) \leq 2 \delta
-\]</span></p>
-<p>Finally we can apply union bound to get,</p>
-<p><span class="math display">\[
-\mathbb{P}\left(\mathcal{E}^c(k)\right) \leq\sum_{j=1}^T \mathbb{P}\left(\left|\bar{v}_j(k)-\mu(k)\right| \geq \sqrt{\frac{2 \ln \left(\frac{1}{\delta}\right)}{j}}\right) \leq  T \cdot 2 \delta
-\]</span></p>
-<p>now if we want to have this for all arms, we can apply union bound again,</p>
-<p><span class="math display">\[
-\mathbb{P}\left(\mathcal{E}^c \right) = \mathbb{P}\left(\underbrace{\bigcup_{k \in \mathcal{W}} \mathcal{E}^c(k)}_{\mathcal{E}^c}\right) \leq K \cdot T \cdot 2 \delta
-\]</span></p>
-<p>where <span class="math inline">\(K\)</span> is the number of arms. Now setting <span class="math inline">\(\delta = \frac{1}{T^2}\)</span>, we get</p>
-<p><span class="math display">\[
-\mathbb{P}\left(\mathcal{E}^c \right)  \leq \frac{2K}{T}
-\]</span></p>
-<p>This means, the event</p>
-<p><span class="math display">\[
-\mathcal{E}=\left\{ \forall k\in \mathcal{W}, \forall t \in[T]:\left|\widehat{\mu}_t(k)-\mu(k)\right| \leq \sqrt{\frac{2 \ln \left(\frac{1}{\delta}\right)}{n_k(t)}}\right\}
-\]</span></p>
-<p>holds with probability at least <span class="math inline">\(1-\frac{2K}{T}\)</span>. Silvkins called this <strong>clean event</strong>, and this shows that we can apply Hoeffding’s inequality to the bandit setting for any arm <span class="math inline">\(k\)</span> and at any time point <span class="math inline">\(t\)</span>. In particular this means,</p>
-<p><span class="math display">\[
-\mathbb{P}\left(\mathcal{E} \right)  \geq 1 - \frac{2K}{T}
-\]</span></p>
-<p>Note that in this case the radius <span class="math inline">\(r_t(a)\)</span> becomes (which is known as upper confidence bound in the bandit setting),</p>
-<p><span class="math display">\[
-r_t(k) = \sqrt{\frac{2 \ln T^2}{n_t(k)}} =  \sqrt{\frac{4 \ln T}{n_t(k)}}
-\]</span></p>
-<p>In the bandit setting typically we will do the analysis under the clean event.</p>
-<p>Finally if you are reading the handout by Silvkins, then we can plug in <span class="math inline">\(\delta = \frac{1}{T^4}\)</span>, and since <span class="math inline">\(K \leq T\)</span>, we get</p>
+<p>Proof:</p>
+<p>The proof is simple and uses the definition of expectation. We have</p>
 <p><span class="math display">\[
 \begin{aligned}
-\mathbb{P}\left(\mathcal{E}^c \right)  &amp;\leq K \cdot T \cdot 2 \delta \\
-&amp;\leq \frac{2}{T^2}
+\mathbb{E}[X] &amp;= \int_{x&lt;\epsilon} x f_X(x) dx + \int_{x \geq \epsilon} x f_X(x) dx \\
+&amp;\geq \int_{x \geq \epsilon} x f_X(x) dx \\
+&amp;\geq \epsilon \int_{x \geq \epsilon} f_X(x) dx = \epsilon \mathbb{P}(X \geq \epsilon)
 \end{aligned}
 \]</span></p>
-<p>And in this case, the <span class="math inline">\(r_t(a)\)</span> becomes</p>
+<p>This means</p>
 <p><span class="math display">\[
-r_t(k) = \sqrt{\frac{2 \ln T^4}{n_t(k)}} =  \sqrt{\frac{8 \ln T}{n_t(k)}}
+\mathbb{E}[X] \geq \epsilon \mathbb{P}(X \geq \epsilon)
 \]</span></p>
-<p>Although probably I wrote way more than needed, I hope this explanation helps to understand the idea behind the clean event.</p>
-<p><strong>If this helps, please do me a favor and plase Let me know if you find any mistakes or have any questions</strong></p>
-
-
+<p>Or in other words <span class="math display">\[
+\mathbb{P}(X \geq \epsilon) \leq \frac{\mathbb{E}[X]}{\epsilon}
+\]</span></p>
+<p>We can also write the proof more simply with</p>
+<p><span class="math display">\[
+\begin{aligned}
+\mathbb{E}[X] &amp;= \mathbb{E}[X \cdot \mathbf{1}_{X &lt; \epsilon}] + \mathbb{E}[X \cdot \mathbf{1}_{X \geq \epsilon}] \\
+&amp;\geq \mathbb{E}[\epsilon \cdot \mathbf{1}_{X \geq \epsilon}] \\
+&amp;= \epsilon \mathbb{P}(X \geq \epsilon)
+\end{aligned}
+\]</span></p>
+<p>Q.E.D (quod erat demonstrandum, meaning “what was to be demonstrated), Alhamdulillah!</p>
 </section>
+<section id="chebyshevs-inequality" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="chebyshevs-inequality"><span class="header-section-number">1.2</span> Chebyshev’s Inequality</h2>
+<p>Chebyshev’s inequality states that for any random variable <span class="math inline">\(X\)</span> with finite mean <span class="math inline">\(\mu\)</span> and finite variance <span class="math inline">\(\sigma^2\)</span>, and for any <span class="math inline">\(k &gt; 0\)</span>:</p>
+<p><span class="math display">\[
+    \mathbb{P}(|X - \mu| \geq \epsilon) \leq \frac{\mathbb{V}(X)}{\epsilon^2}
+\]</span></p>
+<p>Proof:</p>
+<p>First thing to note is</p>
+<p><span class="math display">\[
+\mathbb{P}(|X - \mu| \geq \epsilon) = \mathbb{P}((X - \mu)^2 \geq \epsilon^2)
+\]</span></p>
+<p>Now we apply Markov’s inequality to the non-negative random variable <span class="math inline">\((X - \mu)^2\)</span>:</p>
+<p><span class="math display">\[
+\mathbb{P}((X - \mu)^2 \geq \epsilon^2) \leq \frac{\mathbb{E}[(X - \mu)^2]}{\epsilon^2} = \frac{\mathbb{V}(X)}{\epsilon^2}
+\]</span></p>
+<p>So we can say that</p>
+<p><span class="math display">\[
+\mathbb{P}(|X - \mu| \geq \epsilon) \leq \frac{\mathbb{V}(X)}{\epsilon^2}
+\]</span></p>
+<p>Q.E.D (quod erat demonstrandum, meaning “what was to be demonstrated), Alhamdulillah!</p>
+</section>
+<section id="chernoff-bounds" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="chernoff-bounds"><span class="header-section-number">1.3</span> Chernoff Bounds</h2>
+<p>Chernoff Bound or sometimes we say Chernoff trick is an application of Markov but to the exponential function of a random variable.</p>
+<p>Let <span class="math inline">\(X\)</span> be a mean zero random variable. For any <span class="math inline">\(\epsilon &gt; 0\)</span> and any <span class="math inline">\(\lambda &gt; 0\)</span>, we have:</p>
+<p><span class="math display">\[
+\mathbb{P}(X \geq \epsilon)  = \mathbb{P}(e^{\lambda X} \geq e^{\lambda \epsilon}) \leq \frac{\mathbb{E}[e^{\lambda X}]}{e^{\lambda \epsilon}}
+\]</span></p>
+<p>Interestingly this holds for any <span class="math inline">\(\lambda\)</span>, and here is the strength of this inequality. We can choose <span class="math inline">\(\lambda\)</span> to get the tightest bound possible, or we can optimize lambda to get the best possible bound. This means we can write:</p>
+<p><span class="math display">\[
+\mathbb{P}(X \geq \epsilon) \leq \inf_{\lambda &gt; 0} \frac{\mathbb{E}[e^{\lambda X}]}{e^{\lambda \epsilon}}
+\]</span></p>
+<p>Specific example now can be given for different distributions. But before this note that the term <span class="math inline">\(\mathbb{E}[e^{\lambda X}]\)</span> is known as the moment-generating function (MGF) of <span class="math inline">\(X\)</span> evaluated at <span class="math inline">\(\lambda\)</span>. We write</p>
+<p><span class="math display">\[
+M_X(\lambda) = \mathbb{E}[e^{\lambda X}]
+\]</span></p>
+<p>Now let’s see specific examples. For <strong>mean zero Gaussian</strong> random variable with variance <span class="math inline">\(\sigma^2\)</span>, the MGF is given by:</p>
+<p><span class="math display">\[
+M_X(\lambda) = e^{\frac{\lambda^2\sigma^2}{2}}
+\]</span></p>
+<p>A side note: We will always consider mean zero random variables just to make some calculations easier.</p>
+<p>Now with the Gaussian MGF, we can write the Chernoff bound as:</p>
+<p><span class="math display">\[
+\mathbb{P}(X \geq \epsilon) \leq  \inf_{\lambda &gt; 0} \frac{e^{\frac{\lambda^2\sigma^2}{2}}}{e^{\lambda \epsilon}} = \inf_{\lambda &gt; 0} e^{\frac{\lambda^2\sigma^2}{2}-\lambda \epsilon}
+\]</span></p>
+<p>We now need to minimize the right-hand side with respect to <span class="math inline">\(\lambda\)</span>. To do this. Usually what’s done is first we take logs and then do the derivative and set it to zero. So we have:</p>
+<p><span class="math display">\[
+\lambda \sigma^2 - \epsilon = 0 \implies \lambda = \frac{\epsilon}{\sigma^2}
+\]</span></p>
+<p>Now substituting this value of <span class="math inline">\(\lambda\)</span> back into the bound, we get:</p>
+<p><span class="math display">\[
+\mathbb{P}(X \geq \epsilon) \leq e^{\frac{(\epsilon/\sigma^2)^2\sigma^2}{2} - (\epsilon/\sigma^2) \epsilon} = e^{\frac{\epsilon^2}{2\sigma^2} - \frac{\epsilon^2}{\sigma^2}} = e^{-\frac{\epsilon^2}{2\sigma^2}}
+\]</span></p>
+<p>So finally for mean zero Gaussian random variable with variance <span class="math inline">\(\sigma^2\)</span>, we have the Chernoff bound as:</p>
+<p><span class="math display">\[
+\mathbb{P}(X \geq \epsilon) \leq e^{-\frac{t^2}{2\sigma^2}}
+\]</span></p>
+</section>
+<section id="subgaussian-random-variables" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="subgaussian-random-variables"><span class="header-section-number">1.4</span> SubGaussian Random Variables</h2>
+<p>The idea of the sub-Gaussian random variable comes from the Gaussian tail bound. A random variable is said to be sub-Gaussian if it satisfies a tail bound similar to the one we derived for the Gaussian distribution. Specifically, a random variable <span class="math inline">\(X\)</span> is sub-Gaussian with parameter <span class="math inline">\(\sigma^2\)</span>, we will write <span class="math inline">\(X \sim s\mathcal{G}(\sigma^2)\)</span> if we have</p>
+<p><span class="math display">\[
+\mathbb{E}[e^{\lambda X}] \leq e^{\frac{\lambda^2\sigma^2}{2}}
+\]</span></p>
+<p>So the key idea is that the MGF of a sub-Gaussian random variable is upper bounded by the similar quantity for a Gaussian random variable with variance <span class="math inline">\(\sigma^2\)</span>.</p>
+<p>Now starting from Markov’s inequality, we can derive the tail bound for sub-Gaussian random variables. For any <span class="math inline">\(\epsilon &gt; 0\)</span> and any <span class="math inline">\(\lambda &gt; 0\)</span>, we have:</p>
+<p><span class="math display">\[
+\mathbb{P}(X \geq \epsilon) \leq \frac{\mathbb{E}[e^{\lambda X}]}{e^{\lambda \epsilon}} \leq \frac{e^{\frac{\lambda^2\sigma^2}{2}}}{e^{\lambda \epsilon}} = e^{\frac{\lambda^2\sigma^2}{2}-\lambda \epsilon}
+\]</span></p>
+<p>Again using the same optimization technique as before, we find the optimal <span class="math inline">\(\lambda\)</span> by taking the derivative and setting it to zero and this gives us the same bound for sub-Gaussian random variables as we had for Gaussian random variables:</p>
+<p><span class="math display">\[
+\mathbb{P}(X \geq \epsilon) \leq e^{-\frac{\epsilon^2}{2\sigma^2}}
+\]</span></p>
+<p>But the difference is that now we have the sub-Gaussian parameter <span class="math inline">\(\sigma^2\)</span> which may not be the actual variance of the random variable.</p>
+<section id="some-examples-of-sub-gaussian-random-variables" class="level3" data-number="1.4.1">
+<h3 data-number="1.4.1" class="anchored" data-anchor-id="some-examples-of-sub-gaussian-random-variables"><span class="header-section-number">1.4.1</span> Some examples of Sub-Gaussian Random Variables</h3>
+<p>Let’s see some examples of sub-Gaussian random variables that we will need for the bandit settings</p>
+<ol type="1">
+<li><p><strong>Gaussian Random Variables</strong>: Definitely first comes Gaussian random variable where <span class="math inline">\(\sigma^2\)</span> is the variance.</p></li>
+<li><p><strong>Bounded Random Variables</strong>: Any random variable that is bounded within an interval <span class="math inline">\([a, b]\)</span> is sub-Gaussian with parameter <span class="math inline">\(\sigma^2 = \frac{(b-a)^2}{4}\)</span>. This can be shown using Hoeffding’s lemma (we will skip the proof here)</p></li>
+</ol>
+<p>The second point immdiately give some bound for a bounded random variable. In particular, if we have a random variable <span class="math inline">\(X\)</span> such that <span class="math inline">\(X \in [a, b]\)</span>, then we have</p>
+<p><span class="math display">\[
+\mathbb{P}(X \geq \epsilon) \leq e^{-\frac{2\epsilon^2}{(b-a)^2}} = \exp\left(-\frac{2\epsilon^2}{(b-a)^2}\right)
+\]</span></p>
+<p>This is an important result that we will use later in the Hoeffding’s inequality section.</p>
+</section>
+</section>
+<section id="subgaussian-case-for-independent-random-variables" class="level2" data-number="1.5">
+<h2 data-number="1.5" class="anchored" data-anchor-id="subgaussian-case-for-independent-random-variables"><span class="header-section-number">1.5</span> SubGaussian Case for Independent Random Variables:</h2>
+<p>If we have a collection of independent sub-Gaussian random variables <span class="math inline">\(X_1, X_2, \ldots, X_n\)</span> with parameters <span class="math inline">\(\sigma_1^2, \sigma_2^2, \ldots, \sigma_n^2\)</span> respectively, then the sum <span class="math inline">\(S_n = \sum_{i=1}^n X_i\)</span> is also sub-Gaussian with parameter <span class="math inline">\(\sigma_S^2 = \sum_{i=1}^n \sigma_i^2\)</span>. This is easy to see using the property of moment-generating functions:</p>
+<p>The MGF of the sum of independent random variables can be wriiten as</p>
+<p><span class="math display">\[
+M_{S_n}(\lambda) = \mathbb{E}[e^{\lambda S_n}] = \mathbb{E}[e^{\lambda \sum_{i=1}^n X_i}] = \prod_{i=1}^n \mathbb{E}[e^{\lambda X_i}] = \prod_{i=1}^n M_{X_i}(\lambda)
+\]</span></p>
+<p>This is the usual result that the MGF of the sum of independent random variables is the product of their MGFs. Now using the sub-Gaussian property of each <span class="math inline">\(X_i\)</span>, we have:</p>
+<p><span class="math display">\[
+\mathbb{E}[e^{\lambda X_i}] \leq e^{\frac{\lambda^2\sigma_i^2}{2}}
+\]</span></p>
+<p>Now putting this back into the expression for <span class="math inline">\(M_{S_n}(\lambda)\)</span>, we get: <span class="math display">\[
+M_{S_n}(\lambda) \leq \prod_{i=1}^n e^{\frac{\lambda^2\sigma_i^2}{2}} = e^{\frac{\lambda^2}{2} \sum_{i=1}^n \sigma_i^2}
+\]</span></p>
+<p>This shows that <span class="math inline">\(S_n\)</span> is sub-Gaussian with parameter <span class="math inline">\(\sigma_S^2 = \sum_{i=1}^n \sigma_i^2\)</span>. With this we can now write the bound for the sum of independent sub-Gaussian random variables as:</p>
+<p><span class="math display">\[
+\mathbb{P}(S_n \geq t) \leq e^{-\frac{t^2}{2\sum_{i=1}^n \sigma_i^2}}
+\]</span></p>
+<p>Now things are slightly different if we consider the average of the random variables instead of the sum. Let’s define the average as</p>
+<p><span class="math display">\[
+\bar{X}_n = \frac{1}{n} \sum_{i=1}^n X_i = \frac{S_n}{n}
+\]</span></p>
+<p>So the MGF of the average can be written as:</p>
+<p><span class="math display">\[
+M_{\bar{X}_n}(\lambda) = \mathbb{E}[e^{\lambda \bar{X}_n}] = \mathbb{E}[e^{\frac{\lambda}{n} S_n}] = M_{S_n}\left(\frac{\lambda}{n}\right)
+\]</span></p>
+<p>Now using the sub-Gaussian property of <span class="math inline">\(S_n\)</span>, which we already derived, we have:</p>
+<p><span class="math display">\[
+M_{S_n}\left(\frac{\lambda}{n}\right) \leq e^{\frac{(\lambda / n)^2 \sigma_S^2}{2}}=e^{\frac{\lambda^2 \sigma_S^2}{2 n^2}}
+\]</span></p>
+<p>Thus, <span class="math inline">\(\bar{X}_n\)</span> is sub-Gaussian with parameter <span class="math inline">\(\sigma_{\bar{X}}^2=\frac{\sigma_S^2}{n^2}=\frac{\sum_{i=1}^n \sigma_i^2}{n^2}\)</span>. The tail bound for a sub-Gaussian random variable with parameter <span class="math inline">\(\sigma_{\bar{X}}^2\)</span> is:</p>
+<p><span class="math display">\[
+\mathbb{P}\left(\bar{X}_n \geq t\right) \leq e^{-\frac{t^2}{2 \sigma_{\bar{X}}^2}}
+\]</span></p>
+<p>Substituting <span class="math inline">\(\sigma_{\bar{X}}^2=\frac{\sum_{i=1}^n \sigma_i^2}{n^2}\)</span>, we get:</p>
+<p><span class="math display">\[
+\mathbb{P}\left(\bar{X}_n \geq t\right) \leq e^{-\frac{t^2}{2 \cdot \frac{\sum_{i=1}^n \sigma_i^2}{n^2}}}=e^{-\frac{n^2 t^2}{2 \sum_{i=1}^n \sigma_i^2}}
+\]</span></p>
+<p>In the special case where all <span class="math inline">\(\sigma_i^2=\sigma^2\)</span>, we have <span class="math inline">\(\sum_{i=1}^n \sigma_i^2=n \sigma^2\)</span>, so the tail bound becomes:</p>
+<p><span class="math display">\[
+\mathbb{P}\left(\bar{X}_n \geq t\right) \leq e^{-\frac{n^2 t^2}{2 n \sigma^2}}=e^{-\frac{n t^2}{2 \sigma^2}}
+\]</span></p>
+<p>So finally we have the bound for the average of independent sub-Gaussian random variables as:</p>
+<p><span class="math display">\[
+\mathbb{P}\left(\bar{X}_n \geq t\right) \leq e^{-\frac{n t^2}{2 \sigma^2}}
+\]</span></p>
+<p>This is known as <strong>Hoeffding’s inequality</strong>. For any bounded random variable <span class="math inline">\(X\)</span> such that <span class="math inline">\(X \in [a, b]\)</span>, we have <span class="math inline">\(\sigma^2 = \frac{(b-a)^2}{4}\)</span>, so the Hoeffding’s inequality becomes:</p>
+<p><span class="math display">\[
+\mathbb{P}\left(\bar{X}_n \geq t\right) \leq e^{-\frac{2 n t^2}{(b-a)^2}}
+\]</span></p>
+<section id="rewriting-hoeffdings-inequality" class="level3" data-number="1.5.1">
+<h3 data-number="1.5.1" class="anchored" data-anchor-id="rewriting-hoeffdings-inequality"><span class="header-section-number">1.5.1</span> Rewriting Hoeffding’s Inequality</h3>
+<p>Now this bound tells if we set <span class="math inline">\(t\)</span> what is the probability that the average deviates from the mean by at least <span class="math inline">\(t\)</span>. we can ask the reverse question that is for a given probability level <span class="math inline">\(\delta\)</span>, what is the value of <span class="math inline">\(t\)</span> such that the bound holds. So we set the right-hand side to <span class="math inline">\(\delta\)</span> and solve for <span class="math inline">\(t\)</span>:</p>
+<p><span class="math display">\[
+e^{-\frac{n t^2}{2 \sigma^2}} = \delta
+\]</span></p>
+<p>First write</p>
+<p><span class="math display">\[
+e^{\frac{n t^2}{2 \sigma^2}} = \frac{1}{\delta}
+\]</span></p>
+<p>Then take logs on both sides:</p>
+<p><span class="math display">\[
+\frac{n t^2}{2 \sigma^2} = \log\left(\frac{1}{\delta}\right)
+\]</span></p>
+<p>This gives</p>
+<p><span class="math display">\[
+t = \sigma \sqrt{\frac{2 \log(1/\delta)}{n}}
+\]</span></p>
+<p>Plugging this value of <span class="math inline">\(t\)</span> back into the tail bound, we get the final result:</p>
+<p><span class="math display">\[
+\mathbb{P}\left(\bar{X}_n \geq \sigma \sqrt{\frac{2 \log(1/\delta)}{n}}\right) \leq \delta
+\]</span></p>
+<p>We can also write the bound as</p>
+<p><span class="math display">\[
+\mathbb{P}\left(\bar{X}_n  \leq \sigma \sqrt{\frac{2 \log(1/\delta)}{n}}\right) \geq 1 - \delta
+\]</span></p>
+<p>We will often want to bound both tails, so we can write</p>
+<p><span class="math display">\[
+\mathbb{P}\left(|\bar{X}_n| \geq t\right) \leq 2 \cdot e^{-\frac{n t^2}{2 \sigma^2}}
+\]</span></p>
+<p>In this case, we get,</p>
+<p><span class="math display">\[
+\mathbb{P}\left(|\bar{X}_n | \leq \sigma \sqrt{\frac{2 \log(1/\delta)}{n}}\right) \geq 1 - 2\delta
+\]</span></p>
+<p>Now we are ready to outline the UCB algorithm and prove it’s regret bounds using the above concentration inequalities.</p>
+<p>:::</p>
+</section>
+</section>
+</section>
+<section id="references" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> References</h1>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-duchi_2025" class="csl-entry" role="listitem">
+Duchi, John. 2025. <span>“Statistics and <span>Information Theory</span>.”</span>
+</div>
+</div>
+
+
 </section>
 
 </main> <!-- /main -->

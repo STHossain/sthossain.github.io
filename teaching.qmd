@@ -1,13 +1,16 @@
 ---
 title: "Teaching"
+number-sections: false
 ---
 
+*I love teaching, I really do. In class I try my best to explain theories to my students as clearly as I can, though I'll admit, it doesn't always work out well. The picture below might give you a hint about how some of my students feel about me teaching theory! But I take the blame on myself, my students are fantastic!*
 
-I am passionate about teaching statistics, econometrics, and programming. I love coding and statistical theories and I want my students to love them too... but that doesn't always happen.
+
+![Some of my students got so frustrated with the theory that they made this cake - ``Theory maf kroen sir`` means *Sir forgive us from the theory!*](img/students_cake_MAT211_STH.jpeg){width=50% fig-align="center"}
 
 # Past Courses
 
-## ![EWU Logo](images/ewu-logo.svg){width=30 height=20} <span style="color: #555555;">East West University, Bangladesh</span>
+## ![EWU Logo](images/ewu-logo.svg){width=30 height=20} East West University, Bangladesh
 
 #### ECO 204: Statistics for Business and Economics II
 **Institution:** East West University
@@ -15,10 +18,7 @@ I am passionate about teaching statistics, econometrics, and programming. I love
 This course covers inferential statistics including point and interval estimation, hypothesis testing, simple and multiple linear regression, basic time series analysis, and ANOVA techniques. The course emphasizes both theoretical understanding and practical application using R programming.
 
 **Key Features:**
-- Balanced approach between theory and practice
-- Extensive use of R programming for statistical analysis
-- Group lab projects for hands-on experience
-- Comprehensive problem sets and quizzes
+Balanced approach between theory and practice, some use of R programming for statistical analysis, group lab projects for hands-on experience and comprehensive problem sets and quizzes
 
 **Semesters Taught:**
 - **Fall 2023:** [Course Materials](eco204.qmd) | [Course Outline](teaching/ewu/eco204/Eco204_outline_Fall2023.pdf)
@@ -33,7 +33,7 @@ Introductory statistics course covering probability theory, descriptive statisti
 - **Fall 2023:** [Course Materials](eco104.qmd) | [Course Outline](teaching/ewu/eco104/Eco104_outline_Fall2023.pdf)
 - **Summer 2025:** [Course Website](https://ewu-econ.github.io/eco104)
 
-## ![TU Dortmund Logo](images/TudoLogo.jpeg){width=30 height=30} <span style="color: #555555;">TU Dortmund University, Germany</span>
+## ![TU Dortmund Logo](images/TudoLogo.jpeg){width=30 height=30} TU Dortmund University, Germany
 
 #### Programming with Julia
 **Semester:** Spring 2021

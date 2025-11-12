@@ -1,10 +1,19 @@
 ---
 title: "Regression Basics - 1"
-description: "Elementary Regression Concepts from an Advanced Point of View"
+descriptionWe will see the proof of this statement shortly, but first we will see some properties of CEF which will be useful in the proof.
+
+::: {#lem-cef-properties}
+## CEF Properties
+
+- Property 1: Law of Iterated Expectations: $\mathbb{E}[\mathbb{E}[Y \mid X]]=\mathbb{E}[Y]$.
+- Property 2 : Iterated Condition on a smaller subset $\mathbb{E}\left[\mathbb{E}\left[Y \mid X_1, X_2\right] \mid X_1\right]=\mathbb{E}\left[Y \mid X_1\right]$
+- Property 3 : "Take out what's known": for any function $g$ of $X$, $\mathbb{E}[g(X) Y \mid X]=g(X) \mathbb{E}[Y \mid X]$ and $\mathbb{E}[g(X) Y]=\mathbb{E}[g(X) \mathbb{E}[Y \mid X]]$.
+- Property 4 : CEF residuals are mean-zero and orthogonal to $X$: for $e:=Y-m(X)$, we have $\mathbb{E}[e \mid X]=0$ and $\mathbb{E}[e]=0$.
+
+:::ry Regression Concepts from an Advanced Point of View"
 author: "Shaikh Tanvir Hossain"
 date: "2024-09-14"
 categories: [Regression, Econometrics]
-bibliography: ../references.bib
 comments:
   giscus:
     repo: "STHossain/sthossain.github.io"
@@ -21,7 +30,7 @@ comments:
 
 # Introduction
 
-In the series of posts I will discuss some elementary regression concepts, but using the idea of Conditional Expectation Function. Not all econometrics books discuss like this, but I think this really helped me to understand the regression problem better. The exceptions are of course two books - @hansen2022econometrics and @angrist2009mostly. I am taking some materials from these books and also from my own understanding. Please correct me if you think something is wrong.
+In the series of posts I will discuss some elementary regression concepts, but using the idea of Conditional Expectation Function. Not all econometrics books discuss these concepts from this point of view, but I think it is a very useful way to think about regression, exceptions are Hansen's Econometrics and Angrist and Pischke's Mostly Harmless Econometrics. I am taking some materials from these books and also from my own understanding. Please correct me if you think something is wrong. 
 
 Usually when we think about regression, we think about a function $f(X)$ to predict $Y$, here usually $X$ is a vector of covariates or features or regressors , i.e.,  $X:=(X_1, X_2, \ldots, X_k)$ and $Y$ is a scalar. Most of the time we think about additive error, in that case we can define the error as $\epsilon := Y - f(X)$ and then write the model as
 
@@ -45,7 +54,7 @@ $$
 \mathbb{E}\left[\left(Y-g(X)\right)^2\right]\geq \mathbb{E}\left[\left(Y-m(X)\right)^2\right]
 $$
 
-We will see the proof of this statement shortly, but first we will see some properties of CEF which will be useful in the proof. See @lem-cef-properties for the key properties.
+We will see the proof of this statement shortly, but first we will see some properties of CEF which will be useful in the proof.
 
 ::: {#lem-cef-properties}
 ## CEF Properties
@@ -73,15 +82,5 @@ $$
 We will talk about the proof of other properties later.
 
 
-**Proof of Property 2 and 3:**
-
-
-
-
-:::
-
-# References
-
-::: {#refs}
 :::
 

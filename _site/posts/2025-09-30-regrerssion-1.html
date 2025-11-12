@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.24">
+<meta name="generator" content="quarto-1.8.25">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -23,7 +23,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -40,14 +60,14 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b651517ce65839d647a86e2780455cfb.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-707d8167ce6003fca903bfe2be84ab7f.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-08e37edbabbb74645398bc55ae2d8cf3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-5e0868bd19085b1cb53ab43700120046.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-08e37edbabbb74645398bc55ae2d8cf3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-5ad713dd53cf0447b4b8db1cc295084c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-30218b3595291fd805d777f2d3e2a741.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-5ad713dd53cf0447b4b8db1cc295084c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -323,10 +343,11 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">1</span> Introduction</a>
   <ul class="collapse">
-  <li><a href="#conditional-expectation-function-cef" id="toc-conditional-expectation-function-cef" class="nav-link" data-scroll-target="#conditional-expectation-function-cef">Conditional Expectation Function (CEF)</a></li>
+  <li><a href="#conditional-expectation-function-cef" id="toc-conditional-expectation-function-cef" class="nav-link" data-scroll-target="#conditional-expectation-function-cef"><span class="header-section-number">1.1</span> Conditional Expectation Function (CEF)</a></li>
   </ul></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">2</span> References</a></li>
   </ul>
 </nav>
     </div>
@@ -374,16 +395,16 @@ window.Quarto = {
 </header>
 
 
-<section id="introduction" class="level1">
-<h1>Introduction</h1>
-<p>In the series of posts I will discuss some elementary regression concepts, but using the idea of Conditional Expectation Function. Not all econometrics books discuss these concepts from this point of view, but I think it is a very useful way to think about regression, exceptions are Hansen’s Econometrics and Angrist and Pischke’s Mostly Harmless Econometrics. I am taking some materials from these books and also from my own understanding. Please correct me if you think something is wrong.</p>
+<section id="introduction" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Introduction</h1>
+<p>In the series of posts I will discuss some elementary regression concepts, but using the idea of Conditional Expectation Function. Not all econometrics books discuss like this, but I think this really helped me to understand the regression problem better. The exceptions are of course two books - <span class="citation" data-cites="hansen2022econometrics">Hansen (<a href="#ref-hansen2022econometrics" role="doc-biblioref">2022</a>)</span> and <span class="citation" data-cites="angrist2009mostly">Angrist and Pischke (<a href="#ref-angrist2009mostly" role="doc-biblioref">2009</a>)</span>. I am taking some materials from these books and also from my own understanding. Please correct me if you think something is wrong.</p>
 <p>Usually when we think about regression, we think about a function <span class="math inline">\(f(X)\)</span> to predict <span class="math inline">\(Y\)</span>, here usually <span class="math inline">\(X\)</span> is a vector of covariates or features or regressors , i.e., <span class="math inline">\(X:=(X_1, X_2, \ldots, X_k)\)</span> and <span class="math inline">\(Y\)</span> is a scalar. Most of the time we think about additive error, in that case we can define the error as <span class="math inline">\(\epsilon := Y - f(X)\)</span> and then write the model as</p>
 <p><span class="math display">\[
 Y = f(X) + \epsilon
 \]</span></p>
 <p>In this post we will talk about what is the best choice of <span class="math inline">\(f(X)\)</span>? This question is a bit vague, since we need to be more specific about what do we mean by “best”. We will pick an easy definition of “best”, and that is to minimize the mean squared error, i.e., we want to find <span class="math inline">\(f\)</span> such that it minimizes <span class="math inline">\(\mathbb{E}\left[(Y - f(X))^2\right]\)</span>. It turns out that in this minimum MSE sense the answer is Conditional Expectation Function (CEF) <span class="math inline">\(\mathbb{E}[Y \mid X]\)</span>. Below we first explain what is CEF, discuss some properties and show how it is the best predictor of <span class="math inline">\(Y\)</span> in minimum MSE sense.</p>
-<section id="conditional-expectation-function-cef" class="level2">
-<h2 class="anchored" data-anchor-id="conditional-expectation-function-cef">Conditional Expectation Function (CEF)</h2>
+<section id="conditional-expectation-function-cef" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="conditional-expectation-function-cef"><span class="header-section-number">1.1</span> Conditional Expectation Function (CEF)</h2>
 <p>Suppose we have two random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>. Let <span class="math inline">\(f_{X, Y}(x, y)\)</span> be the joint density of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>, and <span class="math inline">\(f_X(x)\)</span>, <span class="math inline">\(f_Y(y)\)</span> be the marginal densities, and <span class="math inline">\(f_{Y \mid X}(y \mid x)=\frac{f_{X, Y}(x, y)}{f_X(x)}\)</span> when <span class="math inline">\(f_X(x)&gt;0\)</span> are the conditional densities. The Conditional Expectation Function (CEF) is defined as,</p>
 <p><span class="math display">\[
 m(x):=\mathbb{E}[Y \mid X=x]=\int y f_{Y \mid X}(y \mid x) d y
@@ -392,17 +413,9 @@ m(x):=\mathbb{E}[Y \mid X=x]=\int y f_{Y \mid X}(y \mid x) d y
 <p><span class="math display">\[
 \mathbb{E}\left[\left(Y-g(X)\right)^2\right]\geq \mathbb{E}\left[\left(Y-m(X)\right)^2\right]
 \]</span></p>
-<p>We will see the proof of this statement shortly, but first we will see some properties of CEF which will be useful in the proof.</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Lemma: CEF Properties
-</div>
-</div>
-<div class="callout-body-container callout-body">
+<p>We will see the proof of this statement shortly, but first we will see some properties of CEF which will be useful in the proof. See <a href="#lem-cef-properties" class="quarto-xref">Lemma&nbsp;1</a> for the key properties.</p>
+<div id="lem-cef-properties" class="theorem lemma">
+<p><span class="theorem-title"><strong>Lemma 1 (CEF Properties)</strong></span> &nbsp;</p>
 <ul>
 <li>Property 1: Law of Iterated Expectations: <span class="math inline">\(\mathbb{E}[\mathbb{E}[Y \mid X]]=\mathbb{E}[Y]\)</span>.</li>
 <li>Property 2 : Iterated Condition on a smaller subset <span class="math inline">\(\mathbb{E}\left[\mathbb{E}\left[Y \mid X_1, X_2\right] \mid X_1\right]=\mathbb{E}\left[Y \mid X_1\right]\)</span></li>
@@ -410,9 +423,8 @@ m(x):=\mathbb{E}[Y \mid X=x]=\int y f_{Y \mid X}(y \mid x) d y
 <li>Property 4 : CEF residuals are mean-zero and orthogonal to <span class="math inline">\(X\)</span>: for <span class="math inline">\(\epsilon:=Y-m(X)\)</span>, we have <span class="math inline">\(\mathbb{E}[\epsilon \mid X]=0\)</span> and <span class="math inline">\(\mathbb{E}[\epsilon]=0\)</span>, and also <span class="math inline">\(\mathbb{E}[g(X) \epsilon]=0\)</span> for any function <span class="math inline">\(g\)</span> of <span class="math inline">\(X\)</span> such that <span class="math inline">\(\mathbb{E}\left[g(X)^2\right]&lt;\infty\)</span>.</li>
 </ul>
 </div>
-</div>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -421,7 +433,7 @@ m(x):=\mathbb{E}[Y \mid X=x]=\int y f_{Y \mid X}(y \mid x) d y
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p><strong>Proof of Property 1:</strong></p>
 <p><span class="math display">\[
@@ -431,12 +443,24 @@ m(x):=\mathbb{E}[Y \mid X=x]=\int y f_{Y \mid X}(y \mid x) d y
 \end{gathered}
 \]</span></p>
 <p>We will talk about the proof of other properties later.</p>
+<p><strong>Proof of Property 2 and 3:</strong></p>
 </div>
 </div>
 </div>
-
-
 </section>
+</section>
+<section id="references" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> References</h1>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-angrist2009mostly" class="csl-entry" role="listitem">
+Angrist, Joshua D., and Jörn-Steffen Pischke. 2009. <em>Mostly Harmless Econometrics: An Empiricist’s Companion</em>. Princeton, NJ: Princeton University Press.
+</div>
+<div id="ref-hansen2022econometrics" class="csl-entry" role="listitem">
+Hansen, Bruce E. 2022. <em>Econometrics</em>. Princeton, NJ: Princeton University Press.
+</div>
+</div>
+
+
 </section>
 
 </main> <!-- /main -->

@@ -1,0 +1,356 @@
+---
+title: "Concentration Inequalities"
+description: "Short Summary of Concentration Inequalities"
+author: "Shaikh Tanvir Hossain"
+date: "2025-11-12"
+categories: [Concentration Inequalities, Probability]
+bibliography: ../references.bib
+comments:
+  giscus:
+    repo: "STHossain/sthossain.github.io"
+    repo-id: "your-repo-id"
+    category: "General"
+    category-id: "your-category-id"
+    mapping: "pathname"
+    reactions-enabled: true
+    input-position: "bottom"
+    theme: "light"
+    language: "en"
+    loading: "lazy"
+---
+
+# Concentration Inequalities
+
+Yet another short summary of concentration inequalities based on @duchi_2025 lecture notes. Concentration inequalities are useful to bound the tail probabilities of random variables. They are currently state of the art techniques in analyzing different estimators or algorithms in Statistics / Econometrics and Machine Learning. Here I will summarize some of the important concentration inequalities that I found useful to start with.
+
+The basic idea of concentration inequalities is to provide bounds on how a random variable deviates from some value (often its expectation). These inequalities are particularly useful in probability theory, statistics, and machine learning, where they help to understand the behavior of sums of random variables, empirical processes, and other stochastic phenomena.
+
+Some of the most well-known concentration inequalities include:
+
+1. **Markov's Inequality**: Provides a bound on the probability that a non-negative random variable is greater than a certain value.
+2. **Chebyshev's Inequality**: Gives a bound on the probability that a random variable deviates from its mean.
+3. **Chernoff Bounds**: Provide exponentially decreasing bounds on tail distributions, the useful thing is it provides bounds on sums of independent random variables.
+4. **Hoeffding's Inequality**: A specific case of Chernoff bounds for bounded independent random variables.
+
+
+We start from Markov's inequality and build up to more complex inequalities.
+
+## Markov's Inequality
+Markov's inequality states that for a non-negative random variable $X$ and any $t > 0$:
+
+$$
+    \mathbb{P}(X \geq \epsilon) \leq \frac{\mathbb{E}[X]}{\epsilon} 
+$$
+
+Proof: 
+
+The proof is simple and uses the definition of expectation. We have
+
+$$
+\begin{aligned}
+\mathbb{E}[X] &= \int_{x<\epsilon} x f_X(x) dx + \int_{x \geq \epsilon} x f_X(x) dx \\
+&\geq \int_{x \geq \epsilon} x f_X(x) dx \\
+&\geq \epsilon \int_{x \geq \epsilon} f_X(x) dx = \epsilon \mathbb{P}(X \geq \epsilon)
+\end{aligned}
+$$
+
+This means 
+
+$$
+\mathbb{E}[X] \geq \epsilon \mathbb{P}(X \geq \epsilon)
+$$
+
+Or in other words
+$$
+\mathbb{P}(X \geq \epsilon) \leq \frac{\mathbb{E}[X]}{\epsilon} 
+$$
+
+We can also write the proof more simply with
+
+$$
+\begin{aligned}
+\mathbb{E}[X] &= \mathbb{E}[X \cdot \mathbf{1}_{X < \epsilon}] + \mathbb{E}[X \cdot \mathbf{1}_{X \geq \epsilon}] \\
+&\geq \mathbb{E}[\epsilon \cdot \mathbf{1}_{X \geq \epsilon}] \\
+&= \epsilon \mathbb{P}(X \geq \epsilon)
+\end{aligned}
+$$
+
+Q.E.D (quod erat demonstrandum, meaning "what was to be demonstrated), Alhamdulillah!
+
+## Chebyshev's Inequality
+
+Chebyshev's inequality states that for any random variable $X$ with finite mean $\mu$ and finite variance $\sigma^2$, and for any $k > 0$:
+
+$$
+    \mathbb{P}(|X - \mu| \geq \epsilon) \leq \frac{\mathbb{V}(X)}{\epsilon^2}
+$$
+
+Proof:  
+
+First thing to note is
+
+$$
+\mathbb{P}(|X - \mu| \geq \epsilon) = \mathbb{P}((X - \mu)^2 \geq \epsilon^2)
+$$
+
+Now we apply Markov's inequality to the non-negative random variable $(X - \mu)^2$:
+
+$$
+\mathbb{P}((X - \mu)^2 \geq \epsilon^2) \leq \frac{\mathbb{E}[(X - \mu)^2]}{\epsilon^2} = \frac{\mathbb{V}(X)}{\epsilon^2}
+$$
+
+So we can say that 
+
+$$
+\mathbb{P}(|X - \mu| \geq \epsilon) \leq \frac{\mathbb{V}(X)}{\epsilon^2}
+$$
+
+
+
+Q.E.D (quod erat demonstrandum, meaning "what was to be demonstrated), Alhamdulillah!
+
+
+
+## Chernoff Bounds
+
+Chernoff Bound or sometimes we say Chernoff trick is an application of Markov but to the exponential function of a random variable.
+
+Let $X$ be a mean zero random variable. For any $\epsilon > 0$ and any $\lambda > 0$, we have:
+
+$$
+\mathbb{P}(X \geq \epsilon)  = \mathbb{P}(e^{\lambda X} \geq e^{\lambda \epsilon}) \leq \frac{\mathbb{E}[e^{\lambda X}]}{e^{\lambda \epsilon}}
+$$
+
+Interestingly this holds for any $\lambda$, and here is the strength of this inequality. We can choose $\lambda$ to get the tightest bound possible, or we can optimize lambda to get the best possible bound. This means we can write:
+
+$$
+\mathbb{P}(X \geq \epsilon) \leq \inf_{\lambda > 0} \frac{\mathbb{E}[e^{\lambda X}]}{e^{\lambda \epsilon}}
+$$
+
+Specific example now can be given for different distributions. But before this note that the term $\mathbb{E}[e^{\lambda X}]$ is known as the moment-generating function (MGF) of $X$ evaluated at $\lambda$. We write 
+
+$$
+M_X(\lambda) = \mathbb{E}[e^{\lambda X}]
+$$
+
+Now let's see specific examples. For **mean zero Gaussian** random variable with variance $\sigma^2$, the MGF is given by:
+
+$$
+M_X(\lambda) = e^{\frac{\lambda^2\sigma^2}{2}}
+$$
+
+A side note: We will always consider mean zero random variables just to make some calculations easier. 
+
+Now with the Gaussian MGF, we can write the Chernoff bound as:
+
+$$
+\mathbb{P}(X \geq \epsilon) \leq  \inf_{\lambda > 0} \frac{e^{\frac{\lambda^2\sigma^2}{2}}}{e^{\lambda \epsilon}} = \inf_{\lambda > 0} e^{\frac{\lambda^2\sigma^2}{2}-\lambda \epsilon} 
+$$
+
+We now need to minimize the right-hand side with respect to $\lambda$. To do this. Usually what's done is first we take logs and then do the derivative and set it to zero. So we have:
+
+$$
+\lambda \sigma^2 - \epsilon = 0 \implies \lambda = \frac{\epsilon}{\sigma^2}
+$$
+
+Now substituting this value of $\lambda$ back into the bound, we get:
+
+$$
+\mathbb{P}(X \geq \epsilon) \leq e^{\frac{(\epsilon/\sigma^2)^2\sigma^2}{2} - (\epsilon/\sigma^2) \epsilon} = e^{\frac{\epsilon^2}{2\sigma^2} - \frac{\epsilon^2}{\sigma^2}} = e^{-\frac{\epsilon^2}{2\sigma^2}} 
+$$  
+
+
+
+
+So finally for mean zero Gaussian random variable with variance $\sigma^2$, we have the Chernoff bound as:
+
+$$
+\mathbb{P}(X \geq \epsilon) \leq e^{-\frac{t^2}{2\sigma^2}} 
+$$
+
+
+## SubGaussian Random Variables
+
+The idea of the sub-Gaussian random variable comes from the Gaussian tail bound. A random variable is said to be sub-Gaussian if it satisfies a tail bound similar to the one we derived for the Gaussian distribution. Specifically, a random variable $X$ is sub-Gaussian with parameter $\sigma^2$, we will write $X \sim s\mathcal{G}(\sigma^2)$ if we have 
+
+$$
+\mathbb{E}[e^{\lambda X}] \leq e^{\frac{\lambda^2\sigma^2}{2}}
+$$
+
+So the key idea is that the MGF of a sub-Gaussian random variable is upper bounded by the similar quantity for a Gaussian random variable with variance $\sigma^2$.
+
+Now starting from Markov's inequality, we can derive the tail bound for sub-Gaussian random variables. For any $\epsilon > 0$ and any $\lambda > 0$, we have:
+
+$$
+\mathbb{P}(X \geq \epsilon) \leq \frac{\mathbb{E}[e^{\lambda X}]}{e^{\lambda \epsilon}} \leq \frac{e^{\frac{\lambda^2\sigma^2}{2}}}{e^{\lambda \epsilon}} = e^{\frac{\lambda^2\sigma^2}{2}-\lambda \epsilon} 
+$$
+
+Again using the same optimization technique as before, we find the optimal $\lambda$ by taking the derivative and setting it to zero and this gives us the same bound for sub-Gaussian random variables as we had for Gaussian random variables:
+
+$$
+\mathbb{P}(X \geq \epsilon) \leq e^{-\frac{\epsilon^2}{2\sigma^2}} 
+$$
+
+But the difference is that now we have the sub-Gaussian parameter $\sigma^2$ which may not be the actual variance of the random variable.
+
+### Some examples of Sub-Gaussian Random Variables
+
+Let's see some examples of sub-Gaussian random variables that we will need for the bandit settings
+
+1. **Gaussian Random Variables**: Definitely first comes Gaussian random variable where $\sigma^2$ is the variance.
+
+2. **Bounded Random Variables**: Any random variable that is bounded within an interval $[a, b]$ is sub-Gaussian with parameter $\sigma^2 = \frac{(b-a)^2}{4}$. This can be shown using Hoeffding's lemma (we will skip the proof here)
+
+The second point immdiately give some bound for a bounded random variable. In particular, if we have a random variable $X$ such that $X \in [a, b]$, then we have
+
+$$
+\mathbb{P}(X \geq \epsilon) \leq e^{-\frac{2\epsilon^2}{(b-a)^2}} = \exp\left(-\frac{2\epsilon^2}{(b-a)^2}\right)
+$$
+
+This is an important result that we will use later in the Hoeffding's inequality section.
+
+
+
+
+## SubGaussian Case for Independent Random Variables:
+
+If we have a collection of independent sub-Gaussian random variables $X_1, X_2, \ldots, X_n$ with parameters $\sigma_1^2, \sigma_2^2, \ldots, \sigma_n^2$ respectively, then the sum $S_n = \sum_{i=1}^n X_i$ is also sub-Gaussian with parameter $\sigma_S^2 = \sum_{i=1}^n \sigma_i^2$. This is easy to see using the property of moment-generating functions:
+
+The MGF of the sum of independent random variables can be wriiten as
+
+$$
+M_{S_n}(\lambda) = \mathbb{E}[e^{\lambda S_n}] = \mathbb{E}[e^{\lambda \sum_{i=1}^n X_i}] = \prod_{i=1}^n \mathbb{E}[e^{\lambda X_i}] = \prod_{i=1}^n M_{X_i}(\lambda)
+$$
+
+This is the usual result that the MGF of the sum of independent random variables is the product of their MGFs. Now using the sub-Gaussian property of each $X_i$, we have:
+
+$$
+\mathbb{E}[e^{\lambda X_i}] \leq e^{\frac{\lambda^2\sigma_i^2}{2}}
+$$
+
+Now putting this back into the expression for $M_{S_n}(\lambda)$, we get:
+$$
+M_{S_n}(\lambda) \leq \prod_{i=1}^n e^{\frac{\lambda^2\sigma_i^2}{2}} = e^{\frac{\lambda^2}{2} \sum_{i=1}^n \sigma_i^2} 
+$$
+
+This shows that $S_n$ is sub-Gaussian with parameter $\sigma_S^2 = \sum_{i=1}^n \sigma_i^2$. With this we can now write the bound for the sum of independent sub-Gaussian random variables as:
+
+$$
+\mathbb{P}(S_n \geq t) \leq e^{-\frac{t^2}{2\sum_{i=1}^n \sigma_i^2}} 
+$$
+
+Now things are slightly different if we consider the average of the random variables instead of the sum. Let's define the average as    
+
+$$
+\bar{X}_n = \frac{1}{n} \sum_{i=1}^n X_i = \frac{S_n}{n}
+$$
+
+
+So the MGF of the average can be written as:
+
+$$
+M_{\bar{X}_n}(\lambda) = \mathbb{E}[e^{\lambda \bar{X}_n}] = \mathbb{E}[e^{\frac{\lambda}{n} S_n}] = M_{S_n}\left(\frac{\lambda}{n}\right)
+$$
+
+
+Now using the sub-Gaussian property of $S_n$, which we already derived, we have:
+
+$$
+M_{S_n}\left(\frac{\lambda}{n}\right) \leq e^{\frac{(\lambda / n)^2 \sigma_S^2}{2}}=e^{\frac{\lambda^2 \sigma_S^2}{2 n^2}}
+$$
+
+
+Thus, $\bar{X}_n$ is sub-Gaussian with parameter $\sigma_{\bar{X}}^2=\frac{\sigma_S^2}{n^2}=\frac{\sum_{i=1}^n \sigma_i^2}{n^2}$.
+The tail bound for a sub-Gaussian random variable with parameter $\sigma_{\bar{X}}^2$ is:
+
+$$
+\mathbb{P}\left(\bar{X}_n \geq t\right) \leq e^{-\frac{t^2}{2 \sigma_{\bar{X}}^2}}
+$$
+
+
+Substituting $\sigma_{\bar{X}}^2=\frac{\sum_{i=1}^n \sigma_i^2}{n^2}$, we get:
+
+$$
+\mathbb{P}\left(\bar{X}_n \geq t\right) \leq e^{-\frac{t^2}{2 \cdot \frac{\sum_{i=1}^n \sigma_i^2}{n^2}}}=e^{-\frac{n^2 t^2}{2 \sum_{i=1}^n \sigma_i^2}}
+$$
+
+
+In the special case where all $\sigma_i^2=\sigma^2$, we have $\sum_{i=1}^n \sigma_i^2=n \sigma^2$, so the tail bound becomes:
+
+$$
+\mathbb{P}\left(\bar{X}_n \geq t\right) \leq e^{-\frac{n^2 t^2}{2 n \sigma^2}}=e^{-\frac{n t^2}{2 \sigma^2}}
+$$
+
+So finally we have the bound for the average of independent sub-Gaussian random variables as:
+
+$$
+\mathbb{P}\left(\bar{X}_n \geq t\right) \leq e^{-\frac{n t^2}{2 \sigma^2}}
+$$
+
+This is known as **Hoeffding's inequality**. For any bounded random variable $X$ such that $X \in [a, b]$, we have $\sigma^2 = \frac{(b-a)^2}{4}$, so the Hoeffding's inequality becomes:
+
+$$
+\mathbb{P}\left(\bar{X}_n \geq t\right) \leq e^{-\frac{2 n t^2}{(b-a)^2}}
+$$
+
+### Rewriting Hoeffding's Inequality
+Now this bound tells if we set $t$ what is the probability that the average deviates from the mean by at least $t$. we can ask the reverse question that is for a given probability level $\delta$, what is the value of $t$ such that the bound holds. So we set the right-hand side to $\delta$ and solve for $t$:
+
+$$
+e^{-\frac{n t^2}{2 \sigma^2}} = \delta
+$$
+
+First write 
+
+$$
+e^{\frac{n t^2}{2 \sigma^2}} = \frac{1}{\delta}
+$$
+
+Then take logs on both sides:
+
+$$
+\frac{n t^2}{2 \sigma^2} = \log\left(\frac{1}{\delta}\right)
+$$
+
+This gives 
+
+$$
+t = \sigma \sqrt{\frac{2 \log(1/\delta)}{n}}
+$$
+
+Plugging this value of $t$ back into the tail bound, we get the final result:
+
+$$
+\mathbb{P}\left(\bar{X}_n \geq \sigma \sqrt{\frac{2 \log(1/\delta)}{n}}\right) \leq \delta
+$$
+
+We can also write the bound as 
+
+$$
+\mathbb{P}\left(\bar{X}_n  \leq \sigma \sqrt{\frac{2 \log(1/\delta)}{n}}\right) \geq 1 - \delta
+$$
+
+We will often want to bound both tails, so we can write
+
+$$
+\mathbb{P}\left(|\bar{X}_n| \geq t\right) \leq 2 \cdot e^{-\frac{n t^2}{2 \sigma^2}}
+$$
+
+In this case, we get,
+
+$$
+\mathbb{P}\left(|\bar{X}_n | \leq \sigma \sqrt{\frac{2 \log(1/\delta)}{n}}\right) \geq 1 - 2\delta
+$$
+
+
+Now we are ready to outline the UCB algorithm and prove it's regret bounds using the above concentration inequalities.
+
+
+
+:::
+
+# References
+
+::: {#refs}
+:::
+
