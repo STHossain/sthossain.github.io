@@ -54,6 +54,8 @@ h1, h2, h3, h4, h5, h6 {
 .title-block-banner .title,
 .quarto-title-banner .title,
 .quarto-title-block .title,
+.quarto-title-block h1,
+.quarto-title h1,
 .page-header h1,
 .hero-banner h1,
 h1.title,
@@ -61,7 +63,12 @@ h1.title,
 .listing-subtitle,
 .listing-description,
 .listing-author,
-.listing-date {
+.listing-date,
+.listing-item h3,
+.listing-item h3 a,
+#title-block-header h1,
+#title-block-header .title,
+.about-entity .about-entity-heading {
   color: #212529 !important;
 }
 
@@ -81,9 +88,21 @@ h1.title,
   .title-block-banner .title,
   .quarto-title-banner .title,
   .quarto-title-block .title,
+  .quarto-title-block h1,
+  .quarto-title h1,
   .page-header h1,
   .hero-banner h1,
-  h1.title {
+  h1.title,
+  .listing-title,
+  .listing-subtitle,
+  .listing-description,
+  .listing-author,
+  .listing-date,
+  .listing-item h3,
+  .listing-item h3 a,
+  #title-block-header h1,
+  #title-block-header .title,
+  .about-entity .about-entity-heading {
     color: #f8f9fa !important;
   }
 }
@@ -109,15 +128,39 @@ html[data-bs-theme="dark"] #title-block-header {
 body.quarto-dark .title-block-banner .title,
 body.quarto-dark .quarto-title-banner .title,
 body.quarto-dark .quarto-title-block .title,
+body.quarto-dark .quarto-title-block h1,
+body.quarto-dark .quarto-title h1,
 body.quarto-dark .page-header h1,
 body.quarto-dark .hero-banner h1,
 body.quarto-dark h1.title,
+body.quarto-dark .listing-title,
+body.quarto-dark .listing-subtitle,
+body.quarto-dark .listing-description,
+body.quarto-dark .listing-author,
+body.quarto-dark .listing-date,
+body.quarto-dark .listing-item h3,
+body.quarto-dark .listing-item h3 a,
+body.quarto-dark #title-block-header h1,
+body.quarto-dark #title-block-header .title,
+body.quarto-dark .about-entity .about-entity-heading,
 html[data-bs-theme="dark"] .title-block-banner .title,
 html[data-bs-theme="dark"] .quarto-title-banner .title,
 html[data-bs-theme="dark"] .quarto-title-block .title,
+html[data-bs-theme="dark"] .quarto-title-block h1,
+html[data-bs-theme="dark"] .quarto-title h1,
 html[data-bs-theme="dark"] .page-header h1,
 html[data-bs-theme="dark"] .hero-banner h1,
-html[data-bs-theme="dark"] h1.title {
+html[data-bs-theme="dark"] h1.title,
+html[data-bs-theme="dark"] .listing-title,
+html[data-bs-theme="dark"] .listing-subtitle,
+html[data-bs-theme="dark"] .listing-description,
+html[data-bs-theme="dark"] .listing-author,
+html[data-bs-theme="dark"] .listing-date,
+html[data-bs-theme="dark"] .listing-item h3,
+html[data-bs-theme="dark"] .listing-item h3 a,
+html[data-bs-theme="dark"] #title-block-header h1,
+html[data-bs-theme="dark"] #title-block-header .title,
+html[data-bs-theme="dark"] .about-entity .about-entity-heading {
   color: #f8f9fa !important;
 }
 
