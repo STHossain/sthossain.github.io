@@ -29,7 +29,7 @@ format:
 
 .quarto-about-trestles .about-image {
   border-radius: 0 !important;
-  max-width: 173px !important;
+  max-width: 260px !important;
   width: 100% !important;
   height: auto !important;
 }
@@ -41,7 +41,7 @@ format:
 }
 
 .about-contents {
-  font-size: 1.0206em !important;
+  font-size: 0.95em !important;
   line-height: 1.44 !important;
 }
 
@@ -72,15 +72,47 @@ body.quarto-dark .alhamdulillah,
 html[data-bs-theme="dark"] .alhamdulillah {
   color: #f8f9fa !important;  /* Light text for dark mode */
 }
+
+/* About links - compact icon buttons */
+.about-links {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: wrap !important;
+  gap: 0.3rem !important;
+  margin-top: 0.4rem !important;
+  margin-bottom: 0 !important;
+}
+
+.about-links .about-link {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 2.4rem !important;
+  height: 2.4rem !important;
+  border-radius: 50% !important;
+  background-color: #4B0000 !important;
+  color: white !important;
+  border: none !important;
+  padding: 0 !important;
+  transition: background-color 0.2s ease !important;
+}
+
+.about-links .about-link:hover {
+  background-color: #6B0000 !important;
+  text-decoration: none !important;
+}
+
+.about-links .about-link .bi {
+  font-size: 1rem !important;
+}
+
+/* Hide the text label, keep only the icon */
+.about-links .about-link span:not(.bi) {
+  display: none !important;
+}
 </style>
 
-## About Me {.unnumbered}
-
-
 <!-- Bismillah Alhamdulillah -->
-
-
-
 
 I am a final-year doctoral student in the Business and Economics Department at [Technical University of Dortmund (TU Dortmund)](https://www.tu-dortmund.de/en/) under the supervision of [Professor Carsten Jentsch](https://lwus.statistik.tu-dortmund.de/en/chair/team/jentsch/). Previously, I worked at the Department of Economics, [East West University, Bangladesh](https://www.ewubd.edu/) as a Lecturer (January – September 2025). Before that, from 2018 to 2022, I worked as a research associate (Wissenschaftlicher Mitarbeiter) in the Department of Statistics at TU Dortmund ([alumni page](https://lwus.statistik.tu-dortmund.de/en/chair/alumni/)), and I gratefully acknowledge all their support and guidance during this period.
 

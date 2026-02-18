@@ -6,13 +6,13 @@
 /* Import Crimson Text font */
 @import url('https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&display=swap');
 
-/* Global font size - increased 5% from reduced */
+/* Global font size */
 body {
-  font-size: 1.0206em !important;
+  font-size: 0.95em !important;
 }
 
 main {
-  font-size: 1.0206em !important;
+  font-size: 0.95em !important;
 }
 
 /* Crimson Text for headings (sections and subsections) */
