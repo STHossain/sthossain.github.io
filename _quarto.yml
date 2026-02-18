@@ -3,6 +3,8 @@ project:
   output-dir: _site
   render:
     - "*.qmd"
+    - "!blog.qmd"       # Blog disabled - remove these two lines to re-enable
+    - "!posts/**"       # Blog disabled - remove these two lines to re-enable
     - "!teaching/**/*.md"
     - "!teaching/**/*.Rmd"
   resources:
@@ -20,8 +22,8 @@ website:
         text: Research
       - href: teaching.qmd
         text: Teaching
-      - href: blog.qmd
-        text: Blog
+      # - href: blog.qmd  # Blog disabled - uncomment to re-enable
+      #   text: Blog
       - href: cv.qmd
         text: CV
 

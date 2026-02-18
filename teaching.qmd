@@ -5,7 +5,7 @@ number-sections: false
 
 *I love teaching, over the years I learned a lot from my students (both in Germany and in Bangladesh). Below I share some of materials that I have prepared for my courses.*
 
-![Students made a cake for me on the last day of the course MAT 211. The cake says``Theory maf kroen sir`` means *Sir forgive us from the theory!*](img/students_cake_MAT211_STH.jpeg){width=50% fig-align="center"}
+![Students made a cake for me on the last day of the course MAT 211. The cake says *Theory maf kroen sir* means *Sir forgive us from the theory!*](img/students_cake_MAT211_STH.jpeg){width=50% fig-align="center"}
 
 ---
 
