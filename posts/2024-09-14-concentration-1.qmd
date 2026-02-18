@@ -2,15 +2,12 @@
 title: "Concentration Inequalities"
 description: "Short Summary of Concentration Inequalities"
 author: "Shaikh Tanvir Hossain"
-date: "2025-11-12"
+date: "2024-09-14"
 categories: [Concentration Inequalities, Probability]
 bibliography: ../references.bib
 comments:
   giscus:
     repo: "STHossain/sthossain.github.io"
-    repo-id: "your-repo-id"
-    category: "General"
-    category-id: "your-category-id"
     mapping: "pathname"
     reactions-enabled: true
     input-position: "bottom"
@@ -160,7 +157,7 @@ $$
 So finally for mean zero Gaussian random variable with variance $\sigma^2$, we have the Chernoff bound as:
 
 $$
-\mathbb{P}(X \geq \epsilon) \leq e^{-\frac{t^2}{2\sigma^2}} 
+\mathbb{P}(X \geq \epsilon) \leq e^{-\frac{\epsilon^2}{2\sigma^2}} 
 $$
 
 
@@ -196,7 +193,7 @@ Let's see some examples of sub-Gaussian random variables that we will need for t
 
 2. **Bounded Random Variables**: Any random variable that is bounded within an interval $[a, b]$ is sub-Gaussian with parameter $\sigma^2 = \frac{(b-a)^2}{4}$. This can be shown using Hoeffding's lemma (we will skip the proof here)
 
-The second point immdiately give some bound for a bounded random variable. In particular, if we have a random variable $X$ such that $X \in [a, b]$, then we have
+The second point immediately gives some bound for a bounded random variable. In particular, if we have a random variable $X$ such that $X \in [a, b]$, then we have
 
 $$
 \mathbb{P}(X \geq \epsilon) \leq e^{-\frac{2\epsilon^2}{(b-a)^2}} = \exp\left(-\frac{2\epsilon^2}{(b-a)^2}\right)
@@ -338,11 +335,9 @@ $$
 $$
 
 
-Now we are ready to outline the UCB algorithm and prove it's regret bounds using the above concentration inequalities.
+Now we are ready to outline the UCB algorithm and prove its regret bounds using the above concentration inequalities.
 
 
-
-:::
 
 # References
 

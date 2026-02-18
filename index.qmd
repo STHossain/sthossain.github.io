@@ -1,8 +1,8 @@
 ---
-title: "Welcome to the site"
+title: ""
 about:
   template: trestles
-  image: img/prof_pic.png
+  image: img/prof_pic2.png
   links:
     - icon: github
       text: Github

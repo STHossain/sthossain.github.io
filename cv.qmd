@@ -1,105 +1,65 @@
 ---
-title: "Sk. Tanvir Hossain"
+title: "Curriculum Vitae"
 format:
   html:
-    css: cv-style.css
     toc: false
+    page-layout: full
 ---
 
-<div class="cv-container">
+<style>
+.cv-download {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
 
-## Basics
+.cv-download a {
+  display: inline-block;
+  padding: 0.6rem 1.5rem;
+  background-color: #4B0000;
+  color: white !important;
+  text-decoration: none;
+  border-radius: 0.4rem;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
 
-<div class="cv-basics">
-**Name:** Shaikh Tanvir Hossain
-**Email:** tanvir.hossain@tu-dortmund.de
-**Personal URL:** [https://sthossain.github.io](https://sthossain.github.io)
-**Summary:** Researcher in Econometrics, Causal Inference, and Machine Learning
-</div>
+.cv-download a:hover {
+  background-color: #6B0000;
+  text-decoration: none;
+}
 
-## Education
+.cv-pdf-container {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  border: 1px solid #dee2e6;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
 
-<div class="cv-entry">
-**Doctoral Student, Technical University of Dortmund** (2019-present)
-*Dortmund, Germany*
+.cv-pdf-container iframe {
+  width: 100%;
+  height: 85vh;
+  border: none;
+}
 
-**Master's in Economics, University of Mannheim** (2014-2017)
-*Mannheim, Germany*
+/* Dark mode adjustments */
+body.quarto-dark .cv-pdf-container,
+html[data-bs-theme="dark"] .cv-pdf-container {
+  border-color: #495057;
+}
 
-**Bachelor's in Business, BRAC University** (2008-2012)
-*Dhaka, Bangladesh*
-</div>
+body.quarto-dark .cv-download a,
+html[data-bs-theme="dark"] .cv-download a {
+  background-color: #6B0000;
+}
+</style>
 
-## Work Experience
+::: {.cv-download}
+[Download CV (PDF)](cv/Tanvir_cv.pdf){download="Shaikh_Tanvir_Hossain_CV.pdf"}
+:::
 
-<div class="cv-entry">
-**Lecturer, East West University** (2022-Present)
-*Dhaka, Bangladesh*
-- Teaching undergraduate courses in statistics and econometrics
-- Course development and curriculum design
-- Student supervision and academic mentoring
-
-**Research Associate, Technical University of Dortmund** (2018-2022)
-*Dortmund, Germany*
-- Research in econometrics and time series analysis
-- Teaching assistance for graduate courses
-- Academic collaboration and project management
-
-**Research Associate, University of Mannheim** (2017-2018)
-*Mannheim, Germany*
-- Empirical research in applied economics
-- Data analysis and statistical modeling
-- Research publication and presentation
-</div>
-
-## Programming
-
-<div class="programming-skills">
-**R** - Advanced level for statistical analysis and data visualization
-**Julia** - Intermediate level for scientific computing
-**Python** - Intermediate level for machine learning applications
-**STATA** - Advanced level for econometric analysis
-**LaTeX** - Advanced level for academic writing
-</div>
-
-## Languages
-
-<div class="languages">
-**Bangla** - Native speaker
-**English** - Fluent
-**German** - Basic conversational level
-</div>
-
-## Awards
-
-<div class="awards">
-<div class="cv-entry">
-**DAAD Scholarship** (2017)
-*German Academic Exchange Service*
-Full funding for doctoral studies in Germany
-
-**Vice Chancellor's List Award** (2010)
-*BRAC University*
-Recognition for academic excellence
-</div>
-</div>
-
-## References
-
-<div class="references">
-<div class="cv-entry">
-**Professor Carsten Jentsch**
-*Professor and Head of the Chair of Business and Social Statistics*
-Technical University of Dortmund, Germany
-
-**Professor Wasiqur Rahaman Khan**
-*Professor and Chairperson of Dept. of Economics and Social Sciences*
-BRAC University, Bangladesh
-
-**Professor A.M Tanvir Hussain**
-*Associate Professor of Department of Economics*
-East West University, Bangladesh
-</div>
-</div>
-
-</div>
+::: {.cv-pdf-container}
+<iframe src="cv/Tanvir_cv.pdf" title="CV of Shaikh Tanvir Hossain"></iframe>
+:::

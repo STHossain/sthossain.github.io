@@ -30,6 +30,8 @@ h1, h2, h3, h4, h5, h6 {
   color: white !important;
   font-family: 'Berkshire Swash', cursive !important;
   font-size: 1.5rem !important;
+  white-space: normal !important;
+  line-height: 1.2 !important;
 }
 
 .navbar-nav .nav-link {
@@ -240,10 +242,27 @@ html[data-bs-theme="dark"] .about-entity .about-entity-heading {
 /* Theorem-like environments styling (without labels - Quarto crossref handles labels) */
 .lemma, .theorem, .proposition, .corollary, .definition {
   background-color: #f8f9fa;
+  color: #212529;
   border-left: 4px solid #007bff;
   padding: 1rem 1rem 1rem 1.5rem;
   margin: 1rem 0;
   border-radius: 0.25rem;
+}
+
+/* Theorem environments - Dark mode */
+body.quarto-dark .lemma,
+body.quarto-dark .theorem,
+body.quarto-dark .proposition,
+body.quarto-dark .corollary,
+body.quarto-dark .definition,
+html[data-bs-theme="dark"] .lemma,
+html[data-bs-theme="dark"] .theorem,
+html[data-bs-theme="dark"] .proposition,
+html[data-bs-theme="dark"] .corollary,
+html[data-bs-theme="dark"] .definition {
+  background-color: #2b3035;
+  color: #f8f9fa;
+  border-left-color: #4dabf7;
 }
 
 /* Removed ::before rules to prevent duplication with Quarto's crossref labels */

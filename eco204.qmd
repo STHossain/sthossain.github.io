@@ -113,8 +113,8 @@ Following books are a bit advanced at this level, but nevertheless these are als
 
 To use R in RStudio, first you need to install R and then RStudio:
 
-- Download R using this link: [R for Windows](https://cran.r-project.org/bin/windows/base/R-4.3.2-win.exe)
-- Download RStudio using this link: [RStudio](https://download1.rstudio.org/electron/windows/RStudio-2023.09.0-463.exe)
+- Download R using this link: [R for Windows](https://cran.r-project.org/bin/windows/base/)
+- Download RStudio using this link: [RStudio](https://posit.co/download/rstudio-desktop/)
 
 **Important:** First install R, then install RStudio. Do NOT install RStudio first and then R.
 

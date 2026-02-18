@@ -1,8 +1,5 @@
 /*-- scss:defaults --*/
 
-// Import ET Book (Tufte) font
-@import url('https://edwardtufte.github.io/et-book/et-book.css');
-
 // Custom color variables
 $primary: #0d6efd;
 $secondary: #6c757d;
@@ -13,11 +10,9 @@ $danger: #dc3545;
 $light: #f8f9fa;
 $dark: #212529;
 
-// Typography - Tufte style
-$font-family-serif: "et-book", Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
-$font-family-sans-serif: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
-$font-family-base: $font-family-serif;
-$headings-font-family: $font-family-serif;
+// Typography
+$font-family-sans-serif: "Open Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+$headings-font-family: "Source Sans Pro", $font-family-sans-serif;
 
 // Code styling
 $code-color: #e83e8c;
@@ -78,48 +73,7 @@ $code-bg: #f8f9fa;
   background-color: $light;
   color: $dark;
 }
-// Citation styling (similar to LaTeX hyperref)
-// Style the entire citation span (including author name and year)
-span.citation {
-  color: #006400 !important;  // Dark green for entire citation
-  font-weight: 500;
-
-  &:hover {
-    color: #004d00 !important;  // Darker green on hover
-    cursor: pointer;
-  }
-
-  a {
-    color: #006400 !important;  // Dark green for citation links
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.2s ease;
-
-    &:hover {
-      color: #004d00 !important;  // Darker green on hover
-      text-decoration: underline;
-    }
-  }
-}
-
-// Style for citation links in the text
-a[href^="#ref-"] {
-  color: #006400 !important;  // Dark green for citation links
-  text-decoration: none;
-  font-weight: 500;
-
-  &:hover {
-    color: #004d00 !important;
-    text-decoration: underline;
-  }
-}
-
-// Style for back-references from bibliography
-a[href^="#cite_ref-"] {
-  color: #006400;
-}
-
-// Optional: Style the entire citation span
+// Citation entry spacing
 .csl-entry {
   margin-bottom: 0.5rem;
 }
