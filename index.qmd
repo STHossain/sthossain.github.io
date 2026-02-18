@@ -73,24 +73,40 @@ html[data-bs-theme="dark"] .alhamdulillah {
   color: #f8f9fa !important;  /* Light text for dark mode */
 }
 
+/* Tighten the gap between image/icons and body text */
+.quarto-about-trestles .about-entity {
+  margin-bottom: 0.3rem !important;
+  padding-bottom: 0 !important;
+}
+
+.quarto-about-trestles .about-contents {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}
+
+.quarto-about-trestles .about-contents > :first-child {
+  margin-top: 0 !important;
+}
+
 /* About links - compact icon buttons */
 .about-links {
   display: flex !important;
   flex-direction: row !important;
   flex-wrap: wrap !important;
   gap: 0.3rem !important;
-  margin-top: 0.4rem !important;
-  margin-bottom: 0 !important;
+  margin-top: 0 !important;
+  margin-bottom: 1rem !important;
+  padding-bottom: 0 !important;
 }
 
 .about-links .about-link {
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
-  width: 2.4rem !important;
-  height: 2.4rem !important;
+  width: 2.2rem !important;
+  height: 2.2rem !important;
   border-radius: 50% !important;
-  background-color: #4B0000 !important;
+  background-color: #212529 !important;
   color: white !important;
   border: none !important;
   padding: 0 !important;
@@ -98,8 +114,20 @@ html[data-bs-theme="dark"] .alhamdulillah {
 }
 
 .about-links .about-link:hover {
-  background-color: #6B0000 !important;
+  background-color: #495057 !important;
   text-decoration: none !important;
+}
+
+/* Dark mode - invert to white icons on transparent */
+body.quarto-dark .about-links .about-link,
+html[data-bs-theme="dark"] .about-links .about-link {
+  background-color: #f8f9fa !important;
+  color: #212529 !important;
+}
+
+body.quarto-dark .about-links .about-link:hover,
+html[data-bs-theme="dark"] .about-links .about-link:hover {
+  background-color: #dee2e6 !important;
 }
 
 .about-links .about-link .bi {

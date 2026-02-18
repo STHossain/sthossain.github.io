@@ -3,49 +3,33 @@ title: "Teaching"
 number-sections: false
 ---
 
-*I love teaching, I really do. In class I try my best to explain theories to my students as clearly as I can, though I'll admit, it doesn't always work out well. The picture below might give you a hint about how some of my students feel about me teaching theory! But I take the blame on myself, my students are fantastic!*
+*I love teaching, over the years I learned a lot from my students (both in Germany and in Bangladesh). Below I share some of materials that I have prepared for my courses.*
 
+![Students made a cake for me on the last day of the course MAT 211. The cake says``Theory maf kroen sir`` means *Sir forgive us from the theory!*](img/students_cake_MAT211_STH.jpeg){width=50% fig-align="center"}
 
-![Some of my students got so frustrated with the theory that they made this cake - ``Theory maf kroen sir`` means *Sir forgive us from the theory!*](img/students_cake_MAT211_STH.jpeg){width=50% fig-align="center"}
+---
 
-# Past Courses
+### East West University, Bangladesh
 
-## ![EWU Logo](images/ewu-logo.svg){width=30 height=20} East West University, Bangladesh
+| Course | Role | Links |
+|--------|------|-------|
+| ECO 204: Statistics for Business and Economics II | Instructor | [Summer 2025](https://ewu-econ.github.io/eco204) \| [Fall 2023](eco204.qmd) |
+| ECO 104: Statistics for Business and Economics I | Instructor | [Summer 2025](https://ewu-econ.github.io/eco104) \| [Fall 2023](eco104.qmd) |
+| MAT 211: Mathematics for Business and Economics II | Instructor | |
+| MAT 100: College Mathematics | Instructor | |
 
-#### ECO 204: Statistics for Business and Economics II
-**Institution:** East West University
+### TU Dortmund University, Germany
 
-This course covers inferential statistics including point and interval estimation, hypothesis testing, simple and multiple linear regression, basic time series analysis, and ANOVA techniques. The course emphasizes both theoretical understanding and practical application using R programming.
+| Course | Role | Links |
+|--------|------|-------|
+| Programming with Julia | Instructor | [Materials](julia_course.qmd) |
+| Pre-course Statistics, Statistical Estimation | Instructor | |
+| Asymptotic Theory | Teaching Assistant | |
+| Econometrics of Treatment Effects and Policy Evaluation | Teaching Assistant | |
+| Seminar on Treatment Effect Models | Teaching Assistant | |
 
-**Key Features:**
-Balanced approach between theory and practice, some use of R programming for statistical analysis, group lab projects for hands-on experience and comprehensive problem sets and quizzes
+### University of Mannheim, Germany
 
-**Semesters Taught:**
-- **Fall 2023:** [Course Materials](eco204.qmd) | [Course Outline](teaching/ewu/eco204/Eco204_outline_Fall2023.pdf)
-- **Summer 2025:** [Course Website](https://ewu-econ.github.io/eco204)
-
-#### ECO 104: Statistics for Business and Economics I
-**Institution:** East West University
-
-Introductory statistics course covering probability theory, descriptive statistics, and basic statistical inference. This course provides the foundation for advanced statistical methods.
-
-**Semesters Taught:**
-- **Fall 2023:** [Course Materials](eco104.qmd) | [Course Outline](teaching/ewu/eco104/Eco104_outline_Fall2023.pdf)
-- **Summer 2025:** [Course Website](https://ewu-econ.github.io/eco104)
-
-## ![TU Dortmund Logo](images/TudoLogo.jpeg){width=30 height=30} TU Dortmund University, Germany
-
-#### Programming with Julia
-**Semester:** Spring 2021
-**Institution:** TU Dortmund University
-
-Intensive 5-day programming course introducing Julia language for scientific computing. The course covered basic syntax, type systems, multiple dispatch, performance optimization, and metaprogramming.
-
-**Course Structure:**
-- 5-day intensive format with live Zoom sessions
-- Hands-on exercises with Jupyter notebooks
-- Graded assignments and live quiz evaluation
-- Focus on high-performance scientific computing
-
-[Course Materials](julia_course.qmd)
-
+| Course | Role | Links |
+|--------|------|-------|
+| Impact Evaluation and Research Design | Teaching Assistant | |
