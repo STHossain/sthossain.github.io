@@ -3,16 +3,6 @@ title: ""
 about:
   template: trestles
   image: img/prof_pic2.png
-  links:
-    - icon: github
-      text: Github
-      href: https://github.com/STHossain
-    - icon: envelope
-      text: TU Dortmund Email
-      href: mailto:tanvir.hossain@tu-dortmund.de
-    - icon: file-text
-      text: CV
-      href: cv/Tanvir_cv.pdf
 format:
   html:
     css: styles.css
