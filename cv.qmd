@@ -15,7 +15,7 @@ format:
 .cv-download a {
   display: inline-block;
   padding: 0.6rem 1.5rem;
-  background-color: #4B0000;
+  background-color: #4C0000;
   color: white !important;
   text-decoration: none;
   border-radius: 0.4rem;

@@ -19,8 +19,8 @@ website:
 
   navbar:
     title: "S. Tanvir Hossain"
-    background: "#4B0000"
-    foreground: "#f2f0e8"
+    background: "#4C0000"
+    foreground: "#ffffff"
     left:
       - href: index.qmd
         text: Home
@@ -40,8 +40,8 @@ website:
         href: mailto:tanvir.hossain@tu-dortmund.de
 
   page-footer:
-    background: "#4B0000"
-    foreground: "#f2f0e8"
+    background: "#4C0000"
+    foreground: "#F6D9B7"
     left: "© 2025 S. Tanvir Hossain"
     center: "Built with [Quarto](https://quarto.org/)"
     right: "[GitHub](https://github.com/STHossain)"
