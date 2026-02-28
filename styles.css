@@ -3,8 +3,8 @@
 /* Google Fonts import */
 @import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
 
-/* Import Crimson Text font */
-@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&display=swap');
+/* Import EB Garamond (body) and Playfair Display (headings) */
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Playfair+Display:wght@500;600;700&display=swap');
 
 /* Global font size */
 body {
@@ -12,12 +12,12 @@ body {
 }
 
 main {
-  font-size: 0.95em !important;
+  font-size: 1.05em !important;
 }
 
-/* Crimson Text for headings (sections and subsections) */
+/* Playfair Display for headings */
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Crimson Text", Georgia, serif !important;
+  font-family: "Playfair Display", Georgia, serif !important;
   font-weight: 600 !important;
 }
 

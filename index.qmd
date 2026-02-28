@@ -31,7 +31,7 @@ format:
 }
 
 .about-contents {
-  font-size: 0.95em !important;
+  font-size: 1.05em !important;
   line-height: 1.44 !important;
 }
 

@@ -3,13 +3,119 @@ title: "Teaching"
 number-sections: false
 ---
 
-*I love teaching, over the years I learned a lot from my students (both in Germany and in Bangladesh). Below I share some of materials that I have prepared for my courses.*
+<style>
+.teaching-intro {
+  font-style: italic;
+  color: #555;
+  margin-bottom: 1.5rem;
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
 
-![Students made a cake for me on the last day of the course MAT 211. The cake says *Theory maf kroen sir* means *Sir forgive us from the theory!*](img/students_cake_MAT211_STH.jpeg){width=50% fig-align="center"}
+.institution-card {
+  margin-bottom: 2.5rem;
+}
+
+.institution-header {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  padding: 0.5rem 0;
+  border-bottom: 2px solid #e0e0e0;
+  margin-bottom: 0.5rem;
+}
+
+.institution-header img {
+  height: 52px;
+  width: auto;
+  object-fit: contain;
+}
+
+.institution-header .inst-info h3 {
+  margin: 0 0 0.1rem 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #222;
+}
+
+.institution-header .inst-info span {
+  font-size: 0.88rem;
+  color: #666;
+}
+
+.institution-body {
+  padding: 0.5rem 0;
+}
+
+.institution-body table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.institution-body table thead tr {
+  background-color: #f2f2f2;
+}
+
+.institution-body table th {
+  text-align: left;
+  padding: 0.5rem 0.8rem;
+  font-weight: 600;
+  color: #4C0000;
+  border-bottom: 2px solid #cccccc;
+}
+
+.institution-body table td {
+  padding: 0.5rem 0.8rem;
+  border-bottom: 1px solid #ebebeb;
+  vertical-align: middle;
+}
+
+.institution-body table tr:last-child td {
+  border-bottom: none;
+}
+
+.institution-body table tr:hover td {
+  background-color: #fdf6f6;
+}
+
+.cake-photo {
+  text-align: center;
+  margin: 1.5rem 0 2rem 0;
+}
+
+.cake-photo img {
+  border-radius: 10px;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.15);
+  max-width: 50%;
+}
+
+.cake-photo p {
+  font-size: 0.88rem;
+  color: #777;
+  margin-top: 0.5rem;
+  font-style: italic;
+}
+</style>
+
+<p class="teaching-intro">I love teaching — over the years I have learned a great deal from my students, both in Germany and in Bangladesh. Below I share some of the materials I have prepared for my courses.</p>
+
+<div class="cake-photo">
+<img src="img/students_cake_MAT211_STH.jpeg" alt="Students' cake"/>
+<p>Students made a cake for me on the last day of MAT 211. The cake says <em>Theory maf kroen sir</em> — <em>"Sir, forgive us from the theory!"</em></p>
+</div>
 
 ---
 
-### East West University, Bangladesh
+<div class="institution-card">
+<div class="institution-header ewu">
+<img src="images/ewu-logo.svg" alt="East West University logo"/>
+<div class="inst-info">
+<h3>East West University</h3>
+<span>Dhaka, Bangladesh</span>
+</div>
+</div>
+<div class="institution-body">
 
 | Course | Role | Links |
 |--------|------|-------|
@@ -18,7 +124,18 @@ number-sections: false
 | MAT 211: Mathematics for Business and Economics II | Instructor | |
 | MAT 100: College Mathematics | Instructor | |
 
-### TU Dortmund University, Germany
+</div>
+</div>
+
+<div class="institution-card">
+<div class="institution-header tudo" style="gap:0rem;">
+<img src="images/tu-dortmund-logo.svg" alt="TU Dortmund University logo" style="margin-right: -70px;"/>
+<div class="inst-info">
+<h3>TU Dortmund University</h3>
+<span>Dortmund, Germany</span>
+</div>
+</div>
+<div class="institution-body">
 
 | Course | Role | Links |
 |--------|------|-------|
@@ -28,8 +145,24 @@ number-sections: false
 | Econometrics of Treatment Effects and Policy Evaluation | Teaching Assistant | |
 | Seminar on Treatment Effect Models | Teaching Assistant | |
 
-### University of Mannheim, Germany
+</div>
+</div>
+
+<div class="institution-card">
+<div class="institution-header uni-ma">
+<div style="overflow:hidden; height:70px; width:200px; flex-shrink:0;">
+<img src="images/uni-mannheim.webp" alt="University of Mannheim logo" style="height: 130px; margin: -25px 0px;"/>
+</div>
+<div class="inst-info">
+<h3>University of Mannheim</h3>
+<span>Mannheim, Germany</span>
+</div>
+</div>
+<div class="institution-body">
 
 | Course | Role | Links |
 |--------|------|-------|
 | Impact Evaluation and Research Design | Teaching Assistant | |
+
+</div>
+</div>

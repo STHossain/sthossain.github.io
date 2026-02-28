@@ -58,7 +58,7 @@ format:
     css: styles.css
     toc: true
     page-layout: full
-    mainfont: "Signika"
+    mainfont: "EB Garamond"
     link-external-newwindow: true
     html-math-method: mathjax
     mathjax:
