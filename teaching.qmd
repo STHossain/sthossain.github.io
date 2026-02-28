@@ -109,7 +109,6 @@ number-sections: false
 
 <div class="institution-card">
 <div class="institution-header ewu">
-<img src="images/ewu-logo.svg" alt="East West University logo"/>
 <div class="inst-info">
 <h3>East West University</h3>
 <span>Dhaka, Bangladesh</span>
@@ -128,8 +127,7 @@ number-sections: false
 </div>
 
 <div class="institution-card">
-<div class="institution-header tudo" style="gap:0rem;">
-<img src="images/tu-dortmund-logo.svg" alt="TU Dortmund University logo" style="margin-right: -70px;"/>
+<div class="institution-header tudo">
 <div class="inst-info">
 <h3>TU Dortmund University</h3>
 <span>Dortmund, Germany</span>
@@ -150,9 +148,6 @@ number-sections: false
 
 <div class="institution-card">
 <div class="institution-header uni-ma">
-<div style="overflow:hidden; height:70px; width:200px; flex-shrink:0;">
-<img src="images/uni-mannheim.webp" alt="University of Mannheim logo" style="height: 130px; margin: -25px 0px;"/>
-</div>
 <div class="inst-info">
 <h3>University of Mannheim</h3>
 <span>Mannheim, Germany</span>
