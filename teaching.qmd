@@ -116,12 +116,12 @@ number-sections: false
 </div>
 <div class="institution-body">
 
-| Course | Role | Links |
-|--------|------|-------|
-| ECO 204: Statistics for Business and Economics II | Instructor | [Summer 2025](https://ewu-econ.github.io/eco204) \| [Fall 2023](eco204.qmd) |
-| ECO 104: Statistics for Business and Economics I | Instructor | [Summer 2025](https://ewu-econ.github.io/eco104) \| [Fall 2023](eco104.qmd) |
-| MAT 211: Mathematics for Business and Economics II | Instructor | |
-| MAT 100: College Mathematics | Instructor | |
+| Course | Role | Term(s) | Links |
+|--------|------|---------|-------|
+| ECO 204: Statistics for Business and Economics II | Instructor | Summer 2022, Fall 2022, Fall 2023, Spring 2025, Summer 2025 | [Summer 2025](https://ewu-econ.github.io/eco204) \| [Fall 2023](eco204.qmd) |
+| ECO 104: Statistics for Business and Economics I | Instructor | Fall 2022, Fall 2023, Spring 2025, Summer 2025 | [Summer 2025](https://ewu-econ.github.io/eco104) \| [Fall 2023](eco104.qmd) |
+| MAT 211: Mathematics for Business and Economics II | Instructor | Fall 2024 | |
+| MAT 100: College Mathematics | Instructor | Summer 2022, Fall 2024 | |
 
 </div>
 </div>
@@ -129,19 +129,23 @@ number-sections: false
 <div class="institution-card">
 <div class="institution-header tudo">
 <div class="inst-info">
-<h3>TU Dortmund University</h3>
+<h3>TU Dortmund</h3>
 <span>Dortmund, Germany</span>
 </div>
 </div>
 <div class="institution-body">
 
-| Course | Role | Links |
-|--------|------|-------|
-| Programming with Julia | Instructor | [Materials](julia_course.qmd) |
-| Pre-course Statistics, Statistical Estimation | Instructor | |
-| Asymptotic Theory | Teaching Assistant | |
-| Econometrics of Treatment Effects and Policy Evaluation | Teaching Assistant | |
-| Seminar on Treatment Effect Models | Teaching Assistant | |
+<p style="font-size: 0.9rem; color: #666; margin-bottom: 1rem; font-style: italic;">
+* Note: Past course offerings can be verified via the <a href="https://lwus.statistik.tu-dortmund.de/en/teaching/courses/" target="_blank">TU Dortmund department archives</a> (listed under the name <strong>S. Hossain</strong>).
+</p>
+
+| Course | Role | Term(s) | Links |
+|--------|------|---------|-------|
+| Programming with Julia | Instructor | Winter Semester 2019/20 (Cancelled due to Covid - 19)<br>Winter Semester 2020/21 | [Materials](julia_course.qmd) |
+| Pre-course Statistics, Statistical Estimation | Instructor | | |
+| Asymptotic Theory (Part of Statistics Theory Course) | Teaching Assistant | Winter Semester 2019/20, Winter Semester 2020/21 | |
+| Econometrics of Treatment Effects and Policy Evaluation | Teaching Assistant | Summer Semester 2020 | |
+| Seminar on Treatment Effect Models | Teaching Assistant | Winter Semester 2018/19 | |
 
 </div>
 </div>
@@ -155,9 +159,9 @@ number-sections: false
 </div>
 <div class="institution-body">
 
-| Course | Role | Links |
-|--------|------|-------|
-| Impact Evaluation and Research Design | Teaching Assistant | |
+| Course | Role | Term(s) | Links |
+|--------|------|---------|-------|
+| Impact Evaluation and Research Design | Teaching Assistant | Winter Semester 2017/18 | |
 
 </div>
 </div>
