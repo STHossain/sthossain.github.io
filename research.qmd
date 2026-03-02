@@ -11,7 +11,7 @@ My research interests lie at the intersection of Causal Inference, Econometrics,
 
 We study the sequential treatment allocation problem (a.k.a. multi-armed bandit problem) with interference. The work is motivated from the recent work of [Jia et al. (2024)](https://arxiv.org/abs/2402.01845){target="_blank"}. We propose some new algorithms for this problem and investigate their performance in the bandit setting.
 
-**Keywords:** Bandits, Causal Inference, Interference, Sequential Decision Making
+**Keywords:** Bandits, Interference, Adaptive Experiments
 
 ---
 
