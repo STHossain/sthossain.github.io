@@ -11,7 +11,7 @@ project:
     - "cv/"
 
 website:
-  title: "S. Tanvir Hossain"
+  title: "Sk. Tanvir Hossain"
   description: "Academic personal website"
   search: false
   page-navigation: true
