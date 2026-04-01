@@ -54,7 +54,7 @@ body.quarto-dark .cv-pdf-container,
 html[data-bs-theme="dark"] .cv-pdf-container { border-color: #495057; }
 
 @media (max-width: 650px) {
-  .cv-pdf-container iframe { height: 70vh; }
+  .cv-pdf-container iframe { height: 82vh; }
 }
 </style>
 
@@ -62,9 +62,10 @@ html[data-bs-theme="dark"] .cv-pdf-container { border-color: #495057; }
 
 <div class="site-sidebar">
 
+<div class="sidebar-identity">
 <p class="index-name">Shaikh Tanvir Hossain</p>
-
 <p class="index-affil">Doctoral Candidate<br>TU Dortmund</p>
+</div>
 
 <ul class="index-nav">
   <li><a href="index.html">Home</a></li>
