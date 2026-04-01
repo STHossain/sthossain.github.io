@@ -105,41 +105,6 @@ h1.title,
   color: #212529 !important;
 }
 
-/* Title block banner styling - Dark mode (system preference) */
-@media (prefers-color-scheme: dark) {
-  .title-block-banner,
-  .quarto-title-banner,
-  .quarto-title-block,
-  .page-header,
-  .hero-banner,
-  #title-block-header {
-    background-color: transparent !important;
-    background: transparent !important;
-    color: #f8f9fa !important;
-  }
-
-  .title-block-banner .title,
-  .quarto-title-banner .title,
-  .quarto-title-block .title,
-  .quarto-title-block h1,
-  .quarto-title h1,
-  .page-header h1,
-  .hero-banner h1,
-  h1.title,
-  .listing-title,
-  .listing-subtitle,
-  .listing-description,
-  .listing-author,
-  .listing-date,
-  .listing-item h3,
-  .listing-item h3 a,
-  #title-block-header h1,
-  #title-block-header .title,
-  .about-entity .about-entity-heading {
-    color: #f8f9fa !important;
-  }
-}
-
 /* Title block banner styling - Dark mode (Quarto class-based toggle) */
 body.quarto-dark .title-block-banner,
 body.quarto-dark .quarto-title-banner,
@@ -290,15 +255,6 @@ html[data-bs-theme="dark"] .about-entity .about-entity-heading {
 }
 
 /* Dark mode — sidebar */
-@media (prefers-color-scheme: dark) {
-  .site-sidebar .index-name { color: #f0f0f0; }
-  .site-sidebar .index-affil { color: #aaa; }
-  .site-sidebar .index-nav a { color: #ddd; }
-  .site-sidebar .index-nav a.active { text-decoration: underline; }
-  .site-content { color: #ccc; }
-  .site-content a { color: #7ec87e; }
-}
-
 body.quarto-dark .site-sidebar .index-name,
 html[data-bs-theme="dark"] .site-sidebar .index-name { color: #f0f0f0 !important; }
 body.quarto-dark .site-sidebar .index-affil,
@@ -364,7 +320,7 @@ html[data-bs-theme="dark"] .site-content a { color: #7ec87e !important; }
   }
 
   /* Stronger text colors for mobile light mode */
-  .site-sidebar .index-name { color: #111 !important; }
+  .site-sidebar .index-name { color: #111 !important; white-space: normal; }
   .site-sidebar .index-affil { color: #444 !important; }
   .site-sidebar .index-nav a { color: #111 !important; }
   .site-content { color: #222 !important; }
