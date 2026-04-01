@@ -60,6 +60,7 @@ format:
     page-layout: full
     mainfont: "EB Garamond"
     link-external-newwindow: true
+    include-after-body: _darkmode.html
     html-math-method: mathjax
     mathjax:
       config:
