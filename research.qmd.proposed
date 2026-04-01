@@ -1,0 +1,405 @@
+---
+title: "Research"
+number-sections: false
+toc: false
+---
+
+<style>
+.research-page {
+  max-width: 980px;
+  margin: 0 auto 2rem auto;
+}
+
+.section-block {
+  margin-bottom: 2.5rem;
+}
+
+.research-page h2 {
+  font-size: 1.55rem;
+  margin-bottom: 0.85rem;
+}
+
+.section-lead {
+  font-size: 1.08rem;
+  color: #5b5b5b;
+  margin-bottom: 0.9rem;
+}
+
+.research-hero {
+  background: linear-gradient(135deg, #faf6ef 0%, #ffffff 72%);
+  border: 1px solid #eadfce;
+  border-left: 6px solid #7D1709;
+  border-radius: 14px;
+  padding: 1.8rem 1.8rem 1.5rem;
+  box-shadow: 0 12px 28px rgba(17, 17, 17, 0.06);
+}
+
+.research-kicker {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #7D1709;
+  margin-bottom: 0.55rem;
+}
+
+.research-hero h2 {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  font-size: 1.85rem;
+}
+
+.research-hero p {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  margin-bottom: 0.8rem;
+}
+
+.research-meta {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.9rem;
+  margin-top: 1.25rem;
+}
+
+.meta-box {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid #eee5da;
+  border-radius: 12px;
+  padding: 0.95rem 1rem;
+}
+
+.meta-label {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #7D1709;
+  margin-bottom: 0.35rem;
+}
+
+.meta-value {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #222;
+  margin-bottom: 0.2rem;
+}
+
+.meta-detail {
+  font-size: 0.92rem;
+  color: #666;
+  line-height: 1.5;
+}
+
+.research-note {
+  margin-top: 1.2rem;
+  padding: 0.95rem 1.1rem;
+  border-left: 4px solid #7D1709;
+  background: #faf6f3;
+  color: #333;
+  border-radius: 0 10px 10px 0;
+}
+
+.research-note p {
+  margin: 0;
+}
+
+.paper-grid,
+.activity-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.15rem;
+}
+
+.paper-card,
+.activity-card {
+  background: #ffffff;
+  border: 1px solid #ece2d6;
+  border-radius: 14px;
+  padding: 1.2rem 1.25rem;
+  box-shadow: 0 8px 22px rgba(17, 17, 17, 0.05);
+  height: 100%;
+}
+
+.paper-label {
+  display: inline-block;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #7D1709;
+  margin-bottom: 0.5rem;
+}
+
+.paper-card h3,
+.activity-card h3 {
+  font-size: 1.16rem;
+  margin-top: 0;
+  margin-bottom: 0.7rem;
+}
+
+.paper-card p,
+.activity-card p {
+  line-height: 1.7;
+}
+
+.keyword-row {
+  margin-top: 0.9rem;
+}
+
+.keyword-tag {
+  display: inline-block;
+  margin: 0 0.45rem 0.45rem 0;
+  padding: 0.22rem 0.62rem;
+  font-size: 0.82rem;
+  color: #7D1709;
+  background: #f7eee6;
+  border: 1px solid #ead8c7;
+  border-radius: 999px;
+}
+
+.activity-item + .activity-item {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #efe7dd;
+}
+
+.activity-year {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #7D1709;
+  margin-bottom: 0.35rem;
+}
+
+.activity-item p {
+  margin: 0;
+}
+
+@media (max-width: 820px) {
+  .research-meta,
+  .paper-grid,
+  .activity-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .research-hero {
+    padding: 1.35rem;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .section-lead {
+    color: #c7c7c7;
+  }
+
+  .research-hero {
+    background: linear-gradient(135deg, rgba(76, 45, 32, 0.55) 0%, rgba(33, 37, 41, 0.92) 75%);
+    border-color: #6f5647;
+  }
+
+  .meta-box,
+  .paper-card,
+  .activity-card {
+    background: rgba(33, 37, 41, 0.86);
+    border-color: #5c4c41;
+  }
+
+  .meta-value,
+  .paper-card h3,
+  .activity-card h3 {
+    color: #f1f1f1;
+  }
+
+  .meta-detail,
+  .research-note,
+  .paper-card p,
+  .activity-card p {
+    color: #d6d6d6;
+  }
+
+  .research-note {
+    background: rgba(54, 43, 36, 0.7);
+  }
+
+  .keyword-tag {
+    background: rgba(125, 23, 9, 0.18);
+    border-color: #7f5a49;
+    color: #f0d6c7;
+  }
+
+  .activity-item + .activity-item {
+    border-top-color: #5c4c41;
+  }
+}
+
+body.quarto-dark .section-lead,
+html[data-bs-theme="dark"] .section-lead {
+  color: #c7c7c7;
+}
+
+body.quarto-dark .research-hero,
+html[data-bs-theme="dark"] .research-hero {
+  background: linear-gradient(135deg, rgba(76, 45, 32, 0.55) 0%, rgba(33, 37, 41, 0.92) 75%);
+  border-color: #6f5647;
+}
+
+body.quarto-dark .meta-box,
+body.quarto-dark .paper-card,
+body.quarto-dark .activity-card,
+html[data-bs-theme="dark"] .meta-box,
+html[data-bs-theme="dark"] .paper-card,
+html[data-bs-theme="dark"] .activity-card {
+  background: rgba(33, 37, 41, 0.86);
+  border-color: #5c4c41;
+}
+
+body.quarto-dark .meta-value,
+body.quarto-dark .paper-card h3,
+body.quarto-dark .activity-card h3,
+html[data-bs-theme="dark"] .meta-value,
+html[data-bs-theme="dark"] .paper-card h3,
+html[data-bs-theme="dark"] .activity-card h3 {
+  color: #f1f1f1;
+}
+
+body.quarto-dark .meta-detail,
+body.quarto-dark .research-note,
+body.quarto-dark .paper-card p,
+body.quarto-dark .activity-card p,
+html[data-bs-theme="dark"] .meta-detail,
+html[data-bs-theme="dark"] .research-note,
+html[data-bs-theme="dark"] .paper-card p,
+html[data-bs-theme="dark"] .activity-card p {
+  color: #d6d6d6;
+}
+
+body.quarto-dark .research-note,
+html[data-bs-theme="dark"] .research-note {
+  background: rgba(54, 43, 36, 0.7);
+}
+
+body.quarto-dark .keyword-tag,
+html[data-bs-theme="dark"] .keyword-tag {
+  background: rgba(125, 23, 9, 0.18);
+  border-color: #7f5a49;
+  color: #f0d6c7;
+}
+
+body.quarto-dark .activity-item + .activity-item,
+html[data-bs-theme="dark"] .activity-item + .activity-item {
+  border-top-color: #5c4c41;
+}
+</style>
+
+<div class="research-page">
+
+<section class="section-block">
+<div class="research-hero">
+<div class="research-kicker">Dissertation</div>
+<h2>Parametric and Nonparametric Learners for Adaptive Experiments</h2>
+<p>My dissertation studies adaptive experimentation from both parametric and nonparametric perspectives, with a particular focus on sequential treatment allocation under complex dependence structures. A central theme is how learning procedures must be redesigned when outcomes are not generated independently across units.</p>
+
+<div class="research-meta">
+<div class="meta-box">
+<span class="meta-label">Status</span>
+<div class="meta-value">Doctoral dissertation</div>
+<div class="meta-detail">Submitted and currently under review</div>
+</div>
+
+<div class="meta-box">
+<span class="meta-label">Themes</span>
+<div class="meta-value">Adaptive experiments</div>
+<div class="meta-detail">Causal inference, econometrics, and machine learning</div>
+</div>
+
+<div class="meta-box">
+<span class="meta-label">Institution</span>
+<div class="meta-value">TU Dortmund</div>
+<div class="meta-detail">Faculty of Business and Economics</div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section-block">
+<h2>Current Research</h2>
+<p class="section-lead">My doctoral research topic is adaptive experimentation, or sequential decision-making.</p>
+<p>Broadly, I study how classical online learning frameworks, developed under idealized independence assumptions, need to be adjusted when units of observation are not isolated from one another. A particularly important case arises in economic and social settings, where the outcome of one unit may depend not only on the treatment it receives, but also on the treatments assigned to other units with which it interacts. This phenomenon is known as <em>interference</em>.</p>
+<p>My work develops a unified theoretical framework for this problem, proposes a family of algorithms, both parametric and nonparametric, tailored to different interference structures, and clarifies how the classical bandit setting connects to the interference setting.</p>
+
+<div class="research-note">
+<p>A working paper based on this research is currently being finalized for submission. Details will be shared here upon publication.</p>
+</div>
+</section>
+
+<section class="section-block">
+<h2>Working Papers</h2>
+<div class="paper-grid">
+<article class="paper-card">
+<div class="paper-label">Working paper</div>
+<h3>Bias Correction, Bootstrap, and Kernel Estimators</h3>
+<p>We propose weighted-bootstrap confidence intervals for the bias-corrected local linear estimator. The bias-correction approach is motivated by Calonico, Cattaneo, and Farrell (2018) and Cheng and Chen (2019). While Cheng and Chen (2019) develop a bias-corrected paired bootstrap and establish theoretical results for uniform confidence intervals, we investigate a weighted-bootstrap alternative and study its pointwise performance.</p>
+<div class="keyword-row">
+<span class="keyword-tag">Nonparametric Estimation</span>
+<span class="keyword-tag">Bootstrap</span>
+<span class="keyword-tag">Bias Correction</span>
+<span class="keyword-tag">Kernel Methods</span>
+</div>
+</article>
+
+<article class="paper-card">
+<div class="paper-label">Working paper</div>
+<h3>Autoregressive Dynamic Network Modeling with Serial and Cross-Sectional Dependence</h3>
+<p>This joint work with Professor Carsten Jentsch extends my master's thesis and studies dynamic network models with both serial and cross-sectional dependence.</p>
+<div class="keyword-row">
+<span class="keyword-tag">Network Models</span>
+<span class="keyword-tag">Time Series</span>
+<span class="keyword-tag">Dependence Structures</span>
+</div>
+</article>
+</div>
+</section>
+
+<section class="section-block">
+<h2>Presentations & Workshops</h2>
+<div class="activity-grid">
+<div class="activity-card">
+<h3>Selected Presentations</h3>
+
+<div class="activity-item">
+<span class="activity-year">2021</span>
+<p><strong>German Statistical Week</strong>, online, University of Kiel.<br><em>Nearest Neighbor Matching: Does the M-out-of-N Bootstrap Work When the Naive Bootstrap Fails?</em></p>
+</div>
+
+<div class="activity-item">
+<span class="activity-year">2018</span>
+<p><strong>German Probability and Statistics Days (GPSD)</strong>, University of Freiburg.<br><em>Modeling and Prediction of Dynamic Networks Using Binary Autoregressive Time Series Processes.</em></p>
+</div>
+</div>
+
+<div class="activity-card">
+<h3>Workshops and Summer Schools</h3>
+
+<div class="activity-item">
+<span class="activity-year">2019</span>
+<p><strong>Workshop on Mathematical Statistics ("StatMathAppli 2019")</strong>, Frejus. Lectures by Professor Matthieu Lerasle and Professor Peter Buhlmann.</p>
+</div>
+
+<div class="activity-item">
+<span class="activity-year">Workshop</span>
+<p><strong>Workshop on Causality</strong> (DFG Research Unit 1735, "Structural Inference in Statistics"), Uder. Lectures by Professor Jonas Peters and Professor Vanessa Didelez; attended through a scholarship invitation.</p>
+</div>
+
+<div class="activity-item">
+<span class="activity-year">2017</span>
+<p><strong>Bielefeld-Dortmund Summer School on Modern Topics in Time Series Analysis</strong>, TU Dortmund.</p>
+</div>
+</div>
+</div>
+</section>
+
+</div>

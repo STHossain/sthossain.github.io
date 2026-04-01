@@ -1,15 +1,20 @@
 ---
-title: "Teaching"
-number-sections: false
+title: ""
+format:
+  html:
+    css: styles.css
+    page-layout: custom
 ---
 
 <style>
+#quarto-header, .navbar, .quarto-navbar, .page-footer, .nav-footer { display: none !important; }
+#quarto-content { padding: 0 !important; margin: 0 !important; }
+.page-columns { display: block !important; }
+
 .teaching-intro {
   font-style: italic;
   color: #555;
   margin-bottom: 1.5rem;
-  font-size: 1.05rem;
-  line-height: 1.7;
 }
 
 .institution-card {
@@ -17,86 +22,85 @@ number-sections: false
 }
 
 .institution-header {
-  display: flex;
-  align-items: center;
-  gap: 1.2rem;
   padding: 0.5rem 0;
   border-bottom: 2px solid #e0e0e0;
   margin-bottom: 0.5rem;
 }
 
-.institution-header img {
-  height: 52px;
-  width: auto;
-  object-fit: contain;
-}
-
-.institution-header .inst-info h3 {
+.institution-header h3 {
   margin: 0 0 0.1rem 0;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: 700;
-  color: #222;
+  font-family: "Playfair Display", Georgia, serif;
+  color: #111;
 }
 
-.institution-header .inst-info span {
+.institution-header span {
   font-size: 0.88rem;
   color: #666;
 }
 
-.institution-body {
-  padding: 0.5rem 0;
+.institution-body { padding: 0.5rem 0; }
+.institution-body table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+.institution-body table thead tr { background-color: #f2f2f2; }
+.institution-body table th { text-align: left; padding: 0.5rem 0.8rem; font-weight: 600; color: #4C0000; border-bottom: 2px solid #ccc; }
+.institution-body table td { padding: 0.5rem 0.8rem; border-bottom: 1px solid #ebebeb; vertical-align: middle; }
+.institution-body table tr:last-child td { border-bottom: none; }
+.institution-body table tr:hover td { background-color: #fdf6f6; }
+
+.cake-photo { text-align: center; margin: 1rem 0 2rem 0; }
+.cake-photo img { border-radius: 10px; box-shadow: 0 3px 12px rgba(0,0,0,0.15); max-width: 60%; }
+.cake-photo p { font-size: 0.88rem; color: #777; margin-top: 0.5rem; font-style: italic; }
+
+@media (prefers-color-scheme: dark) {
+  .teaching-intro { color: #aaa; }
+  .institution-header h3 { color: #f0f0f0; }
+  .institution-header { border-bottom-color: #444; }
+  .institution-body table thead tr { background-color: #2a2a2a; }
+  .institution-body table th { color: #f0a0a0; border-bottom-color: #555; }
+  .institution-body table td { border-bottom-color: #333; }
+  .institution-body table tr:hover td { background-color: #2a2020; }
 }
 
-.institution-body table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 0.95rem;
-}
+body.quarto-dark .institution-header h3,
+html[data-bs-theme="dark"] .institution-header h3 { color: #f0f0f0 !important; }
 
-.institution-body table thead tr {
-  background-color: #f2f2f2;
-}
-
-.institution-body table th {
-  text-align: left;
-  padding: 0.5rem 0.8rem;
-  font-weight: 600;
-  color: #4C0000;
-  border-bottom: 2px solid #cccccc;
-}
-
-.institution-body table td {
-  padding: 0.5rem 0.8rem;
-  border-bottom: 1px solid #ebebeb;
-  vertical-align: middle;
-}
-
-.institution-body table tr:last-child td {
-  border-bottom: none;
-}
-
-.institution-body table tr:hover td {
-  background-color: #fdf6f6;
-}
-
-.cake-photo {
-  text-align: center;
-  margin: 1.5rem 0 2rem 0;
-}
-
-.cake-photo img {
-  border-radius: 10px;
-  box-shadow: 0 3px 12px rgba(0,0,0,0.15);
-  max-width: 50%;
-}
-
-.cake-photo p {
-  font-size: 0.88rem;
-  color: #777;
-  margin-top: 0.5rem;
-  font-style: italic;
+@media (max-width: 650px) {
+  .cake-photo img { max-width: 90%; }
 }
 </style>
+
+<div class="site-page">
+
+<div class="site-sidebar">
+
+<p class="index-name">Shaikh Tanvir Hossain</p>
+
+<p class="index-affil">Doctoral Candidate<br>TU Dortmund</p>
+
+<ul class="index-nav">
+  <li><a href="index.html">Home</a></li>
+  <li><a href="research.html">Research</a></li>
+  <li><a href="teaching.html">Teaching</a></li>
+  <li><a href="cv.html">CV</a></li>
+  <li><a href="https://github.com/STHossain" target="_blank"><svg class="nav-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.64 7.64 0 0 1 2-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg> GitHub</a></li>
+  <li><span id="eml"></span></li>
+</ul>
+
+<script>
+(function(){
+  var u='tanvir.hossain', d='tu-dortmund.de';
+  var el=document.getElementById('eml');
+  var a=document.createElement('a');
+  a.href='mai'+'lto:'+u+'@'+d;
+  a.innerHTML='<svg class="nav-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2zm13 2.383-4.708 2.825L15 11.105V5.383zm-.034 6.876L10.294 8.85 8 10.283 5.706 8.85l-4.672 3.41A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741zM1 11.105l4.708-2.897L1 5.383v5.722z"/></svg> '+u+'@'+d;
+  el.appendChild(a);
+})();
+</script>
+
+</div>
+
+<div class="site-content">
 
 <p class="teaching-intro">I love teaching — over the years I have learned a great deal from my students, both in Germany and in Bangladesh. Below I share some of the materials I have prepared for my courses.</p>
 
@@ -105,14 +109,10 @@ number-sections: false
 <p>Students made a cake for me on the last day of MAT 211. The cake says <em>Theory maf kroen sir</em> — <em>"Sir, forgive us from the theory!"</em></p>
 </div>
 
----
-
 <div class="institution-card">
-<div class="institution-header ewu">
-<div class="inst-info">
+<div class="institution-header">
 <h3>East West University</h3>
 <span>Dhaka, Bangladesh</span>
-</div>
 </div>
 <div class="institution-body">
 
@@ -127,21 +127,19 @@ number-sections: false
 </div>
 
 <div class="institution-card">
-<div class="institution-header tudo">
-<div class="inst-info">
+<div class="institution-header">
 <h3>TU Dortmund</h3>
 <span>Dortmund, Germany</span>
-</div>
 </div>
 <div class="institution-body">
 
 <p style="font-size: 0.9rem; color: #666; margin-bottom: 1rem; font-style: italic;">
-* Note: Past course offerings can be verified via the <a href="https://lwus.statistik.tu-dortmund.de/en/teaching/courses/" target="_blank">TU Dortmund department archives</a> (listed under the name <strong>S. Hossain</strong>).
+* Past course offerings can be verified via the <a href="https://lwus.statistik.tu-dortmund.de/en/teaching/courses/" target="_blank">TU Dortmund department archives</a> (listed under the name <strong>S. Hossain</strong>).
 </p>
 
 | Course | Role | Term(s) | Links |
 |--------|------|---------|-------|
-| Programming with Julia | Instructor | Winter Semester 2019/20 (Cancelled due to Covid - 19)<br>Winter Semester 2020/21 | [Materials](julia_course.qmd) |
+| Programming with Julia | Instructor | Winter Semester 2019/20 (Cancelled due to Covid-19), Winter Semester 2020/21 | [Materials](julia_course.qmd) |
 | Pre-course Statistics, Statistical Estimation | Instructor | | |
 | Asymptotic Theory (Part of Statistics Theory Course) | Teaching Assistant | Winter Semester 2019/20, Winter Semester 2020/21 | |
 | Econometrics of Treatment Effects and Policy Evaluation | Teaching Assistant | Summer Semester 2020 | |
@@ -151,11 +149,9 @@ number-sections: false
 </div>
 
 <div class="institution-card">
-<div class="institution-header uni-ma">
-<div class="inst-info">
+<div class="institution-header">
 <h3>University of Mannheim</h3>
 <span>Mannheim, Germany</span>
-</div>
 </div>
 <div class="institution-body">
 
@@ -164,4 +160,8 @@ number-sections: false
 | Impact Evaluation and Research Design | Teaching Assistant | Winter Semester 2017/18 | |
 
 </div>
+</div>
+
+</div>
+
 </div>

@@ -197,6 +197,130 @@ html[data-bs-theme="dark"] .about-entity .about-entity-heading {
   color: #f8f9fa !important;
 }
 
+/* ===== Shared sidebar layout for all custom pages ===== */
+
+.site-page {
+  display: flex;
+  max-width: 1100px;
+  margin: 5rem auto;
+  padding: 0 2rem;
+  gap: 3.5rem;
+  align-items: flex-start;
+}
+
+.site-sidebar {
+  flex: 0 0 200px;
+}
+
+.site-sidebar .index-name {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0 0 0.25rem 0;
+  color: #111;
+  white-space: nowrap;
+}
+
+.site-sidebar .index-affil {
+  font-size: 0.85rem;
+  color: #555;
+  margin: 0 0 1.3rem 0;
+  line-height: 1.45;
+}
+
+.site-sidebar .index-nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.site-sidebar .index-nav li {
+  margin-bottom: 0.3rem;
+}
+
+.site-sidebar .index-nav a {
+  font-size: 0.92rem;
+  color: #111;
+  text-decoration: none;
+  font-family: "EB Garamond", Georgia, serif;
+  white-space: nowrap;
+}
+
+.site-sidebar .index-nav a:hover {
+  text-decoration: underline;
+}
+
+.site-sidebar .index-sketch {
+  width: 100%;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+}
+
+.nav-icon {
+  width: 0.9em;
+  height: 0.9em;
+  vertical-align: -0.1em;
+  margin-right: 0.15em;
+}
+
+.site-content {
+  flex: 1;
+  font-family: "EB Garamond", Georgia, serif;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #212529;
+  min-width: 0;
+}
+
+.site-content p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.site-content a {
+  color: #111;
+}
+
+.site-content a:hover {
+  text-decoration: underline;
+}
+
+/* Dark mode — sidebar */
+@media (prefers-color-scheme: dark) {
+  .site-sidebar .index-name { color: #f0f0f0; }
+  .site-sidebar .index-affil { color: #aaa; }
+  .site-sidebar .index-nav a { color: #ddd; }
+  .site-content { color: #ccc; }
+  .site-content a { color: #ddd; }
+}
+
+body.quarto-dark .site-sidebar .index-name,
+html[data-bs-theme="dark"] .site-sidebar .index-name { color: #f0f0f0 !important; }
+body.quarto-dark .site-sidebar .index-affil,
+html[data-bs-theme="dark"] .site-sidebar .index-affil { color: #aaa !important; }
+body.quarto-dark .site-sidebar .index-nav a,
+html[data-bs-theme="dark"] .site-sidebar .index-nav a { color: #ddd !important; }
+body.quarto-dark .site-content,
+html[data-bs-theme="dark"] .site-content { color: #ccc !important; }
+body.quarto-dark .site-content a,
+html[data-bs-theme="dark"] .site-content a { color: #ddd !important; }
+
+/* Mobile — shared */
+@media (max-width: 650px) {
+  .site-page {
+    flex-direction: column;
+    margin: 2.5rem auto;
+    gap: 1.5rem;
+  }
+  .site-sidebar {
+    flex: none;
+    width: 100%;
+  }
+  .site-sidebar .index-sketch {
+    width: 45%;
+  }
+}
+
 .index-grid {
   display: flex;
   justify-content: space-between;

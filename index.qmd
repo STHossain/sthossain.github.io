@@ -7,155 +7,50 @@ format:
 ---
 
 <style>
-/* Hide navbar and footer on index page */
-#quarto-header,
-.navbar,
-.quarto-navbar,
-.page-footer,
-.nav-footer {
-  display: none !important;
-}
-
-#quarto-content {
-  padding: 0 !important;
-  margin: 0 !important;
-}
-
-.page-columns {
-  display: block !important;
-}
-
-/* Index page layout */
-.index-page {
-  display: flex;
-  max-width: 1100px;
-  margin: 5rem auto;
-  padding: 0 2rem;
-  gap: 3.5rem;
-  align-items: flex-start;
-}
-
-.index-sidebar {
-  flex: 0 0 165px;
-}
-
-.index-name {
-  font-family: "Playfair Display", Georgia, serif;
-  font-size: 1.2rem;
-  font-weight: 600;
-  margin: 0 0 0.25rem 0;
-  color: #111;
-}
-
-.index-affil {
-  font-size: 0.85rem;
-  color: #555;
-  margin: 0 0 1.3rem 0;
-  line-height: 1.45;
-}
-
-.index-nav {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.index-nav li {
-  margin-bottom: 0.3rem;
-}
-
-.index-nav a {
-  font-size: 0.92rem;
-  color: #111;
-  text-decoration: none;
-  font-family: "EB Garamond", Georgia, serif;
-}
-
-.index-nav a:hover {
-  text-decoration: underline;
-}
-
-.index-bio {
-  flex: 1;
-  font-family: "EB Garamond", Georgia, serif;
-  font-size: 1.05rem;
-  line-height: 1.7;
-  color: #212529;
-}
-
-.index-bio p {
-  margin-top: 0;
-  margin-bottom: 1.2rem;
-}
-
-.index-bio a {
-  color: #111;
-}
-
-.index-bio a:hover {
-  text-decoration: underline;
-}
-
-/* Dark mode */
-@media (prefers-color-scheme: dark) {
-  .index-name { color: #f0f0f0; }
-  .index-affil { color: #aaa; }
-  .index-nav a { color: #ddd; }
-  .index-bio { color: #ccc; }
-  .index-bio a { color: #ddd; }
-}
-
-body.quarto-dark .index-name,
-html[data-bs-theme="dark"] .index-name { color: #f0f0f0 !important; }
-body.quarto-dark .index-affil,
-html[data-bs-theme="dark"] .index-affil { color: #aaa !important; }
-body.quarto-dark .index-nav a,
-html[data-bs-theme="dark"] .index-nav a { color: #ddd !important; }
-body.quarto-dark .index-bio,
-html[data-bs-theme="dark"] .index-bio { color: #ccc !important; }
-body.quarto-dark .index-bio a,
-html[data-bs-theme="dark"] .index-bio a { color: #ddd !important; }
-
-/* Mobile */
-@media (max-width: 650px) {
-  .index-page {
-    flex-direction: column;
-    margin: 2.5rem auto;
-    gap: 1.5rem;
-  }
-  .index-sidebar {
-    flex: none;
-    width: 100%;
-  }
-
-}
+#quarto-header, .navbar, .quarto-navbar, .page-footer, .nav-footer { display: none !important; }
+#quarto-content { padding: 0 !important; margin: 0 !important; }
+.page-columns { display: block !important; }
 </style>
 
 <!-- مَا شَاءَ اللَّهُ لَا قُوَّةَ إِلَّا بِاللَّهِ -->
 
-<div class="index-page">
+<div class="site-page">
 
-<div class="index-sidebar">
+<div class="site-sidebar">
+
+<img src="img/pic2_sketch.png" alt="Sketch" class="index-sketch"/>
 
 <p class="index-name">Shaikh Tanvir Hossain</p>
 
 <p class="index-affil">Doctoral Candidate<br>TU Dortmund</p>
 
 <ul class="index-nav">
+  <li><a href="index.html">Home</a></li>
   <li><a href="research.html">Research</a></li>
   <li><a href="teaching.html">Teaching</a></li>
   <li><a href="cv.html">CV</a></li>
-  <li><a href="https://github.com/STHossain" target="_blank">GitHub</a></li>
-  <li><a href="mailto:tanvir.hossain@tu-dortmund.de">Email</a></li>
+  <li><a href="https://github.com/STHossain" target="_blank"><svg class="nav-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.64 7.64 0 0 1 2-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg> GitHub</a></li>
+  <li><span id="eml"></span></li>
 </ul>
+
+<script>
+(function(){
+  var u='tanvir.hossain', d='tu-dortmund.de';
+  var el=document.getElementById('eml');
+  var a=document.createElement('a');
+  a.href='mai'+'lto:'+u+'@'+d;
+  a.innerHTML='<svg class="nav-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2zm13 2.383-4.708 2.825L15 11.105V5.383zm-.034 6.876L10.294 8.85 8 10.283 5.706 8.85l-4.672 3.41A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741zM1 11.105l4.708-2.897L1 5.383v5.722z"/></svg> '+u+'@'+d;
+  el.appendChild(a);
+})();
+</script>
 
 </div>
 
-<div class="index-bio">
+<div class="site-content">
 
 I am a final-year doctoral candidate in the Faculty of Business and Economics at [Technical University of Dortmund (TU Dortmund)](https://www.tu-dortmund.de/en/) under the supervision of [Professor Carsten Jentsch](https://lwus.statistik.tu-dortmund.de/en/chair/team/jentsch/). My dissertation, titled *Parametric and Nonparametric Learners for Adaptive Experiments*, has been submitted and is currently under review, with expected completion by mid-2026. Previously, I worked at the Department of Economics, [East West University, Bangladesh](https://www.ewubd.edu/) as a Lecturer (January – September 2025), where I taught undergraduate statistics courses for business and economics students. Before that, from 2018 to 2022, as a doctoral student I also worked as a research associate (*Wissenschaftlicher Mitarbeiter*) in the Department of Statistics at TU Dortmund ([alumni page](https://lwus.statistik.tu-dortmund.de/en/chair/alumni/)), where I served as a teaching assistant and course instructor for graduate-level courses in econometrics, statistics, and data science. I gratefully acknowledge all their support and guidance during this period.
 
-I obtained an M.Sc. in Economics from the [University of Mannheim, Germany](https://www.uni-mannheim.de/en/) and a Bachelor's degree in Business Administration with a second major in Economics from [BRAC University, Bangladesh](https://www.bracu.ac.bd/). After finishing my Bachelor's I worked as a project assistant at [Innovations for Poverty Action (IPA)](https://poverty-action.org/) in Bangladesh, on a project titled *Building management hierarchies for growth in LICs: understanding the role of supervisor training in the Bangladeshi garment sector*, led by [Professor Christopher Woodruff (Oxford)](https://www.qeh.ox.ac.uk/people/christopher-woodruff), [Professor Rocco Macchiavello (LSE)](https://www.lse.ac.uk/management/people/academic-staff/rocco-macchiavello), and [Professor Atonu Rabbani (Dhaka University)](https://www.du.ac.bd/faculty/faculty_details/ECO/401) as Principal Investigators.
+I obtained an M.Sc. in Economics from the [University of Mannheim, Germany](https://www.uni-mannheim.de/en/) and a Bachelor's degree in Business Administration with a second major in Economics from [BRAC University, Bangladesh](https://www.bracu.ac.bd/). After finishing my Bachelor's I worked as a project assistant at [Innovations for Poverty Action (IPA)](https://poverty-action.org/) in Bangladesh, on a project titled *Building management hierarchies for growth in LICs: understanding the role of supervisor training in the Bangladeshi garment sector*.
 
 My research interests lie at the intersection of Causal Inference, Econometrics, and Machine Learning. In my dissertation, I focus on adaptive experiments (a.k.a. bandit algorithms), from both theoretical and applied perspectives.
 
