@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Sk. Tanvir Hossain</title>
+<title>cv – Sk. Tanvir Hossain</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -253,7 +253,7 @@ gtag('config', 'G-JJNF7NSLWR', { 'anonymize_ip': true});
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="./index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
@@ -265,7 +265,7 @@ gtag('config', 'G-JJNF7NSLWR', { 'anonymize_ip': true});
 <span class="menu-text">Teaching</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./cv.html"> 
+    <a class="nav-link active" href="./cv.html" aria-current="page"> 
 <span class="menu-text">CV</span></a>
   </li>  
 </ul>
@@ -302,11 +302,55 @@ gtag('config', 'G-JJNF7NSLWR', { 'anonymize_ip': true});
 #quarto-header, .navbar, .quarto-navbar, .page-footer, .nav-footer { display: none !important; }
 #quarto-content { padding: 0 !important; margin: 0 !important; }
 .page-columns { display: block !important; }
+
+.cv-download {
+  margin-bottom: 1.2rem;
+}
+
+.cv-download a {
+  display: inline-block;
+  padding: 0.5rem 1.2rem;
+  background-color: #4C0000;
+  color: white !important;
+  text-decoration: none;
+  border-radius: 0.4rem;
+  font-family: "EB Garamond", Georgia, serif;
+  font-size: 1rem;
+  transition: background-color 0.2s ease;
+}
+
+.cv-download a:hover {
+  background-color: #6B0000;
+  text-decoration: none;
+}
+
+.cv-pdf-container {
+  width: 100%;
+  border: 1px solid #dee2e6;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.cv-pdf-container iframe {
+  width: 100%;
+  height: 85vh;
+  border: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  .cv-pdf-container { border-color: #495057; }
+}
+
+body.quarto-dark .cv-pdf-container,
+html[data-bs-theme="dark"] .cv-pdf-container { border-color: #495057; }
+
+@media (max-width: 650px) {
+  .cv-pdf-container iframe { height: 70vh; }
+}
 </style>
-<!-- مَا شَاءَ اللَّهُ لَا قُوَّةَ إِلَّا بِاللَّهِ -->
 <div class="site-page">
 <div class="site-sidebar">
-<p><img src="img/pic2_sketch.png" alt="Sketch" class="index-sketch"></p>
 <p class="index-name">
 Shaikh Tanvir Hossain
 </p>
@@ -345,10 +389,13 @@ Doctoral Candidate<br>TU Dortmund
 </script>
 </div>
 <div class="site-content">
-<p>I am a final-year doctoral candidate in the Faculty of Business and Economics at <a href="https://www.tu-dortmund.de/en/">Technical University of Dortmund (TU Dortmund)</a> under the supervision of <a href="https://lwus.statistik.tu-dortmund.de/en/chair/team/jentsch/">Professor Carsten Jentsch</a>. My dissertation, titled <em>Parametric and Nonparametric Learners for Adaptive Experiments</em>, has been submitted and is currently under review, with expected completion by mid-2026. Previously, I worked at the Department of Economics, <a href="https://www.ewubd.edu/">East West University, Bangladesh</a> as a Lecturer (January – September 2025), where I taught undergraduate statistics courses for business and economics students. Before that, from 2018 to 2022, as a doctoral student I also worked as a research associate (<em>Wissenschaftlicher Mitarbeiter</em>) in the Department of Statistics at TU Dortmund (<a href="https://lwus.statistik.tu-dortmund.de/en/chair/alumni/">alumni page</a>), where I served as a teaching assistant and course instructor for graduate-level courses in econometrics, statistics, and data science. I gratefully acknowledge all their support and guidance during this period.</p>
-<p>I obtained an M.Sc. in Economics from the <a href="https://www.uni-mannheim.de/en/">University of Mannheim, Germany</a> and a Bachelor’s degree in Business Administration with a second major in Economics from <a href="https://www.bracu.ac.bd/">BRAC University, Bangladesh</a>. After finishing my Bachelor’s I worked as a project assistant at <a href="https://poverty-action.org/">Innovations for Poverty Action (IPA)</a> in Bangladesh, on a project titled <em>Building management hierarchies for growth in LICs: understanding the role of supervisor training in the Bangladeshi garment sector</em>.</p>
-<p>My research interests lie at the intersection of Causal Inference, Econometrics, and Machine Learning. In my dissertation, I focus on adaptive experiments (a.k.a. bandit algorithms), from both theoretical and applied perspectives.</p>
-<p>I am passionate about teaching statistics, econometrics, and programming. I love coding and theories related to different topics, and I want my students to love them too — but that doesn’t always happen. You can find my CV <a href="cv/Tanvir_cv.pdf">here</a> and some of my past teaching materials <a href="teaching.html">here</a>.</p>
+<div class="cv-download">
+<p><a href="cv/Tanvir_cv.pdf" download="Shaikh_Tanvir_Hossain_CV.pdf">Download CV (PDF)</a></p>
+</div>
+<div class="cv-pdf-container">
+<iframe src="cv/Tanvir_cv.pdf" title="CV of Shaikh Tanvir Hossain">
+</iframe>
+</div>
 </div>
 </div>
 

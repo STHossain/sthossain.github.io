@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="description" content="Julia Programming Course at TU Dortmund, Fall 2021">
 
-<title>Sk. Tanvir Hossain</title>
+<title>Programming with Julia – Sk. Tanvir Hossain</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -68,10 +69,14 @@ gtag('config', 'G-JJNF7NSLWR', { 'anonymize_ip': true});
 
 
 <link rel="stylesheet" href="styles.css">
-<meta property="og:title" content="– Sk. Tanvir Hossain">
+<meta property="og:title" content="Programming with Julia – Sk. Tanvir Hossain">
+<meta property="og:description" content="Julia Programming Course at TU Dortmund, Fall 2021">
+<meta property="og:image" content="https://STHossain.github.io/sthossain.github.io/teaching/tudo/julia_course/JuliaLogo.svg">
 <meta property="og:site_name" content="Sk. Tanvir Hossain">
-<meta name="twitter:title" content="– Sk. Tanvir Hossain">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Programming with Julia – Sk. Tanvir Hossain">
+<meta name="twitter:description" content="Julia Programming Course at TU Dortmund, Fall 2021">
+<meta name="twitter:image" content="https://STHossain.github.io/sthossain.github.io/teaching/tudo/julia_course/JuliaLogo.svg">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 
 <body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -253,7 +258,7 @@ gtag('config', 'G-JJNF7NSLWR', { 'anonymize_ip': true});
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="./index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
@@ -289,72 +294,213 @@ gtag('config', 'G-JJNF7NSLWR', { 'anonymize_ip': true});
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-layout-custom page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#course-schedule" id="toc-course-schedule" class="nav-link active" data-scroll-target="#course-schedule"><span class="header-section-number">1</span> Course Schedule</a></li>
+  <li><a href="#course-details" id="toc-course-details" class="nav-link" data-scroll-target="#course-details"><span class="header-section-number">2</span> Course Details</a>
+  <ul class="collapse">
+  <li><a href="#about-jupyter-notebooks" id="toc-about-jupyter-notebooks" class="nav-link" data-scroll-target="#about-jupyter-notebooks"><span class="header-section-number">2.1</span> About Jupyter Notebooks</a></li>
+  <li><a href="#rough-guideline-for-the-5-days" id="toc-rough-guideline-for-the-5-days" class="nav-link" data-scroll-target="#rough-guideline-for-the-5-days"><span class="header-section-number">2.2</span> Rough Guideline for the 5 Days</a></li>
+  <li><a href="#evaluation" id="toc-evaluation" class="nav-link" data-scroll-target="#evaluation"><span class="header-section-number">2.3</span> Evaluation</a></li>
+  </ul></li>
+  <li><a href="#resources-to-start" id="toc-resources-to-start" class="nav-link" data-scroll-target="#resources-to-start"><span class="header-section-number">3</span> Resources to Start</a></li>
+  <li><a href="#course-materials" id="toc-course-materials" class="nav-link" data-scroll-target="#course-materials"><span class="header-section-number">4</span> Course Materials</a>
+  <ul class="collapse">
+  <li><a href="#day-1" id="toc-day-1" class="nav-link" data-scroll-target="#day-1"><span class="header-section-number">4.1</span> Day 1</a></li>
+  <li><a href="#day-2" id="toc-day-2" class="nav-link" data-scroll-target="#day-2"><span class="header-section-number">4.2</span> Day 2</a></li>
+  <li><a href="#day-3" id="toc-day-3" class="nav-link" data-scroll-target="#day-3"><span class="header-section-number">4.3</span> Day 3</a></li>
+  <li><a href="#day-4" id="toc-day-4" class="nav-link" data-scroll-target="#day-4"><span class="header-section-number">4.4</span> Day 4</a></li>
+  <li><a href="#day-5" id="toc-day-5" class="nav-link" data-scroll-target="#day-5"><span class="header-section-number">4.5</span> Day 5</a></li>
+  </ul></li>
+  <li><a href="#practice-problems" id="toc-practice-problems" class="nav-link" data-scroll-target="#practice-problems"><span class="header-section-number">5</span> Practice Problems</a></li>
+  <li><a href="#graded-assignments" id="toc-graded-assignments" class="nav-link" data-scroll-target="#graded-assignments"><span class="header-section-number">6</span> Graded Assignments</a>
+  <ul class="collapse">
+  <li><a href="#problem-set-1" id="toc-problem-set-1" class="nav-link" data-scroll-target="#problem-set-1"><span class="header-section-number">6.1</span> Problem Set 1</a></li>
+  <li><a href="#problem-set-2" id="toc-problem-set-2" class="nav-link" data-scroll-target="#problem-set-2"><span class="header-section-number">6.2</span> Problem Set 2</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
+<main class="content column-page-left" id="quarto-document-content">
 
 
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Programming with Julia</h1>
+</div>
+
+<div>
+  <div class="description">
+    Julia Programming Course at TU Dortmund, Fall 2021
+  </div>
+</div>
 
 
+<div class="quarto-title-meta column-page-left">
 
-<style>
-#quarto-header, .navbar, .quarto-navbar, .page-footer, .nav-footer { display: none !important; }
-#quarto-content { padding: 0 !important; margin: 0 !important; }
-.page-columns { display: block !important; }
-</style>
-<!-- مَا شَاءَ اللَّهُ لَا قُوَّةَ إِلَّا بِاللَّهِ -->
-<div class="site-page">
-<div class="site-sidebar">
-<p><img src="img/pic2_sketch.png" alt="Sketch" class="index-sketch"></p>
-<p class="index-name">
-Shaikh Tanvir Hossain
-</p>
-<p class="index-affil">
-Doctoral Candidate<br>TU Dortmund
-</p>
-<ul class="index-nav">
-<li>
-<a href="index.html">Home</a>
-</li>
-<li>
-<a href="research.html">Research</a>
-</li>
-<li>
-<a href="teaching.html">Teaching</a>
-</li>
-<li>
-<a href="cv.html">CV</a>
-</li>
-<li>
-<a href="https://github.com/STHossain" target="_blank"><svg class="nav-icon" viewbox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.64 7.64 0 0 1 2-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg> GitHub</a>
-</li>
-<li>
-<span id="eml"></span>
-</li>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="teaching/tudo/julia_course/JuliaLogo.svg" width="400" height="200" class="figure-img"></p>
+<figcaption>Julia Logo</figcaption>
+</figure>
+</div>
+<section id="course-schedule" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="course-schedule"><span class="header-section-number">1</span> Course Schedule</h2>
+<ol type="1">
+<li><p><strong>Instructor</strong>: Shaikh Tanvir Hossain</p></li>
+<li><p><strong>Course Dates</strong>: The course is divided into two weeks (a total of 5 days from 8.30 to 5.00, including lunch breaks):</p>
+<ul>
+<li><strong>Week 1</strong>: 23rd and 24th of March</li>
+<li><strong>Week 2</strong>: 29th to 31st of March</li>
+</ul></li>
+<li><p><strong>Exercise Schedule</strong>: All exercises will be given in the second week.</p></li>
+<li><p><strong>Final Evaluation</strong>: To get points, you need to solve the exercises. The final evaluation will be an interview quiz (short question-answer session via Zoom). More details will be posted here gradually. For now, please install Julia, VSCode, and Jupyter Notebook.</p></li>
+</ol>
+<hr>
+</section>
+<section id="course-details" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="course-details"><span class="header-section-number">2</span> Course Details</h2>
+<section id="about-jupyter-notebooks" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="about-jupyter-notebooks"><span class="header-section-number">2.1</span> About Jupyter Notebooks</h3>
+<p>I already uploaded a video in Moodle. In the first video, I mentioned that you only need to install VSCode as an IDE, but actually, we also need Jupyter Notebook. In particular, you will need Jupyter Notebooks to solve the problem sets. The submissions must be done using Jupyter Notebooks, so please install it. Visit the <a href="https://jupyter.org/install">Jupyter Notebook site</a> and install it. If you face any issues, consider installing Anaconda. Once you have installed Jupyter Notebook, you need to install the IJulia package inside a Julia kernel.</p>
+</section>
+<section id="rough-guideline-for-the-5-days" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="rough-guideline-for-the-5-days"><span class="header-section-number">2.2</span> Rough Guideline for the 5 Days</h3>
+<p>All clock times given are in local time in Germany.</p>
+<ul>
+<li><p><strong>23rd of March</strong>:</p>
+<ul>
+<li>Live Zoom session from 8:30 AM to 12:00 PM (with short breaks).</li>
+<li>Solve some practice exercises (not graded) on your own.</li>
+<li>Discuss solutions and answer questions in another live Zoom session from 5:00 PM to 6:00 PM.</li>
+</ul></li>
+<li><p><strong>24th of March</strong>:</p>
+<ul>
+<li>Same as Day 1.</li>
 </ul>
-<script>
-(function(){
-  var u='tanvir.hossain', d='tu-dortmund.de';
-  var el=document.getElementById('eml');
-  var a=document.createElement('a');
-  a.href='mai'+'lto:'+u+'@'+d;
-  a.innerHTML='<svg class="nav-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2zm13 2.383-4.708 2.825L15 11.105V5.383zm-.034 6.876L10.294 8.85 8 10.283 5.706 8.85l-4.672 3.41A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741zM1 11.105l4.708-2.897L1 5.383v5.722z"/></svg> '+u+'@'+d;
-  el.appendChild(a);
-})();
-</script>
-</div>
-<div class="site-content">
-<p>I am a final-year doctoral candidate in the Faculty of Business and Economics at <a href="https://www.tu-dortmund.de/en/">Technical University of Dortmund (TU Dortmund)</a> under the supervision of <a href="https://lwus.statistik.tu-dortmund.de/en/chair/team/jentsch/">Professor Carsten Jentsch</a>. My dissertation, titled <em>Parametric and Nonparametric Learners for Adaptive Experiments</em>, has been submitted and is currently under review, with expected completion by mid-2026. Previously, I worked at the Department of Economics, <a href="https://www.ewubd.edu/">East West University, Bangladesh</a> as a Lecturer (January – September 2025), where I taught undergraduate statistics courses for business and economics students. Before that, from 2018 to 2022, as a doctoral student I also worked as a research associate (<em>Wissenschaftlicher Mitarbeiter</em>) in the Department of Statistics at TU Dortmund (<a href="https://lwus.statistik.tu-dortmund.de/en/chair/alumni/">alumni page</a>), where I served as a teaching assistant and course instructor for graduate-level courses in econometrics, statistics, and data science. I gratefully acknowledge all their support and guidance during this period.</p>
-<p>I obtained an M.Sc. in Economics from the <a href="https://www.uni-mannheim.de/en/">University of Mannheim, Germany</a> and a Bachelor’s degree in Business Administration with a second major in Economics from <a href="https://www.bracu.ac.bd/">BRAC University, Bangladesh</a>. After finishing my Bachelor’s I worked as a project assistant at <a href="https://poverty-action.org/">Innovations for Poverty Action (IPA)</a> in Bangladesh, on a project titled <em>Building management hierarchies for growth in LICs: understanding the role of supervisor training in the Bangladeshi garment sector</em>.</p>
-<p>My research interests lie at the intersection of Causal Inference, Econometrics, and Machine Learning. In my dissertation, I focus on adaptive experiments (a.k.a. bandit algorithms), from both theoretical and applied perspectives.</p>
-<p>I am passionate about teaching statistics, econometrics, and programming. I love coding and theories related to different topics, and I want my students to love them too — but that doesn’t always happen. You can find my CV <a href="cv/Tanvir_cv.pdf">here</a> and some of my past teaching materials <a href="teaching.html">here</a>.</p>
-</div>
-</div>
+<p><em>The exercises for these two days are for practice only and won’t be graded. I’ll discuss the solutions, and you should correct your mistakes. Feel free to ask questions during the Q&amp;A sessions from 5:00 PM to 6:00 PM.</em></p></li>
+<li><p><strong>29th of March</strong>:</p>
+<ul>
+<li>Live Zoom session from 8:30 AM to 12:00 PM (with short breaks).</li>
+<li>Solve graded exercises and submit via Moodle within 2-3 hours of being posted.</li>
+<li>Discuss solutions in a live Zoom session from 5:00 PM to 6:00 PM.</li>
+</ul></li>
+<li><p><strong>30th of March</strong>:</p>
+<ul>
+<li>Same as Day 3.</li>
+<li>Another graded exercise sheet will be given; submit via Moodle.</li>
+<li>Discuss solutions in a live Zoom session from 5:00 PM to 6:00 PM.</li>
+</ul></li>
+<li><p><strong>31st of March</strong>:</p>
+<ul>
+<li>Before the afternoon, same as the last two days.</li>
+<li>A graded exercise sheet will be given, and you need to submit via Moodle.</li>
+<li>A short quiz will be held from 4:00 PM to 6:00 PM via Zoom.</li>
+</ul></li>
+</ul>
+</section>
+<section id="evaluation" class="level3" data-number="2.3">
+<h3 data-number="2.3" class="anchored" data-anchor-id="evaluation"><span class="header-section-number">2.3</span> Evaluation</h3>
+<p>Submission of all three graded exercise sheets is mandatory to pass the course. You only need to score at least 40% on each exercise sheet to pass. The exercise sheets must be submitted within 2-3 hours of being posted on Moodle. Additionally, you must be present for the live quiz session via Zoom on 31st March from 4:00 PM to 6:00 PM to pass the course.</p>
+<p>The final exam consists of the following two components:</p>
+<ol type="1">
+<li><strong>Passing the Exercise Sheets</strong>: Scoring 40% on each exercise sheet.</li>
+<li><strong>Passing the Quiz</strong>: Performance in the quiz will impact your grade.</li>
+</ol>
+</section>
+</section>
+<section id="resources-to-start" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="resources-to-start"><span class="header-section-number">3</span> Resources to Start</h2>
+<ul>
+<li><p><a href="https://www.youtube.com/watch?v=8h8rQyEpiZA&amp;t=181s">Tutorial to Basic Syntax</a>: This is an introduction to the Basic Syntax in Julia. Please install Jupyter Notebook and go along with it. All notebooks are available in a github repo</p></li>
+<li><p><a href="teaching/tudo/julia_course/julia-1.5.3.pdf">Manual for 1.5.3 version</a>: Julia is being updated currently from 1.5.3 to 1.5.4., so you might not find the manual for the 1.5.4 yet! But soon there should be manual on the Julia Documentation page. Here is the older one for 1.5.3</p></li>
+<li><p><a href="https://www.youtube.com/playlist?list=PLP8iPy9hna6SCcFv3FvY_qjAmtTsNYHQE">A playlist for basic syntax</a>: This uses an older version of the Julia. The one in the above is relatively newer. But this playlist also has an instruction how to use Jupyter notebooks.</p></li>
+<li><p><a href="https://github.com/JuliaAcademy/JuliaTutorials/tree/main/introductory-tutorials/intro-to-julia">Github Repo from the Julia Academy</a>.</p></li>
+<li><p><a href="https://github.com/JuliaAcademy">Different Courses from Julia Academy</a>: Julia Academy provides different courses and here you will find all resources that are used in the video lectures.</p></li>
+<li><p><a href="https://www.youtube.com/watch?v=6JcMuFgnA6U&amp;t=211s"><strong>Why Julia is fast (By Steven Johnson, MIT)</strong></a>: Excellent presentation, watch it if you can. This also explains the issue of two language problem, and why Julia is a solution for that.</p></li>
+<li><p><a href="https://moodle.tu-dortmund.de/mod/url/view.php?id=818142">Think Julia</a>: This is free online book, you can have a look if you want!</p></li>
+<li><p><a href="https://www.youtube.com/playlist?list=PLP8iPy9hna6Qpx0MgGyElJ5qFlaIXYf1R">Julia Programming for Nervous Beginners</a> If you are struggling with for loops, if else conditions, and the basic programming techniques, then this might be helpful.</p></li>
+</ul>
+</section>
+<section id="course-materials" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="course-materials"><span class="header-section-number">4</span> Course Materials</h2>
+<section id="day-1" class="level3" data-number="4.1">
+<h3 data-number="4.1" class="anchored" data-anchor-id="day-1"><span class="header-section-number">4.1</span> Day 1</h3>
+<ul>
+<li><p>Part 1: Introduction, <a href="teaching/tudo/julia_course/day1/part_1_introduction/01_introduction/01.introduction.html">HTML file</a>, <a href="teaching/tudo/julia_course/day1/part_1_introduction/01_introduction/01.introduction.pdf">PDF</a>, <a href="teaching/tudo/julia_course/day1/part_1_introduction/01_introduction.zip">Zipped folder</a></p></li>
+<li><p>Part 2: Basic Syntax, <a href="teaching/tudo/julia_course/day1/part_2_basic_syntax/02_basic_syntax/02.julia_basics.html">HTML file</a>, <a href="teaching/tudo/julia_course/day1/part_2_basic_syntax/02_basic_syntax/02.julia_basics.pdf">PDF</a>, <a href="teaching/tudo/julia_course/day1/part_2_basic_syntax/02_basic_syntax.zip">Zipped folder</a></p></li>
+<li><p>Part 3: Generic Programming, <a href="teaching/tudo/julia_course/day1/part_3_generic_programming/03_generic_programming/03.generic_programming.html">HTML file</a>, <a href="teaching/tudo/julia_course/day1/part_3_generic_programming/03_generic_programming/03.generic_programming.pdf">PDF</a>, <a href="teaching/tudo/julia_course/day1/part_3_generic_programming/03_generic_programming.zip">Zipped folder</a></p></li>
+</ul>
+</section>
+<section id="day-2" class="level3" data-number="4.2">
+<h3 data-number="4.2" class="anchored" data-anchor-id="day-2"><span class="header-section-number">4.2</span> Day 2</h3>
+<ul>
+<li><p>Part 4: Type Inference and Type Stability, <a href="teaching/tudo/julia_course/day2/part_4_type_inference_type_stability/04_type_inference_stability/04.type_inference_stability.html">HTML file</a>, <a href="teaching/tudo/julia_course/day2/part_4_type_inference_type_stability/04_type_inference_stability/04.type_inference_stability.pdf">PDF</a>, <a href="teaching/tudo/julia_course/day2/part_4_type_inference_type_stability/04_type_inference_stability.zip">Zipped folder</a></p></li>
+<li><p>Part 5: Multiple Dispatch, <a href="teaching/tudo/julia_course/day2/part_5_multiple_dispatch/05_multiple_dispatch/multiple_dispatch.html">HTML file</a>, <a href="teaching/tudo/julia_course/day2/part_5_multiple_dispatch/05_multiple_dispatch/multiple_dispatch.pdf">PDF</a>, <a href="teaching/tudo/julia_course/day2/part_5_multiple_dispatch/05_multiple_dispatch.zip">Zipped folder</a></p></li>
+<li><p>Part 6: Type Construction, <a href="teaching/tudo/julia_course/day2/part_6_type_construction/06_type_construction/type_constructions.html">HTML file</a>, <a href="teaching/tudo/julia_course/day2/part_6_type_construction/06_type_construction/type_constructions.pdf">PDF</a>, <a href="teaching/tudo/julia_course/day2/part_6_type_construction/06_type_construction.zip">Zipped folder</a></p></li>
+</ul>
+</section>
+<section id="day-3" class="level3" data-number="4.3">
+<h3 data-number="4.3" class="anchored" data-anchor-id="day-3"><span class="header-section-number">4.3</span> Day 3</h3>
+<ul>
+<li>Part 7: Again Types, <a href="teaching/tudo/julia_course/day3/part_7_types/07_types.html">HTML file</a>, <a href="teaching/tudo/julia_course/day3/part_7_types/07_types.zip">Zipped folder</a></li>
+</ul>
+</section>
+<section id="day-4" class="level3" data-number="4.4">
+<h3 data-number="4.4" class="anchored" data-anchor-id="day-4"><span class="header-section-number">4.4</span> Day 4</h3>
+<ul>
+<li>Part 8: Arrays, <a href="teaching/tudo/julia_course/day4/part_6_arrays/06_arrays/arrays1.html">HTML file 1</a>, <a href="teaching/tudo/julia_course/day4/part_6_arrays/06_arrays/arrays2.html">HTML file 2</a>, <a href="teaching/tudo/julia_course/day4/part_6_arrays/06_arrays.zip">Zipped folder</a></li>
+</ul>
+</section>
+<section id="day-5" class="level3" data-number="4.5">
+<h3 data-number="4.5" class="anchored" data-anchor-id="day-5"><span class="header-section-number">4.5</span> Day 5</h3>
+<ul>
+<li>Part 9: Metaprogramming, <a href="teaching/tudo/julia_course/day5/part_7_metaprogramming/07_metaprogramming.html">HTML file</a></li>
+</ul>
+</section>
+</section>
+<section id="practice-problems" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="practice-problems"><span class="header-section-number">5</span> Practice Problems</h2>
+<ul>
+<li>Practice Problem 1, <a href="teaching/tudo/julia_course/practice_problems/practice_problems/PracticeProblem.html">HTML file</a>, <a href="teaching/tudo/julia_course/practice_problems/practice_problems/PracticeProblem.jl">Julia file</a>, <a href="teaching/tudo/julia_course/practice_problems/practice_problems.zip">Zipped folder</a></li>
+</ul>
+</section>
+<section id="graded-assignments" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="graded-assignments"><span class="header-section-number">6</span> Graded Assignments</h2>
+<section id="problem-set-1" class="level3" data-number="6.1">
+<h3 data-number="6.1" class="anchored" data-anchor-id="problem-set-1"><span class="header-section-number">6.1</span> Problem Set 1</h3>
+<ul>
+<li>Exercise 1: <a href="teaching/tudo/julia_course/graded_assignments/ps1/Exercise1.html">HTML file</a>, <a href="teaching/tudo/julia_course/graded_assignments/ps1/dartboard.jl">Julia file</a></li>
+</ul>
+</section>
+<section id="problem-set-2" class="level3" data-number="6.2">
+<h3 data-number="6.2" class="anchored" data-anchor-id="problem-set-2"><span class="header-section-number">6.2</span> Problem Set 2</h3>
+<ul>
+<li>Exercise 2: <a href="teaching/tudo/julia_course/graded_assignments/ps2/Exercise2.html">HTML file</a></li>
+</ul>
 
 
+</section>
+</section>
 
-
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
