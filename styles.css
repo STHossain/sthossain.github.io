@@ -316,15 +316,72 @@ html[data-bs-theme="dark"] .site-content a { color: #7ec87e !important; }
 @media (max-width: 650px) {
   .site-page {
     flex-direction: column;
-    margin: 2.5rem auto;
-    gap: 1.5rem;
+    margin: 1.5rem auto;
+    gap: 1rem;
+    padding: 0 1rem;
   }
+
+  /* Sidebar always a row on mobile */
   .site-sidebar {
     flex: none;
     width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 0.75rem;
   }
+
+  /* Home page: photo fixed width left, sidebar-info natural width right */
   .site-sidebar .index-sketch {
-    width: 45%;
+    flex: 0 0 165px;
+    width: 165px;
+    margin-bottom: 0;
+    margin-top: 1.2rem;
+  }
+
+  .sidebar-info {
+    flex: 0 1 auto;
+    min-width: 0;
+    padding-top: 0.2rem;
+  }
+
+  /* Other pages: identity 45% left, nav right */
+  .sidebar-identity {
+    flex: 0 0 45%;
+    min-width: 0;
+  }
+
+  .sidebar-identity ~ .index-nav {
+    flex: 1;
+    min-width: 0;
+  }
+
+  /* Full-width content area on mobile (overrides align-items: flex-start from parent) */
+  .site-content {
+    width: 100%;
+    align-self: stretch;
+  }
+
+  /* Stronger text colors for mobile light mode */
+  .site-sidebar .index-name { color: #111 !important; }
+  .site-sidebar .index-affil { color: #444 !important; }
+  .site-sidebar .index-nav a { color: #111 !important; }
+  .site-content { color: #222 !important; }
+}
+
+/* Very narrow screens: stack name → affil → nav vertically on non-home pages */
+@media (max-width: 420px) {
+  .site-sidebar:has(.sidebar-identity) {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  .sidebar-identity,
+  .sidebar-identity ~ .index-nav {
+    flex: none;
+    width: 100%;
   }
 }
 
