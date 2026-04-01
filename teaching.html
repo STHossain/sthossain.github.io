@@ -324,21 +324,29 @@ gtag('config', 'G-JJNF7NSLWR', { 'anonymize_ip': true});
   font-size: 1.1rem;
   font-weight: 700;
   font-family: "Playfair Display", Georgia, serif;
-  color: #111;
+  color: #111 !important;
 }
 
 .institution-header span {
   font-size: 0.88rem;
-  color: #666;
+  color: #555 !important;
 }
 
 .institution-body { padding: 0.5rem 0; }
-.institution-body table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
-.institution-body table thead tr { background-color: #f2f2f2; }
-.institution-body table th { text-align: left; padding: 0.5rem 0.8rem; font-weight: 600; color: #4C0000; border-bottom: 2px solid #ccc; }
-.institution-body table td { padding: 0.5rem 0.8rem; border-bottom: 1px solid #ebebeb; vertical-align: middle; }
-.institution-body table tr:last-child td { border-bottom: none; }
-.institution-body table tr:hover td { background-color: #fdf6f6; }
+.institution-body table {
+  width: 100%; border-collapse: collapse; font-size: 0.95rem;
+  --bs-table-bg: transparent;
+  --bs-table-color: #333;
+  --bs-table-striped-bg: transparent;
+  --bs-table-hover-bg: #fdf6f6;
+  background-color: transparent !important;
+  color: #333 !important;
+}
+.institution-body table thead tr { background-color: #f2f2f2 !important; }
+.institution-body table th { text-align: left; padding: 0.5rem 0.8rem; font-weight: 600; color: #4C0000 !important; border-bottom: 2px solid #ccc !important; }
+.institution-body table td { padding: 0.5rem 0.8rem; border-bottom: 1px solid #ebebeb !important; vertical-align: middle; color: #333 !important; background-color: transparent !important; }
+.institution-body table tr:last-child td { border-bottom: none !important; }
+.institution-body table tr:hover td { background-color: #fdf6f6 !important; }
 
 .cake-photo { text-align: center; margin: 1rem 0 2rem 0; }
 .cake-photo img { border-radius: 10px; box-shadow: 0 3px 12px rgba(0,0,0,0.15); max-width: 60%; }
@@ -349,19 +357,37 @@ html[data-bs-theme="dark"] .teaching-intro { color: #aaa !important; }
 
 @media (prefers-color-scheme: dark) {
   .teaching-intro { color: #aaa; }
-  .institution-header h3 { color: #f0f0f0; }
+  .institution-header h3 { color: #f0f0f0 !important; }
+  .institution-header span { color: #aaa !important; }
   .institution-header { border-bottom-color: #444; }
-  .institution-body table thead tr { background-color: #2a2a2a; }
-  .institution-body table th { color: #f0a0a0; border-bottom-color: #555; }
-  .institution-body table td { border-bottom-color: #333; }
-  .institution-body table tr:hover td { background-color: #2a2020; }
+  .institution-body table { --bs-table-bg: transparent; color: #ccc !important; }
+  .institution-body table thead tr { background-color: #2a2a2a !important; }
+  .institution-body table th { color: #f0a0a0 !important; border-bottom-color: #555 !important; }
+  .institution-body table td { color: #ccc !important; background-color: transparent !important; border-bottom-color: #333 !important; }
+  .institution-body table tr:hover td { background-color: #2a2020 !important; }
 }
 
 body.quarto-dark .institution-header h3,
 html[data-bs-theme="dark"] .institution-header h3 { color: #f0f0f0 !important; }
+body.quarto-dark .institution-header span,
+html[data-bs-theme="dark"] .institution-header span { color: #aaa !important; }
+body.quarto-dark .institution-body table,
+html[data-bs-theme="dark"] .institution-body table { --bs-table-bg: transparent; color: #ccc !important; background-color: transparent !important; }
+body.quarto-dark .institution-body table thead tr,
+html[data-bs-theme="dark"] .institution-body table thead tr { background-color: #2a2a2a !important; }
+body.quarto-dark .institution-body table th,
+html[data-bs-theme="dark"] .institution-body table th { color: #f0a0a0 !important; border-bottom-color: #555 !important; }
+body.quarto-dark .institution-body table td,
+html[data-bs-theme="dark"] .institution-body table td { color: #ccc !important; background-color: transparent !important; border-bottom-color: #333 !important; }
+body.quarto-dark .institution-body table tr:hover td,
+html[data-bs-theme="dark"] .institution-body table tr:hover td { background-color: #2a2020 !important; }
 
 @media (max-width: 650px) {
   .cake-photo img { max-width: 90%; }
+  .institution-body { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .institution-body table { font-size: 0.8rem; }
+  .institution-body table th,
+  .institution-body table td { padding: 0.3rem 0.5rem; }
 }
 </style>
 <div class="site-page">
@@ -469,7 +495,7 @@ TU Dortmund
 <p><span>Dortmund, Germany</span></p>
 </div>
 <div class="institution-body">
-<p style="font-size: 0.9rem; color: #666; margin-bottom: 1rem; font-style: italic;">
+<p style="font-size: 0.9rem; color: #555; margin-bottom: 1rem; font-style: italic;">
 </p><ul>
 <li>Past course offerings can be verified via the <a href="https://lwus.statistik.tu-dortmund.de/en/teaching/courses/" target="_blank">TU Dortmund department archives</a> (listed under the name <strong>S. Hossain</strong>).</li>
 </ul>
