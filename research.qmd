@@ -18,7 +18,7 @@ format:
   font-weight: 600;
   margin-top: 2rem;
   margin-bottom: 0.5rem;
-  color: #111;
+  color: #111 !important;
 }
 
 .site-content h2:first-child {
@@ -32,20 +32,20 @@ format:
   font-style: italic;
   margin-top: 1.4rem;
   margin-bottom: 0.3rem;
-  color: #111;
+  color: #111 !important;
 }
 
 .diss-title {
   font-family: "EB Garamond", Georgia, serif;
   font-size: 1.12rem;
   font-style: italic;
-  color: #111;
+  color: #111 !important;
   margin-bottom: 0.2rem;
 }
 
 .diss-meta {
   font-size: 0.92rem;
-  color: #666;
+  color: #555 !important;
   margin-bottom: 1rem;
 }
 
