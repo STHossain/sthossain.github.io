@@ -46,10 +46,6 @@ format:
   border: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  .cv-pdf-container { border-color: #495057; }
-}
-
 body.quarto-dark .cv-pdf-container,
 html[data-bs-theme="dark"] .cv-pdf-container { border-color: #495057; }
 
