@@ -175,14 +175,8 @@ html[data-bs-theme="dark"] .about-entity .about-entity-heading {
 
 .site-sidebar {
   flex: 0 0 200px;
-  display: flex;
-  flex-direction: column;
 }
 
-/* Desktop: image comes first in sidebar */
-.site-sidebar .index-sketch {
-  order: -1;
-}
 
 .site-sidebar .index-name {
   font-family: "Playfair Display", Georgia, serif;
@@ -304,17 +298,35 @@ html[data-bs-theme="dark"] .site-content a { color: #7ec87e !important; }
     min-width: 0;
   }
 
-  /* Index page: block layout with image floated right */
-  .site-sidebar:has(.index-sketch) {
-    display: block;
+  /* Index page: grid — name+affil full width, then nav left + image right */
+  .index-sidebar {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 0.2rem 0.75rem;
   }
 
-  .site-sidebar .index-sketch {
-    float: right;
-    width: 140px;
-    margin: 0.5cm 0 0.5rem 0.75rem;
+  .index-sidebar .index-name {
+    grid-column: 1 / -1;
+    grid-row: 1;
+  }
+
+  .index-sidebar .index-affil {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+
+  .index-sidebar .index-nav {
+    grid-column: 1;
+    grid-row: 3;
+  }
+
+  .index-sidebar .index-sketch {
+    grid-column: 2;
+    grid-row: 3;
+    width: 150px;
     margin-right: 1cm;
-    order: 0;
+    margin-top: -3rem;
+    align-self: start;
   }
 
   /* Full-width content area on mobile */
@@ -331,7 +343,7 @@ html[data-bs-theme="dark"] .site-content a { color: #7ec87e !important; }
 }
 
 /* Very narrow screens: stack vertically */
-@media (max-width: 420px) {
+@media (max-width: 380px) {
   /* Other pages */
   .site-sidebar:has(.sidebar-identity) {
     flex-direction: column;
@@ -344,28 +356,22 @@ html[data-bs-theme="dark"] .site-content a { color: #7ec87e !important; }
     width: 100%;
   }
 
-  /* Index page: switch to flex column for reordering */
-  .site-sidebar:has(.index-sketch) {
+  /* Index page: single column stack — name → affil → image → nav */
+  .index-sidebar {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
   }
 
-  .site-sidebar .index-sketch {
-    float: none;
+  .index-sidebar .index-name { order: 0; }
+  .index-sidebar .index-sketch {
     order: 1;
     width: 130px;
-    margin: 0.8rem 0;
+    margin: 0.5rem 0;
     align-self: center;
   }
-
-  .site-sidebar .index-affil {
-    order: 0;
-  }
-
-  .site-sidebar .index-nav {
-    order: 2;
-  }
+  .index-sidebar .index-affil { order: 0; }
+  .index-sidebar .index-nav { order: 2; }
 }
 
 .index-grid {

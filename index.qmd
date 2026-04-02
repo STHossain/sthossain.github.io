@@ -16,11 +16,11 @@ format:
 
 <div class="site-page">
 
-<div class="site-sidebar">
-
-<p class="index-name">Shaikh Tanvir Hossain</p>
+<div class="site-sidebar index-sidebar">
 
 <img src="img/pic2_sketch.png" alt="Sketch" class="index-sketch"/>
+
+<p class="index-name">Shaikh Tanvir Hossain</p>
 
 <p class="index-affil">Doctoral Candidate<br>TU Dortmund</p>
 
