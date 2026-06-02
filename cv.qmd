@@ -11,46 +11,139 @@ format:
 #quarto-content { padding: 0 !important; margin: 0 !important; }
 .page-columns { display: block !important; }
 
-.cv-download {
+.cv-header {
+  text-align: center;
+  margin-top: -1.5rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid #333;
+  padding-bottom: 1rem;
+}
+
+.cv-name {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem 0;
+  color: #111 !important;
+}
+
+.cv-contact {
+  font-size: 0.9rem;
+  color: #555;
+  margin: 0.2rem 0;
+}
+
+.cv-contact a {
+  color: #000 !important;
+  text-decoration: none;
+}
+
+.cv-contact a:hover {
+  text-decoration: underline;
+}
+
+.cv-section {
+  margin-bottom: 1.8rem;
+}
+
+.cv-section-title {
+  font-family: "EB Garamond", Georgia, serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #111 !important;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 0.3rem;
+  margin-bottom: 0.8rem;
+}
+
+.cv-entry {
   margin-bottom: 1.2rem;
 }
 
-.cv-download a {
-  display: inline-block;
-  padding: 0.5rem 1.2rem;
-  background-color: #4C0000;
-  color: white !important;
-  text-decoration: none;
-  border-radius: 0.4rem;
+.cv-entry-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.cv-entry-title {
+  font-weight: 600;
+  color: #111 !important;
   font-family: "EB Garamond", Georgia, serif;
-  font-size: 1rem;
-  transition: background-color 0.2s ease;
 }
 
-.cv-download a:hover {
-  background-color: #6B0000;
+.cv-entry-date {
+  font-size: 0.9rem;
+  color: #666;
+  font-style: italic;
+}
+
+.cv-entry-subtitle {
+  font-style: italic;
+  color: #333;
+  margin-bottom: 0.3rem;
+}
+
+.cv-entry-detail {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.5;
+  margin-bottom: 0.2rem;
+}
+
+.cv-entry-detail strong {
+  font-weight: 600;
+  color: #111;
+}
+
+.cv-reference {
+  display: inline-block;
+  margin-right: 2rem;
+  margin-bottom: 1rem;
+}
+
+.cv-reference-name {
+  font-weight: 600;
+  color: #4C0000;
   text-decoration: none;
 }
 
-.cv-pdf-container {
-  width: 100%;
-  border: 1px solid #dee2e6;
-  border-radius: 0.5rem;
-  overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+.cv-reference-name:hover {
+  text-decoration: underline;
 }
 
-.cv-pdf-container iframe {
-  width: 100%;
-  height: 85vh;
-  border: none;
+.cv-reference-details {
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.4;
 }
 
-body.quarto-dark .cv-pdf-container,
-html[data-bs-theme="dark"] .cv-pdf-container { border-color: #495057; }
+.site-content a {
+  color: #000 !important;
+}
+
+.site-content a:hover {
+  color: #333 !important;
+}
+
+body.quarto-dark .cv-name,
+html[data-bs-theme="dark"] .cv-name { color: #f0f0f0 !important; }
+body.quarto-dark .cv-section-title,
+html[data-bs-theme="dark"] .cv-section-title { color: #f0f0f0 !important; }
+body.quarto-dark .cv-entry-title,
+html[data-bs-theme="dark"] .cv-entry-title { color: #f0f0f0 !important; }
 
 @media (max-width: 650px) {
-  .cv-pdf-container iframe { height: 82vh; }
+  .cv-entry-header {
+    flex-direction: column;
+    gap: 0;
+  }
+  .cv-name { font-size: 1.4rem; }
 }
 </style>
 
@@ -69,6 +162,7 @@ html[data-bs-theme="dark"] .cv-pdf-container { border-color: #495057; }
   <li><a href="teaching.html">Teaching</a></li>
   <li><a href="cv.html" class="active">CV</a></li>
   <li><a href="https://github.com/STHossain" target="_blank"><svg class="nav-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.64 7.64 0 0 1 2-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg> GitHub</a></li>
+  <li><a href="https://x.com/shaikhtanvirho2" target="_blank"><svg class="nav-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M9.294 6.928L14.357 1h-1.2L8.762 6.147 5.25 1H1.2l5.31 7.784L1.2 15h1.2l4.642-5.436L10.751 15h4.05L9.294 6.928zm-1.654 1.932l-.538-.765L2.852 1.702h1.844l3.472 4.951.538.765 4.48 6.368h-1.844l-3.681-5.228z"/></svg> X (old Twitter)</a></li>
   <li><span id="eml"></span></li>
 </ul>
 
@@ -83,16 +177,228 @@ html[data-bs-theme="dark"] .cv-pdf-container { border-color: #495057; }
 })();
 </script>
 
+<div style="margin-top: 2rem; padding-top: 1rem; border-top: 1px solid #ccc;">
+<a href="cv/Tanvir_cv.pdf" download="Shaikh_Tanvir_Hossain_CV.pdf" style="display: block; text-align: center; padding: 0.7rem 1rem; background-color: #4C0000; color: white !important; text-decoration: none; border-radius: 0.4rem; font-family: 'EB Garamond', Georgia, serif; font-size: 0.95rem; transition: background-color 0.2s ease;">📥 Download PDF CV</a>
+</div>
+
 </div>
 
 <div class="site-content">
 
-<div class="cv-download">
-<a href="cv/Tanvir_cv.pdf" download="Shaikh_Tanvir_Hossain_CV.pdf">Download CV (PDF)</a>
+<div class="cv-header">
+<h1 class="cv-name">Shaikh Tanvir Hossain</h1>
+<div class="cv-contact">
+  <div>📧 <a href="mailto:tanvir.hossain@tu-dortmund.de">tanvir.hossain@tu-dortmund.de</a> • <a href="mailto:tanvirhossain.sk@gmail.com">tanvirhossain.sk@gmail.com</a></div>
+  <div>🌐 <a href="https://sthossain.github.io">sthossain.github.io</a></div>
+</div>
 </div>
 
-<div class="cv-pdf-container">
-<iframe src="cv/Tanvir_cv.pdf" title="CV of Shaikh Tanvir Hossain"></iframe>
+<div class="cv-section">
+<div class="cv-section-title">Research Interests</div>
+<div class="cv-entry-detail">Econometrics, Causal Inference, and Machine Learning</div>
+</div>
+
+<div class="cv-section">
+<div class="cv-section-title">Education</div>
+
+<div class="cv-entry">
+<div class="cv-entry-header">
+<div class="cv-entry-title">Doctoral Candidate (Faculty of Business and Economics)</div>
+<div class="cv-entry-date">2021/10 – ongoing</div>
+</div>
+<div class="cv-entry-subtitle">TU Dortmund University, Dortmund, Germany</div>
+<div class="cv-entry-detail"><strong>Dissertation Title:</strong> <em>Parametric and Nonparametric Learners for Adaptive Experiments under Interference.</em></div>
+<div class="cv-entry-detail"><strong>Status:</strong> Defense passed with <em>magna cum laude</em>.</div>
+<div class="cv-entry-detail"><strong>Advisors:</strong> Prof. Dr. Carsten Jentsch (Supervisor); Prof. Dr. Phillip Jung; Prof. Dr. Alexander Marx.</div>
+</div>
+
+<div class="cv-entry">
+<div class="cv-entry-header">
+<div class="cv-entry-title">Master of Science (M.Sc.) in Economics (2 yr. program)</div>
+<div class="cv-entry-date">2017</div>
+</div>
+<div class="cv-entry-subtitle">University of Mannheim, Mannheim, Germany</div>
+<div class="cv-entry-detail"><strong>Focus Areas:</strong> Statistics and Econometrics.</div>
+<div class="cv-entry-detail"><strong>Thesis Title:</strong> LASSO & Vector Autoregressive Models – With an Application to Dynamic Stochastic Networks.</div>
+<div class="cv-entry-detail">Completed 121.5 ECTS with an overall grade of 1.7 (German grading system, with 1.0 being the best).</div>
+</div>
+
+<div class="cv-entry">
+<div class="cv-entry-header">
+<div class="cv-entry-title">Bachelor of Business Administration (BBA) with a Second Major in Economics</div>
+<div class="cv-entry-date">2012</div>
+</div>
+<div class="cv-entry-subtitle">BRAC University, Dhaka, Bangladesh</div>
+<div class="cv-entry-detail"><strong>Major:</strong> Economics & Finance (BRAC Business School).</div>
+<div class="cv-entry-detail">Completed 181 credits with a cumulative GPA of 3.64 / 4.00 (on a 4.0 scale, with 4.0 being the best), graduated with distinction.</div>
+</div>
+</div>
+
+<div class="cv-section">
+<div class="cv-section-title">Employment</div>
+
+<div class="cv-entry">
+<div class="cv-entry-header">
+<div class="cv-entry-title">Lecturer</div>
+<div class="cv-entry-date">2025/01 – 2025/09</div>
+</div>
+<div class="cv-entry-subtitle">East West University, Dhaka, Bangladesh</div>
+<div class="cv-entry-detail"><strong>Faculty of Business & Economics, Dept. of Economics</strong></div>
+<div class="cv-entry-detail"><strong>Teaching:</strong> Undergraduate Statistics and Mathematics courses for Business and Economics students. Full-time faculty position during the final stages of doctoral studies.</div>
+</div>
+
+<div class="cv-entry">
+<div class="cv-entry-header">
+<div class="cv-entry-title">Adjunct Lecturer</div>
+<div class="cv-entry-date">Summer & Fall 2022, Fall 2023, Fall 2024</div>
+</div>
+<div class="cv-entry-subtitle">East West University, Dhaka, Bangladesh</div>
+<div class="cv-entry-detail"><strong>Faculty of Business & Economics, Dept. of Economics</strong></div>
+<div class="cv-entry-detail"><strong>Teaching:</strong> Undergraduate Statistics & Mathematics courses for Business and Economics students. Adjunct faculty position alongside doctoral studies.</div>
+</div>
+
+<div class="cv-entry">
+<div class="cv-entry-header">
+<div class="cv-entry-title">Research Associate (German: Wissenschaftlicher Mitarbeiter)</div>
+<div class="cv-entry-date">2018/04 – 2022/03</div>
+</div>
+<div class="cv-entry-subtitle">TU Dortmund University, Dortmund, Germany</div>
+<div class="cv-entry-detail"><strong>Chair of Business and Social Statistics, Dept. of Statistics</strong></div>
+<div class="cv-entry-detail"><strong>Research:</strong> Part of the project: M-out-of-N bootstrap for matching estimators.</div>
+<div class="cv-entry-detail"><strong>Research Contribution:</strong> Acknowledged in Walsh, C., & Jentsch, C. (2023), <em>Econometrics and Statistics</em>, for contribution to the project on M-out-of-N bootstrap for matching estimators.</div>
+<div class="cv-entry-detail"><strong>Teaching:</strong> TA and Course Instructor for graduate courses in Econometrics, Statistics, and Data Science. Enrolled as a doctoral student with research and teaching duties aligned with doctoral studies.</div>
+</div>
+
+<div class="cv-entry">
+<div class="cv-entry-header">
+<div class="cv-entry-title">Research Associate (German: Wissenschaftlicher Mitarbeiter)</div>
+<div class="cv-entry-date">2017/03 – 2018/03</div>
+</div>
+<div class="cv-entry-subtitle">University of Mannheim, Mannheim, Germany</div>
+<div class="cv-entry-detail"><strong>Chair of Statistics and Chair of Econometrics, Dept. of Economics</strong></div>
+<div class="cv-entry-detail"><strong>Research:</strong> Part of the project: Dynamic Network estimation using LASSO.</div>
+<div class="cv-entry-detail"><strong>Teaching:</strong> Assisted in teaching for graduate course Impact Evaluation and Research Design for Economics and Sociology students.</div>
+</div>
+
+<div class="cv-entry">
+<div class="cv-entry-header">
+<div class="cv-entry-title">Student Assistant (during M.Sc.)</div>
+<div class="cv-entry-date">2015/03 – 2017/02</div>
+</div>
+<div class="cv-entry-subtitle">University of Mannheim</div>
+<div class="cv-entry-detail"><strong>Chair of Statistics and Chair of Econometrics, Dept. of Economics</strong></div>
+<div class="cv-entry-detail"><strong>Research Contribution:</strong> Acknowledged in Bernard, I., Frölich, M., Landmann, A., Unte, P. N., Viceisza, A., & Wouters, F. (2015), <em>Building trust in rural producer organizations in Senegal: Results from a randomized controlled trial</em> (No. 9207), IZA Discussion Papers.</div>
+<div class="cv-entry-detail"><strong>Research Locations:</strong> University of Mannheim (2015/03 – 2017/02) and University of Heidelberg, Probability & Statistics Group Heidelberg-Mannheim (formerly RTG Complex Systems) (2016/02 – 2017/02).</div>
+</div>
+
+<div class="cv-entry">
+<div class="cv-entry-header">
+<div class="cv-entry-title">Project Assistant, Data Management</div>
+<div class="cv-entry-date">2012/12 – 2014/02</div>
+</div>
+<div class="cv-entry-subtitle">Innovations for Poverty Action (IPA), Dhaka, Bangladesh</div>
+<div class="cv-entry-detail"><strong>Project:</strong> Assisted in the study "Building management hierarchies for growth in LICs: understanding the role of supervisor training in the Bangladeshi garment sector."</div>
+<div class="cv-entry-detail"><strong>Key Tasks:</strong> Managed and processed large-scale survey and factory datasets using Python.</div>
+</div>
+
+<div class="cv-entry">
+<div class="cv-entry-header">
+<div class="cv-entry-title">Research Intern</div>
+<div class="cv-entry-date">2012/09 – 2012/12</div>
+</div>
+<div class="cv-entry-subtitle">South Asian Network on Economic Modeling (SANEM), Dhaka, Bangladesh</div>
+<div class="cv-entry-detail"><strong>Key Tasks:</strong> Managed primary data and assisted in designing questionnaires using CSPro.</div>
+</div>
+</div>
+
+<div class="cv-section">
+<div class="cv-section-title">Funds, Scholarships & Awards</div>
+
+<div class="cv-entry">
+<div class="cv-entry-title">Funding</div>
+<div class="cv-entry-detail">Quality Improvement Funds (Qualitätsverbesserungsmittel), TU Dortmund, for contributions to course design in Econometrics of Treatment Effects and Policy Evaluation, Precourse Statistics (Statistical Estimation).</div>
+</div>
+
+<div class="cv-entry">
+<div class="cv-entry-title">Scholarship</div>
+<div class="cv-entry-detail">DAAD Graduation Scholarship (Deutscher Akademischer Austauschdienst), University of Mannheim.</div>
+</div>
+
+<div class="cv-entry">
+<div class="cv-entry-title">Academic Honors</div>
+<div class="cv-entry-detail">Vice Chancellor's List Award (GPA ≥ 3.9) at BRAC University (Summer 2010, Spring 2011, Summer 2011, Summer 2012); Dean's List Award (GPA 3.7–3.89) (Spring 2010, Fall 2010, Spring 2012).</div>
+</div>
+</div>
+
+<div class="cv-section">
+<div class="cv-section-title">Attended Workshops & Conferences</div>
+
+<div class="cv-entry">
+<div class="cv-entry-title">Presentations</div>
+<div class="cv-entry-detail"><strong>German Probability and Statistics Days (GPSD)</strong>, 2018, University of Freiburg. <em>Modeling and Prediction of Dynamic Networks Using Binary Autoregressive Time Series Processes.</em></div>
+<div class="cv-entry-detail"><strong>German Statistical Week</strong>, 2021 (online), University of Kiel. <em>Nearest Neighbor Matching: Does the M-out-of-N Bootstrap Work When the Naive Bootstrap Fails?</em></div>
+</div>
+
+<div class="cv-entry">
+<div class="cv-entry-title">Workshops</div>
+<div class="cv-entry-detail"><strong>Bielefeld-Dortmund Summer School 2017</strong> on <em>Modern Topics in Time Series Analysis</em>, TU Dortmund.</div>
+<div class="cv-entry-detail"><strong>Workshop on Causality</strong> (DFG Research Unit 1735, "Structural Inference in Statistics"), Uder. Lectures by Prof. Jonas Peters and Prof. Vanessa Didelez.</div>
+<div class="cv-entry-detail"><strong>Workshop on Mathematical Statistics</strong> ("StatMathAppli 2019"), Fréjus. Lectures by Prof. Matthieu Lerasle and Prof. Peter Bühlmann.</div>
+</div>
+</div>
+
+<div class="cv-section">
+<div class="cv-section-title">Coding Skills</div>
+<div class="cv-entry-detail">R, Python, Julia, LaTeX</div>
+</div>
+
+<div class="cv-section">
+<div class="cv-section-title">Additional Information</div>
+<div class="cv-entry-detail"><strong>Nationality:</strong> Bangladeshi</div>
+<div class="cv-entry-detail"><strong>Languages:</strong> Bangla (Native), English (Fluent), German (Basic)</div>
+</div>
+
+<div class="cv-section">
+<div class="cv-section-title">Schools & College</div>
+<div class="cv-entry-detail">SSC from Government Laboratory High School, Dhaka (Science Group - GPA 5.00)</div>
+<div class="cv-entry-detail">HSC from Notre Dame College, Dhaka (Science Group - GPA 5.00)</div>
+</div>
+
+<div class="cv-section">
+<div class="cv-section-title">References</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
+<div class="cv-reference">
+<div class="cv-reference-name">Prof. Dr. Carsten Jentsch</div>
+<div class="cv-reference-details">
+Professor and Chair of<br>Business and Social Statistics<br>
+Dept. of Statistics, TU Dortmund<br>
+<a href="mailto:jentsch@statistik.tu-dortmund.de">jentsch@statistik.tu-dortmund.de</a>
+</div>
+</div>
+<div class="cv-reference">
+<div class="cv-reference-name">Prof. Dr. Wasiqur Rahman Khan</div>
+<div class="cv-reference-details">
+Professor and Chairman<br>
+Dept. of Economics and Social Sciences<br>
+BRAC University<br>
+<a href="mailto:wrk@bracu.ac.bd">wrk@bracu.ac.bd</a>
+</div>
+</div>
+<div class="cv-reference">
+<div class="cv-reference-name">Dr. A.M. Tanvir Hussain</div>
+<div class="cv-reference-details">
+Environmental Specialist (Economist)<br>
+SANDEE, ICIMOD<br>
+Associate Professor<br>
+Dept. of Economics, East West University<br>
+<a href="mailto:abl.Hussain@icimod.org">abl.Hussain@icimod.org</a>
+</div>
+</div>
+</div>
+</div>
+
+<div class="cv-section" style="margin-top: 2rem; padding-top: 1rem; border-top: 1px solid #ddd; font-size: 0.9rem; color: #666;">
+<p>Teaching materials for various courses and details of current research projects are available at <a href="https://sthossain.github.io">sthossain.github.io</a>. This CV was last updated on June 2, 2026. For further inquiries, please reach out via email.</p>
 </div>
 
 </div>

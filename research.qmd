@@ -66,6 +66,33 @@ body.quarto-dark .diss-title,
 html[data-bs-theme="dark"] .diss-title { color: #f0f0f0 !important; }
 body.quarto-dark .diss-meta,
 html[data-bs-theme="dark"] .diss-meta { color: #aaa !important; }
+
+.site-content a {
+  color: #000 !important;
+}
+
+.site-content a:hover {
+  color: #333 !important;
+}
+
+.research-sidebar-image {
+  width: 100%;
+  margin-bottom: 1rem;
+  border-radius: 4px;
+  filter: grayscale(100%);
+}
+
+.photo-credit {
+  font-size: 0.75rem;
+  color: #666;
+  margin-bottom: 1.5rem;
+  line-height: 1.3;
+}
+
+.photo-credit a {
+  color: #000 !important;
+  text-decoration: underline;
+}
 </style>
 
 <div class="site-page">
@@ -77,12 +104,19 @@ html[data-bs-theme="dark"] .diss-meta { color: #aaa !important; }
 <p class="index-affil">Doctoral Candidate<br>TU Dortmund</p>
 </div>
 
+<img src="img/blake-verdoorn-cssvEZacHvQ-unsplash.jpg" alt="Waterfall in forest" class="research-sidebar-image"/>
+
+<div class="photo-credit">
+Photo by <a href="https://unsplash.com/@blakeverdoorn?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Blake Verdoorn</a> on <a href="https://unsplash.com/photos/gray-concrete-bridge-and-waterfalls-during-daytime-cssvEZacHvQ?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+</div>
+
 <ul class="index-nav">
   <li><a href="index.html">Home</a></li>
   <li><a href="research.html" class="active">Research</a></li>
   <li><a href="teaching.html">Teaching</a></li>
   <li><a href="cv.html">CV</a></li>
   <li><a href="https://github.com/STHossain" target="_blank"><svg class="nav-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.64 7.64 0 0 1 2-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg> GitHub</a></li>
+  <li><a href="https://x.com/shaikhtanvirho2" target="_blank"><svg class="nav-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M9.294 6.928L14.357 1h-1.2L8.762 6.147 5.25 1H1.2l5.31 7.784L1.2 15h1.2l4.642-5.436L10.751 15h4.05L9.294 6.928zm-1.654 1.932l-.538-.765L2.852 1.702h1.844l3.472 4.951.538.765 4.48 6.368h-1.844l-3.681-5.228z"/></svg> X (old Twitter)</a></li>
   <li><span id="eml"></span></li>
 </ul>
 
@@ -103,18 +137,12 @@ html[data-bs-theme="dark"] .diss-meta { color: #aaa !important; }
 
 ## Dissertation
 
-<p class="diss-title">Parametric and Nonparametric Learners for Adaptive Experiments</p>
-<p class="diss-meta">TU Dortmund &middot; submitted, under review</p>
+<p class="diss-title">Parametric and Nonparametric Learners for Adaptive Experiments Under Interference</p>
+<p class="diss-meta">Supervisor: Professor Carsten Jentsch</p>
 
-My dissertation studies adaptive experimentation from both parametric and nonparametric perspectives, with a focus on sequential treatment allocation under complex dependence structures.
+My doctoral research focuses on adaptive experimentation or [multi-armed bandits](https://en.wikipedia.org/wiki/Multi-armed_bandit). Broadly, I study how classical multi-armed bandit frameworks must be adapted when the outcome for one unit depends not only on the treatment it receives, but also on the treatments assigned to other units with whom it interacts. This phenomenon is known as interference. My work develops a unified theoretical framework for bandit problems under interference, proposes a family of parametric and nonparametric algorithms tailored to different interference structures, and connects the classical bandit setting to this more general interference setting.
 
-## Current Research
-
-My doctoral research topic is adaptive experimentation, or sequential decision-making. Broadly, I study how classical online learning frameworks, developed under idealized independence assumptions, need to be adjusted when units of observation are not isolated from one another. In many economic and social settings, the outcome of one unit depends not only on the treatment it receives, but also on the treatments assigned to others with whom it interacts. This phenomenon is known as *interference*.
-
-My work develops a unified theoretical framework for this problem, proposes a family of algorithms — both parametric and nonparametric — tailored to different interference structures, and connects the classical bandit setting to the interference setting.
-
-A working paper based on this research is currently being finalized for submission. Details will be shared here upon publication.
+A working paper based on this research is currently being finalized for submission. Details will be shared here shortly.
 
 ## Working Papers
 
