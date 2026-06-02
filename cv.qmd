@@ -398,7 +398,7 @@ Dept. of Economics, East West University<br>
 </div>
 
 <div class="cv-section" style="margin-top: 2rem; padding-top: 1rem; border-top: 1px solid #ddd; font-size: 0.9rem; color: #666;">
-<p>Teaching materials for various courses and details of current research projects are available at <a href="https://sthossain.github.io">sthossain.github.io</a>. This CV was last updated on June 2, 2026. For further inquiries, please reach out via email.</p>
+<p>This CV was last updated on June 2, 2026. For further inquiries, please reach out via email.</p>
 </div>
 
 </div>
