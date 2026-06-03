@@ -209,7 +209,7 @@ html[data-bs-theme="dark"] .cv-entry-title { color: #f0f0f0 !important; }
 <div class="cv-entry-subtitle">TU Dortmund University, Dortmund, Germany</div>
 <div class="cv-entry-detail"><strong>Dissertation Title:</strong> <em>Parametric and Nonparametric Learners for Adaptive Experiments under Interference.</em></div>
 <div class="cv-entry-detail"><strong>Status:</strong> Defense passed with <em>magna cum laude</em>.</div>
-<div class="cv-entry-detail"><strong>Advisors:</strong> Prof. Dr. Carsten Jentsch (Supervisor); Prof. Dr. Phillip Jung; Prof. Dr. Alexander Marx.</div>
+<div class="cv-entry-detail"><strong>Committee:</strong> Prof. Dr. Carsten Jentsch (Supervisor); Prof. Dr. Phillip Jung; Prof. Dr. Alexander Marx.</div>
 </div>
 
 <div class="cv-entry">
