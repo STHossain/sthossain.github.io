@@ -265,9 +265,103 @@ html[data-bs-theme="dark"] .site-sidebar .index-nav a { color: #ddd !important; 
 body.quarto-dark .site-sidebar .index-nav a.active,
 html[data-bs-theme="dark"] .site-sidebar .index-nav a.active { text-decoration: underline !important; }
 body.quarto-dark .site-content,
-html[data-bs-theme="dark"] .site-content { color: #ccc !important; }
+html[data-bs-theme="dark"] .site-content { color: #cfcfcf !important; }
 body.quarto-dark .site-content a,
 html[data-bs-theme="dark"] .site-content a { color: #7ec87e !important; }
+
+/* =====================================================================
+   Consistent dark-mode palette for all custom pages (CV / research /
+   teaching / index). Single source of truth so every page reads the same:
+     headings/names ...... #f0f0f0
+     body / detail text .. #cfcfcf
+     muted (dates etc.) .. #a8a8a8
+     links ............... #7ec87e
+     accent (refs) ....... #e0a3a3
+   ===================================================================== */
+
+/* Headings, names and entry/section titles */
+body.quarto-dark .site-content h2,
+body.quarto-dark .site-content h3,
+body.quarto-dark .cv-name,
+body.quarto-dark .cv-section-title,
+body.quarto-dark .cv-entry-title,
+body.quarto-dark .cv-entry-detail strong,
+html[data-bs-theme="dark"] .site-content h2,
+html[data-bs-theme="dark"] .site-content h3,
+html[data-bs-theme="dark"] .cv-name,
+html[data-bs-theme="dark"] .cv-section-title,
+html[data-bs-theme="dark"] .cv-entry-title,
+html[data-bs-theme="dark"] .cv-entry-detail strong { color: #f0f0f0 !important; }
+
+/* Body / detail text */
+body.quarto-dark .cv-entry-detail,
+body.quarto-dark .cv-entry-subtitle,
+html[data-bs-theme="dark"] .cv-entry-detail,
+html[data-bs-theme="dark"] .cv-entry-subtitle { color: #cfcfcf !important; }
+
+/* Muted secondary text (dates, contact line, reference details) */
+body.quarto-dark .cv-entry-date,
+body.quarto-dark .cv-contact,
+body.quarto-dark .cv-reference-details,
+html[data-bs-theme="dark"] .cv-entry-date,
+html[data-bs-theme="dark"] .cv-contact,
+html[data-bs-theme="dark"] .cv-reference-details { color: #a8a8a8 !important; }
+
+/* Accent — reference names (maroon in light mode) */
+body.quarto-dark .cv-reference-name,
+html[data-bs-theme="dark"] .cv-reference-name { color: #e0a3a3 !important; }
+
+/* Links inside content/contact (override per-page black link colors) */
+body.quarto-dark .site-content a,
+body.quarto-dark .cv-contact a,
+html[data-bs-theme="dark"] .site-content a,
+html[data-bs-theme="dark"] .cv-contact a { color: #7ec87e !important; }
+
+/* Section divider borders, lighter so they stay subtle on dark */
+body.quarto-dark .cv-section-title,
+body.quarto-dark .cv-header,
+html[data-bs-theme="dark"] .cv-section-title,
+html[data-bs-theme="dark"] .cv-header { border-color: #444 !important; }
+
+/* --- Research + Teaching page specifics, same palette --- */
+
+/* Headings (#f0f0f0) */
+body.quarto-dark .diss-title,
+body.quarto-dark .institution-header h3,
+html[data-bs-theme="dark"] .diss-title,
+html[data-bs-theme="dark"] .institution-header h3 { color: #f0f0f0 !important; }
+
+/* Muted (#a8a8a8) */
+body.quarto-dark .diss-meta,
+body.quarto-dark .teaching-intro,
+body.quarto-dark .institution-header span,
+body.quarto-dark .photo-credit,
+html[data-bs-theme="dark"] .diss-meta,
+html[data-bs-theme="dark"] .teaching-intro,
+html[data-bs-theme="dark"] .institution-header span,
+html[data-bs-theme="dark"] .photo-credit { color: #a8a8a8 !important; }
+
+/* Photo credit link */
+body.quarto-dark .photo-credit a,
+html[data-bs-theme="dark"] .photo-credit a { color: #7ec87e !important; }
+
+/* Teaching tables — body text (#cfcfcf), accent headers (#e0a3a3) */
+body.quarto-dark .institution-body table,
+body.quarto-dark .institution-body table td,
+html[data-bs-theme="dark"] .institution-body table,
+html[data-bs-theme="dark"] .institution-body table td {
+  color: #cfcfcf !important;
+  background-color: transparent !important;
+  --bs-table-bg: transparent;
+}
+body.quarto-dark .institution-body table td,
+html[data-bs-theme="dark"] .institution-body table td { border-bottom-color: #333 !important; }
+body.quarto-dark .institution-body table th,
+html[data-bs-theme="dark"] .institution-body table th { color: #e0a3a3 !important; border-bottom-color: #555 !important; }
+body.quarto-dark .institution-body table thead tr,
+html[data-bs-theme="dark"] .institution-body table thead tr { background-color: #2a2a2a !important; }
+body.quarto-dark .institution-body table tr:hover td,
+html[data-bs-theme="dark"] .institution-body table tr:hover td { background-color: #2a2020 !important; }
 
 /* Mobile — shared */
 @media (max-width: 650px) {

@@ -58,14 +58,7 @@ format:
   margin-bottom: 0.5rem;
 }
 
-body.quarto-dark .site-content h2,
-body.quarto-dark .site-content h3,
-html[data-bs-theme="dark"] .site-content h2,
-html[data-bs-theme="dark"] .site-content h3 { color: #f0f0f0 !important; }
-body.quarto-dark .diss-title,
-html[data-bs-theme="dark"] .diss-title { color: #f0f0f0 !important; }
-body.quarto-dark .diss-meta,
-html[data-bs-theme="dark"] .diss-meta { color: #aaa !important; }
+/* Dark-mode colors are centralized in styles.css (shared palette) */
 
 .site-content a {
   color: #000 !important;

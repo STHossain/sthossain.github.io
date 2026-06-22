@@ -74,23 +74,7 @@ format:
   color: #333 !important;
 }
 
-body.quarto-dark .teaching-intro,
-html[data-bs-theme="dark"] .teaching-intro { color: #aaa !important; }
-
-body.quarto-dark .institution-header h3,
-html[data-bs-theme="dark"] .institution-header h3 { color: #f0f0f0 !important; }
-body.quarto-dark .institution-header span,
-html[data-bs-theme="dark"] .institution-header span { color: #aaa !important; }
-body.quarto-dark .institution-body table,
-html[data-bs-theme="dark"] .institution-body table { --bs-table-bg: transparent; color: #ccc !important; background-color: transparent !important; }
-body.quarto-dark .institution-body table thead tr,
-html[data-bs-theme="dark"] .institution-body table thead tr { background-color: #2a2a2a !important; }
-body.quarto-dark .institution-body table th,
-html[data-bs-theme="dark"] .institution-body table th { color: #f0a0a0 !important; border-bottom-color: #555 !important; }
-body.quarto-dark .institution-body table td,
-html[data-bs-theme="dark"] .institution-body table td { color: #ccc !important; background-color: transparent !important; border-bottom-color: #333 !important; }
-body.quarto-dark .institution-body table tr:hover td,
-html[data-bs-theme="dark"] .institution-body table tr:hover td { background-color: #2a2020 !important; }
+/* Dark-mode colors are centralized in styles.css (shared palette) */
 
 @media (max-width: 650px) {
   .cake-photo img { max-width: 90%; }
