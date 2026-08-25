@@ -55,7 +55,7 @@ format:
     theme:
       light: [flatly, custom.scss]
       dark: [darkly, custom.scss]
-    css: styles.css
+    css: styles-v2.css
     toc: true
     page-layout: full
     mainfont: "EB Garamond"

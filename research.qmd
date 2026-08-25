@@ -2,7 +2,7 @@
 title: ""
 format:
   html:
-    css: styles.css
+    css: styles-v2.css
     page-layout: custom
     number-sections: false
 ---
@@ -58,7 +58,7 @@ format:
   margin-bottom: 0.5rem;
 }
 
-/* Dark-mode colors are centralized in styles.css (shared palette) */
+/* Dark-mode colors are centralized in styles-v2.css (shared palette) */
 
 .site-content a {
   color: #000 !important;

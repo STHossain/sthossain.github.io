@@ -2,7 +2,7 @@
 title: ""
 format:
   html:
-    css: styles.css
+    css: styles-v2.css
     page-layout: custom
 ---
 

@@ -2,7 +2,7 @@
 title: ""
 format:
   html:
-    css: styles.css
+    css: styles-v2.css
     page-layout: custom
 ---
 
@@ -74,7 +74,7 @@ format:
   color: #333 !important;
 }
 
-/* Dark-mode colors are centralized in styles.css (shared palette) */
+/* Dark-mode colors are centralized in styles-v2.css (shared palette) */
 
 @media (max-width: 650px) {
   .cake-photo img { max-width: 90%; }
