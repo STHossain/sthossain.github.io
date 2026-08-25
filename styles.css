@@ -363,109 +363,373 @@ html[data-bs-theme="dark"] .institution-body table thead tr { background-color: 
 body.quarto-dark .institution-body table tr:hover td,
 html[data-bs-theme="dark"] .institution-body table tr:hover td { background-color: #2a2020 !important; }
 
-/* Mobile — shared */
-@media (max-width: 650px) {
+/* =====================================================================
+   RESPONSIVE / MOBILE  —  applies to every page of the site
+   ---------------------------------------------------------------------
+   Layout ladder:
+     > 768px  ..... desktop two-column (sidebar + content)
+     <= 768px ..... single column, nav becomes a wrapping menu row
+     <= 420px ..... tighter spacing / smaller decorative images
+   ===================================================================== */
+
+/* ---- Safety net at every width (custom pages AND Quarto course pages) ---- */
+
+html {
+  -webkit-text-size-adjust: 100%;   /* stop Android/WebKit auto text inflation */
+  text-size-adjust: 100%;
+}
+
+/* Nothing with an intrinsic size may be wider than its container.
+   (Bootstrap's reboot does NOT do this, which is why the 600px course
+   images used to push the whole page sideways on a phone.) */
+img, svg, video, iframe, embed, object {
+  max-width: 100%;
+}
+
+img {
+  height: auto;                     /* keep aspect ratio when width/height attrs are set */
+}
+
+/* Wide content scrolls inside its own box instead of widening the page */
+pre, .sourceCode, .cell-output, .table-responsive, .institution-body {
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Display equations get their own scrollbar rather than overflowing */
+mjx-container[display="true"],
+.math.display,
+.MathJax_Display {
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+/* Long URLs / emails must not stretch the layout */
+.site-content,
+main.content {
+  overflow-wrap: break-word;
+}
+
+
+/* ===================== Phones and small tablets ===================== */
+@media (max-width: 768px) {
+
+  body { overflow-x: hidden; }      /* final guard against sideways drift */
+
+  /* ---------- Shared custom-page shell (index / research / teaching / cv) ---------- */
+
   .site-page {
-    flex-direction: column;
-    margin: 1.5rem auto;
-    gap: 1rem;
-    padding: 0 1rem;
+    display: block;                 /* simple, predictable stacking */
+    max-width: 100%;
+    margin: 1.25rem auto 2.5rem;
+    padding: 0 1.15rem;
   }
 
-  /* Other pages (research/teaching/cv): flex row — identity left, nav right */
   .site-sidebar {
     flex: none;
-    width: 100%;
+    width: auto;
+    margin-bottom: 1.4rem;
+  }
+
+  .site-sidebar .index-name {
+    font-size: 1.45rem;
+    line-height: 1.25;
+    white-space: normal;
+    margin-bottom: 0.15rem;
+    color: #111 !important;
+  }
+
+  .site-sidebar .index-affil {
+    font-size: 0.95rem;
+    margin-bottom: 0.55rem;
+    color: #444 !important;
+  }
+
+  /* Navigation turns into a wrapping row of comfortable tap targets */
+  .site-sidebar .index-nav {
     display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    gap: 0.75rem;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0 1.15rem;
+    margin: 0.3rem 0 0;
+    padding: 0.25rem 0;
+    border-top: 1px solid #e3e3e3;
+    border-bottom: 1px solid #e3e3e3;
   }
 
-  .sidebar-identity {
-    flex: 0 0 45%;
-    min-width: 0;
+  .site-sidebar .index-nav li { margin: 0; }
+
+  .site-sidebar .index-nav a {
+    display: inline-block;
+    padding: 0.45rem 0;             /* ~44px tap height */
+    font-size: 1rem;
+    color: #111 !important;
+    white-space: nowrap;
   }
 
-  .sidebar-identity ~ .index-nav {
-    flex: 1;
-    min-width: 0;
+  /* the e-mail entry is long: give it its own line and let it wrap */
+  .site-sidebar .index-nav li:last-child { flex: 1 0 100%; }
+  .site-sidebar .index-nav li:last-child a {
+    white-space: normal;
+    overflow-wrap: anywhere;
+    font-size: 0.95rem;
   }
 
-  /* Index page: grid — name+affil full width, then nav left + image right */
+  /* ---------- Home page: portrait sits beside the name block ---------- */
+
   .index-sidebar {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 0.2rem 0.75rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    column-gap: 1rem;
   }
 
-  .index-sidebar .index-name {
-    grid-column: 1 / -1;
-    grid-row: 1;
+  .index-sidebar .sidebar-identity {
+    order: 0;
+    flex: 1 1 0;
+    min-width: 0;
   }
 
-  .index-sidebar .index-affil {
-    grid-column: 1 / -1;
-    grid-row: 2;
+  /* Pandoc wraps a standalone <img> in a <p>, so the flex item may be either
+     the paragraph or the image itself — style whichever one shows up. */
+  .index-sidebar > p:first-child,
+  .index-sidebar > .index-sketch {
+    order: 1;
+    flex: 0 0 auto;
+    width: 108px;
+    margin: 0 !important;
+    align-self: flex-start;
+  }
+
+  .index-sidebar .index-sketch {
+    display: block;
+    width: 100%;
+    margin: 0;
+    border-radius: 6px;
   }
 
   .index-sidebar .index-nav {
-    grid-column: 1;
-    grid-row: 3;
+    order: 2;
+    flex: 1 0 100%;
   }
 
-  .index-sidebar .index-sketch {
-    grid-column: 2;
-    grid-row: 3;
-    width: 150px;
-    margin-right: 1cm;
-    margin-top: -3rem;
-    align-self: start;
-  }
+  /* ---------- Research / Teaching: decorative photo becomes a slim banner ---------- */
 
-  /* Full-width content area on mobile */
-  .site-content {
+  .site-sidebar .research-sidebar-image,
+  .site-sidebar .sidebar-image {
     width: 100%;
-    align-self: stretch;
+    max-height: 150px;
+    object-fit: cover;
+    margin: 0.7rem 0 0.4rem;
   }
 
-  /* Stronger text colors for mobile light mode */
-  .site-sidebar .index-name { color: #111 !important; white-space: normal; }
-  .site-sidebar .index-affil { color: #444 !important; }
-  .site-sidebar .index-nav a { color: #111 !important; }
-  .site-content { color: #222 !important; }
+  .site-sidebar .photo-credit,
+  .site-sidebar > p:not([class]):not(:first-child) {
+    font-size: 0.78rem !important;
+    line-height: 1.35 !important;
+    text-align: left !important;
+    margin-bottom: 0.5rem !important;
+  }
+
+  /* ---------- CV download button ---------- */
+
+  .cv-download {
+    margin-top: 1.25rem;
+    padding-top: 1rem;
+  }
+
+  .cv-download-btn {
+    padding: 0.8rem 1rem;
+    font-size: 1rem;
+  }
+
+  /* ---------- Content column ---------- */
+
+  .site-content {
+    width: auto;
+    font-size: 1.05rem;
+    line-height: 1.65;
+    color: #222 !important;
+  }
+
+  .site-page .site-content h2 { font-size: 1.2rem; margin-top: 1.6rem; }
+  .site-page .site-content h3 { font-size: 1.05rem; }
+
+  .site-content ul { padding-left: 1.1rem; }
+
+  /* ---------- CV specifics ---------- */
+
+  .site-content .cv-header {
+    margin-top: 0;
+    margin-bottom: 1.2rem;
+  }
+
+  .site-content .cv-name { font-size: 1.5rem; }
+
+  .site-content .cv-contact { font-size: 0.88rem; }
+
+  .site-content .cv-entry-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+  }
+
+  .site-content .cv-reference {
+    display: block;
+    margin-right: 0;
+  }
+
+  /* ---------- Teaching tables: sideways scroll instead of squeezed columns ---------- */
+
+  .site-content .institution-body table {
+    display: table;                 /* the .institution-body wrapper does the scrolling */
+    min-width: 33rem;
+    font-size: 0.85rem;
+  }
+
+  .site-content .institution-body table th,
+  .site-content .institution-body table td {
+    padding: 0.4rem 0.55rem;
+  }
+
+  /* ---------- Quarto course pages (eco104 / eco204 / julia_course) ---------- */
+
+  main.content > table,
+  main.content table.table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    font-size: 0.9rem;
+  }
+
+  main.content .quarto-figure,
+  main.content figure { margin-left: 0; margin-right: 0; }
+
+  .navbar-brand { font-size: 1.2rem !important; }
+
+  /* keep the dark-mode toggle clear of the thumb / gesture bar */
+  #dark-toggle {
+    bottom: max(1rem, env(safe-area-inset-bottom));
+    right: 1rem;
+  }
 }
 
-/* Very narrow screens: stack vertically */
-@media (max-width: 380px) {
-  /* Other pages */
-  .site-sidebar:has(.sidebar-identity) {
-    flex-direction: column;
-    align-items: flex-start;
+
+/* ===================== Teaching tables become cards on phones =====================
+   A four-column table (Course | Role | Term(s) | Links) cannot be read on a
+   360-430px screen. Below 620px each row is redrawn as a small card, with the
+   column headings re-attached to each cell via ::before, so nothing is lost. */
+@media (max-width: 620px) {
+
+  .site-content .institution-body { overflow-x: visible; }
+
+  .site-content .institution-body table,
+  .site-content .institution-body tbody,
+  .site-content .institution-body tr,
+  .site-content .institution-body td {
+    display: block;
+    width: auto;
+    min-width: 0;
   }
 
-  .sidebar-identity,
-  .sidebar-identity ~ .index-nav {
-    flex: none;
-    width: 100%;
+  .site-content .institution-body thead { display: none; }
+
+  .site-content .institution-body tr {
+    border: 1px solid #e6e6e6;
+    border-radius: 6px;
+    padding: 0.55rem 0.75rem;
+    margin-bottom: 0.7rem;
   }
 
-  /* Index page: single column stack — name → affil → image → nav */
-  .index-sidebar {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+  .site-content .institution-body tr:hover td { background-color: transparent !important; }
+
+  .site-content .institution-body td {
+    border: none !important;
+    padding: 0.1rem 0 !important;
+    font-size: 0.92rem;
+    line-height: 1.45;
   }
 
-  .index-sidebar .index-name { order: 0; }
-  .index-sidebar .index-sketch {
-    order: 1;
-    width: 130px;
-    margin: 0.5rem 0;
-    align-self: center;
+  .site-content .institution-body td:empty { display: none; }
+
+  .site-content .institution-body td:first-child {
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 0.3rem;
   }
-  .index-sidebar .index-affil { order: 0; }
-  .index-sidebar .index-nav { order: 2; }
+
+  .site-content .institution-body td:nth-child(2)::before { content: "Role — "; }
+  .site-content .institution-body td:nth-child(3)::before { content: "Term(s) — "; }
+  .site-content .institution-body td:nth-child(4)::before { content: "Links — "; }
+
+  .site-content .institution-body td:nth-child(2)::before,
+  .site-content .institution-body td:nth-child(3)::before,
+  .site-content .institution-body td:nth-child(4)::before {
+    font-weight: 600;
+    color: #4C0000;
+  }
+
+  body.quarto-dark .site-content .institution-body tr,
+  html[data-bs-theme="dark"] .site-content .institution-body tr { border-color: #3a3a3a; }
+
+  body.quarto-dark .site-content .institution-body td:nth-child(2)::before,
+  body.quarto-dark .site-content .institution-body td:nth-child(3)::before,
+  body.quarto-dark .site-content .institution-body td:nth-child(4)::before,
+  html[data-bs-theme="dark"] .site-content .institution-body td:nth-child(2)::before,
+  html[data-bs-theme="dark"] .site-content .institution-body td:nth-child(3)::before,
+  html[data-bs-theme="dark"] .site-content .institution-body td:nth-child(4)::before { color: #e0a3a3; }
+}
+
+
+/* ===================== Narrow phones ===================== */
+@media (max-width: 420px) {
+
+  .site-page {
+    padding: 0 0.9rem;
+    margin-top: 1rem;
+  }
+
+  .site-sidebar .index-name { font-size: 1.3rem; }
+
+  .index-sidebar { column-gap: 0.75rem; }
+  .index-sidebar > p:first-child,
+  .index-sidebar > .index-sketch { width: 90px; }
+
+  .site-sidebar .index-nav { gap: 0 0.95rem; }
+  .site-sidebar .index-nav a { font-size: 0.95rem; }
+
+  .site-sidebar .research-sidebar-image,
+  .site-sidebar .sidebar-image { max-height: 120px; }
+
+  .site-content { font-size: 1rem; }
+
+  .site-content .cv-name { font-size: 1.3rem; }
+
+  .navbar-brand { font-size: 1.05rem !important; }
+}
+
+
+/* ---- Dark mode: mobile nav rules must not keep light-mode colours ---- */
+@media (max-width: 768px) {
+  body.quarto-dark .site-sidebar .index-name,
+  html[data-bs-theme="dark"] .site-sidebar .index-name { color: #f0f0f0 !important; }
+
+  body.quarto-dark .site-sidebar .index-affil,
+  html[data-bs-theme="dark"] .site-sidebar .index-affil { color: #a8a8a8 !important; }
+
+  body.quarto-dark .site-sidebar .index-nav,
+  html[data-bs-theme="dark"] .site-sidebar .index-nav {
+    border-top-color: #3a3a3a;
+    border-bottom-color: #3a3a3a;
+  }
+
+  body.quarto-dark .site-sidebar .index-nav a,
+  html[data-bs-theme="dark"] .site-sidebar .index-nav a { color: #ddd !important; }
+
+  body.quarto-dark .site-content,
+  html[data-bs-theme="dark"] .site-content { color: #cfcfcf !important; }
 }
 
 .index-grid {

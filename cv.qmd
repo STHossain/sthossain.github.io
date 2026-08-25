@@ -138,6 +138,63 @@ html[data-bs-theme="dark"] .cv-section-title { color: #f0f0f0 !important; }
 body.quarto-dark .cv-entry-title,
 html[data-bs-theme="dark"] .cv-entry-title { color: #f0f0f0 !important; }
 
+/* --- Download CV button --- */
+
+.cv-download {
+  margin-top: 1.75rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid #e3e3e3;
+}
+
+.cv-download-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  padding: 0.65rem 1rem;
+  font-family: "EB Garamond", Georgia, serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: #fff !important;
+  background-color: #111;
+  border: 1px solid #111;
+  border-radius: 3px;
+  text-decoration: none !important;
+  transition: background-color 0.18s ease, color 0.18s ease;
+}
+
+.cv-download-btn:hover,
+.cv-download-btn:focus-visible {
+  background-color: transparent;
+  color: #111 !important;
+}
+
+.cv-download-icon {
+  width: 0.95em;
+  height: 0.95em;
+  flex: 0 0 auto;
+}
+
+/* Dark mode — invert so the button stays readable on a dark page */
+body.quarto-dark .cv-download,
+html[data-bs-theme="dark"] .cv-download { border-top-color: #3a3a3a; }
+
+body.quarto-dark .cv-download-btn,
+html[data-bs-theme="dark"] .cv-download-btn {
+  color: #111 !important;
+  background-color: #ededed;
+  border-color: #ededed;
+}
+
+body.quarto-dark .cv-download-btn:hover,
+body.quarto-dark .cv-download-btn:focus-visible,
+html[data-bs-theme="dark"] .cv-download-btn:hover,
+html[data-bs-theme="dark"] .cv-download-btn:focus-visible {
+  background-color: transparent;
+  color: #ededed !important;
+}
+
 @media (max-width: 650px) {
   .cv-entry-header {
     flex-direction: column;
@@ -177,8 +234,8 @@ html[data-bs-theme="dark"] .cv-entry-title { color: #f0f0f0 !important; }
 })();
 </script>
 
-<div style="margin-top: 2rem; padding-top: 1rem; border-top: 1px solid #ccc;">
-<a href="cv/Tanvir_cv.pdf" download="Shaikh_Tanvir_Hossain_CV.pdf" style="display: block; text-align: center; padding: 0.7rem 1rem; background-color: #4C0000; color: white !important; text-decoration: none; border-radius: 0.4rem; font-family: 'EB Garamond', Georgia, serif; font-size: 0.95rem; transition: background-color 0.2s ease;">📥 Download PDF CV</a>
+<div class="cv-download">
+<a class="cv-download-btn" href="cv/Tanvir_cv.pdf" download="Shaikh_Tanvir_Hossain_CV.pdf"><svg class="cv-download-icon" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/><path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/></svg><span>Download CV</span></a>
 </div>
 
 </div>
